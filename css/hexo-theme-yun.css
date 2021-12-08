@@ -1115,6 +1115,52 @@ input {
   z-index: 11;
   pointer-events: none;
 }
+#trianglifyContainer {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  opacity: 0.5;
+  animation: triFadeIn 2s;
+}
+@-moz-keyframes triFadeIn {
+  from {
+    opacity: 0;
+    filter: grayscale(1);
+  }
+  to {
+    opacity: 0.5;
+  }
+}
+@-webkit-keyframes triFadeIn {
+  from {
+    opacity: 0;
+    filter: grayscale(1);
+  }
+  to {
+    opacity: 0.5;
+  }
+}
+@-o-keyframes triFadeIn {
+  from {
+    opacity: 0;
+    filter: grayscale(1);
+  }
+  to {
+    opacity: 0.5;
+  }
+}
+@keyframes triFadeIn {
+  from {
+    opacity: 0;
+    filter: grayscale(1);
+  }
+  to {
+    opacity: 0.5;
+  }
+}
 .spinner {
   width: 60px;
   height: 60px;
@@ -1185,7 +1231,7 @@ input {
   transition-property: all;
   transition-duration: 0.3s;
   transition-delay: 0s;
-  background-color: rgba(255,255,255,0.9);
+  background-color: rgba(255,255,255,0.5);
   box-shadow: 0 0 10px rgba(255,255,255,0.1);
 /* tag 容器 */
 }
@@ -1710,9 +1756,6 @@ input {
 }
 .post-toc ol .toc-child {
   font-size: 1rem;
-  overflow: hidden;
-  transition: max-height 0.6s ease-in;
-  max-height: 0;
 }
 .post-toc ol .toc-item.active>.toc-link {
   color: #f2711c;
@@ -1769,10 +1812,10 @@ input {
   left: 0;
   width: 20rem;
   background-color: #fff;
-  background-image: url("https://cdn.jsdelivr.net/gh/YunYouJun/cdn@master/img/bg/alpha-stars-timing-1.webp");
+  background-image: url("https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/bg/stars-timing-1.jpg");
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: bottom 1rem center;
+  background-position: bottom 3rem center;
   text-align: center;
   z-index: 10;
   transition-property: all;
@@ -2011,6 +2054,25 @@ input {
 #say #say-from {
   display: block;
 }
+.notice {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Songti SC', 'Noto Serif SC', STZhongsong, STKaiti, KaiTi, Roboto, serif;
+  font-weight: bold;
+  padding: 1rem;
+  margin: 1rem auto;
+  border: 1px solid #000;
+  max-width: calc(900px - 2rem);
+  background-color: rgba(255,255,255,0.3);
+}
+@media screen and (max-width: 768px) {
+  .notice {
+    border-left-width: 0px;
+    border-right-width: 0px;
+  }
+}
 .hidden {
   display: none;
 }
@@ -2056,7 +2118,7 @@ input {
   }
   :root:not([data-user-color-scheme]) .post-card {
     color: #fff;
-    background-color: rgba(27,31,46,0.9);
+    background-color: rgba(27,31,46,0.5);
     box-shadow: 0 1px 8px rgba(27,31,46,0.1);
   }
   :root:not([data-user-color-scheme]) .page-number-basic {
@@ -2123,7 +2185,7 @@ input {
 }
 [data-user-color-scheme='dark'] .post-card {
   color: #fff;
-  background-color: rgba(27,31,46,0.9);
+  background-color: rgba(27,31,46,0.5);
   box-shadow: 0 1px 8px rgba(27,31,46,0.1);
 }
 [data-user-color-scheme='dark'] .page-number-basic {
