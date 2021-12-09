@@ -40,19 +40,20 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/source/_posts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Study\blog\source\_posts" />
-      <recent name="D:\Study\blog\images" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Study\blog\source" />
       <recent name="D:\Study\blog\themes\yun\source" />
       <recent name="D:\Study\blog\themes\yun\.github\workflows" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Study\blog" />
+      <recent name="D:\Study\blog\source\_posts" />
+      <recent name="D:\Study\blog\images" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -64,7 +65,7 @@
       <option name="presentableId" value="Default" />
       <updated>1638966418976</updated>
       <workItem from="1638966419994" duration="11985000" />
-      <workItem from="1639054245687" duration="4474000" />
+      <workItem from="1639054245687" duration="5216000" />
     </task>
     <servers />
   </component>
@@ -83,10 +84,14 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="1023" y="497" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1638968147772">
+    <state x="1023" y="497" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1639063603633">
       <screen x="0" y="0" width="2560" height="1392" />
     </state>
-    <state x="1023" y="497" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1392@0.0.2560.1392" timestamp="1638968147772" />
+    <state x="1023" y="497" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1392@0.0.2560.1392" timestamp="1639063603633" />
+    <state x="1651" y="446" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1639063609696">
+      <screen x="0" y="0" width="2560" height="1392" />
+    </state>
+    <state x="1651" y="446" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1392@0.0.2560.1392" timestamp="1639063609696" />
     <state x="979" y="294" width="603" height="804" key="find.popup" timestamp="1638979190730">
       <screen x="0" y="0" width="2560" height="1392" />
     </state>
