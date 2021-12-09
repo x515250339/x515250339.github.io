@@ -1,0 +1,415 @@
+mode: auto
+
+avatar:
+  url: /images/Yun.png
+  status:
+    enable: true
+    emoji: 🌑
+    message: Looking for dawn.
+
+reward:
+  enable: true
+  icon: icon-hand-coin-line
+  comment: 觉得文章写的不错，可以请喝杯咖啡
+  # url: https://github.com/YunYouJun/yunyoujun.github.io/issues/96
+  methods:
+    - name: 支付宝
+      path: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/donate/alipay-qrcode.jpg
+      color: "#00A3EE"
+      icon: icon-alipay-line
+    - name: QQ 支付
+      path: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/donate/qqpay-qrcode.png
+      color: "#12B7F5"
+      icon: icon-qq-line
+    - name: 微信支付
+      path: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/donate/wechatpay-qrcode.jpg
+      color: "#2DC100"
+      icon: icon-wechat-pay-line
+
+comment:
+  candidates:
+    - waline
+    # - giscus
+  tips:
+    - 如果您有任何关于博客内容的相关讨论，欢迎前往 <a href="https://github.com/YunYouJun/yunyoujun.github.io/discussions" target="_blank">GitHub Discussions</a> 与我交流。
+
+waline:
+  enable: true
+  serverURL: https://waline.yunyoujun.cn
+  visitor: true
+  comment: true
+  emoji:
+    - https://cdn.jsdelivr.net/gh/walinejs/emojis@latest/bilibili/
+    - https://cdn.jsdelivr.net/gh/walinejs/emojis@latest/weibo/
+    - https://cdn.jsdelivr.net/gh/walinejs/emojis@latest/qq/
+  locale:
+    placeholder: 填写邮箱，可以收到回复通知哦～
+  requiredMeta: ["nick"]
+
+github_issues:
+  enable: false
+
+github_discussions:
+  enable: false
+
+disqusjs:
+  enable: false
+  shortname: yunyoujun
+  apikey: ouoGQCaamOKdJgyZU5DKcpFnRIg3SNzvk0nwygPtlcTRJuE68c8igvrZGW4wAJoN
+
+# https://github.com/laymonage/giscus
+giscus:
+  enable: false
+  repo: YunYouJun/yunyoujun.github.io
+  repo-id:
+  category-id:
+  mapping: pathname
+  reactions-enabled: 1
+  emit-metadata: 0
+  theme: light
+
+# 页脚炸死你hi信息
+footer:
+  since: 2018
+  icon:
+    name: icon-cloud-line
+    animated: true
+    color: "#0078E7"
+  powered:
+    enable: false
+  beian:
+    enable: true
+    icp: 备案号
+  live_time:
+    enable: true
+    prefix: 运行时间
+    suffix: (●'◡'●)
+    start_time: "2019-04-12T00:00:00"
+
+engine_search:
+  enable: false
+
+local_search:
+  enable: true
+  src: /js/search/local-search.js
+
+# If you want to use it, you need config algolia appID in _config.yml!!!
+# https://github.com/oncletom/hexo-algolia
+#algolia_search:
+#  enable: true
+#  # ...
+
+google_analytics:
+  enable: true
+  id: G-1LL0D86CY9
+
+google_adsense:
+  enable: true
+  client: ca-pub-2245427233262012
+
+# 文档中是否可以跳转到编辑
+post_edit:
+  enable: false
+  url: https://github.com/YunYouJun/yunyoujun.github.io/tree/hexo/source/
+
+albums:
+  enable: true
+
+girls:
+  enable: true
+
+# 标签指定色彩
+tags:
+  动画: crimson
+  漫画: orange
+  Parcel: "#21374b"
+  学习: saddlebrown
+  MAD: crimson
+  教程: royalblue
+  笔记: dimgray
+  分享: "#0078e7"
+  随笔: mediumpurple
+  Blender: "#d04d2d"
+  Linux: "#2577b1"
+  中传: "#ccb44b"
+  部落: "#DD306A"
+  科幻: midnightblue
+  蚂蚁森林: "#54a892"
+  Vue: "#4fc08d"
+  Hexo: "#0E834D"
+  CSS: "#5298d1"
+  Node.js: "#026E00"
+  Git: "#F14E32"
+  React: "#61dafb"
+  Python: "#3776ab"
+  PHP: "#8892BF"
+  VS Code: "#0066B8"
+  JavaScript: "#F4DF4F"
+  TypeScript: "#317AC6"
+  Laravel: "#F4645F"
+
+#分类指定色彩
+categories:
+  笔记: dimgray
+
+
+# 侧边栏分类
+menu:
+  home:
+    path: /
+    icon: icon-home-4-line
+  list:
+    - type: archives
+      path: /archives/
+      icon: icon-archive-line
+    - type: categories
+      path: /categories/
+      icon: icon-folder-2-line
+    - type: tags
+      path: /tags/
+      icon: icon-price-tag-3-line
+    - path: https://www.yunyoujun.cn
+      icon: icon-cloud-line
+      count: 你猜
+  custom:
+    title: 文档
+    path: https://yun.yunyoujun.cn
+    icon: icon-settings-line
+
+# 侧边栏下边
+pages:
+  - name: 我的小伙伴们
+    url: /links/
+    icon: icon-genderless-line
+    color: dodgerblue
+  - name: 喜欢的女孩子
+    url: /girls/
+    icon: icon-women-line
+    color: hotpink
+  - name: 相册
+    url: /albums/
+    icon: icon-women-line
+    color: hotpink
+
+post_card:
+  opacity: 0.5
+
+cursor:
+  enable: true
+
+baidu_push: true
+
+google_tagmanager:
+  enable: true
+  id: GTM-M9KWR9L
+
+#wordcount:
+#  enable: true
+
+say:
+  enable: true
+  api: https://cdn.jsdelivr.net/gh/ElpsyCN/say@gh-pages/sentences.json
+  src: /js/say.js
+  # https://developer.hitokoto.cn/sentence/
+  hitokoto:
+    enable: true
+    api: https://v1.hitokoto.cn
+
+#主题色
+#colors:
+#  primary: "#6200ee"
+#  # bg: "#F5F5F5"
+#  selection_bg: "#8e71c1" # 选取文字时的背景色
+#  # 标签云中标签的起始色和结束色
+#  # tag_start_color:
+#  # tag_end_color:
+
+# 加载自定义
+head:
+  css:
+    example: //example.min.css
+#    自定义字体
+#    fonts: https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&display=swap
+  js:
+    base:
+    async: https://cdn.jsdelivr.net/npm/ionicons/dist/ionicons.js
+    defer:
+favicon: /images/yun.svg
+icon: ion-icon heart
+
+#  CDN
+cdn:
+#  pre: "https://github.com/x515250339/x515250339.github.io@master"
+  css:
+  js:
+    base:
+    async:
+      # 默认引入的图标资源，使用 iconfont
+      iconfont: //at.alicdn.com/t/font_1140697_dxory92pb0h.js
+    defer:
+
+banner:
+  enable: true
+  title: 彦的个人博客
+  src: /js/ui/banner.js
+  border: true
+  cloud:
+    enable: true
+    color: "white"
+  go_down:
+    enable: true
+    icon: icon-arrow-down-s-line
+
+# 首页中部标语
+notice:
+  enable: true
+  content: 积累
+
+# 背景图多边形
+trianglify:
+  enable: true
+  cellSize: 75
+  width: 800
+  height: 600
+  palette: '["YlGnBu", "GnBu", "Purples", "Blues"]'
+  opacity: 0.5
+
+# 点击效果
+fireworks:
+  enable: true
+  colors:
+    - "102, 167, 221"
+    - "62, 131, 225"
+    - "33, 78, 194"
+
+#  首页卡片与文章内部图片的滚动浮现效果
+scrollreveal:
+  enable: true
+  targets:
+    - .post-card
+    - .post-content img
+
+#侧边栏背景
+sidebar:
+  bg_image: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/bg/stars-timing-1.jpg
+  bg_position: bottom 3rem center
+  tagcloud:
+    enable: false
+    amount: 20
+
+# 文档跳转图标及颜色
+types:
+  link:
+    color: blue
+    icon: icon-external-link-line
+  bilibili:
+    color: "#FF8EB3"
+    icon: icon-bilibili-line
+  douban:
+    color: "#007722"
+    icon: icon-douban-line
+  github:
+    color: black
+    icon: icon-github-line
+  netease-cloud-music:
+    color: "#C10D0C"
+    icon: icon-netease-cloud-music-line
+  notion:
+    color: black
+    icon: icon-notion
+  twitter:
+    color: "#1da1f2"
+    icon: icon-twitter-line
+  wechat:
+    color: "#1AAD19"
+    icon: icon-wechat-2-line
+  weibo:
+    color: "#E6162D"
+    icon: icon-weibo-line
+  yuque:
+    color: "#25b864"
+    icon: icon-yuque
+  zhihu:
+    color: "#0084FF"
+    icon: icon-zhihu-line
+
+# 文章卡片是否展示对应信息
+post_meta:
+  item_text: true
+  created_at: true
+  updated_at: true
+  categories: true
+  tags: true
+
+# 文章内目录
+toc:
+  list_number: true
+  max_depth: 6
+  min_depth: 1
+  placeholder: 很遗憾，咱没写啥目录
+  collapse: false
+
+# 关闭 highlight
+highlight:
+  enable: false
+# 启用 prism
+prismjs:
+  enable: true
+  preprocess: true
+  line_number: false
+  tab_replace: ""
+
+# 开启一键复制
+codeblock:
+  copy_btn: true
+  prismjs:
+    light: default
+    dark: tomorrow
+
+# 复制是否开启版权
+creative_commons:
+  license: by-nc-sa
+  post: true
+  language: deed.zh
+  clipboard: true
+
+# 图片懒加载
+lazyload:
+  enable: true
+
+mourn:
+  enable: true
+  days:
+    - "4-4"
+
+wordcloud:
+  enable: true
+  height: 350
+
+wordcount:
+  enable: true
+  count: true
+  time: true
+
+#social:
+#  - name: RSS
+#    link: /atom.xml # config.feed.path
+#    icon: icon-rss-line
+#    color: orange
+
+
+
+# 字体
+#font:
+#  cdn:
+#    enable: false
+#    lib:
+#      - https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&display=swap
+#  serif:
+#    family: "'Songti SC', 'Noto Serif SC', STZhongsong, STKaiti, KaiTi, Roboto, serif"
+#    weight: 900
+#  sans_serif:
+#    family: "'PingFang SC', 'Microsoft YaHei', Roboto, Arial, sans-serif"
+#    weight: 400
+#  monospace:
+#    family: "'Source Code Pro', 'Courier New', Courier, Consolas, Monaco, monospace"
