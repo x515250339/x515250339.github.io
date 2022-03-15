@@ -1,0 +1,468 @@
+<!DOCTYPE html><html lang="en"><head><!-- hexo injector head_begin start --><link href="https://cdn.jsdelivr.net/npm/hexo-widget-tree@0.2.2/css/index.css" rel="stylesheet"/><!-- hexo injector head_begin end --><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0078E7"><meta name="author" content="王彦翔"><meta name="copyright" content="王彦翔"><meta name="generator" content="Hexo 5.4.0"><meta name="theme" content="hexo-theme-yun"><title>git常用命令 | 心瘾</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><script src="//at.alicdn.com/t/font_1140697_dxory92pb0h.js" async></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>function initScrollReveal() {
+  [".post-card",".post-content img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+}
+document.addEventListener("DOMContentLoaded", initScrollReveal);
+document.addEventListener("pjax:success", initScrollReveal);
+</script><script src="https://cdn.jsdelivr.net/npm/pjax@latest/pjax.min.js" defer></script><script src="/js/pjax.js" defer></script><script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@latest/themes/prism.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@latest/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="icon" type="image/svg+xml" href="/images/yanxiang.svg"><link rel="mask-icon" href="/images/yanxiang.svg" color="#0078E7"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+    const Yun = window.Yun || {};
+    window.CONFIG = {"hostname":"yanxiang.wang","root":"/","title":"彦的个人博客","version":"1.7.0","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms"},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"https://v1.hitokoto.cn","hitokoto":true},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
+  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="心瘾" type="application/atom+xml"><link rel="stylesheet" href="//example.min.css"><script src="//at.alicdn.com/t/font_3013545_6ks2rc0udag.js" async></script><link rel="preconnect" href="https://www.google-analytics.com" crossorigin><script async src="https://www.googletagmanager.com/gtag/js?id=G-1LL0D86CY9"></script><script>if (CONFIG.hostname === location.hostname) {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1LL0D86CY9');
+}</script><script>//- only for pjax
+function sendPageView() {
+  if (CONFIG.hostname !== location.hostname) return;
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('event', 'page_view', {
+    page_path: encodeURIComponent(location.pathname),
+  })
+}
+document.addEventListener("pjax:success", sendPageView);</script><script data-ad-client="ca-pub-2245427233262012" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(function(){
+  var bp = document.createElement('script');
+  var curProtocol = window.location.protocol.split(':')[0];
+  if (curProtocol === 'https') {
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else {
+    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();</script><!-- Google Tag Manager --><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-M9KWR9L');</script><!-- End Google Tag Manager --><meta name="description" content="学向勤中得，萤窗万卷书">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git常用命令">
+<meta property="og:url" content="https://yanxiang.wang/git%E5%B8%B8%E7%94%A8/index.html">
+<meta property="og:site_name" content="心瘾">
+<meta property="og:description" content="学向勤中得，萤窗万卷书">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yanxiang.wang/images/git_2.jpeg">
+<meta property="og:image" content="https://yanxiang.wang/images/git_revert.png">
+<meta property="article:published_time" content="2022-01-09T13:32:51.000Z">
+<meta property="article:modified_time" content="2022-01-17T13:17:04.180Z">
+<meta property="article:author" content="王彦翔">
+<meta property="article:tag" content="git">
+<meta property="article:tag" content="work">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yanxiang.wang/images/git_2.jpeg"><script src="/js/ui/mode.js"></script></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js"></script><canvas class="fireworks"></canvas><canvas id="trianglifyContainer"></canvas><script defer src="https://cdn.jsdelivr.net/npm/trianglify@4/dist/trianglify.bundle.js"></script><script>document.addEventListener("DOMContentLoaded", () => {
+  const pattern = trianglify({
+    width: 800,
+    height: 600,
+    cellSize: 75,
+    palette: ["YlGnBu", "GnBu", "Purples", "Blues"],
+  });
+  const canvasOpts = {
+    applyCssScaling: false
+  }
+  document.body.appendChild(pattern.toCanvas(trianglifyContainer, canvasOpts));
+});</script><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="Table of Contents"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-list-ordered"></use></svg></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="Overview"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-passport-line"></use></svg></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="王彦翔"><img width="96" loading="lazy" src="/images/yanxiang.png" alt="王彦翔"><span class="site-author-status" title="Looking for dawn.">👍🏻</span></a><div class="site-author-name"><a href="/about/">王彦翔</a></div><span class="site-name">心瘾</span><sub class="site-subtitle"></sub><div class="site-desciption">年轻就该满腔热血</div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="Home"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item"><a href="/archives/" title="Archives"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">43</span></a></div><div class="site-state-item"><a href="/categories/" title="Categories"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-2-line"></use></svg></span><span class="site-state-item-count">39</span></a></div><div class="site-state-item"><a href="/tags/" title="Tags"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="site-state-item-count">68</span></a></div><a class="site-state-item hty-icon-button" target="_blank" rel="noopener" href="https://yun.yunyoujun.cn" title="文档"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-settings-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="/atom.xml" title="RSS" target="_blank" style="color:orange"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-rss-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="http://wpa.qq.com/msgrd?v=3&amp;uin=515250339&amp;site=qq&amp;menu=yes" title="作者 QQ 515250339" target="_blank" style="color:#12B7F5"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-qq-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/515250339" title="GitHub" target="_blank" style="color:#6e5494"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://blog.csdn.net/weixin_45954124?spm=1000.2115.3001.5113" title="CSDN" target="_blank" style="color:#0088CC"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-csdn"></use></svg></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/python%E5%9F%BA%E7%A1%80/" title="python基础" style="color:green"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-python"></use></svg></a><a class="links-item hty-icon-button" href="/django%E5%88%9D%E7%BA%A7/" title="Django初级" style="color:hotpink"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-bxl-django"></use></svg></a><a class="links-item hty-icon-button" href="/django%E9%AB%98%E7%BA%A7/" title="Django高级" style="color:hotpink"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-django"></use></svg></a><a class="links-item hty-icon-button" href="/python%E9%9D%A2%E8%AF%95%E5%AE%9D%E5%85%B8/" title="python面试宝典" style="color:red"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-shuji"></use></svg></a><a class="links-item hty-icon-button" href="/%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/" title="安装文档" style="color:null"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-anzhuang"></use></svg></a><a class="links-item hty-icon-button" href="/gonote/" title="gonote" style="color:hotpink"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-gopher"></use></svg></a><a class="links-item hty-icon-button" href="/go%E5%9C%A3%E7%BB%8F/" title="Go圣经" style="color:hotpink"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-go_gopher"></use></svg></a><a class="links-item hty-icon-button" href="/albums/" title="相册" style="color:hotpink"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-women-line"></use></svg></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-contrast-2-line"></use></svg></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#reset-%E7%89%88%E6%9C%AC%E6%92%A4%E5%9B%9E"><span class="toc-number">1.</span> <span class="toc-text">reset(版本撤回)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%80%93mixed"><span class="toc-number">1.1.</span> <span class="toc-text">–mixed</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%80%93soft"><span class="toc-number">1.2.</span> <span class="toc-text">–soft</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%80%93hard"><span class="toc-number">1.3.</span> <span class="toc-text">–hard</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#revert-%E6%92%A4%E6%B6%88%E6%93%8D%E4%BD%9C"><span class="toc-number">2.</span> <span class="toc-text">revert(撤消操作)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%B2%E7%AA%81%E7%9A%84%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C"><span class="toc-number">2.1.</span> <span class="toc-text">冲突的相关操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#stash-%E5%AD%98%E5%82%A8"><span class="toc-number">3.</span> <span class="toc-text">stash(存储)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#save"><span class="toc-number">3.1.</span> <span class="toc-text">save</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#list"><span class="toc-number">3.2.</span> <span class="toc-text">list</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#show"><span class="toc-number">3.3.</span> <span class="toc-text">show</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#apply"><span class="toc-number">3.4.</span> <span class="toc-text">apply</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pop"><span class="toc-number">3.5.</span> <span class="toc-text">pop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#drop"><span class="toc-number">3.6.</span> <span class="toc-text">drop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#clear"><span class="toc-number">3.7.</span> <span class="toc-text">clear</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#commit-%E6%8F%90%E4%BA%A4"><span class="toc-number">4.</span> <span class="toc-text">commit(提交)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#amend"><span class="toc-number">4.1.</span> <span class="toc-text">amend</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#m"><span class="toc-number">4.2.</span> <span class="toc-text">-m</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#a"><span class="toc-number">4.3.</span> <span class="toc-text">-a</span></a></li></ol></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article"><link itemprop="mainEntityOfPage" href="https://yanxiang.wang/git%E5%B8%B8%E7%94%A8/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="王彦翔"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="心瘾"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">git常用命令</h1><div class="post-meta"><div class="post-time" style="display:block"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-line"></use></svg></span> <span class="post-meta-icon-text">Posted on</span> <time title="Created: 2022-01-09 21:32:51" itemprop="dateCreated datePublished" datetime="2022-01-09T21:32:51+08:00">2022-01-09</time><span class="post-meta-divider">-</span><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-2-line"></use></svg></span> <span class="post-meta-icon-text">Edited on</span> <time title="Modified: 2022-01-17 21:17:04" itemprop="dateModified" datetime="2022-01-17T21:17:04+08:00">2022-01-17</time></div><span class="post-count"><span class="post-symbolcount"><span class="post-meta-item-icon" title="Word count in article"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-file-word-line"></use></svg></span> <span title="Word count in article">993</span><span class="post-meta-divider">-</span><span class="post-meta-item-icon" title="Reading time"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-timer-line"></use></svg></span> <span title="Reading time">3m</span></span></span><span class="leancloud_visitors" id="/git%E5%B8%B8%E7%94%A8/" data-flag-title="git常用命令"><span class="post-meta-divider">-</span><span class="post-meta-item-icon" title="Views"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-eye-line"></use></svg> <span class="leancloud-visitors-count"></span></span></span><span class="post-meta-divider">-</span><a href="#comment"><span class="post-meta-item-icon" title="Comments"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-chat-3-line"></use></svg> <span class="waline-comment-count" id="/git%E5%B8%B8%E7%94%A8/"></span></span></a><div class="post-classify"><span class="post-category"> <span class="post-meta-item-icon" style="margin-right:3px;"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-line"></use></svg></span><span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category-item" href="/categories/git/" style="--text-color:var(--hty-text-color)" itemprop="url" rel="index"><span itemprop="text">git</span></a></span> > <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category-item" href="/categories/git/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" style="--text-color:var(--hty-text-color)" itemprop="url" rel="index"><span itemprop="text">常用命令</span></a></span></span><span class="post-tag"><span class="post-meta-divider">-</span><a class="tag-item" href="/tags/git/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">git</span></a><a class="tag-item" href="/tags/work/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">work</span></a></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body" style="--smc-primary:#0078E7;"><div >
+  <center>
+        <img src="../images/git_2.jpeg" height="30%" width="30%" loading="lazy">
+        </p>
+  </center>
+</div>
+
+<span id="more"></span>
+
+
+
+<h2 id="reset-版本撤回"><a href="#reset-版本撤回" class="headerlink" title="reset(版本撤回)"></a>reset(版本撤回)</h2><p>git reset 命令用于回退版本，可以指定退回某一次提交的版本。</p>
+<p>git reset 命令语法格式如下：</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> reset <span class="token punctuation">[</span>--soft <span class="token operator">|</span> --mixed <span class="token operator">|</span> --hard<span class="token punctuation">]</span> <span class="token punctuation">[</span>HEAD<span class="token punctuation">]</span></code></pre>
+
+<h3 id="–mixed"><a href="#–mixed" class="headerlink" title="–mixed"></a>–mixed</h3><p><strong>–mixed</strong> 为默认，可以不用带该参数，用于重置暂存区的文件与上一次的提交(commit)保持一致，工作区文件内容保持不变。</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> reset HEAD^            <span class="token comment"># 回退所有内容到上一个版本  </span>
+<span class="token function">git</span> reset HEAD^ hello.php  <span class="token comment"># 回退 hello.php 文件的版本到上一个版本  </span>
+<span class="token function">git</span> reset  052e					 	 <span class="token comment"># 回退到指定版本</span></code></pre>
+
+<h3 id="–soft"><a href="#–soft" class="headerlink" title="–soft"></a>–soft</h3><p>回退到上上上一个版本，保留commit中的提交内容</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> reset --soft HEAD~3 </code></pre>
+
+<h3 id="–hard"><a href="#–hard" class="headerlink" title="–hard"></a>–hard</h3><p>回退到上一个版本，撤销工作区中所有未提交的修改内容，将暂存区与工作区都回到上一次版本，并删除之前的所有信息提交</p>
+<pre class="language-none"><code class="language-none">git reset --hard HEAD~^
+git reset --hard origin&#x2F;master    # 将本地的状态回退到和远程的一样 </code></pre>
+
+<p><strong>注意：</strong>谨慎使用 –hard 参数，它会删除回退点之前的所有信息。</p>
+<p><strong>HEAD 说明：</strong></p>
+<ul>
+<li>HEAD 表示当前版本</li>
+<li>HEAD^ 上一个版本</li>
+<li>HEAD^^ 上上一个版本</li>
+<li>HEAD^^^ 上上上一个版本</li>
+<li>以此类推…</li>
+</ul>
+<p>可以使用 ～数字表示</p>
+<ul>
+<li>HEAD~0 表示当前版本</li>
+<li>HEAD~1 上一个版本</li>
+<li>HEAD^2 上上一个版本</li>
+<li>HEAD^3 上上上一个版本</li>
+<li>以此类推…</li>
+</ul>
+<h2 id="revert-撤消操作"><a href="#revert-撤消操作" class="headerlink" title="revert(撤消操作)"></a>revert(撤消操作)</h2><p><code>git revert</code> 操作是将选择的某一次提交记录 重做，若之后又有提交，提交记录还存在，只是将指定提交的代码给清除掉。</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> revert 052e					 	 <span class="token comment"># 重做到指定版本</span></code></pre>
+
+<img src="../images/git_revert.png" height="100%" width="100%" loading="lazy">
+
+<h3 id="冲突的相关操作"><a href="#冲突的相关操作" class="headerlink" title="冲突的相关操作"></a>冲突的相关操作</h3><ul>
+<li>在git操作过程中，最不想看到的一种情况就是冲突，但是，冲突就是一个狗皮膏药，永远避免不了，revert也跑不了这个魔咒，那么我们改怎么处理这个情况</li>
+</ul>
+<p>合并冲突后退出</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> revert --abort</code></pre>
+
+<ul>
+<li>当前的操作会回到指令执行之前。</li>
+</ul>
+<p>合并后退出，但是保留变化</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> revert --quit</code></pre>
+
+<ul>
+<li>该指令会保留</li>
+</ul>
+<p>合并后解决冲突，继续操作</p>
+<ul>
+<li>如果遇到冲突可以修改冲突，然后重新提交相关信息</li>
+</ul>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>
+<span class="token function">git</span> commit -m <span class="token string">"提交的信息"</span></code></pre>
+
+<h2 id="stash-存储"><a href="#stash-存储" class="headerlink" title="stash(存储)"></a>stash(存储)</h2><h3 id="save"><a href="#save" class="headerlink" title="save"></a>save</h3><p>执行存储时，添加备注，方便查找，只有git stash 也要可以的，但查找时不方便识别。</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> stash save <span class="token string">"save message"</span></code></pre>
+
+<h3 id="list"><a href="#list" class="headerlink" title="list"></a>list</h3><p>查看stash了哪些存储</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> stash list</code></pre>
+
+<h3 id="show"><a href="#show" class="headerlink" title="show"></a>show</h3><p>显示做了哪些改动，默认show第一个存储,如果要显示其他存贮，后面加stash@{$num}，比如第二个 git stash show stash@{1}</p>
+<p>git stash show -p : 显示第一个存储的改动，如果想显示其他存存储，命令：<code>git stash show stash@&#123;$num&#125; -p</code> ，比如第二个：<code>git stash show stash@&#123;1&#125; -p</code></p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> stash show
+
+<span class="token function">git</span> stash show stash@<span class="token punctuation">&#123;</span><span class="token number">1</span><span class="token punctuation">&#125;</span> -p</code></pre>
+
+<h3 id="apply"><a href="#apply" class="headerlink" title="apply"></a>apply</h3><p>应用某个存储,但不会把存储从存储列表中删除，默认使用第一个存储,即stash@{0}，如果要使用其他个，<code>git stash apply stash@&#123;$num&#125;</code> ， 比如第二个：<code>git stash apply stash@&#123;1&#125;</code></p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> stash apply
+
+<span class="token function">git</span> stash apply stash@<span class="token punctuation">&#123;</span><span class="token number">1</span><span class="token punctuation">&#125;</span></code></pre>
+
+<h3 id="pop"><a href="#pop" class="headerlink" title="pop"></a>pop</h3><p>命令恢复之前缓存的工作目录，将缓存堆栈中的对应stash删除，并将对应修改应用到当前的工作目录下,默认为第一个stash,即stash@{0}，如果要应用并删除其他stash，命令：<code>git stash pop stash@&#123;$num&#125;</code>，比如应用并删除第二个：<code>git stash pop stash@&#123;1&#125;</code></p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> stash pop
+
+<span class="token function">git</span> stash pop stash@<span class="token punctuation">&#123;</span><span class="token number">1</span><span class="token punctuation">&#125;</span></code></pre>
+
+<h3 id="drop"><a href="#drop" class="headerlink" title="drop"></a>drop</h3><p>丢弃stash@{$num}存储，从列表中删除这个存储</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> stash drop stash@<span class="token punctuation">&#123;</span><span class="token variable">$num</span><span class="token punctuation">&#125;</span></code></pre>
+
+<h3 id="clear"><a href="#clear" class="headerlink" title="clear"></a>clear</h3><p>删除所有缓存的stash</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> stash <span class="token function">clear</span></code></pre>
+
+<h2 id="commit-提交"><a href="#commit-提交" class="headerlink" title="commit(提交)"></a>commit(提交)</h2><h3 id="amend"><a href="#amend" class="headerlink" title="amend"></a>amend</h3><p>修改最近一次 commit 信息，修改之后需要强制提交 -f</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> commit --amend</code></pre>
+
+<h3 id="m"><a href="#m" class="headerlink" title="-m"></a>-m</h3><p><strong>-m</strong> 添加提交备注信息</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> commit -m <span class="token punctuation">[</span>message<span class="token punctuation">]</span></code></pre>
+
+<h3 id="a"><a href="#a" class="headerlink" title="-a"></a>-a</h3><p><strong>-a</strong> 参数设置修改文件后不需要执行 git add 命令，直接来提交</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> commit -a</code></pre>
+
+<p>结合一下</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> commit -am <span class="token string">'修改 hello.php 文件'</span></code></pre>
+</div><div id="reward-container"><span class="hty-icon-button button-glow" id="reward-button" title="Donate" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === &quot;none&quot;) ? &quot;block&quot; : &quot;none&quot;;"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-hand-coin-line"></use></svg></span><div id="reward-comment">觉得文章写的不错，可以请喝杯咖啡</div><div id="qr" style="display:none;"><div style="display:inline-block"><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/donate/alipay-qrcode.jpg"><img loading="lazy" src="https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/donate/alipay-qrcode.jpg" alt="支付宝" title="支付宝"></a><div><span style="color:#00A3EE"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-alipay-line"></use></svg></span></div></div><div style="display:inline-block"><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/donate/qqpay-qrcode.png"><img loading="lazy" src="https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/donate/qqpay-qrcode.png" alt="QQ 支付" title="QQ 支付"></a><div><span style="color:#12B7F5"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-qq-line"></use></svg></span></div></div><div style="display:inline-block"><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/donate/wechatpay-qrcode.jpg"><img loading="lazy" src="https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/donate/wechatpay-qrcode.jpg" alt="微信支付" title="微信支付"></a><div><span style="color:#2DC100"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-wechat-pay-line"></use></svg></span></div></div></div></div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>王彦翔</li><li class="post-copyright-link"><strong>Post link: </strong><a href="https://yanxiang.wang/git%E5%B8%B8%E7%94%A8/" title="git常用命令">https://yanxiang.wang/git%E5%B8%B8%E7%94%A8/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul><script>document.addEventListener('copy', function (event) {
+  const clipboardData = event.clipboardData || window.clipboardData;
+  if (!clipboardData) { return; }
+  const text = window.getSelection().toString();
+  if (text) {
+    event.preventDefault();
+    clipboardData.setData('text/plain', text + '\n\nPost author: 王彦翔\nPost link: https://yanxiang.wang/git%E5%B8%B8%E7%94%A8/\nCopyright Notice: All articles in this blog are licensed under CC BY-NC-SA 4.0 unless otherwise stated.');
+  }
+});</script></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/%E5%88%9B%E5%BB%BAFastApi%E9%A1%B9%E7%9B%AE/" rel="prev" title="创建FastApi项目"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">创建FastApi项目</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/gin%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E6%A0%A1%E9%AA%8C/" rel="next" title="gin接口参数的校验"><span class="post-nav-text">gin接口参数的校验</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div class="hty-card" id="comment"><div class="comment-tooltip text-center"><span>如果您有任何关于博客内容的相关讨论，欢迎前往 <a href="https://github.com/YunYouJun/yunyoujun.github.io/discussions" target="_blank">GitHub Discussions</a> 与我交流。</span><br></div><div id="waline"></div><script>Yun.utils.getScript("https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js", () => {
+  const walineConfig = {"enable":true,"serverURL":"https://waline.yunyoujun.cn","comment":true,"visitor":true,"emoji":["https://cdn.jsdelivr.net/gh/walinejs/emojis@latest/bilibili/","https://cdn.jsdelivr.net/gh/walinejs/emojis@latest/weibo/","https://cdn.jsdelivr.net/gh/walinejs/emojis@latest/qq/"],"locale":{"placeholder":"填写邮箱，可以收到回复通知哦～"},"requiredMeta":["nick"],"el":"#waline","lang":"en"}
+  walineConfig.path = "/git%E5%B8%B8%E7%94%A8/"
+  walineConfig.dark = 'html[data-user-color-scheme="dark"]'
+  new Waline(walineConfig)
+}, window.Waline);</script></div></main><footer class="sidebar-translate" id="footer"><div class="beian"><a rel="noopener" href="https://beian.miit.gov.cn/" target="_blank">备案号</a></div><div class="copyright"><span>&copy; 2018 – 2022 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 王彦翔</span></div><div class="live_time"><span>运行时间</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
+  setTimeout(blog_live_time, 1000);
+  const start = new Date('2019-04-12T00:00:00');
+  const now = new Date();
+  const timeDiff = (now.getTime() - start.getTime());
+  const msPerMinute = 60 * 1000;
+  const msPerHour = 60 * msPerMinute;
+  const msPerDay = 24 * msPerHour;
+  const passDay = Math.floor(timeDiff / msPerDay);
+  const passHour = Math.floor((timeDiff % msPerDay) / 60 / 60 / 1000);
+  const passMinute = Math.floor((timeDiff % msPerHour) / 60 / 1000);
+  const passSecond = Math.floor((timeDiff % msPerMinute) / 1000);
+  display_live_time.innerHTML = " " + passDay + " 天 " + passHour + " 小时 " + passMinute + " 分 " + passSecond + " 秒";
+}
+blog_live_time();
+</script></div></footer><a class="hty-icon-button" id="back-to-top" aria-label="back-to-top" href="#"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-up-s-line"></use></svg><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#0078E7" stroke-width="2" stroke-linecap="round"></circle></svg></a><a class="popup-trigger hty-icon-button icon-search" id="search" href="javascript:;" title="Search"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-search-line"></use></svg></span></a><script>window.addEventListener("DOMContentLoaded", () => {
+  // Handle and trigger popup window
+  document.querySelector(".popup-trigger").addEventListener("click", () => {
+    document.querySelector(".popup").classList.add("show");
+    setTimeout(() => {
+      document.querySelector(".search-input").focus();
+    }, 100);
+  });
+
+  // Monitor main search box
+  const onPopupClose = () => {
+    document.querySelector(".popup").classList.remove("show");
+  };
+
+  document.querySelector(".popup-btn-close").addEventListener("click", () => {
+    onPopupClose();
+  });
+
+  window.addEventListener("keyup", event => {
+    if (event.key === "Escape") {
+      onPopupClose();
+    }
+  });
+});
+</script><script src="/js/search/local-search.js" defer></script><div class="popup search-popup"><div class="search-header"><span class="popup-btn-close close-icon hty-icon-button"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-close-line"></use></svg></span></div><div class="search-input-container"><input class="search-input" id="local-search-input" type="text" placeholder="Searching..." value=""></div><div id="local-search-result"></div></div><script>const date = new Date();
+const today = (date.getMonth() + 1) + "-" + date.getDate()
+const mourn_days = ["4-4"]
+if (mourn_days.includes(today)) {
+  document.documentElement.style.filter = "grayscale(1)";
+}</script></div><!-- hexo injector body_end start --><script src="https://cdn.jsdelivr.net/npm/hexo-widget-tree@0.2.2/js/index.js"></script><div id="widget-tree">
+      <ul>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/">
+          python
+        </a>
+      <span class="tree-list-count">26</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/django/">
+          django
+        </a>
+      <span class="tree-list-count">6</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/django/%E9%83%A8%E7%BD%B2/">
+          部署
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/nginx+uwsgi/" title="win10/Linux系统项目上线Nginx+Django（Uwsgi）+Vue实现高可用部署"><i class="post-icon gg-file-document"></i>win10/Linux系统项目上线Nginx+Django（Uwsgi）+Vue实现高可用部署</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/django/celery/">
+          celery
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/celery%E4%BD%BF%E7%94%A8%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E5%A4%84%E7%90%86%E4%BB%A5%E5%8F%8A%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" title="Linux下Django使用celery异步任务处理以及定时任务"><i class="post-icon gg-file-document"></i>Linux下Django使用celery异步任务处理以及定时任务</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/django/rest-rest-framework/">
+          rest-rest-framework
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/Django%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" title="Django源码分析-ModelViewSet"><i class="post-icon gg-file-document"></i>Django源码分析-ModelViewSet</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/SQLAlchemy/">
+          SQLAlchemy
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/Python%E4%B8%AD%E6%93%8D%E4%BD%9CSQLAlchemy/" title="Python中操作SQLAlchemy"><i class="post-icon gg-file-document"></i>Python中操作SQLAlchemy</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
+          数据分析
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/pandas/">
+          pandas
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/pandas%E5%85%A5%E9%97%A8/" title="数据分析-初识pandas"><i class="post-icon gg-file-document"></i>数据分析-初识pandas</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/pandas/">
+          pandas
+        </a>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/pandas%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C-%E8%AE%A1%E7%AE%97/" title="pandas进阶操作-计算-方法"><i class="post-icon gg-file-document"></i>pandas进阶操作-计算-方法</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/pandas%E8%BF%9B%E9%98%B6/" title="数据分析-pandas进阶操作"><i class="post-icon gg-file-document"></i>数据分析-pandas进阶操作</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
+          多线程
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/pypy3%E4%B8%8Epython%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%AF%94%E8%BE%83/" title="pypy3与python多线程比较"><i class="post-icon gg-file-document"></i>pypy3与python多线程比较</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E6%B5%8B%E8%AF%95/">
+          测试
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E6%B5%8B%E8%AF%95/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">
+          单元测试
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" title="python单元测试"><i class="post-icon gg-file-document"></i>python单元测试</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/">
+          垃圾回收机制
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/" title="python垃圾回收机制"><i class="post-icon gg-file-document"></i>python垃圾回收机制</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/celery/">
+          celery
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97%E6%89%A7%E8%A1%8C%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1/" title="python手写队列异步任务"><i class="post-icon gg-file-document"></i>python手写队列异步任务</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/">
+          深浅拷贝
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D%E7%9A%84%E5%8C%BA%E5%88%AB/" title="python浅拷贝与深拷贝以及is 和 == 的区别"><i class="post-icon gg-file-document"></i>python浅拷贝与深拷贝以及is 和 == 的区别</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E7%94%9F%E6%88%90%E5%99%A8/">
+          生成器
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E7%94%9F%E6%88%90%E5%99%A8/" title="彻底理解python生成器"><i class="post-icon gg-file-document"></i>彻底理解python生成器</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E8%A3%85%E9%A5%B0%E5%99%A8/">
+          装饰器
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E8%A3%85%E9%A5%B0%E5%99%A8/" title="彻底理解python装饰器以及使用场景"><i class="post-icon gg-file-document"></i>彻底理解python装饰器以及使用场景</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E8%BF%AD%E4%BB%A3%E5%99%A8/">
+          迭代器
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E8%BF%AD%E4%BB%A3%E5%99%A8/" title="彻底理解python迭代器"><i class="post-icon gg-file-document"></i>彻底理解python迭代器</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/">
+          高阶函数
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/" title="python高阶函数详解"><i class="post-icon gg-file-document"></i>python高阶函数详解</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/redis/">
+          redis
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/redis%E5%A4%84%E7%90%86%E9%AB%98%E5%B9%B6%E5%8F%91/" title="python使用redis处理高并发"><i class="post-icon gg-file-document"></i>python使用redis处理高并发</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/fastapi/">
+          fastapi
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/%E5%88%9B%E5%BB%BAFastApi%E9%A1%B9%E7%9B%AE/" title="创建FastApi项目"><i class="post-icon gg-file-document"></i>创建FastApi项目</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/tornado/">
+          tornado
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/%E5%AF%BC%E5%87%BA%E6%96%87%E4%BB%B6/" title="tornado导入/导出Excel文件"><i class="post-icon gg-file-document"></i>tornado导入/导出Excel文件</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+          数据结构
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" title="数据结构-算法-时间复杂度以及构造栈-队列"><i class="post-icon gg-file-document"></i>数据结构-算法-时间复杂度以及构造栈-队列</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/django-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">
+          django - 权限管理
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E4%B9%8B%E4%BD%8D%E8%BF%90%E7%AE%97%E4%BB%A5%E5%8F%8ARBAC%E4%BF%A9%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/" title="权限管理之位运算以及RBAC俩种实现方法"><i class="post-icon gg-file-document"></i>权限管理之位运算以及RBAC俩种实现方法</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/">
+          项目部署
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/docker%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/">
+          docker项目部署
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/Win10%E7%8E%AF%E5%A2%83%E4%B8%8B%E4%BD%BF%E7%94%A8Docker%E5%AE%B9%E5%99%A8%E5%BC%8F%E9%83%A8%E7%BD%B2%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E9%A1%B9%E7%9B%AEDjango-Vue-js/" title="Win10环境下使用Docker容器式部署前后端分离项目Django+Vue"><i class="post-icon gg-file-document"></i>Win10环境下使用Docker容器式部署前后端分离项目Django+Vue</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/go/">
+          go
+        </a>
+      <span class="tree-list-count">4</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/go/gin/">
+          gin
+        </a>
+      <span class="tree-list-count">3</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/gin%E5%9F%BA%E7%A1%80%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F/" title="gin 基础请求方式"><i class="post-icon gg-file-document"></i>gin 基础请求方式</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/gin%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E6%A0%A1%E9%AA%8C/" title="gin接口参数的校验"><i class="post-icon gg-file-document"></i>gin接口参数的校验</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/win%E7%8E%AF%E5%A2%83%E5%90%AF%E5%8A%A8gin/" title="win环境启动gin"><i class="post-icon gg-file-document"></i>win环境启动gin</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/git/">
+          git
+        </a>
+      <span class="tree-list-count">2</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/git/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+          常用命令
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/git%E5%B8%B8%E7%94%A8/" title="git常用命令"><i class="post-icon gg-file-document"></i>git常用命令</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Docker/">
+          Docker
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Docker/Kubernetes-k8s/">
+          Kubernetes(k8s)
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/k8s%E9%9B%86%E7%BE%A4%E6%9C%8D%E5%8A%A1/" title="基于Kubernetes(k8s)搭建Gunicorn+Django/Flask高可用Web集群"><i class="post-icon gg-file-document"></i>基于Kubernetes(k8s)搭建Gunicorn+Django/Flask高可用Web集群</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/database/">
+          database
+        </a>
+      <span class="tree-list-count">4</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/database/mysql/">
+          mysql
+        </a>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/mysql%E5%AD%A6%E4%B9%A0/" title="mysql数据库"><i class="post-icon gg-file-document"></i>mysql数据库</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E6%93%8D%E4%BD%9CMySQL/" title="python操作mysql"><i class="post-icon gg-file-document"></i>python操作mysql</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/database/mongodb/">
+          mongodb
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E4%B8%8EMongodb%E6%93%8D%E4%BD%9C/" title="python与Mongodb操作"><i class="post-icon gg-file-document"></i>python与Mongodb操作</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/database/redis/">
+          redis
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/redis-server/" title="linux服务器启动一个redis服务"><i class="post-icon gg-file-document"></i>linux服务器启动一个redis服务</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/ubuntu/">
+          ubuntu
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/ubuntu/docker/">
+          docker
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/ubuntu%20docker%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/" title="docker命令详解"><i class="post-icon gg-file-document"></i>docker命令详解</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+          设计模式
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="设计模式"><i class="post-icon gg-file-document"></i>设计模式</a></li></ul></li></ul>
+        <div id="widget-tree-button">
+          <i class="gg-chevron-right"></i>
+        </div>
+      </div><!-- hexo injector body_end end --></body></html>
