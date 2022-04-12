@@ -125,7 +125,7 @@ func main() {
 }
 ```
 
-## ![](/assets/import72.png) {#_02-切片循环}
+![](/assets/import72.png)
 
 ## 切片循环 {#_02-切片循环}
 
@@ -151,7 +151,7 @@ func main() {
 }
 ```
 
-### ![](/assets/import73.png) {#_2-2-k，v遍历}
+![](/assets/import73.png)
 
 ### k，v遍历 {#_2-2-k，v遍历}
 
@@ -172,7 +172,7 @@ func main() {
 }
 ```
 
-### ![](/assets/import74.png) {#_3-2-make-构造切片}
+![](/assets/import74.png)
 
 ## 定义切片 {#_03-定义切片}
 
@@ -199,7 +199,7 @@ func main() {
 }
 ```
 
-### ![](/assets/import75.png) {#_3-2-make-构造切片}
+![](/assets/import75.png)
 
 ### make\(\)构造切片 {#_3-2-make-构造切片}
 
@@ -232,7 +232,7 @@ func main() {
 * 上面代码中 a 的内部存储空间已经分配了 10 个，但实际上只用了 2 个。
 * 容量并不会影响当前元素的个数，所以 len\(a\)返回 2，cap\(a\)则返回该切片的容量。
 
-## ![](/assets/import80.png) {#_04-append}
+![](/assets/import80.png)
 
 ## append\(\) {#_04-append}
 
@@ -262,7 +262,7 @@ func main() {
 }
 ```
 
-### ![](/assets/import81.png) {#_4-2-append追加多个}
+![](/assets/import81.png)
 
 ### append追加多个 {#_4-2-append追加多个}
 
@@ -284,7 +284,7 @@ func main() {
 }
 ```
 
-### ![](/assets/import83.png) {#_4-3-切片中删除元素}
+![](/assets/import83.png)
 
 ### 切片中删除元素 {#_4-3-切片中删除元素}
 
@@ -307,7 +307,7 @@ func main() {
 }
 ```
 
-### ![](/assets/import84.png) {#_4-4-切片合并}
+![](/assets/import84.png)
 
 ### 切片合并 {#_4-4-切片合并}
 
@@ -328,7 +328,7 @@ func main() {
 }
 ```
 
-## ![](/assets/import85.png) {#_05-copy}
+![](/assets/import85.png)
 
 ## copy\(\) {#_05-copy}
 
@@ -357,7 +357,7 @@ func main() {
 }
 ```
 
-### ![](/assets/import86.png) {#_5-2-copy-函数}
+![](/assets/import86.png)
 
 ### copy\(\)函数 {#_5-2-copy-函数}
 
@@ -393,7 +393,7 @@ func main() {
 }
 ```
 
-## ![](/assets/import87.png) {#_06-sort}
+![](/assets/import87.png)
 
 ## sort\(\) {#_06-sort}
 
@@ -406,27 +406,26 @@ func main() {
 package main
 
 import (
-	"fmt"
-	"sort"
+    "fmt"
+    "sort"
 )
 
 func sortSlice() {
-	aSlice := []int{3, 1, 5, 2, 8}
-	sort.Ints(aSlice)
-	fmt.Println(aSlice)
-	bSlice := []string{"a", "c", "d", "b"}
-	sort.Strings(bSlice)
-	fmt.Println(bSlice)
+    aSlice := []int{3, 1, 5, 2, 8}
+    sort.Ints(aSlice)
+    fmt.Println(aSlice)
+    bSlice := []string{"a", "c", "d", "b"}
+    sort.Strings(bSlice)
+    fmt.Println(bSlice)
 }
 
 func main() {
-	sortSlice()
+    sortSlice()
 
 }
-
 ```
 
-### ![](/assets/import88.png) {#_6-2-sort-降序排序}
+![](/assets/import88.png)
 
 ### sort 降序排序 {#_6-2-sort-降序排序}
 
@@ -437,23 +436,22 @@ func main() {
 package main
 
 import (
-	"fmt"
-	"sort"
+    "fmt"
+    "sort"
 )
 
 func reserveSortSlice() {
-	aSlice := []int{3, 1, 5, 2, 8}
-	sort.Sort(sort.Reverse(sort.IntSlice(aSlice)))
-	fmt.Println(aSlice)
-	bSlice := []string{"a", "c", "d", "b"}
-	sort.Sort(sort.Reverse(sort.StringSlice(bSlice)))
-	fmt.Println(bSlice)
+    aSlice := []int{3, 1, 5, 2, 8}
+    sort.Sort(sort.Reverse(sort.IntSlice(aSlice)))
+    fmt.Println(aSlice)
+    bSlice := []string{"a", "c", "d", "b"}
+    sort.Sort(sort.Reverse(sort.StringSlice(bSlice)))
+    fmt.Println(bSlice)
 }
 
 func main() {
-	reserveSortSlice()
+    reserveSortSlice()
 }
-
 ```
 
 ![](/assets/import89.png)

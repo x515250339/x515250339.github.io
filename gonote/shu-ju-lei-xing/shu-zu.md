@@ -50,7 +50,7 @@ func main() {
 }
 ```
 
-### ![](/assets/import52.png) {#_1-3-数组是值类型}
+![](/assets/import52.png) {\#\_1-3-数组是值类型}
 
 ### 数组是值类型 {#_1-3-数组是值类型}
 
@@ -96,7 +96,7 @@ func main() {
 }
 ```
 
-## ![](/assets/import53.png) {#_02-创建数组}
+![](/assets/import53.png)
 
 ## 创建数组 {#_02-创建数组}
 
@@ -120,7 +120,7 @@ func main() {
 }
 ```
 
-### ![](/assets/import54.png) {#_2-2-让编译器识别}
+![](/assets/import54.png)
 
 ### 让编译器识别 {#_2-2-让编译器识别}
 
@@ -150,7 +150,7 @@ func main() {
 }
 ```
 
-### ![](/assets/import55.png) {#_2-3-指定索引值}
+![](/assets/import55.png)
 
 ### 指定索引值 {#_2-3-指定索引值}
 
@@ -173,7 +173,7 @@ func main() {
 }
 ```
 
-## ![](/assets/import56.png) {#_03-数组的遍历}
+![](/assets/import56.png)
 
 ## 数组的遍历 {#_03-数组的遍历}
 
@@ -195,7 +195,7 @@ func main() {
 }
 ```
 
-### ![](/assets/import57.png) {#_3-2-k-v遍历数组}
+![](/assets/import57.png)
 
 ### k,v遍历数组 {#_3-2-k-v遍历数组}
 
@@ -215,7 +215,7 @@ func main() {
 }
 ```
 
-## ![](/assets/import58.png) {#_04-多维数组}
+![](/assets/import58.png)
 
 ##  {#_04-多维数组}
 
@@ -244,7 +244,7 @@ func main() {
 }
 ```
 
-### ![](/assets/import59.png) {#_4-2-遍历多维数组}
+![](/assets/import59.png)
 
 ### 遍历多维数组 {#_4-2-遍历多维数组}
 
@@ -283,7 +283,7 @@ func main() {
 }
 ```
 
-## ![](/assets/import66.png) {#_05-数组练习}
+![](/assets/import66.png)
 
 ## 数组练习 {#_05-数组练习}
 
@@ -308,7 +308,7 @@ func main() {
 }
 ```
 
-### ![](/assets/import64.png) {#_5-2-数组最大值}
+![](/assets/import64.png)
 
 ### 数组最大值 {#_5-2-数组最大值}
 

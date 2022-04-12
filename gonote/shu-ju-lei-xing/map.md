@@ -39,7 +39,7 @@ func main() {
 }
 ```
 
-### ![](/assets/import90.png) {#_2-2-map定义：法2}
+![](/assets/import90.png)
 
 ### map定义：法2 {#_2-2-map定义：法2}
 
@@ -63,7 +63,7 @@ func main() {
 }
 ```
 
-### ![](/assets/import91.png) {#_2-3-map嵌套map}
+![](/assets/import91.png)
 
 ### map嵌套map {#_2-3-map嵌套map}
 
@@ -123,7 +123,7 @@ func main() {
 }
 ```
 
-### ![](/assets/import94.png) {#_3-2-delete-函数}
+![](/assets/import94.png)
 
 ### delete\(\)函数 {#_3-2-delete-函数}
 
@@ -154,11 +154,11 @@ func main() {
 }
 ```
 
-## ![](/assets/import95.png) {#_04-map遍历}
+![](/assets/import95.png)
 
 ## map遍历 {#_04-map遍历}
 
-### 遍历key和value {#_4-1-遍历key和value}
+遍历key和value
 
 ```go
 package main
@@ -204,7 +204,7 @@ func main() {
 }
 ```
 
-### ![](/assets/import97.png) {#_4-3-顺序遍历map}
+![](/assets/import97.png)
 
 ### 顺序遍历map {#_4-3-顺序遍历map}
 
@@ -212,35 +212,34 @@ func main() {
 package main
 
 import (
-	"fmt"
-	"sort"
+    "fmt"
+    "sort"
 )
 
 func forSortMapKey() {
-	aMap := make(map[string]int, 20)
-	for i := 0; i < 10; i++ {
-		key := fmt.Sprintf("key%d", i)
-		aMap[key] = i
-	}
-	fmt.Println(aMap)
+    aMap := make(map[string]int, 20)
+    for i := 0; i < 10; i++ {
+        key := fmt.Sprintf("key%d", i)
+        aMap[key] = i
+    }
+    fmt.Println(aMap)
 
-	var keys = make([]string, 0, 50)
-	for key := range aMap {
-		keys = append(keys, key)
-	}
-	fmt.Println(keys)
-	sort.Strings(keys)
-	fmt.Println(keys)
+    var keys = make([]string, 0, 50)
+    for key := range aMap {
+        keys = append(keys, key)
+    }
+    fmt.Println(keys)
+    sort.Strings(keys)
+    fmt.Println(keys)
 
-	for _, key := range keys {
-		fmt.Println(key, ":", aMap[key])
-	}
+    for _, key := range keys {
+        fmt.Println(key, ":", aMap[key])
+    }
 }
 
 func main() {
-	forSortMapKey()
+    forSortMapKey()
 }
-
 ```
 
 ![](/assets/import98.png)
