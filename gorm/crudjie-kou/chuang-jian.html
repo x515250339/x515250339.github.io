@@ -212,6 +212,25 @@
             
 
             
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="../ru-men-zhi-nan/mo-xing-ding-yi/wai-jian-gui-fan.html">
+            
+                <a href="../ru-men-zhi-nan/mo-xing-ding-yi/wai-jian-gui-fan.html">
+            
+                    
+                    外键规范
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
         </li>
     
         <li class="chapter " data-level="1.3.3" data-path="../ru-men-zhi-nan/lian-jie-shu-ju-ku.html">
@@ -480,34 +499,45 @@ db.Create(&amp;User{
 })
 <span class="hljs-comment">// INSERT INTO `users` (`name`,`point`) VALUES (&quot;jinzhu&quot;,ST_PointFromText(&quot;POINT(100 100)&quot;))</span>
 </code></pre>
+<p><img src="chuang-jian.assets/image-20220621215513536.png" alt="image-20220621215513536"></p>
 <h2 id="&#x9AD8;&#x7EA7;&#x9009;&#x9879;"><a name="&#x9AD8;&#x7EA7;&#x9009;&#x9879;" class="anchor-navigation-ex-anchor" href="#&#x9AD8;&#x7EA7;&#x9009;&#x9879;"><i class="fa fa-link" aria-hidden="true"></i></a>8. &#x9AD8;&#x7EA7;&#x9009;&#x9879;</h2>
 <h3 id="&#x5173;&#x8054;&#x521B;&#x5EFA;"><a name="&#x5173;&#x8054;&#x521B;&#x5EFA;" class="anchor-navigation-ex-anchor" href="#&#x5173;&#x8054;&#x521B;&#x5EFA;"><i class="fa fa-link" aria-hidden="true"></i></a>8.1. &#x5173;&#x8054;&#x521B;&#x5EFA;</h3>
 <p>&#x521B;&#x5EFA;&#x5173;&#x8054;&#x6570;&#x636E;&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x5173;&#x8054;&#x503C;&#x662F;&#x975E;&#x96F6;&#x503C;&#xFF0C;&#x8FD9;&#x4E9B;&#x5173;&#x8054;&#x4F1A;&#x88AB; upsert&#xFF0C;&#x4E14;&#x5B83;&#x4EEC;&#x7684; <code>Hook</code> &#x65B9;&#x6CD5;&#x4E5F;&#x4F1A;&#x88AB;&#x8C03;&#x7528;</p>
 <pre><code class="lang-go"><span class="hljs-keyword">type</span> CreditCard <span class="hljs-keyword">struct</span> {
-  gorm.Model
-  Number   <span class="hljs-keyword">string</span>
-  UserID   <span class="hljs-keyword">uint</span>
+    gorm.Model
+    Number <span class="hljs-keyword">string</span>
+    UserID <span class="hljs-keyword">uint</span>
 }
 
-<span class="hljs-keyword">type</span> User <span class="hljs-keyword">struct</span> {
-  gorm.Model
-  Name       <span class="hljs-keyword">string</span>
-  CreditCard CreditCard
+<span class="hljs-keyword">type</span> UserInfo <span class="hljs-keyword">struct</span> {
+    gorm.Model
+    Name         <span class="hljs-keyword">string</span>
+    CreditCardId <span class="hljs-keyword">uint</span>
+    CreditCard   CreditCard <span class="hljs-string">`gorm:&quot;foreignKey:UserID;references:CreditCardId;&quot;`</span>
 }
 
-db.Create(&amp;User{
-  Name: <span class="hljs-string">&quot;jinzhu&quot;</span>,
-  CreditCard: CreditCard{Number: <span class="hljs-string">&quot;411111111111&quot;</span>}
-})
-<span class="hljs-comment">// INSERT INTO `users` ...</span>
-<span class="hljs-comment">// INSERT INTO `credit_cards` ...</span>
+<span class="hljs-comment">// CreateUser8 &#x5173;&#x8054;&#x521B;&#x5EFA;</span>
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">CreateUser8</span><span class="hljs-params">(db *gorm.DB)</span></span> {
+    db.Create(&amp;UserInfo{
+        Name:       <span class="hljs-string">&quot;zs&quot;</span>,
+        CreditCard: CreditCard{Number: <span class="hljs-string">&quot;111111111111&quot;</span>},
+    })
+}
 </code></pre>
+<p><img src="chuang-jian.assets/image-20220621215655309.png" alt="image-20220621215655309"></p>
+<p><img src="chuang-jian.assets/image-20220621215704501.png" alt="image-20220621215704501"></p>
 <p>&#x60A8;&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <code>Select</code>&#x3001; <code>Omit</code> &#x8DF3;&#x8FC7;&#x5173;&#x8054;&#x4FDD;&#x5B58;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
 <pre><code class="lang-go">db.Omit(<span class="hljs-string">&quot;CreditCard&quot;</span>).Create(&amp;user)
 
 <span class="hljs-comment">// &#x8DF3;&#x8FC7;&#x6240;&#x6709;&#x5173;&#x8054;</span>
 db.Omit(clause.Associations).Create(&amp;user)
 </code></pre>
+<p><img src="chuang-jian.assets/image-20220621220218628.png" alt="image-20220621220218628"></p>
+<p>&#x53D1;&#x73B0; CreditCard &#x8868;&#x5E76;&#x65E0;&#x65B0;&#x589E;&#x6570;&#x636E;</p>
+<p><img src="chuang-jian.assets/image-20220621220234571.png" alt="image-20220621220234571"></p>
+<p>clause.Associations &#x540C;&#x7406;&#xFF0C;&#x53EA;&#x4E0D;&#x8FC7;&#x8DF3;&#x8FC7;&#x6240;&#x6709;&#x5916;&#x952E;&#x5173;&#x8054;</p>
+<p><img src="chuang-jian.assets/image-20220621220331525.png" alt="image-20220621220331525"></p>
+<p><img src="chuang-jian.assets/image-20220621220442181.png" alt="image-20220621220442181"></p>
 <h3 id="&#x9ED8;&#x8BA4;&#x503C;"><a name="&#x9ED8;&#x8BA4;&#x503C;" class="anchor-navigation-ex-anchor" href="#&#x9ED8;&#x8BA4;&#x503C;"><i class="fa fa-link" aria-hidden="true"></i></a>8.2. &#x9ED8;&#x8BA4;&#x503C;</h3>
 <p>&#x60A8;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x6807;&#x7B7E; <code>default</code> &#x4E3A;&#x5B57;&#x6BB5;&#x5B9A;&#x4E49;&#x9ED8;&#x8BA4;&#x503C;&#xFF0C;&#x5982;&#xFF1A;</p>
 <pre><code class="lang-go"><span class="hljs-keyword">type</span> User <span class="hljs-keyword">struct</span> {
@@ -615,7 +645,7 @@ db.Clauses(clause.OnConflict{
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"创建","level":"1.4.1","depth":2,"previous":{"title":"CRUD接口","level":"1.4","depth":1,"path":"crudjie-kou.md","ref":"crudjie-kou.md","articles":[{"title":"创建","level":"1.4.1","depth":2,"path":"crudjie-kou/chuang-jian.md","ref":"crudjie-kou/chuang-jian.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["anchor-navigation-ex","-search","-sharing","theme-default","-lunr","fontsettings","livereload","popup","splitter","copy-code-button","highlight","-expandable-chapters-small","chapter-fold","back-to-top-button","search-pro","-expandable-chapters","livereload"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"popup":{},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"anchor-navigation-ex":{"showLevelIcon":false,"mode":"float","pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"showLevel":true,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","showGoTop":true,"printLog":false,"multipleH1":false,"multipleH2":false,"associatedWithSummary":true,"multipleH3":false,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"multipleH4":false},"back-to-top-button":{},"copy-code-button":{},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"crudjie-kou/chuang-jian.md","mtime":"2022-06-20T16:02:34.076Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-06-20T16:15:03.496Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"创建","level":"1.4.1","depth":2,"previous":{"title":"CRUD接口","level":"1.4","depth":1,"path":"crudjie-kou.md","ref":"crudjie-kou.md","articles":[{"title":"创建","level":"1.4.1","depth":2,"path":"crudjie-kou/chuang-jian.md","ref":"crudjie-kou/chuang-jian.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["anchor-navigation-ex","-search","-sharing","theme-default","-lunr","fontsettings","livereload","popup","splitter","copy-code-button","highlight","-expandable-chapters-small","chapter-fold","back-to-top-button","search-pro","-expandable-chapters","livereload"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"popup":{},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"anchor-navigation-ex":{"showLevelIcon":false,"mode":"float","pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"showLevel":true,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","showGoTop":true,"printLog":false,"multipleH1":false,"multipleH2":false,"associatedWithSummary":true,"multipleH3":false,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"multipleH4":false},"back-to-top-button":{},"copy-code-button":{},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"crudjie-kou/chuang-jian.md","mtime":"2022-06-21T14:05:23.264Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-06-21T14:11:24.743Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

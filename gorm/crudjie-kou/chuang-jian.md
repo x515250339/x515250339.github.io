@@ -225,7 +225,7 @@ db.Create(&User{
 // INSERT INTO `users` (`name`,`point`) VALUES ("jinzhu",ST_PointFromText("POINT(100 100)"))
 ```
 
-
+![image-20220621215513536](chuang-jian.assets/image-20220621215513536.png)
 
 ## 高级选项
 
@@ -235,24 +235,30 @@ db.Create(&User{
 
 ```go
 type CreditCard struct {
-  gorm.Model
-  Number   string
-  UserID   uint
+	gorm.Model
+	Number string
+	UserID uint
 }
 
-type User struct {
-  gorm.Model
-  Name       string
-  CreditCard CreditCard
+type UserInfo struct {
+	gorm.Model
+	Name         string
+	CreditCardId uint
+	CreditCard   CreditCard `gorm:"foreignKey:UserID;references:CreditCardId;"`
 }
 
-db.Create(&User{
-  Name: "jinzhu",
-  CreditCard: CreditCard{Number: "411111111111"}
-})
-// INSERT INTO `users` ...
-// INSERT INTO `credit_cards` ...
+// CreateUser8 关联创建
+func CreateUser8(db *gorm.DB) {
+	db.Create(&UserInfo{
+		Name:       "zs",
+		CreditCard: CreditCard{Number: "111111111111"},
+	})
+}
 ```
+
+![image-20220621215655309](chuang-jian.assets/image-20220621215655309.png)
+
+![image-20220621215704501](chuang-jian.assets/image-20220621215704501.png)
 
 您也可以通过 `Select`、 `Omit` 跳过关联保存，例如：
 
@@ -262,6 +268,18 @@ db.Omit("CreditCard").Create(&user)
 // 跳过所有关联
 db.Omit(clause.Associations).Create(&user)
 ```
+
+![image-20220621220218628](chuang-jian.assets/image-20220621220218628.png)
+
+发现 CreditCard 表并无新增数据
+
+![image-20220621220234571](chuang-jian.assets/image-20220621220234571.png)
+
+clause.Associations 同理，只不过跳过所有外键关联
+
+![image-20220621220331525](chuang-jian.assets/image-20220621220331525.png)
+
+![image-20220621220442181](chuang-jian.assets/image-20220621220442181.png)
 
 ### 默认值
 
