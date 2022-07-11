@@ -102,9 +102,9 @@ func QueryTest3(db *gorm.DB) {
 ```go
 // QueryALlTest ## 检索全部对象
 func QueryALlTest(db *gorm.DB) {
-    users := []User{{
-
-    }}
+    users := []User{
+        {},
+    }
     result := db.Find(&users)
     for _, user := range users {
         fmt.Println(user)
@@ -383,119 +383,169 @@ func OrderData(db *gorm.DB) {
 `Limit` 指定获取记录的最大数量 `Offset` 指定在开始返回记录之前要跳过的记录数量
 
 ```go
-db.Limit(3).Find(&users)
-// SELECT * FROM users LIMIT 3;
+func LimitAndOffset(db *gorm.DB) {
+	users := []User{
+        {},
+    }
+	db.Limit(3).Find(&users)
+	fmt.Println(1, users)
 
-// 通过 -1 消除 Limit 条件
-db.Limit(10).Find(&users1).Limit(-1).Find(&users2)
-// SELECT * FROM users LIMIT 10; (users1)
-// SELECT * FROM users; (users2)
+	users = []User{
+        {},
+    }
+	users2 := []User{
+        {},
+    }
+	db.Limit(1).Find(&users).Limit(-1).Find(&users2)
+	fmt.Println(2, users)
+	fmt.Println(3, users2)
 
-db.Offset(3).Find(&users)
-// SELECT * FROM users OFFSET 3;
+	users = []User{
+        {},
+    }
+	db.Limit(5).Offset(3).Find(&users)
+	fmt.Println(4, users)
 
-db.Limit(10).Offset(5).Find(&users)
-// SELECT * FROM users OFFSET 5 LIMIT 10;
-
-// 通过 -1 消除 Offset 条件
-db.Offset(10).Find(&users1).Offset(-1).Find(&users2)
-// SELECT * FROM users OFFSET 10; (users1)
-// SELECT * FROM users; (users2)
+	// 作者测试 Offset 必须配合 Limit 否则报错
+	//users = []User{
+    //    {},
+    //}
+	//db.Offset(10).Find(&users).Offset(-1).Find(&user)
+}
 ```
 
 查看 [Pagination](https://learnku.com/docs/gorm/v2/scopes#pagination) 学习如何写一个分页器
 
+![image-20220628213917883](cha-xun.assets/image-20220628213917883.png)
+
 ## Group & Having
 
 ```go
-type result struct {
-  Date  time.Time
-  Total int
+func GroupAndHaving(db *gorm.DB) {
+	users := []User{
+        {},
+    }
+	db.Model(&User{}).Select("name, sum(age) as total").Where(
+		"name LIKE ?", "%z%").Group("name").Find(&users)
+	fmt.Println(users)
+
+	users = []User{
+        {},
+    }
+	db.Model(&User{}).Select("name, sum(age) as total").Group(
+		"name").Having("name = ?", "zs").First(&users)
+	fmt.Println(users)
+
+	/*
+		rows, err := db.Table("orders").Select("date(created_at) as date, sum(amount) as total").Group("date(created_at)").Rows()
+		for rows.Next() {
+		  ...
+		}
+
+		rows, err := db.Table("orders").Select("date(created_at) as date, sum(amount) as total").Group("date(created_at)").Having("sum(amount) > ?", 100).Rows()
+		for rows.Next() {
+		  ...
+		}
+
+		type Result struct {
+		  Date  time.Time
+		  Total int64
+		}
+		db.Table("orders").Select("date(created_at) as date, sum(amount) as total").Group("date(created_at)").Having("sum(amount) > ?", 100).Scan(&results)
+	*/
 }
 
-db.Model(&User{}).Select("name, sum(age) as total").Where("name LIKE ?", "group%").Group("name").First(&result)
-// SELECT name, sum(age) as total FROM `users` WHERE name LIKE "group%" GROUP BY `name`
-
-db.Model(&User{}).Select("name, sum(age) as total").Group("name").Having("name = ?", "group").Find(&result)
-// SELECT name, sum(age) as total FROM `users` GROUP BY `name` HAVING name = "group"
-
-rows, err := db.Table("orders").Select("date(created_at) as date, sum(amount) as total").Group("date(created_at)").Rows()
-for rows.Next() {
-  ...
-}
-
-rows, err := db.Table("orders").Select("date(created_at) as date, sum(amount) as total").Group("date(created_at)").Having("sum(amount) > ?", 100).Rows()
-for rows.Next() {
-  ...
-}
-
-type Result struct {
-  Date  time.Time
-  Total int64
-}
-db.Table("orders").Select("date(created_at) as date, sum(amount) as total").Group("date(created_at)").Having("sum(amount) > ?", 100).Scan(&results)
 ```
+
+![image-20220628215416129](cha-xun.assets/image-20220628215416129.png)
 
 ## Distinct
 
 从模型中选择不相同的值
 
 ```go
-db.Distinct("name", "age").Order("name, age desc").Find(&results)
+func DistinctData(db *gorm.DB) {
+	users := []User{
+        {},
+    }
+	db.Distinct("name", "age").Order("name, age desc").Find(&users)
+}
+
 ```
 
 `Distinct` 也可以配合 [`Pluck`](https://learnku.com/docs/gorm/v2/advanced_query#pluck), [`Count`](https://learnku.com/docs/gorm/v2/advanced_query#count) 使用
+
+![image-20220628215734811](cha-xun.assets/image-20220628215734811.png)
 
 ## Joins
 
 指定 Joins 条件
 
 ```go
-type result struct {
-  Name  string
-  Email string
+func JoinsModel(db *gorm.DB) {
+	type Result struct {
+		Name  string
+		Name2 string
+	}
+	result := Result{}
+	db.Model(&User{}).Select("user.name, user_infos.name").Joins(
+		"left join user_infos on user_infos.name = user.name").Scan(&result)
+	fmt.Println(result)
+
+	/*
+		rows, err := db.Table("users").Select("users.name, emails.email").Joins("left join emails on emails.user_id = users.id").Rows()
+		for rows.Next() {
+		  ...
+		}
+
+		db.Table("users").Select("users.name, emails.email").Joins("left join emails on emails.user_id = users.id").Scan(&results)
+
+		// 带参数的多表连接
+		db.Joins("JOIN emails ON emails.user_id = users.id AND emails.email = ?", "jinzhu@example.org").Joins("JOIN credit_cards ON credit_cards.user_id = users.id").Where("credit_cards.number = ?", "411111111111").Find(&user)
+	*/
 }
-db.Model(&User{}).Select("users.name, emails.email").Joins("left join emails on emails.user_id = users.id").Scan(&result{})
-// SELECT users.name, emails.email FROM `users` left join emails on emails.user_id = users.id
 
-rows, err := db.Table("users").Select("users.name, emails.email").Joins("left join emails on emails.user_id = users.id").Rows()
-for rows.Next() {
-  ...
-}
-
-db.Table("users").Select("users.name, emails.email").Joins("left join emails on emails.user_id = users.id").Scan(&results)
-
-// 带参数的多表连接
-db.Joins("JOIN emails ON emails.user_id = users.id AND emails.email = ?", "jinzhu@example.org").Joins("JOIN credit_cards ON credit_cards.user_id = users.id").Where("credit_cards.number = ?", "411111111111").Find(&user)
 ```
+
+![image-20220628221201529](cha-xun.assets/image-20220628221201529.png)
 
 ### Joins 预加载
 
 您可以使用 `Joins` 实现单条 SQL 预加载关联记录，例如：
 
 ```go
-db.Joins("Company").Find(&users)
-// SELECT `users`.`id`,`users`.`name`,`users`.`age`,`Company`.`id` AS `Company__id`,`Company`.`name` AS `Company__name` FROM `users` LEFT JOIN `companies` AS `Company` ON `users`.`company_id` = `Company`.`id`;
+func JoinsData(db *gorm.DB) {
+	userInfos := []UserInfo{
+        {},
+    }
+	db.Joins("CreditCard").Find(&userInfos)
+}
+
 ```
 
 参考 [预加载](https://learnku.com/docs/gorm/v2/preload) 了解详情
+
+![image-20220628221439854](cha-xun.assets/image-20220628221439854.png)
 
 ## Scan
 
 Scan 结果至 struct，用法与 `Find` 类似
 
 ```go
-type Result struct {
-  Name string
-  Age  int
+func ScanData(db *gorm.DB) {
+	type Result struct {
+		Name string
+		Age  int
+	}
+	result := Result{}
+	db.Table("user").Select("name", "age").Scan(&result)
+	fmt.Println(result)
+
+	db.Raw("select name, age from user where name = ?", "ls").Scan(&result)
+	fmt.Println(result)
 }
 
-var result Result
-db.Table("users").Select("name", "age").Where("name = ?", "Antonio").Scan(&result)
-
-// 原生 SQL
-db.Raw("SELECT name, age FROM users WHERE name = ?", "Antonio").Scan(&result)
 ```
 
-
+![image-20220628221835713](cha-xun.assets/image-20220628221835713.png)
 

@@ -73,6 +73,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="geng-xin.html" />
+    
     
     <link rel="prev" href="chuang-jian.html" />
     
@@ -291,6 +293,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.4.3" data-path="geng-xin.html">
+            
+                <a href="geng-xin.html">
+            
+                    
+                    更新
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -428,9 +443,9 @@
 <h2 id="&#x68C0;&#x7D22;&#x5168;&#x90E8;&#x5BF9;&#x8C61;"><a name="&#x68C0;&#x7D22;&#x5168;&#x90E8;&#x5BF9;&#x8C61;" class="anchor-navigation-ex-anchor" href="#&#x68C0;&#x7D22;&#x5168;&#x90E8;&#x5BF9;&#x8C61;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x68C0;&#x7D22;&#x5168;&#x90E8;&#x5BF9;&#x8C61;</h2>
 <pre><code class="lang-go"><span class="hljs-comment">// QueryALlTest ## &#x68C0;&#x7D22;&#x5168;&#x90E8;&#x5BF9;&#x8C61;</span>
 <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">QueryALlTest</span><span class="hljs-params">(db *gorm.DB)</span></span> {
-    users := []User{{
-
-    }}
+    users := []User{
+        {},
+    }
     result := db.Find(&amp;users)
     <span class="hljs-keyword">for</span> _, user := <span class="hljs-keyword">range</span> users {
         fmt.Println(user)
@@ -663,97 +678,138 @@
 <p><img src="cha-xun.assets/image-20220627220716891.png" alt="image-20220627220716891"></p>
 <h2 id="limit--offset"><a name="limit--offset" class="anchor-navigation-ex-anchor" href="#limit--offset"><i class="fa fa-link" aria-hidden="true"></i></a>6. Limit &amp; Offset</h2>
 <p><code>Limit</code> &#x6307;&#x5B9A;&#x83B7;&#x53D6;&#x8BB0;&#x5F55;&#x7684;&#x6700;&#x5927;&#x6570;&#x91CF; <code>Offset</code> &#x6307;&#x5B9A;&#x5728;&#x5F00;&#x59CB;&#x8FD4;&#x56DE;&#x8BB0;&#x5F55;&#x4E4B;&#x524D;&#x8981;&#x8DF3;&#x8FC7;&#x7684;&#x8BB0;&#x5F55;&#x6570;&#x91CF;</p>
-<pre><code class="lang-go">db.Limit(<span class="hljs-number">3</span>).Find(&amp;users)
-<span class="hljs-comment">// SELECT * FROM users LIMIT 3;</span>
+<pre><code class="lang-go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">LimitAndOffset</span><span class="hljs-params">(db *gorm.DB)</span></span> {
+    users := []User{
+        {},
+    }
+    db.Limit(<span class="hljs-number">3</span>).Find(&amp;users)
+    fmt.Println(<span class="hljs-number">1</span>, users)
 
-<span class="hljs-comment">// &#x901A;&#x8FC7; -1 &#x6D88;&#x9664; Limit &#x6761;&#x4EF6;</span>
-db.Limit(<span class="hljs-number">10</span>).Find(&amp;users1).Limit(<span class="hljs-number">-1</span>).Find(&amp;users2)
-<span class="hljs-comment">// SELECT * FROM users LIMIT 10; (users1)</span>
-<span class="hljs-comment">// SELECT * FROM users; (users2)</span>
+    users = []User{
+        {},
+    }
+    users2 := []User{
+        {},
+    }
+    db.Limit(<span class="hljs-number">1</span>).Find(&amp;users).Limit(<span class="hljs-number">-1</span>).Find(&amp;users2)
+    fmt.Println(<span class="hljs-number">2</span>, users)
+    fmt.Println(<span class="hljs-number">3</span>, users2)
 
-db.Offset(<span class="hljs-number">3</span>).Find(&amp;users)
-<span class="hljs-comment">// SELECT * FROM users OFFSET 3;</span>
+    users = []User{
+        {},
+    }
+    db.Limit(<span class="hljs-number">5</span>).Offset(<span class="hljs-number">3</span>).Find(&amp;users)
+    fmt.Println(<span class="hljs-number">4</span>, users)
 
-db.Limit(<span class="hljs-number">10</span>).Offset(<span class="hljs-number">5</span>).Find(&amp;users)
-<span class="hljs-comment">// SELECT * FROM users OFFSET 5 LIMIT 10;</span>
-
-<span class="hljs-comment">// &#x901A;&#x8FC7; -1 &#x6D88;&#x9664; Offset &#x6761;&#x4EF6;</span>
-db.Offset(<span class="hljs-number">10</span>).Find(&amp;users1).Offset(<span class="hljs-number">-1</span>).Find(&amp;users2)
-<span class="hljs-comment">// SELECT * FROM users OFFSET 10; (users1)</span>
-<span class="hljs-comment">// SELECT * FROM users; (users2)</span>
+    <span class="hljs-comment">// &#x4F5C;&#x8005;&#x6D4B;&#x8BD5; Offset &#x5FC5;&#x987B;&#x914D;&#x5408; Limit &#x5426;&#x5219;&#x62A5;&#x9519;</span>
+    <span class="hljs-comment">//users = []User{</span>
+    <span class="hljs-comment">//    {},</span>
+    <span class="hljs-comment">//}</span>
+    <span class="hljs-comment">//db.Offset(10).Find(&amp;users).Offset(-1).Find(&amp;user)</span>
+}
 </code></pre>
 <p>&#x67E5;&#x770B; <a href="https://learnku.com/docs/gorm/v2/scopes#pagination" target="_blank">Pagination</a> &#x5B66;&#x4E60;&#x5982;&#x4F55;&#x5199;&#x4E00;&#x4E2A;&#x5206;&#x9875;&#x5668;</p>
+<p><img src="cha-xun.assets/image-20220628213917883.png" alt="image-20220628213917883"></p>
 <h2 id="group--having"><a name="group--having" class="anchor-navigation-ex-anchor" href="#group--having"><i class="fa fa-link" aria-hidden="true"></i></a>7. Group &amp; Having</h2>
-<pre><code class="lang-go"><span class="hljs-keyword">type</span> result <span class="hljs-keyword">struct</span> {
-  Date  time.Time
-  Total <span class="hljs-keyword">int</span>
+<pre><code class="lang-go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">GroupAndHaving</span><span class="hljs-params">(db *gorm.DB)</span></span> {
+    users := []User{
+        {},
+    }
+    db.Model(&amp;User{}).Select(<span class="hljs-string">&quot;name, sum(age) as total&quot;</span>).Where(
+        <span class="hljs-string">&quot;name LIKE ?&quot;</span>, <span class="hljs-string">&quot;%z%&quot;</span>).Group(<span class="hljs-string">&quot;name&quot;</span>).Find(&amp;users)
+    fmt.Println(users)
+
+    users = []User{
+        {},
+    }
+    db.Model(&amp;User{}).Select(<span class="hljs-string">&quot;name, sum(age) as total&quot;</span>).Group(
+        <span class="hljs-string">&quot;name&quot;</span>).Having(<span class="hljs-string">&quot;name = ?&quot;</span>, <span class="hljs-string">&quot;zs&quot;</span>).First(&amp;users)
+    fmt.Println(users)
+
+    <span class="hljs-comment">/*
+        rows, err := db.Table(&quot;orders&quot;).Select(&quot;date(created_at) as date, sum(amount) as total&quot;).Group(&quot;date(created_at)&quot;).Rows()
+        for rows.Next() {
+          ...
+        }
+
+        rows, err := db.Table(&quot;orders&quot;).Select(&quot;date(created_at) as date, sum(amount) as total&quot;).Group(&quot;date(created_at)&quot;).Having(&quot;sum(amount) &gt; ?&quot;, 100).Rows()
+        for rows.Next() {
+          ...
+        }
+
+        type Result struct {
+          Date  time.Time
+          Total int64
+        }
+        db.Table(&quot;orders&quot;).Select(&quot;date(created_at) as date, sum(amount) as total&quot;).Group(&quot;date(created_at)&quot;).Having(&quot;sum(amount) &gt; ?&quot;, 100).Scan(&amp;results)
+    */</span>
 }
-
-db.Model(&amp;User{}).Select(<span class="hljs-string">&quot;name, sum(age) as total&quot;</span>).Where(<span class="hljs-string">&quot;name LIKE ?&quot;</span>, <span class="hljs-string">&quot;group%&quot;</span>).Group(<span class="hljs-string">&quot;name&quot;</span>).First(&amp;result)
-<span class="hljs-comment">// SELECT name, sum(age) as total FROM `users` WHERE name LIKE &quot;group%&quot; GROUP BY `name`</span>
-
-db.Model(&amp;User{}).Select(<span class="hljs-string">&quot;name, sum(age) as total&quot;</span>).Group(<span class="hljs-string">&quot;name&quot;</span>).Having(<span class="hljs-string">&quot;name = ?&quot;</span>, <span class="hljs-string">&quot;group&quot;</span>).Find(&amp;result)
-<span class="hljs-comment">// SELECT name, sum(age) as total FROM `users` GROUP BY `name` HAVING name = &quot;group&quot;</span>
-
-rows, err := db.Table(<span class="hljs-string">&quot;orders&quot;</span>).Select(<span class="hljs-string">&quot;date(created_at) as date, sum(amount) as total&quot;</span>).Group(<span class="hljs-string">&quot;date(created_at)&quot;</span>).Rows()
-<span class="hljs-keyword">for</span> rows.Next() {
-  ...
-}
-
-rows, err := db.Table(<span class="hljs-string">&quot;orders&quot;</span>).Select(<span class="hljs-string">&quot;date(created_at) as date, sum(amount) as total&quot;</span>).Group(<span class="hljs-string">&quot;date(created_at)&quot;</span>).Having(<span class="hljs-string">&quot;sum(amount) &gt; ?&quot;</span>, <span class="hljs-number">100</span>).Rows()
-<span class="hljs-keyword">for</span> rows.Next() {
-  ...
-}
-
-<span class="hljs-keyword">type</span> Result <span class="hljs-keyword">struct</span> {
-  Date  time.Time
-  Total <span class="hljs-keyword">int64</span>
-}
-db.Table(<span class="hljs-string">&quot;orders&quot;</span>).Select(<span class="hljs-string">&quot;date(created_at) as date, sum(amount) as total&quot;</span>).Group(<span class="hljs-string">&quot;date(created_at)&quot;</span>).Having(<span class="hljs-string">&quot;sum(amount) &gt; ?&quot;</span>, <span class="hljs-number">100</span>).Scan(&amp;results)
 </code></pre>
+<p><img src="cha-xun.assets/image-20220628215416129.png" alt="image-20220628215416129"></p>
 <h2 id="distinct"><a name="distinct" class="anchor-navigation-ex-anchor" href="#distinct"><i class="fa fa-link" aria-hidden="true"></i></a>8. Distinct</h2>
 <p>&#x4ECE;&#x6A21;&#x578B;&#x4E2D;&#x9009;&#x62E9;&#x4E0D;&#x76F8;&#x540C;&#x7684;&#x503C;</p>
-<pre><code class="lang-go">db.Distinct(<span class="hljs-string">&quot;name&quot;</span>, <span class="hljs-string">&quot;age&quot;</span>).Order(<span class="hljs-string">&quot;name, age desc&quot;</span>).Find(&amp;results)
+<pre><code class="lang-go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">DistinctData</span><span class="hljs-params">(db *gorm.DB)</span></span> {
+    users := []User{
+        {},
+    }
+    db.Distinct(<span class="hljs-string">&quot;name&quot;</span>, <span class="hljs-string">&quot;age&quot;</span>).Order(<span class="hljs-string">&quot;name, age desc&quot;</span>).Find(&amp;users)
+}
 </code></pre>
 <p><code>Distinct</code> &#x4E5F;&#x53EF;&#x4EE5;&#x914D;&#x5408; <a href="https://learnku.com/docs/gorm/v2/advanced_query#pluck" target="_blank"><code>Pluck</code></a>, <a href="https://learnku.com/docs/gorm/v2/advanced_query#count" target="_blank"><code>Count</code></a> &#x4F7F;&#x7528;</p>
+<p><img src="cha-xun.assets/image-20220628215734811.png" alt="image-20220628215734811"></p>
 <h2 id="joins"><a name="joins" class="anchor-navigation-ex-anchor" href="#joins"><i class="fa fa-link" aria-hidden="true"></i></a>9. Joins</h2>
 <p>&#x6307;&#x5B9A; Joins &#x6761;&#x4EF6;</p>
-<pre><code class="lang-go"><span class="hljs-keyword">type</span> result <span class="hljs-keyword">struct</span> {
-  Name  <span class="hljs-keyword">string</span>
-  Email <span class="hljs-keyword">string</span>
+<pre><code class="lang-go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">JoinsModel</span><span class="hljs-params">(db *gorm.DB)</span></span> {
+    <span class="hljs-keyword">type</span> Result <span class="hljs-keyword">struct</span> {
+        Name  <span class="hljs-keyword">string</span>
+        Name2 <span class="hljs-keyword">string</span>
+    }
+    result := Result{}
+    db.Model(&amp;User{}).Select(<span class="hljs-string">&quot;user.name, user_infos.name&quot;</span>).Joins(
+        <span class="hljs-string">&quot;left join user_infos on user_infos.name = user.name&quot;</span>).Scan(&amp;result)
+    fmt.Println(result)
+
+    <span class="hljs-comment">/*
+        rows, err := db.Table(&quot;users&quot;).Select(&quot;users.name, emails.email&quot;).Joins(&quot;left join emails on emails.user_id = users.id&quot;).Rows()
+        for rows.Next() {
+          ...
+        }
+
+        db.Table(&quot;users&quot;).Select(&quot;users.name, emails.email&quot;).Joins(&quot;left join emails on emails.user_id = users.id&quot;).Scan(&amp;results)
+
+        // &#x5E26;&#x53C2;&#x6570;&#x7684;&#x591A;&#x8868;&#x8FDE;&#x63A5;
+        db.Joins(&quot;JOIN emails ON emails.user_id = users.id AND emails.email = ?&quot;, &quot;jinzhu@example.org&quot;).Joins(&quot;JOIN credit_cards ON credit_cards.user_id = users.id&quot;).Where(&quot;credit_cards.number = ?&quot;, &quot;411111111111&quot;).Find(&amp;user)
+    */</span>
 }
-db.Model(&amp;User{}).Select(<span class="hljs-string">&quot;users.name, emails.email&quot;</span>).Joins(<span class="hljs-string">&quot;left join emails on emails.user_id = users.id&quot;</span>).Scan(&amp;result{})
-<span class="hljs-comment">// SELECT users.name, emails.email FROM `users` left join emails on emails.user_id = users.id</span>
-
-rows, err := db.Table(<span class="hljs-string">&quot;users&quot;</span>).Select(<span class="hljs-string">&quot;users.name, emails.email&quot;</span>).Joins(<span class="hljs-string">&quot;left join emails on emails.user_id = users.id&quot;</span>).Rows()
-<span class="hljs-keyword">for</span> rows.Next() {
-  ...
-}
-
-db.Table(<span class="hljs-string">&quot;users&quot;</span>).Select(<span class="hljs-string">&quot;users.name, emails.email&quot;</span>).Joins(<span class="hljs-string">&quot;left join emails on emails.user_id = users.id&quot;</span>).Scan(&amp;results)
-
-<span class="hljs-comment">// &#x5E26;&#x53C2;&#x6570;&#x7684;&#x591A;&#x8868;&#x8FDE;&#x63A5;</span>
-db.Joins(<span class="hljs-string">&quot;JOIN emails ON emails.user_id = users.id AND emails.email = ?&quot;</span>, <span class="hljs-string">&quot;jinzhu@example.org&quot;</span>).Joins(<span class="hljs-string">&quot;JOIN credit_cards ON credit_cards.user_id = users.id&quot;</span>).Where(<span class="hljs-string">&quot;credit_cards.number = ?&quot;</span>, <span class="hljs-string">&quot;411111111111&quot;</span>).Find(&amp;user)
 </code></pre>
+<p><img src="cha-xun.assets/image-20220628221201529.png" alt="image-20220628221201529"></p>
 <h3 id="joins-&#x9884;&#x52A0;&#x8F7D;"><a name="joins-&#x9884;&#x52A0;&#x8F7D;" class="anchor-navigation-ex-anchor" href="#joins-&#x9884;&#x52A0;&#x8F7D;"><i class="fa fa-link" aria-hidden="true"></i></a>9.1. Joins &#x9884;&#x52A0;&#x8F7D;</h3>
 <p>&#x60A8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>Joins</code> &#x5B9E;&#x73B0;&#x5355;&#x6761; SQL &#x9884;&#x52A0;&#x8F7D;&#x5173;&#x8054;&#x8BB0;&#x5F55;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
-<pre><code class="lang-go">db.Joins(<span class="hljs-string">&quot;Company&quot;</span>).Find(&amp;users)
-<span class="hljs-comment">// SELECT `users`.`id`,`users`.`name`,`users`.`age`,`Company`.`id` AS `Company__id`,`Company`.`name` AS `Company__name` FROM `users` LEFT JOIN `companies` AS `Company` ON `users`.`company_id` = `Company`.`id`;</span>
+<pre><code class="lang-go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">JoinsData</span><span class="hljs-params">(db *gorm.DB)</span></span> {
+    userInfos := []UserInfo{
+        {},
+    }
+    db.Joins(<span class="hljs-string">&quot;CreditCard&quot;</span>).Find(&amp;userInfos)
+}
 </code></pre>
 <p>&#x53C2;&#x8003; <a href="https://learnku.com/docs/gorm/v2/preload" target="_blank">&#x9884;&#x52A0;&#x8F7D;</a> &#x4E86;&#x89E3;&#x8BE6;&#x60C5;</p>
+<p><img src="cha-xun.assets/image-20220628221439854.png" alt="image-20220628221439854"></p>
 <h2 id="scan"><a name="scan" class="anchor-navigation-ex-anchor" href="#scan"><i class="fa fa-link" aria-hidden="true"></i></a>10. Scan</h2>
 <p>Scan &#x7ED3;&#x679C;&#x81F3; struct&#xFF0C;&#x7528;&#x6CD5;&#x4E0E; <code>Find</code> &#x7C7B;&#x4F3C;</p>
-<pre><code class="lang-go"><span class="hljs-keyword">type</span> Result <span class="hljs-keyword">struct</span> {
-  Name <span class="hljs-keyword">string</span>
-  Age  <span class="hljs-keyword">int</span>
+<pre><code class="lang-go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">ScanData</span><span class="hljs-params">(db *gorm.DB)</span></span> {
+    <span class="hljs-keyword">type</span> Result <span class="hljs-keyword">struct</span> {
+        Name <span class="hljs-keyword">string</span>
+        Age  <span class="hljs-keyword">int</span>
+    }
+    result := Result{}
+    db.Table(<span class="hljs-string">&quot;user&quot;</span>).Select(<span class="hljs-string">&quot;name&quot;</span>, <span class="hljs-string">&quot;age&quot;</span>).Scan(&amp;result)
+    fmt.Println(result)
+
+    db.Raw(<span class="hljs-string">&quot;select name, age from user where name = ?&quot;</span>, <span class="hljs-string">&quot;ls&quot;</span>).Scan(&amp;result)
+    fmt.Println(result)
 }
-
-<span class="hljs-keyword">var</span> result Result
-db.Table(<span class="hljs-string">&quot;users&quot;</span>).Select(<span class="hljs-string">&quot;name&quot;</span>, <span class="hljs-string">&quot;age&quot;</span>).Where(<span class="hljs-string">&quot;name = ?&quot;</span>, <span class="hljs-string">&quot;Antonio&quot;</span>).Scan(&amp;result)
-
-<span class="hljs-comment">// &#x539F;&#x751F; SQL</span>
-db.Raw(<span class="hljs-string">&quot;SELECT name, age FROM users WHERE name = ?&quot;</span>, <span class="hljs-string">&quot;Antonio&quot;</span>).Scan(&amp;result)
 </code></pre>
+<p><img src="cha-xun.assets/image-20220628221835713.png" alt="image-20220628221835713"></p>
 
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
@@ -782,10 +838,14 @@ db.Raw(<span class="hljs-string">&quot;SELECT name, age FROM users WHERE name = 
 
             
                 
-                <a href="chuang-jian.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 创建">
+                <a href="chuang-jian.html" class="navigation navigation-prev " aria-label="Previous page: 创建">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
+                
+                <a href="geng-xin.html" class="navigation navigation-next " aria-label="Next page: 更新">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -794,7 +854,7 @@ db.Raw(<span class="hljs-string">&quot;SELECT name, age FROM users WHERE name = 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"查询","level":"1.4.2","depth":2,"previous":{"title":"创建","level":"1.4.1","depth":2,"path":"crudjie-kou/chuang-jian.md","ref":"crudjie-kou/chuang-jian.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["anchor-navigation-ex","-search","-sharing","theme-default","-lunr","fontsettings","livereload","popup","splitter","copy-code-button","highlight","-expandable-chapters-small","chapter-fold","back-to-top-button","search-pro","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"popup":{},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"anchor-navigation-ex":{"showLevelIcon":false,"mode":"float","pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"showLevel":true,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","showGoTop":true,"printLog":false,"multipleH1":false,"multipleH2":false,"associatedWithSummary":true,"multipleH3":false,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"multipleH4":false},"back-to-top-button":{},"copy-code-button":{},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"crudjie-kou/cha-xun.md","mtime":"2022-06-27T14:27:50.030Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-06-27T14:27:55.658Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"查询","level":"1.4.2","depth":2,"next":{"title":"更新","level":"1.4.3","depth":2,"path":"crudjie-kou/geng-xin.md","ref":"crudjie-kou/geng-xin.md","articles":[]},"previous":{"title":"创建","level":"1.4.1","depth":2,"path":"crudjie-kou/chuang-jian.md","ref":"crudjie-kou/chuang-jian.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["anchor-navigation-ex","-search","-sharing","theme-default","-lunr","fontsettings","livereload","popup","splitter","copy-code-button","highlight","-expandable-chapters-small","chapter-fold","back-to-top-button","search-pro","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"popup":{},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"anchor-navigation-ex":{"showLevelIcon":false,"mode":"float","pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"showLevel":true,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","showGoTop":true,"printLog":false,"multipleH1":false,"multipleH2":false,"associatedWithSummary":true,"multipleH3":false,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"multipleH4":false},"back-to-top-button":{},"copy-code-button":{},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"crudjie-kou/cha-xun.md","mtime":"2022-06-28T14:19:52.358Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-07-11T14:56:00.697Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
