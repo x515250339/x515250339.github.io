@@ -343,6 +343,23 @@ git config --global --unset https.proxy
 <pre><code>git remote set-url origin git@github.com:&#x540D;&#x5B57;/&#x4ED3;&#x5E93;&#x540D;.git
 </code></pre><p>OpenSSL SSL_read: Connection was reset, errno 10054 &#x9519;&#x8BEF;&#x89E3;&#x51B3;</p>
 <pre><code>git config --global http.sslVerify &quot;false&quot;
+</code></pre><p>&#x4E0A;&#x4F20;&#x5F88;&#x6B63;&#x5E38;&#xFF0C;&#x7136;&#x540E;&#x63D0;&#x793A;</p>
+<p>error: unable to rewind rpc post data - try increasing http.postBuffer| 231.00 KiB/s</p>
+<p>error: RPC failed; curl 56 LibreSSL SSL_read: error:02FFF036:system library:func(4095):Connection reset by peer, errno 54</p>
+<pre><code>&#x279C;  hexo git:(mac) &#x2717; git push
+Enumerating objects: 799, done.
+Counting objects: 100% (799/799), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (473/473), done.
+error: unable to rewind rpc post data - try increasing http.postBuffer| 231.00 KiB/s
+error: RPC failed; curl 56 LibreSSL SSL_read: error:02FFF036:system library:func(4095):Connection reset by peer, errno 54
+send-pack: unexpected disconnect while reading sideband packet
+Writing objects: 100% (509/509), 160.20 MiB | 243.00 KiB/s, done.
+Total 509 (delta 251), reused 0 (delta 0), pack-reused 0
+fatal: the remote end hung up unexpectedly
+Everything up-to-date
+</code></pre><p>&#x89E3;&#x51B3;&#x529E;&#x6CD5;:&#x589E;&#x52A0;http.postBuffer&#x7684;&#x5927;&#x5C0F; </p>
+<pre><code>git config http.postBuffer 524288000
 </code></pre>
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
@@ -387,7 +404,7 @@ git config --global --unset https.proxy
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"git上传/拉取问题","level":"1.4.4","depth":2,"next":{"title":"go","level":"1.5","depth":1,"path":"go.md","ref":"go.md","articles":[]},"previous":{"title":"新机拉取git项目","level":"1.4.3","depth":2,"path":"git/xin-jila-qu-git-xiang-mu.md","ref":"git/xin-jila-qu-git-xiang-mu.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["anchor-navigation-ex","-search","-sharing","theme-default","-lunr","fontsettings","livereload","popup","splitter","copy-code-button","highlight","-expandable-chapters-small","chapter-fold","back-to-top-button","search-pro","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"popup":{},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"anchor-navigation-ex":{"showLevelIcon":false,"mode":"float","pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"showLevel":false,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","showGoTop":true,"printLog":false,"multipleH1":false,"multipleH2":false,"associatedWithSummary":true,"multipleH3":false,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"multipleH4":false},"back-to-top-button":{},"copy-code-button":{},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"git/gitshang-4f20-la-qu-wen-ti.md","mtime":"2023-08-17T14:29:02.148Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-31T06:34:42.381Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"git上传/拉取问题","level":"1.4.4","depth":2,"next":{"title":"go","level":"1.5","depth":1,"path":"go.md","ref":"go.md","articles":[]},"previous":{"title":"新机拉取git项目","level":"1.4.3","depth":2,"path":"git/xin-jila-qu-git-xiang-mu.md","ref":"git/xin-jila-qu-git-xiang-mu.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["anchor-navigation-ex","-search","-sharing","theme-default","-lunr","fontsettings","livereload","popup","splitter","copy-code-button","highlight","-expandable-chapters-small","chapter-fold","back-to-top-button","search-pro","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"popup":{},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"anchor-navigation-ex":{"showLevelIcon":false,"mode":"float","pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"showLevel":false,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","showGoTop":true,"printLog":false,"multipleH1":false,"multipleH2":false,"associatedWithSummary":true,"multipleH3":false,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"multipleH4":false},"back-to-top-button":{},"copy-code-button":{},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"git/gitshang-4f20-la-qu-wen-ti.md","mtime":"2023-08-31T15:35:31.861Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-31T15:35:35.271Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
