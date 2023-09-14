@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>algorithm前言 · GitBook</title>
+        <title>递归的含义 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -73,8 +73,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="suan-fa-ji-chu.html" />
+    <link rel="next" href="chang-jian-suan-fa-shi-jian-fu-za-du.html" />
     
+    
+    <link rel="prev" href="kong-jian-fu-za-du.html" />
     
 
     </head>
@@ -103,7 +105,7 @@
         
         
     
-        <li class="chapter active" data-level="1.1" data-path="./">
+        <li class="chapter " data-level="1.1" data-path="./">
             
                 <a href="./">
             
@@ -156,7 +158,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3" data-path="di-gui-de-han-yi.html">
+        <li class="chapter active" data-level="1.2.3" data-path="di-gui-de-han-yi.html">
             
                 <a href="di-gui-de-han-yi.html">
             
@@ -1158,7 +1160,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >algorithm前言</a>
+        <a href="." >递归的含义</a>
     </h1>
 </div>
 
@@ -1173,8 +1175,20 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#&#x7B97;&#x6CD5;&#x5FC5;&#x4F1A;"><b></b>&#x7B97;&#x6CD5;&#x5FC5;&#x4F1A;</a></li></ul></div><a href="#&#x7B97;&#x6CD5;&#x5FC5;&#x4F1A;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x7B97;&#x6CD5;&#x5FC5;&#x4F1A;"><a name="&#x7B97;&#x6CD5;&#x5FC5;&#x4F1A;" class="anchor-navigation-ex-anchor" href="#&#x7B97;&#x6CD5;&#x5FC5;&#x4F1A;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7B97;&#x6CD5;&#x5FC5;&#x4F1A;</h1>
-<p>github: <a href="https://github.com/515250339/algorithm" target="_blank">https://github.com/515250339/algorithm</a></p>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#&#x9012;&#x5F52;"><b></b>&#x9012;&#x5F52;</a></li></ul></div><a href="#&#x9012;&#x5F52;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x9012;&#x5F52;"><a name="&#x9012;&#x5F52;" class="anchor-navigation-ex-anchor" href="#&#x9012;&#x5F52;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x9012;&#x5F52;</h1>
+<p>1&#x3001;&#x5B9A;&#x4E49;</p>
+<ul>
+<li>&#x5728;&#x51FD;&#x6570;&#x5185;&#x90E8;&#xFF0C;&#x53EF;&#x4EE5;&#x8C03;&#x7528;&#x5176;&#x4ED6;&#x51FD;&#x6570;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x5728;&#x5185;&#x90E8;&#x8C03;&#x7528;&#x81EA;&#x8EAB;&#x672C;&#x8EAB;&#xFF0C;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x5C31;&#x662F;&#x9012;&#x5F52;&#x51FD;&#x6570;&#x3002;</li>
+</ul>
+<p>2&#x3001;&#x9012;&#x5F52;&#x7279;&#x6027;</p>
+<ul>
+<li>&#x5FC5;&#x987B;&#x6709;&#x4E00;&#x4E2A;&#x660E;&#x786E;&#x7684;&#x7ED3;&#x675F;&#x6761;&#x4EF6;</li>
+<li>&#x6BCF;&#x6B21;&#x8FDB;&#x5165;&#x66F4;&#x6DF1;&#x4E00;&#x5C42;&#x9012;&#x5F52;&#x65F6;&#xFF0C;&#x95EE;&#x9898;&#x89C4;&#x6A21;&#x76F8;&#x6BD4;&#x4E0A;&#x6B21;&#x9012;&#x5F52;&#x90FD;&#x5E94;&#x6709;&#x6240;&#x51CF;&#x5C11;</li>
+<li>&#x9012;&#x5F52;&#x6548;&#x7387;&#x4E0D;&#x9AD8;&#xFF0C;&#x9012;&#x5F52;&#x5C42;&#x6B21;&#x8FC7;&#x591A;&#x4F1A;&#x5BFC;&#x81F4;&#x6808;&#x6EA2;&#x51FA;&#xFF08;&#x5728;&#x8BA1;&#x7B97;&#x673A;&#x4E2D;&#xFF0C;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x662F;&#x901A;&#x8FC7;&#x6808;&#xFF08;stack&#xFF09;&#x8FD9;&#x79CD;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x5B9E;&#x73B0;&#x7684;</li>
+<li>&#x6BCF;&#x5F53;&#x8FDB;&#x5165;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x8C03;&#x7528;&#xFF0C;&#x6808;&#x5C31;&#x4F1A;&#x52A0;&#x4E00;&#x5C42;&#x6808;&#x5E27;&#xFF0C;&#x6BCF;&#x5F53;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#xFF0C;&#x6808;&#x5C31;&#x4F1A;&#x51CF;&#x4E00;&#x5C42;&#x6808;&#x5E27;&#x3002;</li>
+<li>&#x7531;&#x4E8E;&#x6808;&#x7684;&#x5927;&#x5C0F;&#x4E0D;&#x662F;&#x65E0;&#x9650;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#xFF0C;&#x9012;&#x5F52;&#x8C03;&#x7528;&#x7684;&#x6B21;&#x6570;&#x8FC7;&#x591A;&#xFF0C;&#x4F1A;&#x5BFC;&#x81F4;&#x6808;&#x6EA2;&#x51FA;&#xFF09;</li>
+</ul>
 
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
@@ -1203,8 +1217,12 @@
 
             
                 
+                <a href="kong-jian-fu-za-du.html" class="navigation navigation-prev " aria-label="Previous page: 空间复杂度">
+                    <i class="fa fa-angle-left"></i>
+                </a>
                 
-                <a href="suan-fa-ji-chu.html" class="navigation navigation-next navigation-unique" aria-label="Next page: 算法基础">
+                
+                <a href="chang-jian-suan-fa-shi-jian-fu-za-du.html" class="navigation navigation-next " aria-label="Next page: 常见算法时间复杂度">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1215,7 +1233,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"algorithm前言","level":"1.1","depth":1,"next":{"title":"算法基础","level":"1.2","depth":1,"path":"suan-fa-ji-chu.md","ref":"suan-fa-ji-chu.md","articles":[{"title":"时间复杂度","level":"1.2.1","depth":2,"path":"shi-jian-fu-za-du.md","ref":"shi-jian-fu-za-du.md","articles":[]},{"title":"空间复杂度","level":"1.2.2","depth":2,"path":"kong-jian-fu-za-du.md","ref":"kong-jian-fu-za-du.md","articles":[]},{"title":"递归的含义","level":"1.2.3","depth":2,"path":"di-gui-de-han-yi.md","ref":"di-gui-de-han-yi.md","articles":[]},{"title":"常见算法时间复杂度","level":"1.2.4","depth":2,"path":"chang-jian-suan-fa-shi-jian-fu-za-du.md","ref":"chang-jian-suan-fa-shi-jian-fu-za-du.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["anchor-navigation-ex","-search","-sharing","theme-default","-lunr","fontsettings","livereload","popup","splitter","copy-code-button","highlight","-expandable-chapters-small","chapter-fold","back-to-top-button","search-pro","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"popup":{},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"anchor-navigation-ex":{"showLevelIcon":false,"mode":"float","pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"showLevel":false,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","showGoTop":true,"printLog":false,"multipleH1":false,"multipleH2":false,"associatedWithSummary":true,"multipleH3":false,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"multipleH4":false},"back-to-top-button":{},"copy-code-button":{},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"README.md","mtime":"2023-09-12T14:49:03.708Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-09-14T16:00:18.253Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"递归的含义","level":"1.2.3","depth":2,"next":{"title":"常见算法时间复杂度","level":"1.2.4","depth":2,"path":"chang-jian-suan-fa-shi-jian-fu-za-du.md","ref":"chang-jian-suan-fa-shi-jian-fu-za-du.md","articles":[]},"previous":{"title":"空间复杂度","level":"1.2.2","depth":2,"path":"kong-jian-fu-za-du.md","ref":"kong-jian-fu-za-du.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["anchor-navigation-ex","-search","-sharing","theme-default","-lunr","fontsettings","livereload","popup","splitter","copy-code-button","highlight","-expandable-chapters-small","chapter-fold","back-to-top-button","search-pro","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"popup":{},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"anchor-navigation-ex":{"showLevelIcon":false,"mode":"float","pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"showLevel":false,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","showGoTop":true,"printLog":false,"multipleH1":false,"multipleH2":false,"associatedWithSummary":true,"multipleH3":false,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"multipleH4":false},"back-to-top-button":{},"copy-code-button":{},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"di-gui-de-han-yi.md","mtime":"2023-09-12T14:49:03.801Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-09-14T16:00:18.253Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

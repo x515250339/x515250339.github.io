@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>algorithm前言 · GitBook</title>
+        <title>选择排序（select_sort） · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -73,8 +73,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="suan-fa-ji-chu.html" />
+    <link rel="next" href="d83d-dc02-b-san-ren-zu.html" />
     
+    
+    <link rel="prev" href="cha-ru-pai-xu-ff08-insert-sort.html" />
     
 
     </head>
@@ -103,7 +105,7 @@
         
         
     
-        <li class="chapter active" data-level="1.1" data-path="./">
+        <li class="chapter " data-level="1.1" data-path="./">
             
                 <a href="./">
             
@@ -286,7 +288,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.1.3" data-path="xuan-zepai-xu-ff08-select-sort.html">
+        <li class="chapter active" data-level="1.4.1.3" data-path="xuan-zepai-xu-ff08-select-sort.html">
             
                 <a href="xuan-zepai-xu-ff08-select-sort.html">
             
@@ -1158,7 +1160,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >algorithm前言</a>
+        <a href="." >选择排序（select_sort）</a>
     </h1>
 </div>
 
@@ -1173,8 +1175,30 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#&#x7B97;&#x6CD5;&#x5FC5;&#x4F1A;"><b></b>&#x7B97;&#x6CD5;&#x5FC5;&#x4F1A;</a></li></ul></div><a href="#&#x7B97;&#x6CD5;&#x5FC5;&#x4F1A;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x7B97;&#x6CD5;&#x5FC5;&#x4F1A;"><a name="&#x7B97;&#x6CD5;&#x5FC5;&#x4F1A;" class="anchor-navigation-ex-anchor" href="#&#x7B97;&#x6CD5;&#x5FC5;&#x4F1A;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7B97;&#x6CD5;&#x5FC5;&#x4F1A;</h1>
-<p>github: <a href="https://github.com/515250339/algorithm" target="_blank">https://github.com/515250339/algorithm</a></p>
+                                <p>&#x9009;&#x62E9;&#x6392;&#x5E8F;&#xFF1A;&#x7B2C;&#x4E00;&#x6B21;&#x4ECE;&#x5F85;&#x6392;&#x5E8F;&#x7684;<a href="https://baike.baidu.com/item/&#x6570;&#x636E;&#x5143;&#x7D20;/715313?fromModule=lemma_inlink" target="_blank">&#x6570;&#x636E;&#x5143;&#x7D20;</a>&#x4E2D;&#x9009;&#x51FA;&#x6700;&#x5C0F;&#xFF08;&#x6216;&#x6700;&#x5927;&#xFF09;&#x7684;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x5B58;&#x653E;&#x5728;&#x5E8F;&#x5217;&#x7684;&#x8D77;&#x59CB;&#x4F4D;&#x7F6E;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x4ECE;&#x5269;&#x4F59;&#x7684;&#x672A;&#x6392;&#x5E8F;&#x5143;&#x7D20;&#x4E2D;&#x5BFB;&#x627E;&#x5230;&#x6700;&#x5C0F;&#xFF08;&#x5927;&#xFF09;&#x5143;&#x7D20;&#xFF0C;&#x7136;&#x540E;&#x653E;&#x5230;&#x5DF2;&#x6392;&#x5E8F;&#x7684;&#x5E8F;&#x5217;&#x7684;&#x672B;&#x5C3E;&#x3002;&#x4EE5;&#x6B64;&#x7C7B;&#x63A8;&#xFF0C;&#x76F4;&#x5230;&#x5168;&#x90E8;&#x5F85;&#x6392;&#x5E8F;&#x7684;&#x6570;&#x636E;&#x5143;&#x7D20;&#x7684;&#x4E2A;&#x6570;&#x4E3A;&#x96F6;&#x3002;&#x9009;&#x62E9;<a href="https://baike.baidu.com/item/&#x6392;&#x5E8F;/1066239?fromModule=lemma_inlink" target="_blank">&#x6392;&#x5E8F;</a>&#x662F;&#x4E0D;&#x7A33;&#x5B9A;&#x7684;&#x6392;&#x5E8F;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6; <code>O(n&#xB2;)</code></p>
+<p>&#x7A7A;&#x95F4;&#x590D;&#x6742;&#x5EA6; <code>O(1)</code></p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">select_sort</span><span class="hljs-params">(li)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    &#x63D2;&#x5165;&#x6392;&#x5E8F; &#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6; O(n&#xB2;)  &#x7A7A;&#x95F4;&#x590D;&#x6742;&#x5EA6;O(1)
+    :param li:
+    :return:
+    &quot;&quot;&quot;</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(len(li) - <span class="hljs-number">1</span>):
+        min_loc = i
+        <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(i + <span class="hljs-number">1</span>, len(li)):
+            <span class="hljs-keyword">if</span> li[j] &lt; li[min_loc]:
+                min_loc = j
+
+        li[i], li[min_loc] = li[min_loc], li[i]
+
+
+li = [random.randint(<span class="hljs-number">0</span>, <span class="hljs-number">100</span>) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">10</span>)]
+print(li)
+select_sort(li)
+print(li)
+</code></pre>
+<p><img src="xuan-zepai-xu-ff08-select-sort.assets/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F.gif" alt="&#x9009;&#x62E9;&#x6392;&#x5E8F;"></p>
 
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
@@ -1203,8 +1227,12 @@
 
             
                 
+                <a href="cha-ru-pai-xu-ff08-insert-sort.html" class="navigation navigation-prev " aria-label="Previous page: 插入排序（insert_sort）">
+                    <i class="fa fa-angle-left"></i>
+                </a>
                 
-                <a href="suan-fa-ji-chu.html" class="navigation navigation-next navigation-unique" aria-label="Next page: 算法基础">
+                
+                <a href="d83d-dc02-b-san-ren-zu.html" class="navigation navigation-next " aria-label="Next page: 🐂b 三人组">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1215,7 +1243,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"algorithm前言","level":"1.1","depth":1,"next":{"title":"算法基础","level":"1.2","depth":1,"path":"suan-fa-ji-chu.md","ref":"suan-fa-ji-chu.md","articles":[{"title":"时间复杂度","level":"1.2.1","depth":2,"path":"shi-jian-fu-za-du.md","ref":"shi-jian-fu-za-du.md","articles":[]},{"title":"空间复杂度","level":"1.2.2","depth":2,"path":"kong-jian-fu-za-du.md","ref":"kong-jian-fu-za-du.md","articles":[]},{"title":"递归的含义","level":"1.2.3","depth":2,"path":"di-gui-de-han-yi.md","ref":"di-gui-de-han-yi.md","articles":[]},{"title":"常见算法时间复杂度","level":"1.2.4","depth":2,"path":"chang-jian-suan-fa-shi-jian-fu-za-du.md","ref":"chang-jian-suan-fa-shi-jian-fu-za-du.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["anchor-navigation-ex","-search","-sharing","theme-default","-lunr","fontsettings","livereload","popup","splitter","copy-code-button","highlight","-expandable-chapters-small","chapter-fold","back-to-top-button","search-pro","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"popup":{},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"anchor-navigation-ex":{"showLevelIcon":false,"mode":"float","pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"showLevel":false,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","showGoTop":true,"printLog":false,"multipleH1":false,"multipleH2":false,"associatedWithSummary":true,"multipleH3":false,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"multipleH4":false},"back-to-top-button":{},"copy-code-button":{},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"README.md","mtime":"2023-09-12T14:49:03.708Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-09-14T16:00:18.253Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"选择排序（select_sort）","level":"1.4.1.3","depth":3,"next":{"title":"🐂b 三人组","level":"1.4.2","depth":2,"path":"d83d-dc02-b-san-ren-zu.md","ref":"d83d-dc02-b-san-ren-zu.md","articles":[{"title":"堆排序（heap_sort）","level":"1.4.2.1","depth":3,"path":"d83d-dc02-b-san-ren-zu/dui-pai-xu-ff08-heap-sort.md","ref":"d83d-dc02-b-san-ren-zu/dui-pai-xu-ff08-heap-sort.md","articles":[]},{"title":"归并排序（merge_sort）","level":"1.4.2.2","depth":3,"path":"d83d-dc02-b-san-ren-zu/gui-bing-pai-xu-ff08-merge-sort.md","ref":"d83d-dc02-b-san-ren-zu/gui-bing-pai-xu-ff08-merge-sort.md","articles":[]},{"title":"快速排序（quick_sort）","level":"1.4.2.3","depth":3,"path":"d83d-dc02-b-san-ren-zu/kuai-supai-xu-ff08-quick-sort.md","ref":"d83d-dc02-b-san-ren-zu/kuai-supai-xu-ff08-quick-sort.md","articles":[]}]},"previous":{"title":"插入排序（insert_sort）","level":"1.4.1.2","depth":3,"path":"cha-ru-pai-xu-ff08-insert-sort.md","ref":"cha-ru-pai-xu-ff08-insert-sort.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["anchor-navigation-ex","-search","-sharing","theme-default","-lunr","fontsettings","livereload","popup","splitter","copy-code-button","highlight","-expandable-chapters-small","chapter-fold","back-to-top-button","search-pro","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"popup":{},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"anchor-navigation-ex":{"showLevelIcon":false,"mode":"float","pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"showLevel":false,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","showGoTop":true,"printLog":false,"multipleH1":false,"multipleH2":false,"associatedWithSummary":true,"multipleH3":false,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"multipleH4":false},"back-to-top-button":{},"copy-code-button":{},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"xuan-zepai-xu-ff08-select-sort.md","mtime":"2023-09-12T14:49:04.012Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-09-14T16:00:18.253Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>algorithm前言 · GitBook</title>
+        <title>桶排序（bucket_sort） · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -73,8 +73,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="suan-fa-ji-chu.html" />
+    <link rel="next" href="ji-6570-pai-xu.html" />
     
+    
+    <link rel="prev" href="ji-shu-pai-xu.html" />
     
 
     </head>
@@ -103,7 +105,7 @@
         
         
     
-        <li class="chapter active" data-level="1.1" data-path="./">
+        <li class="chapter " data-level="1.1" data-path="./">
             
                 <a href="./">
             
@@ -388,7 +390,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.5" data-path="tong-pai-xu-ff08-bucket-sort.html">
+        <li class="chapter active" data-level="1.4.5" data-path="tong-pai-xu-ff08-bucket-sort.html">
             
                 <a href="tong-pai-xu-ff08-bucket-sort.html">
             
@@ -1158,7 +1160,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >algorithm前言</a>
+        <a href="." >桶排序（bucket_sort）</a>
     </h1>
 </div>
 
@@ -1173,8 +1175,40 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#&#x7B97;&#x6CD5;&#x5FC5;&#x4F1A;"><b></b>&#x7B97;&#x6CD5;&#x5FC5;&#x4F1A;</a></li></ul></div><a href="#&#x7B97;&#x6CD5;&#x5FC5;&#x4F1A;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x7B97;&#x6CD5;&#x5FC5;&#x4F1A;"><a name="&#x7B97;&#x6CD5;&#x5FC5;&#x4F1A;" class="anchor-navigation-ex-anchor" href="#&#x7B97;&#x6CD5;&#x5FC5;&#x4F1A;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7B97;&#x6CD5;&#x5FC5;&#x4F1A;</h1>
-<p>github: <a href="https://github.com/515250339/algorithm" target="_blank">https://github.com/515250339/algorithm</a></p>
+                                <p>&#x6876;&#x6392;&#x5E8F;&#xFF1A;&#xFF08;Bucket sort&#xFF09;&#x6216;&#x6240;&#x8C13;&#x7684;&#x7BB1;&#x6392;&#x5E8F;&#xFF0C;&#x662F;&#x4E00;&#x4E2A;&#x6392;&#x5E8F;&#x7B97;&#x6CD5;&#xFF0C;&#x5DE5;&#x4F5C;&#x7684;&#x539F;&#x7406;&#x662F;&#x5C06;&#x6570;&#x7EC4;&#x5206;&#x5230;&#x6709;&#x9650;&#x6570;&#x91CF;&#x7684;&#x6876;&#x91CC;&#x3002;&#x6BCF;&#x4E2A;&#x6876;&#x518D;&#x4E2A;&#x522B;&#x6392;&#x5E8F;&#xFF08;&#x6709;&#x53EF;&#x80FD;&#x518D;&#x4F7F;&#x7528;&#x522B;&#x7684;&#x6392;&#x5E8F;&#x7B97;&#x6CD5;&#x6216;&#x662F;&#x4EE5;&#x9012;&#x5F52;&#x65B9;&#x5F0F;&#x7EE7;&#x7EED;&#x4F7F;&#x7528;&#x6876;&#x6392;&#x5E8F;&#x8FDB;&#x884C;&#x6392;&#x5E8F;&#xFF09;&#xFF0C;&#x6700;&#x540E;&#x4F9D;&#x6B21;&#x628A;&#x5404;&#x4E2A;&#x6876;&#x4E2D;&#x7684;&#x8BB0;&#x5F55;&#x5217;&#x51FA;&#x6765;&#x8BB0;&#x5F97;&#x5230;&#x6709;&#x5E8F;&#x5E8F;&#x5217;&#x3002;&#x6876;&#x6392;&#x5E8F;&#x662F;&#x9E3D;&#x5DE2;&#x6392;&#x5E8F;&#x7684;&#x4E00;&#x79CD;&#x5F52;&#x7EB3;&#x7ED3;&#x679C;&#x3002;&#x5F53;&#x8981;&#x88AB;&#x6392;&#x5E8F;&#x7684;&#x6570;&#x7EC4;&#x5185;&#x7684;&#x6570;&#x503C;&#x662F;&#x5747;&#x5300;&#x5206;&#x914D;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6876;&#x6392;&#x5E8F;&#x4F7F;&#x7528;&#x7EBF;&#x6027;&#x65F6;&#x95F4;&#xFF08;&#x398;(n)&#xFF09;&#x3002;&#x4F46;&#x6876;&#x6392;&#x5E8F;&#x5E76;&#x4E0D;&#x662F;&#x6BD4;&#x8F83;&#x6392;&#x5E8F;&#xFF0C;&#x4ED6;&#x4E0D;&#x53D7;&#x5230;O(n log n)&#x4E0B;&#x9650;&#x7684;&#x5F71;&#x54CD;&#x3002;</p>
+<p><img src="tong-pai-xu-ff08-bucket-sort.assets/image-20230131212209181.png" alt="image-20230131212209181"></p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">bucket_sort</span><span class="hljs-params">(li, n=<span class="hljs-number">100</span>, max_num=<span class="hljs-number">1000</span>)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    &#x6876;&#x6392;&#x5E8F; &#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6; O(n+k) &#x6700;&#x574F;&#x60C5;&#x51B5; O(n&#xB2;+k) &#x7A7A;&#x95F4;&#x590D;&#x6742;&#x5EA6; O(nk)
+    :param li:
+    :param n:
+    :param max_num:
+    :return:
+    &quot;&quot;&quot;</span>
+    buckets = [[] <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> range(n)]  <span class="hljs-comment"># &#x521B;&#x5EFA;&#x6876;</span>
+    <span class="hljs-keyword">for</span> v <span class="hljs-keyword">in</span> li:
+        i = min(v // (max_num // n), n - <span class="hljs-number">1</span>)  <span class="hljs-comment"># i &#x8868;&#x793A; v &#x653E;&#x5230;&#x51E0;&#x53F7;&#x6876;</span>
+        buckets[i].append(v)  <span class="hljs-comment"># &#x628A; v &#x52A0;&#x5230;&#x6876;&#x91CC;</span>
+        <span class="hljs-comment"># &#x4FDD;&#x6301;&#x6876;&#x5185;&#x7684;&#x987A;&#x5E8F;</span>
+        <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(len(buckets[i]) - <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">-1</span>):
+            <span class="hljs-keyword">if</span> buckets[i][j] &lt; buckets[i][j - <span class="hljs-number">1</span>]:
+                buckets[i][j], buckets[i][j - <span class="hljs-number">1</span>] = buckets[i][j - <span class="hljs-number">1</span>], buckets[i][j]
+            <span class="hljs-keyword">else</span>:
+                <span class="hljs-keyword">break</span>
+    sorted_li = []
+    <span class="hljs-keyword">for</span> buc <span class="hljs-keyword">in</span> buckets:
+        sorted_li.extend(buc)
+    <span class="hljs-keyword">return</span> sorted_li
+
+
+<span class="hljs-keyword">import</span> random
+
+li = [random.randint(<span class="hljs-number">1</span>, <span class="hljs-number">1000</span>) <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> range(<span class="hljs-number">100</span>)]
+print(li)
+li = bucket_sort(li)
+print(li)
+</code></pre>
+<p><img src="tong-pai-xu-ff08-bucket-sort.assets/&#x6876;&#x6392;&#x5E8F;.gif" alt="&#x6876;&#x6392;&#x5E8F;"></p>
 
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
@@ -1203,8 +1237,12 @@
 
             
                 
+                <a href="ji-shu-pai-xu.html" class="navigation navigation-prev " aria-label="Previous page: 计数排序">
+                    <i class="fa fa-angle-left"></i>
+                </a>
                 
-                <a href="suan-fa-ji-chu.html" class="navigation navigation-next navigation-unique" aria-label="Next page: 算法基础">
+                
+                <a href="ji-6570-pai-xu.html" class="navigation navigation-next " aria-label="Next page: 基数-排序">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1215,7 +1253,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"algorithm前言","level":"1.1","depth":1,"next":{"title":"算法基础","level":"1.2","depth":1,"path":"suan-fa-ji-chu.md","ref":"suan-fa-ji-chu.md","articles":[{"title":"时间复杂度","level":"1.2.1","depth":2,"path":"shi-jian-fu-za-du.md","ref":"shi-jian-fu-za-du.md","articles":[]},{"title":"空间复杂度","level":"1.2.2","depth":2,"path":"kong-jian-fu-za-du.md","ref":"kong-jian-fu-za-du.md","articles":[]},{"title":"递归的含义","level":"1.2.3","depth":2,"path":"di-gui-de-han-yi.md","ref":"di-gui-de-han-yi.md","articles":[]},{"title":"常见算法时间复杂度","level":"1.2.4","depth":2,"path":"chang-jian-suan-fa-shi-jian-fu-za-du.md","ref":"chang-jian-suan-fa-shi-jian-fu-za-du.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["anchor-navigation-ex","-search","-sharing","theme-default","-lunr","fontsettings","livereload","popup","splitter","copy-code-button","highlight","-expandable-chapters-small","chapter-fold","back-to-top-button","search-pro","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"popup":{},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"anchor-navigation-ex":{"showLevelIcon":false,"mode":"float","pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"showLevel":false,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","showGoTop":true,"printLog":false,"multipleH1":false,"multipleH2":false,"associatedWithSummary":true,"multipleH3":false,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"multipleH4":false},"back-to-top-button":{},"copy-code-button":{},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"README.md","mtime":"2023-09-12T14:49:03.708Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-09-14T16:00:18.253Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"桶排序（bucket_sort）","level":"1.4.5","depth":2,"next":{"title":"基数-排序","level":"1.4.6","depth":2,"path":"ji-6570-pai-xu.md","ref":"ji-6570-pai-xu.md","articles":[]},"previous":{"title":"计数排序","level":"1.4.4","depth":2,"path":"ji-shu-pai-xu.md","ref":"ji-shu-pai-xu.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["anchor-navigation-ex","-search","-sharing","theme-default","-lunr","fontsettings","livereload","popup","splitter","copy-code-button","highlight","-expandable-chapters-small","chapter-fold","back-to-top-button","search-pro","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"popup":{},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"anchor-navigation-ex":{"showLevelIcon":false,"mode":"float","pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"showLevel":false,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","showGoTop":true,"printLog":false,"multipleH1":false,"multipleH2":false,"associatedWithSummary":true,"multipleH3":false,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"multipleH4":false},"back-to-top-button":{},"copy-code-button":{},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"tong-pai-xu-ff08-bucket-sort.md","mtime":"2023-09-12T14:49:03.955Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-09-14T16:00:18.253Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

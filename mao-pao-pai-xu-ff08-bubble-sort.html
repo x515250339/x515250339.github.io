@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>algorithm前言 · GitBook</title>
+        <title>冒泡排序（bubble_sort） · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -73,8 +73,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="suan-fa-ji-chu.html" />
+    <link rel="next" href="cha-ru-pai-xu-ff08-insert-sort.html" />
     
+    
+    <link rel="prev" href="low-b-san-ren-zu.html" />
     
 
     </head>
@@ -103,7 +105,7 @@
         
         
     
-        <li class="chapter active" data-level="1.1" data-path="./">
+        <li class="chapter " data-level="1.1" data-path="./">
             
                 <a href="./">
             
@@ -260,7 +262,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1.1" data-path="mao-pao-pai-xu-ff08-bubble-sort.html">
+        <li class="chapter active" data-level="1.4.1.1" data-path="mao-pao-pai-xu-ff08-bubble-sort.html">
             
                 <a href="mao-pao-pai-xu-ff08-bubble-sort.html">
             
@@ -1158,7 +1160,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >algorithm前言</a>
+        <a href="." >冒泡排序（bubble_sort）</a>
     </h1>
 </div>
 
@@ -1173,8 +1175,64 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#&#x7B97;&#x6CD5;&#x5FC5;&#x4F1A;"><b></b>&#x7B97;&#x6CD5;&#x5FC5;&#x4F1A;</a></li></ul></div><a href="#&#x7B97;&#x6CD5;&#x5FC5;&#x4F1A;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x7B97;&#x6CD5;&#x5FC5;&#x4F1A;"><a name="&#x7B97;&#x6CD5;&#x5FC5;&#x4F1A;" class="anchor-navigation-ex-anchor" href="#&#x7B97;&#x6CD5;&#x5FC5;&#x4F1A;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7B97;&#x6CD5;&#x5FC5;&#x4F1A;</h1>
-<p>github: <a href="https://github.com/515250339/algorithm" target="_blank">https://github.com/515250339/algorithm</a></p>
+                                <p>&#x5192;&#x6CE1;&#x6392;&#x5E8F;: &#x5192;&#x6CE1;&#x6392;&#x5E8F;&#xFF08;Bubble Sort&#xFF09;&#xFF0C;&#x5B83;&#x91CD;&#x590D;&#x5730;&#x8D70;&#x8BBF;&#x8FC7;&#x8981;&#x6392;&#x5E8F;&#x7684;&#x5143;&#x7D20;&#x5217;&#xFF0C;&#x4F9D;&#x6B21;&#x6BD4;&#x8F83;&#x4E24;&#x4E2A;&#x76F8;&#x90BB;&#x7684;<a href="https://baike.baidu.com/item/&#x5143;&#x7D20;/9563223?fromModule=lemma_inlink" target="_blank">&#x5143;&#x7D20;</a>&#xFF0C;&#x5982;&#x679C;&#x987A;&#x5E8F;&#xFF08;&#x5982;&#x4ECE;&#x5927;&#x5230;&#x5C0F;&#x3001;&#x9996;&#x5B57;&#x6BCD;&#x4ECE;Z&#x5230;A&#xFF09;&#x9519;&#x8BEF;&#x5C31;&#x628A;&#x4ED6;&#x4EEC;&#x4EA4;&#x6362;&#x8FC7;&#x6765;&#x3002;&#x8D70;&#x8BBF;&#x5143;&#x7D20;&#x7684;&#x5DE5;&#x4F5C;&#x662F;&#x91CD;&#x590D;&#x5730;&#x8FDB;&#x884C;&#xFF0C;&#x76F4;&#x5230;&#x6CA1;&#x6709;&#x76F8;&#x90BB;&#x5143;&#x7D20;&#x9700;&#x8981;&#x4EA4;&#x6362;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x8BE5;&#x5143;&#x7D20;&#x5217;&#x5DF2;&#x7ECF;&#x6392;&#x5E8F;&#x5B8C;&#x6210;&#x3002;</p>
+<p>&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6; <code>O(n&#xB2;)</code></p>
+<p>&#x7A7A;&#x95F4;&#x590D;&#x6742;&#x5EA6; <code>O(1)</code> &#x6700;&#x574F; <code>O(n)</code></p>
+<p>&#x63A8;&#x8350;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">bubble_sort</span><span class="hljs-params">(li)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    &#x5192;&#x6CE1;&#x6392;&#x5E8F; &#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;O(n&#xB2;)
+    :param li:
+    :return:
+    &quot;&quot;&quot;</span>
+    <span class="hljs-comment"># &#x5FAA;&#x73AF; n &#x904D;</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(len(li) - <span class="hljs-number">1</span>):
+        <span class="hljs-comment"># &#x68C0;&#x6D4B;&#x662F;&#x5426;&#x4E0B;&#x4E00;&#x6B21;&#x5FAA;&#x73AF;&#x6709;&#x53D8;&#x66F4; &#x65E0;&#x53D8;&#x66F4;&#x8BF4;&#x660E;&#x6709;&#x5E8F;</span>
+        exchange = <span class="hljs-keyword">False</span>
+        <span class="hljs-comment"># &#x6392;&#x8FC7;&#x53BB;&#x4E4B;&#x540E;&#x5C31;&#x56FA;&#x5B9A;&#x4E86; &#x56FA;&#x5B9A;0 1 2 3 4 ... &#x6240;&#x4EE5; - i &#x7B97;&#x6CD5;&#x5C31;&#x662F;&#x4E3A;&#x4E86;&#x4F18;&#x5316;</span>
+        <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(len(li) - i - <span class="hljs-number">1</span>):
+            <span class="hljs-comment"># &#x5F53;&#x73B0;&#x5728; &#x6BD4; &#x4E0B;&#x4E00;&#x4F4D;&#x5927;&#xFF0C;&#x5219;&#x4EA4;&#x6362;&#x4F4D;&#x7F6E;</span>
+            <span class="hljs-keyword">if</span> li[j] &gt; li[j + <span class="hljs-number">1</span>]:
+                li[j], li[j + <span class="hljs-number">1</span>] = li[j + <span class="hljs-number">1</span>], li[j]
+                exchange = <span class="hljs-keyword">True</span>
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> exchange:
+            <span class="hljs-keyword">break</span>
+
+
+li = [random.randint(<span class="hljs-number">0</span>, <span class="hljs-number">100</span>) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">10</span>)]
+print(li)
+bubble_sort(li)
+print(li)
+</code></pre>
+<p><img src="mao-pao-pai-xu-ff08-bubble-sort.assets/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F.gif" alt="&#x5192;&#x6CE1;&#x6392;&#x5E8F;"></p>
+<p>&#x5E38;&#x89C1;&#x5199;&#x6CD5;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> random
+
+<span class="hljs-string">&quot;&quot;&quot;
+1. &#x6BD4;&#x8F83;&#x76F8;&#x90BB;&#x4E24;&#x4E2A;&#x6570;&#x636E;&#x5982;&#x679C;&#x3002;&#x7B2C;&#x4E00;&#x4E2A;&#x6BD4;&#x7B2C;&#x4E8C;&#x4E2A;&#x5927;&#xFF0C;&#x5C31;&#x4EA4;&#x6362;&#x4E24;&#x4E2A;&#x6570;
+2. &#x5BF9;&#x6BCF;&#x4E00;&#x4E2A;&#x76F8;&#x90BB;&#x7684;&#x6570;&#x505A;&#x540C;&#x6837;1&#x7684;&#x5DE5;&#x4F5C;&#xFF0C;&#x8FD9;&#x6837;&#x4ECE;&#x5F00;&#x59CB;&#x4E00;&#x961F;&#x5230;&#x7ED3;&#x5C3E;&#x4E00;&#x961F;&#x5728;&#x6700;&#x540E;&#x7684;&#x6570;&#x5C31;&#x662F;&#x6700;&#x5927;&#x7684;&#x6570;&#x3002;
+3. &#x9488;&#x5BF9;&#x6240;&#x6709;&#x5143;&#x7D20;&#x4E0A;&#x9762;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x9664;&#x4E86;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x3002;
+4. &#x91CD;&#x590D;1~3&#x6B65;&#x9AA4;&#xFF0C;&#x76F4;&#x5230;&#x987A;&#x5E8F;&#x5B8C;&#x6210;&#x3002;
+&quot;&quot;&quot;</span>
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">bubble_sort</span><span class="hljs-params">(li)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    &#x5192;&#x6CE1;&#x6392;&#x5E8F; &#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;O(n&#xB2;)  &#x7A7A;&#x95F4;&#x590D;&#x6742;&#x5EA6;O(1)
+    :param li:
+    :return:
+    &quot;&quot;&quot;</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(len(li) - <span class="hljs-number">1</span>):
+        <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(len(li) - i - <span class="hljs-number">1</span>):
+            <span class="hljs-keyword">if</span> li[j] &gt; li[j + <span class="hljs-number">1</span>]:
+                li[j], li[j + <span class="hljs-number">1</span>] = li[j + <span class="hljs-number">1</span>], li[j]
+
+
+li = [random.randint(<span class="hljs-number">0</span>, <span class="hljs-number">100</span>) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">10</span>)]
+print(li)
+bubble_sort(li)
+print(li)
+</code></pre>
 
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
@@ -1203,8 +1261,12 @@
 
             
                 
+                <a href="low-b-san-ren-zu.html" class="navigation navigation-prev " aria-label="Previous page: low b 三人组">
+                    <i class="fa fa-angle-left"></i>
+                </a>
                 
-                <a href="suan-fa-ji-chu.html" class="navigation navigation-next navigation-unique" aria-label="Next page: 算法基础">
+                
+                <a href="cha-ru-pai-xu-ff08-insert-sort.html" class="navigation navigation-next " aria-label="Next page: 插入排序（insert_sort）">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1215,7 +1277,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"algorithm前言","level":"1.1","depth":1,"next":{"title":"算法基础","level":"1.2","depth":1,"path":"suan-fa-ji-chu.md","ref":"suan-fa-ji-chu.md","articles":[{"title":"时间复杂度","level":"1.2.1","depth":2,"path":"shi-jian-fu-za-du.md","ref":"shi-jian-fu-za-du.md","articles":[]},{"title":"空间复杂度","level":"1.2.2","depth":2,"path":"kong-jian-fu-za-du.md","ref":"kong-jian-fu-za-du.md","articles":[]},{"title":"递归的含义","level":"1.2.3","depth":2,"path":"di-gui-de-han-yi.md","ref":"di-gui-de-han-yi.md","articles":[]},{"title":"常见算法时间复杂度","level":"1.2.4","depth":2,"path":"chang-jian-suan-fa-shi-jian-fu-za-du.md","ref":"chang-jian-suan-fa-shi-jian-fu-za-du.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["anchor-navigation-ex","-search","-sharing","theme-default","-lunr","fontsettings","livereload","popup","splitter","copy-code-button","highlight","-expandable-chapters-small","chapter-fold","back-to-top-button","search-pro","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"popup":{},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"anchor-navigation-ex":{"showLevelIcon":false,"mode":"float","pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"showLevel":false,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","showGoTop":true,"printLog":false,"multipleH1":false,"multipleH2":false,"associatedWithSummary":true,"multipleH3":false,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"multipleH4":false},"back-to-top-button":{},"copy-code-button":{},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"README.md","mtime":"2023-09-12T14:49:03.708Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-09-14T16:00:18.253Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"冒泡排序（bubble_sort）","level":"1.4.1.1","depth":3,"next":{"title":"插入排序（insert_sort）","level":"1.4.1.2","depth":3,"path":"cha-ru-pai-xu-ff08-insert-sort.md","ref":"cha-ru-pai-xu-ff08-insert-sort.md","articles":[]},"previous":{"title":"low b 三人组","level":"1.4.1","depth":2,"path":"low-b-san-ren-zu.md","ref":"low-b-san-ren-zu.md","articles":[{"title":"冒泡排序（bubble_sort）","level":"1.4.1.1","depth":3,"path":"mao-pao-pai-xu-ff08-bubble-sort.md","ref":"mao-pao-pai-xu-ff08-bubble-sort.md","articles":[]},{"title":"插入排序（insert_sort）","level":"1.4.1.2","depth":3,"path":"cha-ru-pai-xu-ff08-insert-sort.md","ref":"cha-ru-pai-xu-ff08-insert-sort.md","articles":[]},{"title":"选择排序（select_sort）","level":"1.4.1.3","depth":3,"path":"xuan-zepai-xu-ff08-select-sort.md","ref":"xuan-zepai-xu-ff08-select-sort.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["anchor-navigation-ex","-search","-sharing","theme-default","-lunr","fontsettings","livereload","popup","splitter","copy-code-button","highlight","-expandable-chapters-small","chapter-fold","back-to-top-button","search-pro","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"popup":{},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"anchor-navigation-ex":{"showLevelIcon":false,"mode":"float","pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"showLevel":false,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","showGoTop":true,"printLog":false,"multipleH1":false,"multipleH2":false,"associatedWithSummary":true,"multipleH3":false,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"multipleH4":false},"back-to-top-button":{},"copy-code-button":{},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"mao-pao-pai-xu-ff08-bubble-sort.md","mtime":"2023-09-12T14:49:03.860Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-09-14T16:00:18.253Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
