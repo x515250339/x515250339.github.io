@@ -1078,9 +1078,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.9.1" data-path="gong-chang-mo-shi.html">
+        <li class="chapter " data-level="1.9.1" data-path="gong-chang-mo-shi/">
             
-                <a href="gong-chang-mo-shi.html">
+                <a href="gong-chang-mo-shi/">
             
                     
                     工厂模式
@@ -1088,6 +1088,38 @@
                 </a>
             
 
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1.1" data-path="gong-chang-mo-shi/chou-xiang-gong-chang-mo-shi.html">
+            
+                <a href="gong-chang-mo-shi/chou-xiang-gong-chang-mo-shi.html">
+            
+                    
+                    抽象工厂模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.1.2" data-path="gong-chang-mo-shi/jian-dan-gong-chang-mo-shi.html">
+            
+                <a href="gong-chang-mo-shi/jian-dan-gong-chang-mo-shi.html">
+            
+                    
+                    简单工厂模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -1298,6 +1330,63 @@
                                 <section class="normal markdown-section">
                                 
                                 <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#&#x5355;&#x4F8B;&#x6A21;&#x5F0F;"><b></b>&#x5355;&#x4F8B;&#x6A21;&#x5F0F;</a></li></ul></div><a href="#&#x5355;&#x4F8B;&#x6A21;&#x5F0F;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x5355;&#x4F8B;&#x6A21;&#x5F0F;"><a name="&#x5355;&#x4F8B;&#x6A21;&#x5F0F;" class="anchor-navigation-ex-anchor" href="#&#x5355;&#x4F8B;&#x6A21;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5355;&#x4F8B;&#x6A21;&#x5F0F;</h1>
+<p>&#x5355;&#x4F8B;&#x6A21;&#x5F0F;&#xFF08;Singleton Pattern&#xFF09;&#x662F;&#x4E00;&#x79CD;&#x521B;&#x5EFA;&#x578B;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#xFF0C;&#x5B83;&#x786E;&#x4FDD;&#x4E00;&#x4E2A;&#x7C7B;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#xFF0C;&#x5E76;&#x63D0;&#x4F9B;&#x4E00;&#x79CD;&#x5168;&#x5C40;&#x8BBF;&#x95EE;&#x8BE5;&#x5B9E;&#x4F8B;&#x7684;&#x65B9;&#x5F0F;&#x3002;&#x8FD9;&#x79CD;&#x6A21;&#x5F0F;&#x901A;&#x5E38;&#x7528;&#x4E8E;&#x63A7;&#x5236;&#x8D44;&#x6E90;&#xFF0C;&#x4F8B;&#x5982;<strong>&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;&#x3001;&#x7EBF;&#x7A0B;&#x6C60;&#x3001;&#x7F13;&#x5B58;&#x5BF9;&#x8C61;</strong>&#x7B49;&#xFF0C;&#x4EE5;&#x786E;&#x4FDD;&#x7CFB;&#x7EDF;&#x4E2D;&#x53EA;&#x5B58;&#x5728;&#x4E00;&#x4E2A;&#x5171;&#x4EAB;&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x4ECE;&#x800C;&#x8282;&#x7701;&#x8D44;&#x6E90;&#x548C;&#x786E;&#x4FDD;&#x4E00;&#x81F4;&#x6027;&#x3002;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> wraps
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_func</span><span class="hljs-params">(func)</span>:</span>
+    _instance = {}
+
+<span class="hljs-meta">    @wraps(func)</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">inner</span><span class="hljs-params">(*args, **kwargs)</span>:</span>
+        <span class="hljs-keyword">if</span> func <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> _instance:
+            _instance[func] = func()
+        <span class="hljs-keyword">return</span> _instance[func]
+
+    <span class="hljs-keyword">return</span> inner
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestClass</span>:</span>
+    _instance = <span class="hljs-keyword">None</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__new__</span><span class="hljs-params">(cls, *args, **kwargs)</span>:</span>
+        <span class="hljs-keyword">if</span> TestClass._instance:
+            <span class="hljs-keyword">return</span> TestClass._instance
+        <span class="hljs-keyword">else</span>:
+            TestClass._instance = object.__new__(cls, *args, **kwargs)
+            <span class="hljs-keyword">return</span> TestClass._instance
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span>:</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__new__</span><span class="hljs-params">(cls, *args, **kwargs)</span>:</span>
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> hasattr(cls, <span class="hljs-string">&quot;_instance&quot;</span>):
+            cls._instance = super(Singleton, cls).__new__(cls)
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyClass</span><span class="hljs-params">(Singleton)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">pass</span>
+
+
+<span class="hljs-meta">@test_func</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyClass2</span>:</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">pass</span>
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&apos;__main__&apos;</span>:
+    t1 = TestClass()
+    t2 = TestClass()
+    print(t1 <span class="hljs-keyword">is</span> t2)
+    t3 = MyClass()
+    t4 = MyClass()
+    print(t3 <span class="hljs-keyword">is</span> t4)
+    t5 = MyClass2()
+    t6 = MyClass2()
+    print(t5 <span class="hljs-keyword">is</span> t6)
+</code></pre>
 
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
@@ -1342,7 +1431,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"单例模式","level":"1.9.3","depth":2,"next":{"title":"适配器模式","level":"1.9.4","depth":2,"path":"she-ji-mo-shi/shi-pei-qi-mo-shi.md","ref":"she-ji-mo-shi/shi-pei-qi-mo-shi.md","articles":[]},"previous":{"title":"建造者模式","level":"1.9.2","depth":2,"path":"she-ji-mo-shi/jian-zao-zhe-mo-shi.md","ref":"she-ji-mo-shi/jian-zao-zhe-mo-shi.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["anchor-navigation-ex","-search","-sharing","theme-default","-lunr","fontsettings","livereload","popup","splitter","copy-code-button","highlight","-expandable-chapters-small","chapter-fold","back-to-top-button","search-pro","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"popup":{},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"anchor-navigation-ex":{"showLevelIcon":false,"mode":"float","pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"showLevel":false,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","showGoTop":true,"printLog":false,"multipleH1":false,"multipleH2":false,"associatedWithSummary":true,"multipleH3":false,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"multipleH4":false},"back-to-top-button":{},"copy-code-button":{},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"she-ji-mo-shi/dan-li-mo-shi.md","mtime":"2023-09-12T14:49:03.871Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-10-07T09:54:03.162Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"单例模式","level":"1.9.3","depth":2,"next":{"title":"适配器模式","level":"1.9.4","depth":2,"path":"she-ji-mo-shi/shi-pei-qi-mo-shi.md","ref":"she-ji-mo-shi/shi-pei-qi-mo-shi.md","articles":[]},"previous":{"title":"建造者模式","level":"1.9.2","depth":2,"path":"she-ji-mo-shi/jian-zao-zhe-mo-shi.md","ref":"she-ji-mo-shi/jian-zao-zhe-mo-shi.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["anchor-navigation-ex","-search","-sharing","theme-default","-lunr","fontsettings","livereload","popup","splitter","copy-code-button","highlight","-expandable-chapters-small","chapter-fold","back-to-top-button","search-pro","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"popup":{},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"anchor-navigation-ex":{"showLevelIcon":false,"mode":"float","pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"showLevel":false,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","showGoTop":true,"printLog":false,"multipleH1":false,"multipleH2":false,"associatedWithSummary":true,"multipleH3":false,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"multipleH4":false},"back-to-top-button":{},"copy-code-button":{},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"she-ji-mo-shi/dan-li-mo-shi.md","mtime":"2023-10-07T13:29:45.235Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-10-07T13:29:48.267Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

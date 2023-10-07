@@ -76,7 +76,7 @@
     <link rel="next" href="dan-li-mo-shi.html" />
     
     
-    <link rel="prev" href="gong-chang-mo-shi.html" />
+    <link rel="prev" href="gong-chang-mo-shi/jian-dan-gong-chang-mo-shi.html" />
     
 
     </head>
@@ -1078,9 +1078,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.9.1" data-path="gong-chang-mo-shi.html">
+        <li class="chapter " data-level="1.9.1" data-path="gong-chang-mo-shi/">
             
-                <a href="gong-chang-mo-shi.html">
+                <a href="gong-chang-mo-shi/">
             
                     
                     工厂模式
@@ -1088,6 +1088,38 @@
                 </a>
             
 
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1.1" data-path="gong-chang-mo-shi/chou-xiang-gong-chang-mo-shi.html">
+            
+                <a href="gong-chang-mo-shi/chou-xiang-gong-chang-mo-shi.html">
+            
+                    
+                    抽象工厂模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.1.2" data-path="gong-chang-mo-shi/jian-dan-gong-chang-mo-shi.html">
+            
+                <a href="gong-chang-mo-shi/jian-dan-gong-chang-mo-shi.html">
+            
+                    
+                    简单工厂模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -1298,6 +1330,127 @@
                                 <section class="normal markdown-section">
                                 
                                 <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#&#x5EFA;&#x9020;&#x8005;&#x6A21;&#x5F0F;"><b></b>&#x5EFA;&#x9020;&#x8005;&#x6A21;&#x5F0F;</a></li></ul></div><a href="#&#x5EFA;&#x9020;&#x8005;&#x6A21;&#x5F0F;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x5EFA;&#x9020;&#x8005;&#x6A21;&#x5F0F;"><a name="&#x5EFA;&#x9020;&#x8005;&#x6A21;&#x5F0F;" class="anchor-navigation-ex-anchor" href="#&#x5EFA;&#x9020;&#x8005;&#x6A21;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5EFA;&#x9020;&#x8005;&#x6A21;&#x5F0F;</h1>
+<p>&#x5EFA;&#x9020;&#x8005;&#x6A21;&#x5F0F;&#xFF08;Builder Pattern&#xFF09;&#x662F;&#x4E00;&#x79CD;&#x521B;&#x5EFA;&#x578B;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#xFF0C;&#x5B83;&#x7528;&#x4E8E;&#x521B;&#x5EFA;&#x590D;&#x6742;&#x5BF9;&#x8C61;&#xFF0C;&#x5C06;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x6784;&#x5EFA;&#x4E0E;&#x5176;&#x8868;&#x793A;&#x5206;&#x79BB;&#xFF0C;&#x4EE5;&#x4FBF;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x4E0D;&#x540C;&#x7C7B;&#x578B;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x540C;&#x65F6;&#x907F;&#x514D;&#x6784;&#x9020;&#x5668;&#x53C2;&#x6570;&#x5217;&#x8868;&#x7684;&#x8FC7;&#x957F;&#x95EE;&#x9898;&#x3002;&#x8BE5;&#x6A21;&#x5F0F;&#x901A;&#x5E38;&#x5305;&#x62EC;&#x4E00;&#x4E2A;&#x6307;&#x5BFC;&#x8005;&#xFF08;Director&#xFF09;&#x548C;&#x4E00;&#x4E2A;&#x5177;&#x4F53;&#x7684;&#x5EFA;&#x9020;&#x8005;&#xFF08;Builder&#xFF09;&#xFF0C;&#x6307;&#x5BFC;&#x8005;&#x8D1F;&#x8D23;&#x6307;&#x5BFC;&#x5177;&#x4F53;&#x7684;&#x5EFA;&#x9020;&#x8005;&#x6765;&#x6784;&#x5EFA;&#x5BF9;&#x8C61;&#x3002;&#x5EFA;&#x9020;&#x8005;&#x6A21;&#x5F0F;&#x7684;&#x5173;&#x952E;&#x662F;<strong>&#x6309;&#x7167;&#x6B63;&#x786E;&#x7684;&#x987A;&#x5E8F;&#x8BBE;&#x7F6E;&#x5C5E;&#x6027;&#x548C;&#x8C03;&#x7528;&#x65B9;&#x6CD5;</strong>&#xFF0C;&#x4EE5;&#x786E;&#x4FDD;&#x6700;&#x7EC8;&#x751F;&#x6210;&#x6240;&#x9700;&#x7684;&#x590D;&#x6742;&#x5BF9;&#x8C61;&#x3002;&#x8FD9;&#x6709;&#x52A9;&#x4E8E;&#x63D0;&#x9AD8;&#x4EE3;&#x7801;&#x7684;&#x53EF;&#x7EF4;&#x62A4;&#x6027;&#x548C;&#x53EF;&#x6269;&#x5C55;&#x6027;&#x3002;</p>
+<p>&#x5728;&#x8FD9;&#x4E2A;&#x793A;&#x4F8B;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;<code>Computer</code>&#x7C7B;&#x548C;<code>ComputerBuilder</code>&#x63A5;&#x53E3;&#x5B9A;&#x4E49;&#x4E3A;&#x62BD;&#x8C61;&#x57FA;&#x7C7B;&#xFF0C;&#x5E76;&#x4F7F;&#x7528;<code>abc</code>&#x6A21;&#x5757;&#x7684;<code>abstractmethod</code>&#x88C5;&#x9970;&#x5668;&#x6765;&#x6807;&#x8BB0;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;&#x3002;&#x5177;&#x4F53;&#x7684;&#x7535;&#x8111;&#x7C7B;<code>ConcreteComputer</code>&#x7EE7;&#x627F;&#x81EA;<code>Computer</code>&#xFF0C;&#x5E76;&#x5B9E;&#x73B0;&#x4E86;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;<code>__str__</code>&#x6765;&#x5B9A;&#x4E49;&#x7535;&#x8111;&#x5BF9;&#x8C61;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x8868;&#x793A;&#x3002;</p>
+<p>&#x5177;&#x4F53;&#x7684;&#x5EFA;&#x9020;&#x8005;&#x7C7B;<code>ConcreteComputerBuilder</code>&#x7EE7;&#x627F;&#x81EA;<code>ComputerBuilder</code>&#xFF0C;&#x5E76;&#x5B9E;&#x73B0;&#x4E86;&#x6240;&#x6709;&#x7684;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;&#xFF0C;&#x5305;&#x62EC;<code>set_meat</code>&#x65B9;&#x6CD5;&#xFF0C;&#x7528;&#x4E8E;&#x8BBE;&#x7F6E;&#x7535;&#x8111;&#x7684;<code>meat</code>&#x5C5E;&#x6027;&#x3002;</p>
+<p>&#x5BA2;&#x6237;&#x7AEF;&#x4EE3;&#x7801;&#x4E0E;&#x4E4B;&#x524D;&#x7C7B;&#x4F3C;&#xFF0C;&#x4F7F;&#x7528;&#x6307;&#x5BFC;&#x8005;&#x6765;&#x6784;&#x5EFA;&#x7535;&#x8111;&#x5BF9;&#x8C61;&#xFF0C;&#x5305;&#x62EC;&#x8BBE;&#x7F6E;&#x4E86;<code>meat</code>&#x5C5E;&#x6027;&#x3002;&#x8FD9;&#x79CD;&#x7ED3;&#x5408;<code>abc</code>&#x7684;&#x65B9;&#x5F0F;&#x786E;&#x4FDD;&#x4E86;&#x7535;&#x8111;&#x548C;&#x5EFA;&#x9020;&#x8005;&#x7684;&#x4E00;&#x81F4;&#x6027;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x63D0;&#x4F9B;&#x4E86;&#x66F4;&#x597D;&#x7684;&#x4EE3;&#x7801;&#x89C4;&#x8303;&#x548C;&#x53EF;&#x7EF4;&#x62A4;&#x6027;&#x3002;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> abc <span class="hljs-keyword">import</span> ABC, abstractmethod
+
+
+<span class="hljs-comment"># &#x5B9A;&#x4E49;&#x7535;&#x8111;&#x62BD;&#x8C61;&#x57FA;&#x7C7B;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Computer</span><span class="hljs-params">(ABC)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        self.cpu = <span class="hljs-keyword">None</span>
+        self.memory = <span class="hljs-keyword">None</span>
+        self.hard_drive = <span class="hljs-keyword">None</span>
+        self.graphics_card = <span class="hljs-keyword">None</span>
+        self.meat = <span class="hljs-keyword">None</span>
+
+<span class="hljs-meta">    @abstractmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__str__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">pass</span>
+
+
+<span class="hljs-comment"># &#x5B9A;&#x4E49;&#x7535;&#x8111;&#x5EFA;&#x9020;&#x8005;&#x63A5;&#x53E3;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ComputerBuilder</span><span class="hljs-params">(ABC)</span>:</span>
+<span class="hljs-meta">    @abstractmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">set_cpu</span><span class="hljs-params">(self, cpu)</span>:</span>
+        <span class="hljs-keyword">pass</span>
+
+<span class="hljs-meta">    @abstractmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">set_memory</span><span class="hljs-params">(self, memory)</span>:</span>
+        <span class="hljs-keyword">pass</span>
+
+<span class="hljs-meta">    @abstractmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">set_hard_drive</span><span class="hljs-params">(self, hard_drive)</span>:</span>
+        <span class="hljs-keyword">pass</span>
+
+<span class="hljs-meta">    @abstractmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">set_graphics_card</span><span class="hljs-params">(self, graphics_card)</span>:</span>
+        <span class="hljs-keyword">pass</span>
+
+<span class="hljs-meta">    @abstractmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">set_meat</span><span class="hljs-params">(self, meat)</span>:</span>
+        <span class="hljs-keyword">pass</span>
+
+<span class="hljs-meta">    @abstractmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">build</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">pass</span>
+
+
+<span class="hljs-comment"># &#x5177;&#x4F53;&#x7684;&#x7535;&#x8111;&#x7C7B;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConcreteComputer</span><span class="hljs-params">(Computer)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__str__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> f<span class="hljs-string">&quot;CPU: {self.cpu}, Memory: {self.memory}, Hard Drive: {self.hard_drive}, Graphics Card: {self.graphics_card}, Meat: {self.meat}&quot;</span>
+
+
+<span class="hljs-comment"># &#x5177;&#x4F53;&#x7684;&#x7535;&#x8111;&#x5EFA;&#x9020;&#x8005;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConcreteComputerBuilder</span><span class="hljs-params">(ComputerBuilder)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        self.computer = ConcreteComputer()
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">set_cpu</span><span class="hljs-params">(self, cpu)</span>:</span>
+        self.computer.cpu = cpu
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">set_memory</span><span class="hljs-params">(self, memory)</span>:</span>
+        self.computer.memory = memory
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">set_hard_drive</span><span class="hljs-params">(self, hard_drive)</span>:</span>
+        self.computer.hard_drive = hard_drive
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">set_graphics_card</span><span class="hljs-params">(self, graphics_card)</span>:</span>
+        self.computer.graphics_card = graphics_card
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">set_meat</span><span class="hljs-params">(self, meat)</span>:</span>
+        self.computer.meat = meat
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">build</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> self.computer
+
+
+<span class="hljs-comment"># &#x5B9A;&#x4E49;&#x7535;&#x8111;&#x6307;&#x5BFC;&#x8005;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ComputerDirector</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, builder)</span>:</span>
+        self.builder = builder
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">construct</span><span class="hljs-params">(self)</span>:</span>
+        self.builder.set_cpu(<span class="hljs-string">&quot;Intel Core i7&quot;</span>)
+        self.builder.set_memory(<span class="hljs-string">&quot;16GB&quot;</span>)
+        self.builder.set_hard_drive(<span class="hljs-string">&quot;1TB SSD&quot;</span>)
+        self.builder.set_graphics_card(<span class="hljs-string">&quot;NVIDIA GeForce RTX 3080&quot;</span>)
+        self.builder.set_meat(<span class="hljs-string">&quot;Beef&quot;</span>)
+        <span class="hljs-keyword">return</span> self.builder.build()
+
+
+<span class="hljs-comment"># &#x5B9A;&#x4E49;&#x9AD8;&#x7AEF;&#x7535;&#x8111;&#x6307;&#x5BFC;&#x8005;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ComputerDirectorHighEnd</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, builder)</span>:</span>
+        self.builder = builder
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">construct</span><span class="hljs-params">(self)</span>:</span>
+        self.builder.set_cpu(<span class="hljs-string">&quot;Intel Core i9&quot;</span>)
+        self.builder.set_memory(<span class="hljs-string">&quot;64GB&quot;</span>)
+        self.builder.set_hard_drive(<span class="hljs-string">&quot;10TB SSD&quot;</span>)
+        self.builder.set_graphics_card(<span class="hljs-string">&quot;NVIDIA GeForce RTX 4090Ti&quot;</span>)
+        self.builder.set_meat(<span class="hljs-string">&quot;Beef&quot;</span>)
+        <span class="hljs-keyword">return</span> self.builder.build()
+
+
+<span class="hljs-comment"># &#x5BA2;&#x6237;&#x7AEF;&#x4EE3;&#x7801;</span>
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:
+    builder = ConcreteComputerBuilder()
+    director = ComputerDirector(builder)
+
+    computer = director.construct()
+
+    print(<span class="hljs-string">&quot;&#x6784;&#x5EFA;&#x7684;&#x7535;&#x8111;&#x4FE1;&#x606F;:&quot;</span>)
+    print(computer)
+    director = ComputerDirectorHighEnd(builder)
+
+    computer = director.construct()
+    print(<span class="hljs-string">&quot;&#x6784;&#x5EFA;&#x7684;&#x7535;&#x8111;&#x4FE1;&#x606F;:&quot;</span>)
+    print(computer)
+</code></pre>
 
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
@@ -1326,7 +1479,7 @@
 
             
                 
-                <a href="gong-chang-mo-shi.html" class="navigation navigation-prev " aria-label="Previous page: 工厂模式">
+                <a href="gong-chang-mo-shi/jian-dan-gong-chang-mo-shi.html" class="navigation navigation-prev " aria-label="Previous page: 简单工厂模式">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -1342,7 +1495,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"建造者模式","level":"1.9.2","depth":2,"next":{"title":"单例模式","level":"1.9.3","depth":2,"path":"she-ji-mo-shi/dan-li-mo-shi.md","ref":"she-ji-mo-shi/dan-li-mo-shi.md","articles":[]},"previous":{"title":"工厂模式","level":"1.9.1","depth":2,"path":"she-ji-mo-shi/gong-chang-mo-shi.md","ref":"she-ji-mo-shi/gong-chang-mo-shi.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["anchor-navigation-ex","-search","-sharing","theme-default","-lunr","fontsettings","livereload","popup","splitter","copy-code-button","highlight","-expandable-chapters-small","chapter-fold","back-to-top-button","search-pro","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"popup":{},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"anchor-navigation-ex":{"showLevelIcon":false,"mode":"float","pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"showLevel":false,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","showGoTop":true,"printLog":false,"multipleH1":false,"multipleH2":false,"associatedWithSummary":true,"multipleH3":false,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"multipleH4":false},"back-to-top-button":{},"copy-code-button":{},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"she-ji-mo-shi/jian-zao-zhe-mo-shi.md","mtime":"2023-09-12T14:49:03.872Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-10-07T09:54:03.162Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"建造者模式","level":"1.9.2","depth":2,"next":{"title":"单例模式","level":"1.9.3","depth":2,"path":"she-ji-mo-shi/dan-li-mo-shi.md","ref":"she-ji-mo-shi/dan-li-mo-shi.md","articles":[]},"previous":{"title":"简单工厂模式","level":"1.9.1.2","depth":3,"path":"she-ji-mo-shi/gong-chang-mo-shi/jian-dan-gong-chang-mo-shi.md","ref":"she-ji-mo-shi/gong-chang-mo-shi/jian-dan-gong-chang-mo-shi.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["anchor-navigation-ex","-search","-sharing","theme-default","-lunr","fontsettings","livereload","popup","splitter","copy-code-button","highlight","-expandable-chapters-small","chapter-fold","back-to-top-button","search-pro","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"popup":{},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"anchor-navigation-ex":{"showLevelIcon":false,"mode":"float","pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"showLevel":false,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","showGoTop":true,"printLog":false,"multipleH1":false,"multipleH2":false,"associatedWithSummary":true,"multipleH3":false,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"multipleH4":false},"back-to-top-button":{},"copy-code-button":{},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"she-ji-mo-shi/jian-zao-zhe-mo-shi.md","mtime":"2023-10-07T13:29:45.236Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-10-07T13:29:48.267Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
