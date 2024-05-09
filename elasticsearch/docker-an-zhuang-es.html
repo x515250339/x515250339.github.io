@@ -1,0 +1,365 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Docker安装es · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2" data-path="docker-an-zhuang-es.html">
+            
+                <a href="docker-an-zhuang-es.html">
+            
+                    
+                    Docker安装es
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Docker安装es</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="docker&#x5B89;&#x88C5;es">Docker&#x5B89;&#x88C5;es</h1>
+<h3 id="&#x57FA;&#x4E8E;docker&#x5B89;&#x88C5;elasticsearch">&#x57FA;&#x4E8E;Docker&#x5B89;&#x88C5;Elasticsearch</h3>
+<h4 id="&#x521B;&#x5EFA;&#x7F51;&#x7EDC;">&#x521B;&#x5EFA;&#x7F51;&#x7EDC;</h4>
+<p>&#x56E0;&#x4E3A;&#x9700;&#x8981;&#x90E8;&#x7F72;kibana&#x5BB9;&#x5668;&#xFF0C;&#x56E0;&#x6B64;&#x9700;&#x8981;&#x8BA9;es&#x548C;kibana&#x5BB9;&#x5668;&#x4E92;&#x8054;&#x3002;</p>
+<pre><code>docker network create es-net
+</code></pre><h4 id="&#x62C9;&#x53D6;&#x955C;&#x50CF;">&#x62C9;&#x53D6;&#x955C;&#x50CF;</h4>
+<p>&#x4EE5;&#x5B89;&#x88C5;Elasticsearch 8.6.0 &#x7248;&#x672C;&#x4E3A;&#x4F8B;</p>
+<pre><code>docker pull elasticsearch:8.6.0
+</code></pre><p>&#x8F93;&#x51FA;</p>
+<pre><code>&#x279C;  ~ docker pull elasticsearch:8.6.0
+8.6.0: Pulling from library/elasticsearch
+f04b4bbe1580: Pull complete 
+b204f459fbbb: Pull complete 
+ed2bc0ac3fa7: Pull complete 
+4f4fb700ef54: Pull complete 
+beea53f68bb6: Pull complete 
+6ee6f894df6a: Pull complete 
+759280ba6bc5: Pull complete 
+46455a3a48f7: Pull complete 
+1c7c7616fc01: Pull complete 
+9076d3ab55ae: Pull complete 
+Digest: sha256:12d0ff50b96a53d2a8e103ba2e0e69187babc3dcf8bdc88788d019cdebb75c0c
+Status: Downloaded newer image for elasticsearch:8.6.0
+docker.io/library/elasticsearch:8.6.0
+</code></pre><h4 id="&#x521B;&#x5EFA;&#x6302;&#x8F7D;&#x70B9;&#x76EE;&#x5F55;">&#x521B;&#x5EFA;&#x6302;&#x8F7D;&#x70B9;&#x76EE;&#x5F55;</h4>
+<pre><code>mkdir -p ./es/data ./es/config ./es/plugins
+</code></pre><p>&#x53D8;&#x4E3A;&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;</p>
+<pre><code>chmod 777  ./es/data
+chmod 777  ./es/config
+chmod 777  ./es/plugins
+</code></pre><h4 id="&#x90E8;&#x7F72;&#x5355;&#x70B9;es&#xFF0C;&#x521B;&#x5EFA;es&#x5BB9;&#x5668;">&#x90E8;&#x7F72;&#x5355;&#x70B9;es&#xFF0C;&#x521B;&#x5EFA;es&#x5BB9;&#x5668;</h4>
+<pre><code>docker run -d \
+--restart=always \
+--name es \
+--network es-net \
+-p 9200:9200 \
+-p 9300:9300 \
+--privileged \
+-v /Users/wyx/MyFile/Docker/es/data:/usr/share/elasticsearch/data \
+-v /Users/wyx/MyFile/Docker/es/plugins:/usr/share/elasticsearch/plugins \
+-e &quot;discovery.type=single-node&quot; \
+-e &quot;ES_JAVA_OPTS=-Xms512m -Xmx512m&quot; \
+elasticsearch:8.6.0
+</code></pre><p><strong>&#x8FDB;&#x5165;es&#x5BB9;&#x5668;</strong></p>
+<pre><code>docker exec -it es /bin/bash
+</code></pre><p><strong>&#x7F16;&#x5199;elasticsearch.yml</strong></p>
+<p><strong>&#x8DF3;&#x8F6C;&#x5230;config&#x76EE;&#x5F55;&#x4E0B;</strong></p>
+<pre><code>cd config
+</code></pre><pre><code>echo &apos;xpack.security.enabled: false&apos; &gt;&gt; elasticsearch.yml
+echo &apos;xpack.security.http.ssl.enabled: false&apos; &gt;&gt; elasticsearch.yml
+</code></pre><p><strong>&#x91CD;&#x7F6E;&#x5BC6;&#x7801;</strong></p>
+<p>&#x8BB0;&#x4F4F;New value: **0000000</p>
+<pre><code>docker exec -it elasticsearch1 /bin/bash
+</code></pre><p><strong>&#x542F;&#x7528;&#x5BC6;&#x7801;</strong></p>
+<p>&#x60F3;&#x542F;&#x7528;&#x5BC6;&#x7801;&#x6253;&#x5F00;&#x5373;&#x53EF;</p>
+<pre><code>xpack.security.enabled: true
+</code></pre><p><strong>&#x8BBE;&#x7F6E; JVM &#x5185;&#x5B58;&#x53C2;&#x6570;(&#x53EF;&#x9009;&#x8BBE;&#x7F6E;)</strong></p>
+<pre><code>docker exec -it elasticsearch1 /bin/bash
+vi /usr/share/elasticsearch/config/jvm.options&#x4FEE;&#x6539;&#x5982;&#x4E0B;&#x914D;&#x7F6E;&#xFF1A;
+</code></pre><pre><code>################################################################
+
+## IMPORTANT: JVM heap size
+
+################################################################
+##
+
+## The heap size is automatically configured by Elasticsearch
+
+## based on the available memory in your system and the roles
+
+## each node is configured to fulfill. If specifying heap is
+
+## required, it should be done through a file in jvm.options.d,
+
+## which should be named with .options suffix, and the min and
+
+## max should be set to the same value. For example, to set the
+
+## heap to 4 GB, create a new file in the jvm.options.d
+
+## directory containing these lines:
+
+##
+
+## -Xms4g
+
+## -Xmx4g
+
+##
+
+## See https://www.elastic.co/guide/en/elasticsearch/reference/8.9/heap-size.html
+
+## for more information
+
+##
+################################################################
+-Xms1g
+-Xmx1g
+</code></pre><p><strong>&#x57FA;&#x4E8E;Docker&#x5B89;&#x88C5;IK&#x5206;&#x8BCD;&#x5668;</strong></p>
+<p><strong>&#x6CE8;&#x610F;&#xFF1A;&#x5B89;&#x88C5;IK&#x5206;&#x8BCD;&#x5668;&#x7684;&#x7248;&#x672C;&#xFF0C;&#x5FC5;&#x987B;&#x548C;Elasticsearch&#x7684;&#x7248;&#x672C;&#x4E00;&#x81F4;&#xFF0C;</strong></p>
+<pre><code>    &#x4E0A;&#x6587;&#x5B89;&#x88C5;&#x7684;&#x662F;Elasticsearch 8.6.0&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x63A5;&#x4E0B;&#x6765;&#x5B89;&#x88C5;&#x7684;IK&#x5206;&#x8BCD;&#x5668;&#x7248;&#x672C;&#x662F;8.6.0
+</code></pre><p>&#x76F4;&#x63A5;&#x6267;&#x884C;&#x5373;&#x53EF;</p>
+<pre><code>./bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v8.6.0/elasticsearch-analysis-ik-8.6.0.zip
+</code></pre><p>&#x5982;&#x679C;&#x9700;&#x8981;&#x5B89;&#x88C5;&#x5176;&#x4ED6;&#x7248;&#x672C;&#x7684;IK&#x5206;&#x8BCD;&#x5668;&#xFF0C;&#x9700;&#x8981;&#x628A;&#x7248;&#x672C;&#x53F7;&#x4FEE;&#x6539;&#x5373;&#x53EF;</p>
+<pre><code>./bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.4.2/elasticsearch-analysis-ik-7.4.2.zip
+
+./bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v8.6.0/elasticsearch-analysis-ik-8.6.0.zip
+</code></pre><p><strong>&#x91CD;&#x542F;es&#x5BB9;&#x5668;</strong></p>
+<pre><code>docker restart es
+</code></pre><p>&#x6D4B;&#x8BD5;</p>
+<p><a href="http://localhost:9200" target="_blank">http://localhost:9200</a></p>
+<h3 id="&#x57FA;&#x4E8E;docker&#x5B89;&#x88C5;kibana">&#x57FA;&#x4E8E;Docker&#x5B89;&#x88C5;Kibana</h3>
+<pre><code>docker pull kibana:8.6.0
+</code></pre><h4 id="&#x521B;&#x5EFA;&#x6302;&#x8F7D;&#x70B9;&#x76EE;&#x5F55;">&#x521B;&#x5EFA;&#x6302;&#x8F7D;&#x70B9;&#x76EE;&#x5F55;</h4>
+<pre><code>mkdir -p ./kibana/config ./kibana/data
+</code></pre><pre><code>chmod 777 /usr/local/kibana/data
+chmod 777 /usr/local/kibana/config
+</code></pre><h4 id="&#x90E8;&#x7F72;kibana&#xFF0C;&#x521B;&#x5EFA;kibana&#x5BB9;&#x5668;">&#x90E8;&#x7F72;kibana&#xFF0C;&#x521B;&#x5EFA;kibana&#x5BB9;&#x5668;</h4>
+<pre><code>docker run -d \
+--restart=always \
+--name kibana \
+--network es-net \
+-p 5601:5601 \
+-e ELASTICSEARCH_HOSTS=http://es:9200 \
+kibana:8.6.0
+</code></pre><h4 id="&#x6D4B;&#x8BD5;kibana&#x662F;&#x5426;&#x5B89;&#x88C5;&#x6210;&#x529F;">&#x6D4B;&#x8BD5;Kibana&#x662F;&#x5426;&#x5B89;&#x88C5;&#x6210;&#x529F;</h4>
+<p>&#x8BBF;&#x95EE;&#x865A;&#x62DF;&#x673A;&#x5730;&#x5740;+&#x7AEF;&#x53E3;&#x53F7;&#xFF0C;&#x524D;&#x9762;&#x914D;&#x7F6E;Kibana &#x7684;&#x7AEF;&#x53E3;&#x53F7;&#x4E3A;&#xFF1A;5601</p>
+<p><a href="http://localhost:5601" target="_blank">http://localhost:5601</a></p>
+<p>\</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 前言">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Docker安装es","level":"1.2","depth":1,"previous":{"title":"前言","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docker-an-zhuang-es.md","mtime":"2024-05-09T13:36:04.163Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-05-09T13:39:05.923Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
