@@ -73,8 +73,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="es-ji-ben-yu-fa.html" />
     
-    <link rel="prev" href="./" />
+    
+    <link rel="prev" href="es-jie-shao.html" />
     
 
     </head>
@@ -118,14 +120,74 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2" data-path="docker-an-zhuang-es.html">
+        <li class="chapter " data-level="1.2" data-path="es-jie-shao.html">
             
-                <a href="docker-an-zhuang-es.html">
+                <a href="es-jie-shao.html">
             
                     
                         <b>1.2.</b>
                     
+                    ES介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3" data-path="docker-an-zhuang-es.html">
+            
+                <a href="docker-an-zhuang-es.html">
+            
+                    
+                        <b>1.3.</b>
+                    
                     Docker安装es
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="es-ji-ben-yu-fa.html">
+            
+                <a href="es-ji-ben-yu-fa.html">
+            
+                    
+                        <b>1.4.</b>
+                    
+                    ES基本语法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="es-yu-fa-jin-jie.html">
+            
+                <a href="es-yu-fa-jin-jie.html">
+            
+                    
+                        <b>1.5.</b>
+                    
+                    ES语法进阶（📌）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="dao-pai-suo-yin.html">
+            
+                <a href="dao-pai-suo-yin.html">
+            
+                    
+                        <b>1.6.</b>
+                    
+                    倒排索引
             
                 </a>
             
@@ -178,37 +240,21 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#docker&#x5B89;&#x88C5;es"><b></b>Docker&#x5B89;&#x88C5;es</a></li><ul><ul><li><span class="title-icon "></span><a href="#&#x57FA;&#x4E8E;docker&#x5B89;&#x88C5;elasticsearch"><b></b>&#x57FA;&#x4E8E;Docker&#x5B89;&#x88C5;Elasticsearch</a></li><li><span class="title-icon "></span><a href="#&#x57FA;&#x4E8E;docker&#x5B89;&#x88C5;kibana"><b></b>&#x57FA;&#x4E8E;Docker&#x5B89;&#x88C5;Kibana</a></li></ul></ul></ul></div><a href="#docker&#x5B89;&#x88C5;es" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="docker&#x5B89;&#x88C5;es"><a name="docker&#x5B89;&#x88C5;es" class="anchor-navigation-ex-anchor" href="#docker&#x5B89;&#x88C5;es"><i class="fa fa-link" aria-hidden="true"></i></a>Docker&#x5B89;&#x88C5;es</h1>
-<h3 id="&#x57FA;&#x4E8E;docker&#x5B89;&#x88C5;elasticsearch"><a name="&#x57FA;&#x4E8E;docker&#x5B89;&#x88C5;elasticsearch" class="anchor-navigation-ex-anchor" href="#&#x57FA;&#x4E8E;docker&#x5B89;&#x88C5;elasticsearch"><i class="fa fa-link" aria-hidden="true"></i></a>&#x57FA;&#x4E8E;Docker&#x5B89;&#x88C5;Elasticsearch</h3>
-<h4 id="&#x521B;&#x5EFA;&#x7F51;&#x7EDC;"><a name="&#x521B;&#x5EFA;&#x7F51;&#x7EDC;" class="anchor-navigation-ex-anchor" href="#&#x521B;&#x5EFA;&#x7F51;&#x7EDC;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x521B;&#x5EFA;&#x7F51;&#x7EDC;</h4>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#docker&#x5B89;&#x88C5;es"><b></b>Docker&#x5B89;&#x88C5;es</a></li><ul><li><span class="title-icon "></span><a href="#&#x57FA;&#x4E8E;docker&#x5B89;&#x88C5;elasticsearch"><b></b>&#x57FA;&#x4E8E;Docker&#x5B89;&#x88C5;Elasticsearch</a></li><ul><li><span class="title-icon "></span><a href="#&#x521B;&#x5EFA;&#x7F51;&#x7EDC;"><b></b>&#x521B;&#x5EFA;&#x7F51;&#x7EDC;</a></li><li><span class="title-icon "></span><a href="#&#x62C9;&#x53D6;&#x955C;&#x50CF;"><b></b>&#x62C9;&#x53D6;&#x955C;&#x50CF;</a></li><li><span class="title-icon "></span><a href="#&#x521B;&#x5EFA;&#x6302;&#x8F7D;&#x70B9;&#x76EE;&#x5F55;"><b></b>&#x521B;&#x5EFA;&#x6302;&#x8F7D;&#x70B9;&#x76EE;&#x5F55;</a></li><li><span class="title-icon "></span><a href="#&#x90E8;&#x7F72;&#x5355;&#x70B9;es&#xFF0C;&#x521B;&#x5EFA;es&#x5BB9;&#x5668;"><b></b>&#x90E8;&#x7F72;&#x5355;&#x70B9;es&#xFF0C;&#x521B;&#x5EFA;es&#x5BB9;&#x5668;</a></li><li><span class="title-icon "></span><a href="#&#x8FDB;&#x5165;es&#x5BB9;&#x5668;"><b></b>&#x8FDB;&#x5165;es&#x5BB9;&#x5668;</a></li><li><span class="title-icon "></span><a href="#&#x91CD;&#x542F;es&#x5BB9;&#x5668;"><b></b>&#x91CD;&#x542F;es&#x5BB9;&#x5668;</a></li></ul><li><span class="title-icon "></span><a href="#&#x57FA;&#x4E8E;docker&#x5B89;&#x88C5;kibana"><b></b>&#x57FA;&#x4E8E;Docker&#x5B89;&#x88C5;Kibana</a></li><ul><li><span class="title-icon "></span><a href="#&#x521B;&#x5EFA;&#x6302;&#x8F7D;&#x70B9;&#x76EE;&#x5F55;_1"><b></b>&#x521B;&#x5EFA;&#x6302;&#x8F7D;&#x70B9;&#x76EE;&#x5F55;</a></li><li><span class="title-icon "></span><a href="#&#x90E8;&#x7F72;kibana&#xFF0C;&#x521B;&#x5EFA;kibana&#x5BB9;&#x5668;"><b></b>&#x90E8;&#x7F72;kibana&#xFF0C;&#x521B;&#x5EFA;kibana&#x5BB9;&#x5668;</a></li><li><span class="title-icon "></span><a href="#&#x6D4B;&#x8BD5;kibana&#x662F;&#x5426;&#x5B89;&#x88C5;&#x6210;&#x529F;"><b></b>&#x6D4B;&#x8BD5;Kibana&#x662F;&#x5426;&#x5B89;&#x88C5;&#x6210;&#x529F;</a></li></ul></ul></ul></div><a href="#docker&#x5B89;&#x88C5;es" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="docker&#x5B89;&#x88C5;es"><a name="docker&#x5B89;&#x88C5;es" class="anchor-navigation-ex-anchor" href="#docker&#x5B89;&#x88C5;es"><i class="fa fa-link" aria-hidden="true"></i></a>Docker&#x5B89;&#x88C5;es</h1>
+<h2 id="&#x57FA;&#x4E8E;docker&#x5B89;&#x88C5;elasticsearch"><a name="&#x57FA;&#x4E8E;docker&#x5B89;&#x88C5;elasticsearch" class="anchor-navigation-ex-anchor" href="#&#x57FA;&#x4E8E;docker&#x5B89;&#x88C5;elasticsearch"><i class="fa fa-link" aria-hidden="true"></i></a>&#x57FA;&#x4E8E;Docker&#x5B89;&#x88C5;Elasticsearch</h2>
+<h3 id="&#x521B;&#x5EFA;&#x7F51;&#x7EDC;"><a name="&#x521B;&#x5EFA;&#x7F51;&#x7EDC;" class="anchor-navigation-ex-anchor" href="#&#x521B;&#x5EFA;&#x7F51;&#x7EDC;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x521B;&#x5EFA;&#x7F51;&#x7EDC;</h3>
 <p>&#x56E0;&#x4E3A;&#x9700;&#x8981;&#x90E8;&#x7F72;kibana&#x5BB9;&#x5668;&#xFF0C;&#x56E0;&#x6B64;&#x9700;&#x8981;&#x8BA9;es&#x548C;kibana&#x5BB9;&#x5668;&#x4E92;&#x8054;&#x3002;</p>
 <pre><code>docker network create es-net
-</code></pre><h4 id="&#x62C9;&#x53D6;&#x955C;&#x50CF;"><a name="&#x62C9;&#x53D6;&#x955C;&#x50CF;" class="anchor-navigation-ex-anchor" href="#&#x62C9;&#x53D6;&#x955C;&#x50CF;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x62C9;&#x53D6;&#x955C;&#x50CF;</h4>
+</code></pre><h3 id="&#x62C9;&#x53D6;&#x955C;&#x50CF;"><a name="&#x62C9;&#x53D6;&#x955C;&#x50CF;" class="anchor-navigation-ex-anchor" href="#&#x62C9;&#x53D6;&#x955C;&#x50CF;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x62C9;&#x53D6;&#x955C;&#x50CF;</h3>
 <p>&#x4EE5;&#x5B89;&#x88C5;Elasticsearch 8.6.0 &#x7248;&#x672C;&#x4E3A;&#x4F8B;</p>
 <pre><code>docker pull elasticsearch:8.6.0
-</code></pre><p>&#x8F93;&#x51FA;</p>
-<pre><code>&#x279C;  ~ docker pull elasticsearch:8.6.0
-8.6.0: Pulling from library/elasticsearch
-f04b4bbe1580: Pull complete 
-b204f459fbbb: Pull complete 
-ed2bc0ac3fa7: Pull complete 
-4f4fb700ef54: Pull complete 
-beea53f68bb6: Pull complete 
-6ee6f894df6a: Pull complete 
-759280ba6bc5: Pull complete 
-46455a3a48f7: Pull complete 
-1c7c7616fc01: Pull complete 
-9076d3ab55ae: Pull complete 
-Digest: sha256:12d0ff50b96a53d2a8e103ba2e0e69187babc3dcf8bdc88788d019cdebb75c0c
-Status: Downloaded newer image for elasticsearch:8.6.0
-docker.io/library/elasticsearch:8.6.0
-</code></pre><h4 id="&#x521B;&#x5EFA;&#x6302;&#x8F7D;&#x70B9;&#x76EE;&#x5F55;"><a name="&#x521B;&#x5EFA;&#x6302;&#x8F7D;&#x70B9;&#x76EE;&#x5F55;" class="anchor-navigation-ex-anchor" href="#&#x521B;&#x5EFA;&#x6302;&#x8F7D;&#x70B9;&#x76EE;&#x5F55;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x521B;&#x5EFA;&#x6302;&#x8F7D;&#x70B9;&#x76EE;&#x5F55;</h4>
+</code></pre><h3 id="&#x521B;&#x5EFA;&#x6302;&#x8F7D;&#x70B9;&#x76EE;&#x5F55;"><a name="&#x521B;&#x5EFA;&#x6302;&#x8F7D;&#x70B9;&#x76EE;&#x5F55;" class="anchor-navigation-ex-anchor" href="#&#x521B;&#x5EFA;&#x6302;&#x8F7D;&#x70B9;&#x76EE;&#x5F55;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x521B;&#x5EFA;&#x6302;&#x8F7D;&#x70B9;&#x76EE;&#x5F55;</h3>
 <pre><code>mkdir -p ./es/data ./es/config ./es/plugins
 </code></pre><p>&#x53D8;&#x4E3A;&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;</p>
 <pre><code>chmod 777  ./es/data
 chmod 777  ./es/config
 chmod 777  ./es/plugins
-</code></pre><h4 id="&#x90E8;&#x7F72;&#x5355;&#x70B9;es&#xFF0C;&#x521B;&#x5EFA;es&#x5BB9;&#x5668;"><a name="&#x90E8;&#x7F72;&#x5355;&#x70B9;es&#xFF0C;&#x521B;&#x5EFA;es&#x5BB9;&#x5668;" class="anchor-navigation-ex-anchor" href="#&#x90E8;&#x7F72;&#x5355;&#x70B9;es&#xFF0C;&#x521B;&#x5EFA;es&#x5BB9;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x90E8;&#x7F72;&#x5355;&#x70B9;es&#xFF0C;&#x521B;&#x5EFA;es&#x5BB9;&#x5668;</h4>
+</code></pre><h3 id="&#x90E8;&#x7F72;&#x5355;&#x70B9;es&#xFF0C;&#x521B;&#x5EFA;es&#x5BB9;&#x5668;"><a name="&#x90E8;&#x7F72;&#x5355;&#x70B9;es&#xFF0C;&#x521B;&#x5EFA;es&#x5BB9;&#x5668;" class="anchor-navigation-ex-anchor" href="#&#x90E8;&#x7F72;&#x5355;&#x70B9;es&#xFF0C;&#x521B;&#x5EFA;es&#x5BB9;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x90E8;&#x7F72;&#x5355;&#x70B9;es&#xFF0C;&#x521B;&#x5EFA;es&#x5BB9;&#x5668;</h3>
 <pre><code>docker run -d \
 --restart=always \
 --name es \
@@ -221,10 +267,10 @@ chmod 777  ./es/plugins
 -e &quot;discovery.type=single-node&quot; \
 -e &quot;ES_JAVA_OPTS=-Xms512m -Xmx512m&quot; \
 elasticsearch:8.6.0
-</code></pre><p><strong>&#x8FDB;&#x5165;es&#x5BB9;&#x5668;</strong></p>
+</code></pre><h3 id="&#x8FDB;&#x5165;es&#x5BB9;&#x5668;"><a name="&#x8FDB;&#x5165;es&#x5BB9;&#x5668;" class="anchor-navigation-ex-anchor" href="#&#x8FDB;&#x5165;es&#x5BB9;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a><strong>&#x8FDB;&#x5165;es&#x5BB9;&#x5668;</strong></h3>
 <pre><code>docker exec -it es /bin/bash
-</code></pre><p><strong>&#x7F16;&#x5199;elasticsearch.yml</strong></p>
-<p><strong>&#x8DF3;&#x8F6C;&#x5230;config&#x76EE;&#x5F55;&#x4E0B;</strong></p>
+</code></pre><h4 id="&#x7F16;&#x5199;elasticsearchyml"><a name="&#x7F16;&#x5199;elasticsearchyml" class="anchor-navigation-ex-anchor" href="#&#x7F16;&#x5199;elasticsearchyml"><i class="fa fa-link" aria-hidden="true"></i></a><strong>&#x7F16;&#x5199;elasticsearch.yml</strong></h4>
+<h4 id="&#x8DF3;&#x8F6C;&#x5230;config&#x76EE;&#x5F55;&#x4E0B;"><a name="&#x8DF3;&#x8F6C;&#x5230;config&#x76EE;&#x5F55;&#x4E0B;" class="anchor-navigation-ex-anchor" href="#&#x8DF3;&#x8F6C;&#x5230;config&#x76EE;&#x5F55;&#x4E0B;"><i class="fa fa-link" aria-hidden="true"></i></a><strong>&#x8DF3;&#x8F6C;&#x5230;config&#x76EE;&#x5F55;&#x4E0B;</strong></h4>
 <pre><code>cd config
 </code></pre><pre><code>echo &apos;xpack.security.enabled: false&apos; &gt;&gt; elasticsearch.yml
 echo &apos;xpack.security.http.ssl.enabled: false&apos; &gt;&gt; elasticsearch.yml
@@ -276,26 +322,26 @@ vi /usr/share/elasticsearch/config/jvm.options&#x4FEE;&#x6539;&#x5982;&#x4E0B;&#
 ################################################################
 -Xms1g
 -Xmx1g
-</code></pre><p><strong>&#x57FA;&#x4E8E;Docker&#x5B89;&#x88C5;IK&#x5206;&#x8BCD;&#x5668;</strong></p>
+</code></pre><h4 id="&#x57FA;&#x4E8E;docker&#x5B89;&#x88C5;ik&#x5206;&#x8BCD;&#x5668;"><a name="&#x57FA;&#x4E8E;docker&#x5B89;&#x88C5;ik&#x5206;&#x8BCD;&#x5668;" class="anchor-navigation-ex-anchor" href="#&#x57FA;&#x4E8E;docker&#x5B89;&#x88C5;ik&#x5206;&#x8BCD;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a><strong>&#x57FA;&#x4E8E;Docker&#x5B89;&#x88C5;IK&#x5206;&#x8BCD;&#x5668;</strong></h4>
 <p><strong>&#x6CE8;&#x610F;&#xFF1A;&#x5B89;&#x88C5;IK&#x5206;&#x8BCD;&#x5668;&#x7684;&#x7248;&#x672C;&#xFF0C;&#x5FC5;&#x987B;&#x548C;Elasticsearch&#x7684;&#x7248;&#x672C;&#x4E00;&#x81F4;&#xFF0C;</strong></p>
-<pre><code>    &#x4E0A;&#x6587;&#x5B89;&#x88C5;&#x7684;&#x662F;Elasticsearch 8.6.0&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x63A5;&#x4E0B;&#x6765;&#x5B89;&#x88C5;&#x7684;IK&#x5206;&#x8BCD;&#x5668;&#x7248;&#x672C;&#x662F;8.6.0
+<pre><code>&#x4E0A;&#x6587;&#x5B89;&#x88C5;&#x7684;&#x662F;Elasticsearch 8.6.0&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x63A5;&#x4E0B;&#x6765;&#x5B89;&#x88C5;&#x7684;IK&#x5206;&#x8BCD;&#x5668;&#x7248;&#x672C;&#x662F;8.6.0
 </code></pre><p>&#x76F4;&#x63A5;&#x6267;&#x884C;&#x5373;&#x53EF;</p>
 <pre><code>./bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v8.6.0/elasticsearch-analysis-ik-8.6.0.zip
 </code></pre><p>&#x5982;&#x679C;&#x9700;&#x8981;&#x5B89;&#x88C5;&#x5176;&#x4ED6;&#x7248;&#x672C;&#x7684;IK&#x5206;&#x8BCD;&#x5668;&#xFF0C;&#x9700;&#x8981;&#x628A;&#x7248;&#x672C;&#x53F7;&#x4FEE;&#x6539;&#x5373;&#x53EF;</p>
 <pre><code>./bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.4.2/elasticsearch-analysis-ik-7.4.2.zip
 
 ./bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v8.6.0/elasticsearch-analysis-ik-8.6.0.zip
-</code></pre><p><strong>&#x91CD;&#x542F;es&#x5BB9;&#x5668;</strong></p>
+</code></pre><h3 id="&#x91CD;&#x542F;es&#x5BB9;&#x5668;"><a name="&#x91CD;&#x542F;es&#x5BB9;&#x5668;" class="anchor-navigation-ex-anchor" href="#&#x91CD;&#x542F;es&#x5BB9;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a><strong>&#x91CD;&#x542F;es&#x5BB9;&#x5668;</strong></h3>
 <pre><code>docker restart es
 </code></pre><p>&#x6D4B;&#x8BD5;</p>
 <p><a href="http://localhost:9200" target="_blank">http://localhost:9200</a></p>
-<h3 id="&#x57FA;&#x4E8E;docker&#x5B89;&#x88C5;kibana"><a name="&#x57FA;&#x4E8E;docker&#x5B89;&#x88C5;kibana" class="anchor-navigation-ex-anchor" href="#&#x57FA;&#x4E8E;docker&#x5B89;&#x88C5;kibana"><i class="fa fa-link" aria-hidden="true"></i></a>&#x57FA;&#x4E8E;Docker&#x5B89;&#x88C5;Kibana</h3>
+<h2 id="&#x57FA;&#x4E8E;docker&#x5B89;&#x88C5;kibana"><a name="&#x57FA;&#x4E8E;docker&#x5B89;&#x88C5;kibana" class="anchor-navigation-ex-anchor" href="#&#x57FA;&#x4E8E;docker&#x5B89;&#x88C5;kibana"><i class="fa fa-link" aria-hidden="true"></i></a>&#x57FA;&#x4E8E;Docker&#x5B89;&#x88C5;Kibana</h2>
 <pre><code>docker pull kibana:8.6.0
-</code></pre><h4 id="&#x521B;&#x5EFA;&#x6302;&#x8F7D;&#x70B9;&#x76EE;&#x5F55;_1"><a name="&#x521B;&#x5EFA;&#x6302;&#x8F7D;&#x70B9;&#x76EE;&#x5F55;_1" class="anchor-navigation-ex-anchor" href="#&#x521B;&#x5EFA;&#x6302;&#x8F7D;&#x70B9;&#x76EE;&#x5F55;_1"><i class="fa fa-link" aria-hidden="true"></i></a>&#x521B;&#x5EFA;&#x6302;&#x8F7D;&#x70B9;&#x76EE;&#x5F55;</h4>
+</code></pre><h3 id="&#x521B;&#x5EFA;&#x6302;&#x8F7D;&#x70B9;&#x76EE;&#x5F55;_1"><a name="&#x521B;&#x5EFA;&#x6302;&#x8F7D;&#x70B9;&#x76EE;&#x5F55;_1" class="anchor-navigation-ex-anchor" href="#&#x521B;&#x5EFA;&#x6302;&#x8F7D;&#x70B9;&#x76EE;&#x5F55;_1"><i class="fa fa-link" aria-hidden="true"></i></a>&#x521B;&#x5EFA;&#x6302;&#x8F7D;&#x70B9;&#x76EE;&#x5F55;</h3>
 <pre><code>mkdir -p ./kibana/config ./kibana/data
 </code></pre><pre><code>chmod 777 /usr/local/kibana/data
 chmod 777 /usr/local/kibana/config
-</code></pre><h4 id="&#x90E8;&#x7F72;kibana&#xFF0C;&#x521B;&#x5EFA;kibana&#x5BB9;&#x5668;"><a name="&#x90E8;&#x7F72;kibana&#xFF0C;&#x521B;&#x5EFA;kibana&#x5BB9;&#x5668;" class="anchor-navigation-ex-anchor" href="#&#x90E8;&#x7F72;kibana&#xFF0C;&#x521B;&#x5EFA;kibana&#x5BB9;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x90E8;&#x7F72;kibana&#xFF0C;&#x521B;&#x5EFA;kibana&#x5BB9;&#x5668;</h4>
+</code></pre><h3 id="&#x90E8;&#x7F72;kibana&#xFF0C;&#x521B;&#x5EFA;kibana&#x5BB9;&#x5668;"><a name="&#x90E8;&#x7F72;kibana&#xFF0C;&#x521B;&#x5EFA;kibana&#x5BB9;&#x5668;" class="anchor-navigation-ex-anchor" href="#&#x90E8;&#x7F72;kibana&#xFF0C;&#x521B;&#x5EFA;kibana&#x5BB9;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x90E8;&#x7F72;kibana&#xFF0C;&#x521B;&#x5EFA;kibana&#x5BB9;&#x5668;</h3>
 <pre><code>docker run -d \
 --restart=always \
 --name kibana \
@@ -303,10 +349,9 @@ chmod 777 /usr/local/kibana/config
 -p 5601:5601 \
 -e ELASTICSEARCH_HOSTS=http://es:9200 \
 kibana:8.6.0
-</code></pre><h4 id="&#x6D4B;&#x8BD5;kibana&#x662F;&#x5426;&#x5B89;&#x88C5;&#x6210;&#x529F;"><a name="&#x6D4B;&#x8BD5;kibana&#x662F;&#x5426;&#x5B89;&#x88C5;&#x6210;&#x529F;" class="anchor-navigation-ex-anchor" href="#&#x6D4B;&#x8BD5;kibana&#x662F;&#x5426;&#x5B89;&#x88C5;&#x6210;&#x529F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6D4B;&#x8BD5;Kibana&#x662F;&#x5426;&#x5B89;&#x88C5;&#x6210;&#x529F;</h4>
+</code></pre><h3 id="&#x6D4B;&#x8BD5;kibana&#x662F;&#x5426;&#x5B89;&#x88C5;&#x6210;&#x529F;"><a name="&#x6D4B;&#x8BD5;kibana&#x662F;&#x5426;&#x5B89;&#x88C5;&#x6210;&#x529F;" class="anchor-navigation-ex-anchor" href="#&#x6D4B;&#x8BD5;kibana&#x662F;&#x5426;&#x5B89;&#x88C5;&#x6210;&#x529F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6D4B;&#x8BD5;Kibana&#x662F;&#x5426;&#x5B89;&#x88C5;&#x6210;&#x529F;</h3>
 <p>&#x8BBF;&#x95EE;&#x865A;&#x62DF;&#x673A;&#x5730;&#x5740;+&#x7AEF;&#x53E3;&#x53F7;&#xFF0C;&#x524D;&#x9762;&#x914D;&#x7F6E;Kibana &#x7684;&#x7AEF;&#x53E3;&#x53F7;&#x4E3A;&#xFF1A;5601</p>
-<p><a href="http://localhost:5601" target="_blank">http://localhost:5601</a></p>
-<p>\</p>
+<p><a href="http://localhost:5601" target="_blank">http://localhost:5601</a>\</p>
 
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
@@ -335,10 +380,14 @@ kibana:8.6.0
 
             
                 
-                <a href="./" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 前言">
+                <a href="es-jie-shao.html" class="navigation navigation-prev " aria-label="Previous page: ES介绍">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
+                
+                <a href="es-ji-ben-yu-fa.html" class="navigation navigation-next " aria-label="Next page: ES基本语法">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -347,7 +396,7 @@ kibana:8.6.0
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Docker安装es","level":"1.2","depth":1,"previous":{"title":"前言","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["anchor-navigation-ex","-search","-sharing","theme-default","-lunr","fontsettings","livereload","popup","splitter","copy-code-button","highlight","-expandable-chapters-small","chapter-fold","back-to-top-button","search-pro","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"popup":{},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"anchor-navigation-ex":{"showLevelIcon":false,"mode":"float","pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"showLevel":false,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","showGoTop":true,"printLog":false,"multipleH1":false,"multipleH2":false,"associatedWithSummary":true,"multipleH3":false,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"multipleH4":false},"back-to-top-button":{},"copy-code-button":{},"theme-default":{"showLevel":true,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"docker-an-zhuang-es.md","mtime":"2024-05-09T13:36:04.163Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-05-11T04:00:15.514Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Docker安装es","level":"1.3","depth":1,"next":{"title":"ES基本语法","level":"1.4","depth":1,"path":"es-ji-ben-yu-fa.md","ref":"es-ji-ben-yu-fa.md","articles":[]},"previous":{"title":"ES介绍","level":"1.2","depth":1,"path":"es-jie-shao.md","ref":"es-jie-shao.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["anchor-navigation-ex","-search","-sharing","theme-default","-lunr","fontsettings","livereload","popup","splitter","copy-code-button","highlight","-expandable-chapters-small","chapter-fold","back-to-top-button","search-pro","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"popup":{},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"anchor-navigation-ex":{"showLevelIcon":false,"mode":"float","pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"showLevel":false,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","showGoTop":true,"printLog":false,"multipleH1":false,"multipleH2":false,"associatedWithSummary":true,"multipleH3":false,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"multipleH4":false},"back-to-top-button":{},"copy-code-button":{},"theme-default":{"showLevel":true,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"docker-an-zhuang-es.md","mtime":"2024-05-11T06:43:53.491Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-05-11T06:45:09.639Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
