@@ -1,0 +1,1533 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>python代码实现hash table · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="hash">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../shu/" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    algorithm前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../suan-fa-ji-chu.html">
+            
+                <a href="../../suan-fa-ji-chu.html">
+            
+                    
+                    算法基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../../shi-jian-fu-za-du.html">
+            
+                <a href="../../shi-jian-fu-za-du.html">
+            
+                    
+                    时间复杂度
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../../kong-jian-fu-za-du.html">
+            
+                <a href="../../kong-jian-fu-za-du.html">
+            
+                    
+                    空间复杂度
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../../di-gui-de-han-yi.html">
+            
+                <a href="../../di-gui-de-han-yi.html">
+            
+                    
+                    递归的含义
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../../chang-jian-suan-fa-shi-jian-fu-za-du.html">
+            
+                <a href="../../chang-jian-suan-fa-shi-jian-fu-za-du.html">
+            
+                    
+                    常见算法时间复杂度
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../cha-zhao.html">
+            
+                <a href="../../cha-zhao.html">
+            
+                    
+                    查找
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../xian-xing-cha-zhao.html">
+            
+                <a href="../../xian-xing-cha-zhao.html">
+            
+                    
+                    线性查找
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../../er-fen-cha-zhao.html">
+            
+                <a href="../../er-fen-cha-zhao.html">
+            
+                    
+                    二分查找
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../pai-xu.html">
+            
+                <a href="../../pai-xu.html">
+            
+                    
+                    排序
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../../low-b-san-ren-zu.html">
+            
+                <a href="../../low-b-san-ren-zu.html">
+            
+                    
+                    low b 三人组
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="../../mao-pao-pai-xu-ff08-bubble-sort.html">
+            
+                <a href="../../mao-pao-pai-xu-ff08-bubble-sort.html">
+            
+                    
+                    冒泡排序（bubble_sort）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.2" data-path="../../cha-ru-pai-xu-ff08-insert-sort.html">
+            
+                <a href="../../cha-ru-pai-xu-ff08-insert-sort.html">
+            
+                    
+                    插入排序（insert_sort）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3" data-path="../../xuan-zepai-xu-ff08-select-sort.html">
+            
+                <a href="../../xuan-zepai-xu-ff08-select-sort.html">
+            
+                    
+                    选择排序（select_sort）
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../../d83d-dc02-b-san-ren-zu.html">
+            
+                <a href="../../d83d-dc02-b-san-ren-zu.html">
+            
+                    
+                    🐂b 三人组
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.1" data-path="../../d83d-dc02-b-san-ren-zu/dui-pai-xu-ff08-heap-sort.html">
+            
+                <a href="../../d83d-dc02-b-san-ren-zu/dui-pai-xu-ff08-heap-sort.html">
+            
+                    
+                    堆排序（heap_sort）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.2" data-path="../../d83d-dc02-b-san-ren-zu/gui-bing-pai-xu-ff08-merge-sort.html">
+            
+                <a href="../../d83d-dc02-b-san-ren-zu/gui-bing-pai-xu-ff08-merge-sort.html">
+            
+                    
+                    归并排序（merge_sort）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.3" data-path="../../d83d-dc02-b-san-ren-zu/kuai-supai-xu-ff08-quick-sort.html">
+            
+                <a href="../../d83d-dc02-b-san-ren-zu/kuai-supai-xu-ff08-quick-sort.html">
+            
+                    
+                    快速排序（quick_sort）
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../../xi-er-pai-xu-ff08-shell-sort.html">
+            
+                <a href="../../xi-er-pai-xu-ff08-shell-sort.html">
+            
+                    
+                    希尔排序（shell_sort）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../../ji-shu-pai-xu.html">
+            
+                <a href="../../ji-shu-pai-xu.html">
+            
+                    
+                    计数排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../../tong-pai-xu-ff08-bucket-sort.html">
+            
+                <a href="../../tong-pai-xu-ff08-bucket-sort.html">
+            
+                    
+                    桶排序（bucket_sort）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../../ji-6570-pai-xu.html">
+            
+                <a href="../../ji-6570-pai-xu.html">
+            
+                    
+                    基数-排序
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../../leetcode.html">
+            
+                <a href="../../leetcode.html">
+            
+                    
+                    leetcode
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../../easy.html">
+            
+                <a href="../../easy.html">
+            
+                    
+                    easy
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1.1" data-path="../../1liang-shu-zhi-he.html">
+            
+                <a href="../../1liang-shu-zhi-he.html">
+            
+                    
+                    1.两数之和
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.1.2" data-path="../../leetcode/easy/20.-you-xiao-de-kuo-hao.html">
+            
+                <a href="../../leetcode/easy/20.-you-xiao-de-kuo-hao.html">
+            
+                    
+                    20.有效的括号
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.1.3" data-path="../../242you-xiao-de-zi-mu-yi-wei-ci.html">
+            
+                <a href="../../242you-xiao-de-zi-mu-yi-wei-ci.html">
+            
+                    
+                    242.有效的字母异位词
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../../medium.html">
+            
+                <a href="../../medium.html">
+            
+                    
+                    medium
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.2.1" data-path="../../medium/74sou-suo-er-wei-ju-zhen.html">
+            
+                <a href="../../medium/74sou-suo-er-wei-ju-zhen.html">
+            
+                    
+                    74.搜索二维矩阵
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.2" data-path="../../medium/167liang-shu-zhi-he-ii-shu-ru-you-xu-shu-zu.html">
+            
+                <a href="../../medium/167liang-shu-zhi-he-ii-shu-ru-you-xu-shu-zu.html">
+            
+                    
+                    167.两数之和 II - 输入有序数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.3" data-path="../../leetcode/medium/lcr-103.-ling-qian-dui-huan.html">
+            
+                <a href="../../leetcode/medium/lcr-103.-ling-qian-dui-huan.html">
+            
+                    
+                    LCR 103. 零钱兑换
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../../leetcode/hard.html">
+            
+                <a href="../../leetcode/hard.html">
+            
+                    
+                    hard
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    数据结构
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../shu-zu-array.html">
+            
+                <a href="../shu-zu-array.html">
+            
+                    
+                    数组(Array)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../zhan-stack/">
+            
+                <a href="../zhan-stack/">
+            
+                    
+                    栈(Stack)
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.2.1" data-path="../zhan-stack/mi-gong-wen-ti.html">
+            
+                <a href="../zhan-stack/mi-gong-wen-ti.html">
+            
+                    
+                    迷宫问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../dui-lie-queue/">
+            
+                <a href="../dui-lie-queue/">
+            
+                    
+                    队列(Queue)
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.3.1" data-path="../dui-lie-queue/shuang-xiang-dui-lie.html">
+            
+                <a href="../dui-lie-queue/shuang-xiang-dui-lie.html">
+            
+                    
+                    双向队列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3.2" data-path="../dui-lie-queue/mi-gong-wen-ti.html">
+            
+                <a href="../dui-lie-queue/mi-gong-wen-ti.html">
+            
+                    
+                    迷宫问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../lian-biao-linked-list/">
+            
+                <a href="../lian-biao-linked-list/">
+            
+                    
+                    链表(Linked List)
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.4.1" data-path="../lian-biao-linked-list/tou-cha-fa-wei-cha-fa.html">
+            
+                <a href="../lian-biao-linked-list/tou-cha-fa-wei-cha-fa.html">
+            
+                    
+                    头插法&尾插法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../shuang-lian-biao-doubly-linked-list.html">
+            
+                <a href="../shuang-lian-biao-doubly-linked-list.html">
+            
+                    
+                    双链表(Doubly Linked List)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    哈希表 or 散列表(Hash Table)
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.6.6.1" data-path="python-dai-ma-shi-xian-hash-table.html">
+            
+                <a href="python-dai-ma-shi-xian-hash-table.html">
+            
+                    
+                    python代码实现hash table
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../shu/">
+            
+                <a href="../shu/">
+            
+                    
+                    树
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.7.1" data-path="../shu/er-cha-shu-binary-tree.html">
+            
+                <a href="../shu/er-cha-shu-binary-tree.html">
+            
+                    
+                    二叉树(binary tree)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7.2" data-path="../shu/er-cha-sou-suo-shu-binary-search-treebst.html">
+            
+                <a href="../shu/er-cha-sou-suo-shu-binary-search-treebst.html">
+            
+                    
+                    二叉搜索树(Binary Search Tree，BST)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7.3" data-path="../shu/b-tree-b+tree.html">
+            
+                <a href="../shu/b-tree-b+tree.html">
+            
+                    
+                    B-tree/B+tree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7.4" data-path="../shu/hash-shu.html">
+            
+                <a href="../shu/hash-shu.html">
+            
+                    
+                    Hash 树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7.5" data-path="../shu/avl-shu.html">
+            
+                <a href="../shu/avl-shu.html">
+            
+                    
+                    AVL树
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../../suan-fa-she-ji/">
+            
+                <a href="../../suan-fa-she-ji/">
+            
+                    
+                    算法设计
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../../suan-fa-she-ji/tan-xin-suan-fa/">
+            
+                <a href="../../suan-fa-she-ji/tan-xin-suan-fa/">
+            
+                    
+                    贪心算法
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1.1" data-path="../../suan-fa-she-ji/tan-xin-suan-fa/zhao-ling-wen-ti.html">
+            
+                <a href="../../suan-fa-she-ji/tan-xin-suan-fa/zhao-ling-wen-ti.html">
+            
+                    
+                    找零问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.2" data-path="../../suan-fa-she-ji/tan-xin-suan-fa/bei-bao-wen-ti.html">
+            
+                <a href="../../suan-fa-she-ji/tan-xin-suan-fa/bei-bao-wen-ti.html">
+            
+                    
+                    背包问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.3" data-path="../../suan-fa-she-ji/tan-xin-suan-fa/huo-dong-xuan-ze-wen-ti.html">
+            
+                <a href="../../suan-fa-she-ji/tan-xin-suan-fa/huo-dong-xuan-ze-wen-ti.html">
+            
+                    
+                    活动选择问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.4" data-path="../../suan-fa-she-ji/tan-xin-suan-fa/pin-jie-zui-da-shu-zi-wen-ti.html">
+            
+                <a href="../../suan-fa-she-ji/tan-xin-suan-fa/pin-jie-zui-da-shu-zi-wen-ti.html">
+            
+                    
+                    拼接最大数字问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../../suan-fa-she-ji/dong-tai-gui-hua/">
+            
+                <a href="../../suan-fa-she-ji/dong-tai-gui-hua/">
+            
+                    
+                    动态规划
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.2.1" data-path="../../suan-fa-she-ji/dong-tai-gui-hua/fei-bo-na-qi-shu-lie-yin-ru-dong-tai-gui-hua-si-xiang.html">
+            
+                <a href="../../suan-fa-she-ji/dong-tai-gui-hua/fei-bo-na-qi-shu-lie-yin-ru-dong-tai-gui-hua-si-xiang.html">
+            
+                    
+                    斐波那契数列（引入动态规划思想）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.2" data-path="../../suan-fa-she-ji/dong-tai-gui-hua/gang-tiao-qie-ge.html">
+            
+                <a href="../../suan-fa-she-ji/dong-tai-gui-hua/gang-tiao-qie-ge.html">
+            
+                    
+                    钢条切割
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.3" data-path="../../suan-fa-she-ji/dong-tai-gui-hua/zui-chang-gong-gong-zi-xu-lie.html">
+            
+                <a href="../../suan-fa-she-ji/dong-tai-gui-hua/zui-chang-gong-gong-zi-xu-lie.html">
+            
+                    
+                    最长公共子序列
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../../suan-fa-she-ji/ou-ji-li-de/">
+            
+                <a href="../../suan-fa-she-ji/ou-ji-li-de/">
+            
+                    
+                    欧几里得
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.3.1" data-path="../../suan-fa-she-ji/ou-ji-li-de/zui-da-gong-yue-shu.html">
+            
+                <a href="../../suan-fa-she-ji/ou-ji-li-de/zui-da-gong-yue-shu.html">
+            
+                    
+                    最大公约数
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../../jia-mi-suan-fa/">
+            
+                <a href="../../jia-mi-suan-fa/">
+            
+                    
+                    加密算法
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../../jia-mi-suan-fa/se.html">
+            
+                <a href="../../jia-mi-suan-fa/se.html">
+            
+                    
+                    SE
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../../jia-mi-suan-fa/rsa.html">
+            
+                <a href="../../jia-mi-suan-fa/rsa.html">
+            
+                    
+                    RSA
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../../she-ji-mo-shi/">
+            
+                <a href="../../she-ji-mo-shi/">
+            
+                    
+                    设计模式
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../../she-ji-mo-shi/gong-chang-mo-shi/">
+            
+                <a href="../../she-ji-mo-shi/gong-chang-mo-shi/">
+            
+                    
+                    工厂模式
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1.1" data-path="../../she-ji-mo-shi/gong-chang-mo-shi/chou-xiang-gong-chang-mo-shi.html">
+            
+                <a href="../../she-ji-mo-shi/gong-chang-mo-shi/chou-xiang-gong-chang-mo-shi.html">
+            
+                    
+                    抽象工厂模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.1.2" data-path="../../she-ji-mo-shi/gong-chang-mo-shi/jian-dan-gong-chang-mo-shi.html">
+            
+                <a href="../../she-ji-mo-shi/gong-chang-mo-shi/jian-dan-gong-chang-mo-shi.html">
+            
+                    
+                    简单工厂模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../../she-ji-mo-shi/jian-zao-zhe-mo-shi.html">
+            
+                <a href="../../she-ji-mo-shi/jian-zao-zhe-mo-shi.html">
+            
+                    
+                    建造者模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../../she-ji-mo-shi/dan-li-mo-shi.html">
+            
+                <a href="../../she-ji-mo-shi/dan-li-mo-shi.html">
+            
+                    
+                    单例模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../../she-ji-mo-shi/shi-pei-qi-mo-shi.html">
+            
+                <a href="../../she-ji-mo-shi/shi-pei-qi-mo-shi.html">
+            
+                    
+                    适配器模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../../she-ji-mo-shi/qiao-mo-shi.html">
+            
+                <a href="../../she-ji-mo-shi/qiao-mo-shi.html">
+            
+                    
+                    桥模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6" data-path="../../she-ji-mo-shi/zu-he-mo-shi.html">
+            
+                <a href="../../she-ji-mo-shi/zu-he-mo-shi.html">
+            
+                    
+                    组合模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.7" data-path="../../she-ji-mo-shi/wai-guan-mo-shi.html">
+            
+                <a href="../../she-ji-mo-shi/wai-guan-mo-shi.html">
+            
+                    
+                    外观模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.8" data-path="../../she-ji-mo-shi/dai-li-mo-shi.html">
+            
+                <a href="../../she-ji-mo-shi/dai-li-mo-shi.html">
+            
+                    
+                    代理模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.9" data-path="../../she-ji-mo-shi/ze-ren-lian-mo-shi.html">
+            
+                <a href="../../she-ji-mo-shi/ze-ren-lian-mo-shi.html">
+            
+                    
+                    责任链模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.10" data-path="../../she-ji-mo-shi/guan-cha-zhe-mo-shi.html">
+            
+                <a href="../../she-ji-mo-shi/guan-cha-zhe-mo-shi.html">
+            
+                    
+                    观察者模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.11" data-path="../../she-ji-mo-shi/ce-lve-mo-shi.html">
+            
+                <a href="../../she-ji-mo-shi/ce-lve-mo-shi.html">
+            
+                    
+                    策略模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.12" data-path="../../she-ji-mo-shi/mo-ban-fang-fa-mo-shi.html">
+            
+                <a href="../../she-ji-mo-shi/mo-ban-fang-fa-mo-shi.html">
+            
+                    
+                    模版方法模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../../mian-xiang-dui-xiang.html">
+            
+                <a href="../../mian-xiang-dui-xiang.html">
+            
+                    
+                    面相对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >python代码实现hash table</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#python&#x4EE3;&#x7801;&#x5B9E;&#x73B0;hash-table"><b></b>python&#x4EE3;&#x7801;&#x5B9E;&#x73B0;hash table</a></li></ul></div><a href="#python&#x4EE3;&#x7801;&#x5B9E;&#x73B0;hash-table" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="python&#x4EE3;&#x7801;&#x5B9E;&#x73B0;hash-table"><a name="python&#x4EE3;&#x7801;&#x5B9E;&#x73B0;hash-table" class="anchor-navigation-ex-anchor" href="#python&#x4EE3;&#x7801;&#x5B9E;&#x73B0;hash-table"><i class="fa fa-link" aria-hidden="true"></i></a>python&#x4EE3;&#x7801;&#x5B9E;&#x73B0;hash table</h1>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LinkedList</span>:</span>
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Node</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;
+        &#x94FE;&#x8868;
+        &quot;&quot;&quot;</span>
+
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, item)</span>:</span>
+            self.item = item
+            self.next = <span class="hljs-keyword">None</span>
+
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LinkListIterator</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;
+        &#x94FE;&#x8868;&#x8FED;&#x4EE3;&#x5668;
+        &quot;&quot;&quot;</span>
+
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, node)</span>:</span>
+            self.node = node
+
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__next__</span><span class="hljs-params">(self)</span>:</span>
+            <span class="hljs-string">&quot;&quot;&quot;
+            &#x8FD4;&#x56DE;&#x4E0B;&#x4E00;&#x8282;&#x70B9;
+            &quot;&quot;&quot;</span>
+            <span class="hljs-keyword">if</span> self.node:
+                cur_node = self.node
+                self.node = cur_node.next
+                <span class="hljs-keyword">return</span> cur_node.item
+            <span class="hljs-keyword">else</span>:
+                <span class="hljs-keyword">raise</span> StopIteration
+
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__iter__</span><span class="hljs-params">(self)</span>:</span>
+            <span class="hljs-string">&quot;&quot;&quot;
+            &#x8FD4;&#x56DE;&#x672C;&#x8EAB;
+            &quot;&quot;&quot;</span>
+            <span class="hljs-keyword">return</span> self
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, iterable=None)</span>:</span>
+        self.head = <span class="hljs-keyword">None</span>
+        self.tail = <span class="hljs-keyword">None</span>
+        <span class="hljs-keyword">if</span> iterable:
+            self.extend(iterable)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">append</span><span class="hljs-params">(self, obj)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;
+        &#x6DFB;&#x52A0;&#x5143;&#x7D20;
+        &quot;&quot;&quot;</span>
+        s = LinkedList.Node(obj)
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> self.head:
+            self.head = s
+            self.tail = s
+        <span class="hljs-keyword">else</span>:
+            self.tail.next = s
+            self.tail = s
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">extend</span><span class="hljs-params">(self, iterable)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;
+        &#x8FFD;&#x52A0;&#x5143;&#x7D20;
+        &quot;&quot;&quot;</span>
+        <span class="hljs-keyword">for</span> obj <span class="hljs-keyword">in</span> iterable:
+            self.append(obj)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">find</span><span class="hljs-params">(self, obj)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;
+        &#x67E5;&#x627E;&#x5143;&#x7D20;
+        &quot;&quot;&quot;</span>
+        <span class="hljs-keyword">for</span> n <span class="hljs-keyword">in</span> self:
+            <span class="hljs-keyword">if</span> n == obj:
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">True</span>
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">False</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__iter__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;&#x8FED;&#x4EE3;&quot;&quot;&quot;</span>
+        <span class="hljs-keyword">return</span> self.LinkListIterator(self.head)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__repr__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;&#x8F93;&#x51FA;&#x503C;&quot;&quot;&quot;</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;&lt;&lt;&quot;</span> + <span class="hljs-string">&quot;,&quot;</span>.join(map(str, self)) + <span class="hljs-string">&quot;&gt;&gt;&quot;</span>
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HashTable</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, size: int = <span class="hljs-number">101</span>)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;&#x6784;&#x5EFA;&#x5927;&#x5C0F;&quot;&quot;&quot;</span>
+        self.size = size
+        self.T = [LinkedList() <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(self.size)]
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">h</span><span class="hljs-params">(self, k)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;hash&#x51FD;&#x6570;&quot;&quot;&quot;</span>
+        <span class="hljs-keyword">return</span> k % self.size
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">insert</span><span class="hljs-params">(self, k)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;&#x63D2;&#x5165;&quot;&quot;&quot;</span>
+        i = self.h(k)
+        <span class="hljs-keyword">if</span> self.find(k):
+            print(<span class="hljs-string">&quot;Duplicated hash table&quot;</span>)
+        <span class="hljs-keyword">else</span>:
+            self.T[i].append(k)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">find</span><span class="hljs-params">(self, k)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;&#x67E5;&#x627E;&quot;&quot;&quot;</span>
+        i = self.h(k)
+        <span class="hljs-keyword">return</span> self.T[i].find(k)
+
+
+hash_table = HashTable()
+hash_table.insert(<span class="hljs-number">0</span>)
+hash_table.insert(<span class="hljs-number">1</span>)
+hash_table.insert(<span class="hljs-number">3</span>)
+hash_table.insert(<span class="hljs-number">102</span>)
+hash_table.insert(<span class="hljs-number">508</span>)
+print(<span class="hljs-string">&quot;,&quot;</span>.join(map(str, hash_table.T)))
+</code></pre>
+<figure><img src="../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: 哈希表 or 散列表(Hash Table)">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../shu/" class="navigation navigation-next " aria-label="Next page: 树">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"description":"hash","title":"python代码实现hash table","level":"1.6.6.1","depth":3,"next":{"title":"树","level":"1.6.7","depth":2,"path":"shu-ju-jie-gou/shu/README.md","ref":"shu-ju-jie-gou/shu/README.md","articles":[{"title":"二叉树(binary tree)","level":"1.6.7.1","depth":3,"path":"shu-ju-jie-gou/shu/er-cha-shu-binary-tree.md","ref":"shu-ju-jie-gou/shu/er-cha-shu-binary-tree.md","articles":[]},{"title":"二叉搜索树(Binary Search Tree，BST)","level":"1.6.7.2","depth":3,"path":"shu-ju-jie-gou/shu/er-cha-sou-suo-shu-binary-search-treebst.md","ref":"shu-ju-jie-gou/shu/er-cha-sou-suo-shu-binary-search-treebst.md","articles":[]},{"title":"B-tree/B+tree","level":"1.6.7.3","depth":3,"path":"shu-ju-jie-gou/shu/b-tree-b+tree.md","ref":"shu-ju-jie-gou/shu/b-tree-b+tree.md","articles":[]},{"title":"Hash 树","level":"1.6.7.4","depth":3,"path":"shu-ju-jie-gou/shu/hash-shu.md","ref":"shu-ju-jie-gou/shu/hash-shu.md","articles":[]},{"title":"AVL树","level":"1.6.7.5","depth":3,"path":"shu-ju-jie-gou/shu/avl-shu.md","ref":"shu-ju-jie-gou/shu/avl-shu.md","articles":[]}]},"previous":{"title":"哈希表 or 散列表(Hash Table)","level":"1.6.6","depth":2,"path":"shu-ju-jie-gou/ha-xi-biao-or-san-lie-biao-hash-table/README.md","ref":"shu-ju-jie-gou/ha-xi-biao-or-san-lie-biao-hash-table/README.md","articles":[{"title":"python代码实现hash table","level":"1.6.6.1","depth":3,"path":"shu-ju-jie-gou/ha-xi-biao-or-san-lie-biao-hash-table/python-dai-ma-shi-xian-hash-table.md","ref":"shu-ju-jie-gou/ha-xi-biao-or-san-lie-biao-hash-table/python-dai-ma-shi-xian-hash-table.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["anchor-navigation-ex","-search","-sharing","theme-default","-lunr","fontsettings","livereload","popup","splitter","copy-code-button","highlight","-expandable-chapters-small","chapter-fold","back-to-top-button","search-pro","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"popup":{},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"anchor-navigation-ex":{"showLevelIcon":false,"mode":"float","pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"showLevel":false,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","showGoTop":true,"printLog":false,"multipleH1":false,"multipleH2":false,"associatedWithSummary":true,"multipleH3":false,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"multipleH4":false},"back-to-top-button":{},"copy-code-button":{},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"shu-ju-jie-gou/ha-xi-biao-or-san-lie-biao-hash-table/python-dai-ma-shi-xian-hash-table.md","mtime":"2023-09-12T14:49:03.892Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-11-14T14:51:31.049Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+
+    </body>
+</html>
+

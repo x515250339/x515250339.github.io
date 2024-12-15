@@ -1,0 +1,1101 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>GORM2.0发布说明 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../ru-men-zhi-nan.html" />
+    
+    
+    <link rel="prev" href="v1yu-v2.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../qian-yan.html">
+            
+                <a href="../qian-yan.html">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="jing-xiang.html">
+            
+                <a href="jing-xiang.html">
+            
+                    
+                    镜像
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="v1yu-v2.html">
+            
+                <a href="v1yu-v2.html">
+            
+                    
+                    V1与V2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.3" data-path="gorm20fa-bu-shuo-ming.html">
+            
+                <a href="gorm20fa-bu-shuo-ming.html">
+            
+                    
+                    GORM2.0发布说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../ru-men-zhi-nan.html">
+            
+                <a href="../ru-men-zhi-nan.html">
+            
+                    
+                    入门指南
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../ru-men-zhi-nan/gorm-zhi-nan.html">
+            
+                <a href="../ru-men-zhi-nan/gorm-zhi-nan.html">
+            
+                    
+                    GORM 指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../ru-men-zhi-nan/mo-xing-ding-yi.html">
+            
+                <a href="../ru-men-zhi-nan/mo-xing-ding-yi.html">
+            
+                    
+                    模型定义
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="../ru-men-zhi-nan/mo-xing-ding-yi/wai-jian-gui-fan.html">
+            
+                <a href="../ru-men-zhi-nan/mo-xing-ding-yi/wai-jian-gui-fan.html">
+            
+                    
+                    外键规范
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../ru-men-zhi-nan/lian-jie-shu-ju-ku.html">
+            
+                <a href="../ru-men-zhi-nan/lian-jie-shu-ju-ku.html">
+            
+                    
+                    连接数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../crudjie-kou.html">
+            
+                <a href="../crudjie-kou.html">
+            
+                    
+                    CRUD接口
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../crudjie-kou/chuang-jian.html">
+            
+                <a href="../crudjie-kou/chuang-jian.html">
+            
+                    
+                    创建
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../crudjie-kou/cha-xun.html">
+            
+                <a href="../crudjie-kou/cha-xun.html">
+            
+                    
+                    查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../crudjie-kou/geng-xin.html">
+            
+                <a href="../crudjie-kou/geng-xin.html">
+            
+                    
+                    更新
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../crudjie-kou/shan-chu.html">
+            
+                <a href="../crudjie-kou/shan-chu.html">
+            
+                    
+                    删除
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../crudjie-kou/yuan-sheng-sql.html">
+            
+                <a href="../crudjie-kou/yuan-sheng-sql.html">
+            
+                    
+                    原生SQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >GORM2.0发布说明</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#gorm-20-&#x53D1;&#x5E03;&#x8BF4;&#x660E;v2"><b> </b>GORM 2.0 &#x53D1;&#x5E03;&#x8BF4;&#x660E;v2</a></li><ul><li><span class="title-icon "></span><a href="#&#x5982;&#x4F55;&#x5347;&#x7EA7;"><b>1. </b>&#x5982;&#x4F55;&#x5347;&#x7EA7;</a></li><ul><li><span class="title-icon "></span><a href="#&#x5B89;&#x88C5;"><b>1.1. </b>&#x5B89;&#x88C5;</a></li><li><span class="title-icon "></span><a href="#&#x5FEB;&#x901F;&#x5F00;&#x59CB;"><b>1.2. </b>&#x5FEB;&#x901F;&#x5F00;&#x59CB;</a></li></ul><li><span class="title-icon "></span><a href="#&#x4E3B;&#x8981;&#x7279;&#x6027;"><b>2. </b>&#x4E3B;&#x8981;&#x7279;&#x6027;</a></li><li><span class="title-icon "></span><a href="#&#x7834;&#x574F;&#x6027;&#x53D8;&#x66F4;"><b>3. </b>&#x7834;&#x574F;&#x6027;&#x53D8;&#x66F4;</a></li></ul></ul></div><a href="#gorm-20-&#x53D1;&#x5E03;&#x8BF4;&#x660E;v2" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="gorm-20-&#x53D1;&#x5E03;&#x8BF4;&#x660E;v2"><a name="gorm-20-&#x53D1;&#x5E03;&#x8BF4;&#x660E;v2" class="anchor-navigation-ex-anchor" href="#gorm-20-&#x53D1;&#x5E03;&#x8BF4;&#x660E;v2"><i class="fa fa-link" aria-hidden="true"></i></a> GORM 2.0 &#x53D1;&#x5E03;&#x8BF4;&#x660E;v2</h1>
+<p>GORM 2.0 &#x5B8C;&#x5168;&#x4ECE;&#x96F6;&#x5F00;&#x59CB;&#xFF0C;&#x5F15;&#x5165;&#x4E86;&#x4E00;&#x4E9B;&#x4E0D;&#x517C;&#x5BB9;&#x7684; API &#x53D8;&#x66F4;&#x548C;&#x8BB8;&#x591A;&#x6539;&#x8FDB;</p>
+<p><strong>&#x6458;&#x8981;</strong></p>
+<ul>
+<li>&#x6027;&#x80FD;&#x6539;&#x8FDB;</li>
+<li>&#x4EE3;&#x7801;&#x6A21;&#x5757;&#x5316;</li>
+<li>Context&#xFF0C;&#x6279;&#x91CF;&#x63D2;&#x5165;&#xFF0C;&#x9884;&#x7F16;&#x8BD1;&#x6A21;&#x5F0F;&#xFF0C;DryRun &#x6A21;&#x5F0F;&#xFF0C;Join &#x9884;&#x52A0;&#x8F7D;&#xFF0C;Find To Map&#xFF0C;Create From Map&#xFF0C;FindInBatches &#x652F;&#x6301;</li>
+<li>&#x652F;&#x6301;&#x5D4C;&#x5957;&#x4E8B;&#x52A1;&#xFF0C;SavePoint&#xFF0C;Rollback To SavePoint</li>
+<li>SQL &#x751F;&#x6210;&#x5668;&#xFF0C;&#x547D;&#x540D;&#x53C2;&#x6570;&#xFF0C;&#x5206;&#x7EC4;&#x6761;&#x4EF6;&#xFF0C;Upsert&#xFF0C;&#x9501;&#xFF0C; &#x652F;&#x6301; Optimizer/Index/Comment Hint&#xFF0C;&#x5B50;&#x67E5;&#x8BE2;&#x6539;&#x8FDB;&#xFF0C;&#x4F7F;&#x7528; SQL &#x8868;&#x8FBE;&#x5F0F;&#x3001;Context Valuer &#x8FDB;&#x884C; CRUD</li>
+<li>&#x652F;&#x6301;&#x5B8C;&#x6574;&#x7684;&#x81EA;&#x5F15;&#x7528;&#xFF0C;&#x6539;&#x8FDB; Join Table&#xFF0C;&#x6279;&#x91CF;&#x6570;&#x636E;&#x7684;&#x5173;&#x8054;&#x6A21;&#x5F0F;</li>
+<li>&#x5141;&#x8BB8;&#x591A;&#x4E2A;&#x5B57;&#x6BB5;&#x7528;&#x4E8E;&#x8FFD;&#x8E2A; create&#x3001;update &#x65F6;&#x95F4; &#xFF0C;&#x652F;&#x6301; UNIX &#xFF08;&#x6BEB; / &#x7EB3;&#xFF09;&#x79D2;</li>
+<li>&#x652F;&#x6301;&#x5B57;&#x6BB5;&#x6743;&#x9650;&#xFF1A;&#x53EA;&#x8BFB;&#x3001;&#x53EA;&#x5199;&#x3001;&#x53EA;&#x521B;&#x5EFA;&#x3001;&#x53EA;&#x66F4;&#x65B0;&#x3001;&#x5FFD;&#x7565;</li>
+<li>&#x65B0;&#x7684;&#x63D2;&#x4EF6;&#x7CFB;&#x7EDF;&#xFF0C;&#x4E3A;&#x591A;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#x63D0;&#x4F9B;&#x4E86;&#x5B98;&#x65B9;&#x63D2;&#x4EF6;&#xFF0C;&#x8BFB;&#x5199;&#x5206;&#x79BB;&#xFF0C;prometheus &#x96C6;&#x6210;&#x2026;</li>
+<li>&#x5168;&#x65B0;&#x7684; Hook API&#xFF1A;&#x5E26;&#x63D2;&#x4EF6;&#x7684;&#x7EDF;&#x4E00;&#x63A5;&#x53E3;</li>
+<li>&#x5168;&#x65B0;&#x7684; Migrator&#xFF1A;&#x5141;&#x8BB8;&#x4E3A;&#x5173;&#x7CFB;&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;&#x5916;&#x952E;&#xFF0C;&#x66F4;&#x667A;&#x80FD;&#x7684; AutoMigrate&#xFF0C;&#x652F;&#x6301;&#x7EA6;&#x675F;&#x3001;&#x68C0;&#x67E5;&#x5668;&#xFF0C;&#x589E;&#x5F3A;&#x7D22;&#x5F15;&#x652F;&#x6301;</li>
+<li>&#x5168;&#x65B0;&#x7684; Logger&#xFF1A;&#x652F;&#x6301; context&#x3001;&#x6539;&#x8FDB;&#x53EF;&#x6269;&#x5C55;&#x6027;</li>
+<li>&#x7EDF;&#x4E00;&#x547D;&#x540D;&#x7B56;&#x7565;&#xFF1A;&#x8868;&#x540D;&#x3001;&#x5B57;&#x6BB5;&#x540D;&#x3001;&#x8FDE;&#x63A5;&#x8868;&#x540D;&#x3001;&#x5916;&#x952E;&#x3001;&#x68C0;&#x67E5;&#x5668;&#x3001;&#x7D22;&#x5F15;&#x540D;&#x79F0;&#x89C4;&#x5219;</li>
+<li>&#x66F4;&#x597D;&#x7684;&#x81EA;&#x5B9A;&#x4E49;&#x7C7B;&#x578B;&#x652F;&#x6301;&#xFF08;&#x4F8B;&#x5982;&#xFF1A; JSON&#xFF09;</li>
+</ul>
+<h2 id="&#x5982;&#x4F55;&#x5347;&#x7EA7;"><a name="&#x5982;&#x4F55;&#x5347;&#x7EA7;" class="anchor-navigation-ex-anchor" href="#&#x5982;&#x4F55;&#x5347;&#x7EA7;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x5982;&#x4F55;&#x5347;&#x7EA7;</h2>
+<ul>
+<li>GORM &#x7684;&#x5F00;&#x53D1;&#x5DF2;&#x7ECF;&#x8FC1;&#x79FB;&#x81F3; <a href="https://github.com/go-gorm" target="_blank">github.com/go-gorm</a>&#xFF0C;import &#x8DEF;&#x5F84;&#x4E5F;&#x4FEE;&#x6539;&#x4E3A; <code>gorm.io/gorm</code> &#xFF0C;&#x5BF9;&#x4E8E;&#x4EE5;&#x524D;&#x7684;&#x9879;&#x76EE;&#xFF0C;&#x60A8;&#x53EF;&#x4EE5;&#x7EE7;&#x7EED;&#x4F7F;&#x7528; <code>github.com/jinzhu/gorm</code> &#x548C; <a href="http://v1.gorm.io/zh_CN/" target="_blank">GORM V1 &#x6587;&#x6863;</a></li>
+<li>&#x6570;&#x636E;&#x5E93;&#x9A71;&#x52A8;&#x88AB;&#x62C6;&#x5206;&#x4E3A;&#x72EC;&#x7ACB;&#x7684;&#x9879;&#x76EE;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;<a href="https://github.com/go-gorm/sqlite" target="_blank">github.com/go-gorm/sqlite</a>&#xFF0C;&#x4E14;&#x5B83;&#x7684; import &#x8DEF;&#x5F84;&#x4E5F;&#x53D8;&#x66F4;&#x4E3A; <code>gorm.io/driver/sqlite</code></li>
+</ul>
+<h3 id="&#x5B89;&#x88C5;"><a name="&#x5B89;&#x88C5;" class="anchor-navigation-ex-anchor" href="#&#x5B89;&#x88C5;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. &#x5B89;&#x88C5;</h3>
+<pre><code class="lang-go"><span class="hljs-keyword">go</span> get gorm.io/gorm
+<span class="hljs-comment">// **&#x6CE8;&#x610F;** GORM `v2.0.0` &#x53D1;&#x5E03;&#x7684; git tag &#x662F; `v1.20.0`</span>
+</code></pre>
+<h3 id="&#x5FEB;&#x901F;&#x5F00;&#x59CB;"><a name="&#x5FEB;&#x901F;&#x5F00;&#x59CB;" class="anchor-navigation-ex-anchor" href="#&#x5FEB;&#x901F;&#x5F00;&#x59CB;"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. &#x5FEB;&#x901F;&#x5F00;&#x59CB;</h3>
+<pre><code class="lang-go"><span class="hljs-keyword">import</span> (
+  <span class="hljs-string">&quot;gorm.io/gorm&quot;</span>
+  <span class="hljs-string">&quot;gorm.io/driver/sqlite&quot;</span>
+)
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">init</span><span class="hljs-params">()</span></span> {
+  db, err := gorm.Open(sqlite.Open(<span class="hljs-string">&quot;gorm.db&quot;</span>), &amp;gorm.Config{})
+
+  <span class="hljs-comment">// &#x5927;&#x90E8;&#x5206; CRUD API &#x90FD;&#x662F;&#x517C;&#x5BB9;&#x7684;</span>
+  db.AutoMigrate(&amp;Product{})
+  db.Create(&amp;user)
+  db.First(&amp;user, <span class="hljs-number">1</span>)
+  db.Model(&amp;user).Update(<span class="hljs-string">&quot;Age&quot;</span>, <span class="hljs-number">18</span>)
+  db.Model(&amp;user).Omit(<span class="hljs-string">&quot;Role&quot;</span>).Updates(<span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]<span class="hljs-keyword">interface</span>{}{<span class="hljs-string">&quot;Name&quot;</span>: <span class="hljs-string">&quot;jinzhu&quot;</span>, <span class="hljs-string">&quot;Role&quot;</span>: <span class="hljs-string">&quot;admin&quot;</span>})
+  db.Delete(&amp;user)
+}
+</code></pre>
+<h2 id="&#x4E3B;&#x8981;&#x7279;&#x6027;"><a name="&#x4E3B;&#x8981;&#x7279;&#x6027;" class="anchor-navigation-ex-anchor" href="#&#x4E3B;&#x8981;&#x7279;&#x6027;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x4E3B;&#x8981;&#x7279;&#x6027;</h2>
+<p>&#x6B64;&#x53D1;&#x5E03;&#x8BF4;&#x660E;&#x4EC5;&#x6DB5;&#x76D6;&#x4E86; GORM V2 &#x4E2D;&#x7684;&#x91CD;&#x5927;&#x66F4;&#x6539;&#xFF0C;&#x4F5C;&#x4E3A;&#x5FEB;&#x901F;&#x53C2;&#x8003;</p>
+<h4 id="context-&#x652F;&#x6301;"><a name="context-&#x652F;&#x6301;" class="anchor-navigation-ex-anchor" href="#context-&#x652F;&#x6301;"><i class="fa fa-link" aria-hidden="true"></i></a>Context &#x652F;&#x6301;</h4>
+<ul>
+<li>&#x901A;&#x8FC7; <code>WithContext</code> &#x65B9;&#x6CD5;&#x63D0;&#x4F9B; <code>context.Context</code> &#x652F;&#x6301;</li>
+<li>Logger &#x4E5F;&#x652F;&#x6301;&#x7528;&#x4E8E;&#x8FFD;&#x8E2A;&#x7684; context</li>
+</ul>
+<pre><code class="lang-go">db.WithContext(ctx).Find(&amp;users)
+</code></pre>
+<h4 id="&#x6279;&#x91CF;&#x63D2;&#x5165;"><a name="&#x6279;&#x91CF;&#x63D2;&#x5165;" class="anchor-navigation-ex-anchor" href="#&#x6279;&#x91CF;&#x63D2;&#x5165;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6279;&#x91CF;&#x63D2;&#x5165;</h4>
+<p>&#x8981;&#x6709;&#x6548;&#x5730;&#x63D2;&#x5165;&#x5927;&#x91CF;&#x8BB0;&#x5F55;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x4E00;&#x4E2A; slice &#x4F20;&#x9012;&#x7ED9; <code>Create</code> &#x65B9;&#x6CD5;&#x3002; &#x5C06;&#x5207;&#x7247;&#x6570;&#x636E;&#x4F20;&#x9012;&#x7ED9; Create &#x65B9;&#x6CD5;&#xFF0C;GORM &#x5C06;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x5355;&#x4E00;&#x7684; SQL &#x8BED;&#x53E5;&#x6765;&#x63D2;&#x5165;&#x6240;&#x6709;&#x6570;&#x636E;&#xFF0C;&#x5E76;&#x56DE;&#x586B;&#x4E3B;&#x952E;&#x7684;&#x503C;&#xFF0C;&#x94A9;&#x5B50;&#x65B9;&#x6CD5;&#x4E5F;&#x4F1A;&#x88AB;&#x8C03;&#x7528;&#x3002;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">var</span> users = []User{
+    {Name: <span class="hljs-string">&quot;jinzhu1&quot;</span>}, {Name: <span class="hljs-string">&quot;jinzhu2&quot;</span>}, {Name: <span class="hljs-string">&quot;jinzhu3&quot;</span>},
+}
+db.Create(&amp;users)
+
+<span class="hljs-keyword">for</span> _, user := <span class="hljs-keyword">range</span> users {
+  user.ID <span class="hljs-comment">// 1,2,3</span>
+}
+</code></pre>
+<p>&#x4F7F;&#x7528; <code>CreateInBatches</code> &#x521B;&#x5EFA;&#x65F6;&#xFF0C;&#x4F60;&#x8FD8;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x521B;&#x5EFA;&#x7684;&#x6570;&#x91CF;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">var</span> &#x7528;&#x6237; = []User{name: <span class="hljs-string">&quot;jinzhu_1&quot;</span>}, ...., {Name: <span class="hljs-string">&quot;jinzhu_10000&quot;</span>}}
+
+<span class="hljs-comment">// &#x6570;&#x91CF;&#x4E3A; 100</span>
+db.CreateInBatches(&#x7528;&#x6237;, <span class="hljs-number">100</span>)
+</code></pre>
+<h4 id="&#x9884;&#x7F16;&#x8BD1;&#x6A21;&#x5F0F;"><a name="&#x9884;&#x7F16;&#x8BD1;&#x6A21;&#x5F0F;" class="anchor-navigation-ex-anchor" href="#&#x9884;&#x7F16;&#x8BD1;&#x6A21;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x9884;&#x7F16;&#x8BD1;&#x6A21;&#x5F0F;</h4>
+<p>&#x9884;&#x7F16;&#x8BD1;&#x6A21;&#x5F0F;&#x4F1A;&#x9884;&#x7F16;&#x8BD1; Sql &#x6267;&#x884C;&#x8BED;&#x53E5;&#xFF0C;&#x4EE5;&#x52A0;&#x901F;&#x540E;&#x7EED;&#x6267;&#x884C;&#x901F;&#x5EA6;</p>
+<pre><code class="lang-go"><span class="hljs-comment">// &#x5168;&#x5C40;&#x6A21;&#x5F0F;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x64CD;&#x4F5C;&#x90FD;&#x4F1A;&#x521B;&#x5EFA;&#x5E76;&#x7F13;&#x5B58;&#x9884;&#x7F16;&#x8BD1;&#x8BED;&#x53E5;&#xFF0C;&#x4EE5;&#x52A0;&#x901F;&#x540E;&#x7EED;&#x6267;&#x884C;&#x901F;&#x5EA6;</span>
+db, err := gorm.Open(sqlite.Open(<span class="hljs-string">&quot;gorm.db&quot;</span>), &amp;gorm.Config{PrepareStmt: <span class="hljs-literal">true</span>})
+
+<span class="hljs-comment">// &#x4F1A;&#x8BDD;&#x6A21;&#x5F0F;&#xFF0C;&#x5F53;&#x524D;&#x4F1A;&#x8BDD;&#x4E2D;&#x7684;&#x64CD;&#x4F5C;&#x4F1A;&#x521B;&#x5EFA;&#x5E76;&#x7F13;&#x5B58;&#x9884;&#x7F16;&#x8BD1;&#x8BED;&#x53E5;</span>
+tx := db.Session(&amp;Session{PrepareStmt: <span class="hljs-literal">true</span>})
+tx.First(&amp;user, <span class="hljs-number">1</span>)
+tx.Find(&amp;users)
+tx.Model(&amp;user).Update(<span class="hljs-string">&quot;Age&quot;</span>, <span class="hljs-number">18</span>)
+</code></pre>
+<h4 id="dryrun-&#x6A21;&#x5F0F;"><a name="dryrun-&#x6A21;&#x5F0F;" class="anchor-navigation-ex-anchor" href="#dryrun-&#x6A21;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>DryRun &#x6A21;&#x5F0F;</h4>
+<p>DarRun &#x6A21;&#x5F0F;&#x4F1A;&#x751F;&#x6210;&#x4F46;&#x4E0D;&#x6267;&#x884C; SQL&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x68C0;&#x67E5;&#x3001;&#x6D4B;&#x8BD5;&#x751F;&#x6210;&#x7684; SQL</p>
+<pre><code class="lang-go">stmt := db.Session(&amp;Session{DryRun: <span class="hljs-literal">true</span>}).Find(&amp;user, <span class="hljs-number">1</span>).Statement
+stmt.SQL.String() <span class="hljs-comment">//=&gt; SELECT * FROM `users` WHERE `id` = $1 // PostgreSQL</span>
+stmt.SQL.String() <span class="hljs-comment">//=&gt; SELECT * FROM `users` WHERE `id` = ?  // MySQL</span>
+stmt.Vars         <span class="hljs-comment">//=&gt; []interface{}{1}</span>
+</code></pre>
+<h4 id="joins-&#x9884;&#x52A0;&#x8F7D;"><a name="joins-&#x9884;&#x52A0;&#x8F7D;" class="anchor-navigation-ex-anchor" href="#joins-&#x9884;&#x52A0;&#x8F7D;"><i class="fa fa-link" aria-hidden="true"></i></a>Joins &#x9884;&#x52A0;&#x8F7D;</h4>
+<p>&#x4F7F;&#x7528; INNER JOIN &#x9884;&#x52A0;&#x8F7D;&#x5173;&#x8054;&#xFF0C;&#x5E76;&#x5904;&#x7406; null &#x6570;&#x636E;&#x907F;&#x514D; scan &#x5931;&#x8D25;</p>
+<pre><code class="lang-go">db.Joins(<span class="hljs-string">&quot;Company&quot;</span>).Joins(<span class="hljs-string">&quot;Manager&quot;</span>).Joins(<span class="hljs-string">&quot;Account&quot;</span>).Find(&amp;users, <span class="hljs-string">&quot;users.id IN ?&quot;</span>, []<span class="hljs-keyword">int</span>{<span class="hljs-number">1</span>,<span class="hljs-number">2</span>})
+</code></pre>
+<h4 id="find-to-map"><a name="find-to-map" class="anchor-navigation-ex-anchor" href="#find-to-map"><i class="fa fa-link" aria-hidden="true"></i></a>Find To Map</h4>
+<p>Scan &#x7ED3;&#x679C;&#x5230; <code>map[string]interface{}</code> &#x6216; <code>[]map[string]interface{}</code></p>
+<pre><code class="lang-go"><span class="hljs-keyword">var</span> result <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]<span class="hljs-keyword">interface</span>{}
+db.Model(&amp;User{}).First(&amp;result, <span class="hljs-string">&quot;id = ?&quot;</span>, <span class="hljs-number">1</span>)
+</code></pre>
+<h4 id="create-from-map"><a name="create-from-map" class="anchor-navigation-ex-anchor" href="#create-from-map"><i class="fa fa-link" aria-hidden="true"></i></a>Create From Map</h4>
+<p>&#x6839;&#x636E; <code>map[string]interface{}</code> &#x6216; <code>[]map[string]interface{}</code> Create</p>
+<pre><code class="lang-go">db.Model(&amp;User{}).Create(<span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]<span class="hljs-keyword">interface</span>{}{<span class="hljs-string">&quot;Name&quot;</span>: <span class="hljs-string">&quot;jinzhu&quot;</span>, <span class="hljs-string">&quot;Age&quot;</span>: <span class="hljs-number">18</span>})
+
+datas := []<span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]<span class="hljs-keyword">interface</span>{}{
+  {<span class="hljs-string">&quot;Name&quot;</span>: <span class="hljs-string">&quot;jinzhu_1&quot;</span>, <span class="hljs-string">&quot;Age&quot;</span>: <span class="hljs-number">19</span>},
+  {<span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;jinzhu_2&quot;</span>, <span class="hljs-string">&quot;Age&quot;</span>: <span class="hljs-number">20</span>},
+}
+
+db.Model(&amp;User{}).Create(datas)
+</code></pre>
+<h4 id="findinbatches"><a name="findinbatches" class="anchor-navigation-ex-anchor" href="#findinbatches"><i class="fa fa-link" aria-hidden="true"></i></a>FindInBatches</h4>
+<p>&#x7528;&#x4E8E;&#x6279;&#x91CF;&#x67E5;&#x8BE2;&#x5E76;&#x5904;&#x7406;&#x8BB0;&#x5F55;</p>
+<pre><code class="lang-go">result := db.Where(<span class="hljs-string">&quot;age&gt;?&quot;</span>, <span class="hljs-number">13</span>).FindInBatches(&amp;results, <span class="hljs-number">100</span>, <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(tx *gorm.DB, batch <span class="hljs-keyword">int</span>)</span> <span class="hljs-title">error</span></span> {
+  <span class="hljs-comment">// &#x6279;&#x91CF;&#x5904;&#x7406;</span>
+  <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span>
+})
+</code></pre>
+<h4 id="&#x5D4C;&#x5957;&#x4E8B;&#x52A1;"><a name="&#x5D4C;&#x5957;&#x4E8B;&#x52A1;" class="anchor-navigation-ex-anchor" href="#&#x5D4C;&#x5957;&#x4E8B;&#x52A1;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5D4C;&#x5957;&#x4E8B;&#x52A1;</h4>
+<pre><code class="lang-go">db.Transaction(<span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(tx *gorm.DB)</span> <span class="hljs-title">error</span></span> {
+  tx.Create(&amp;user1)
+
+  tx.Transaction(<span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(tx2 *gorm.DB)</span> <span class="hljs-title">error</span></span> {
+    tx.Create(&amp;user2)
+    <span class="hljs-keyword">return</span> errors.New(<span class="hljs-string">&quot;rollback user2&quot;</span>) <span class="hljs-comment">// rollback user2</span>
+  })
+
+  tx.Transaction(<span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(tx2 *gorm.DB)</span> <span class="hljs-title">error</span></span> {
+    tx.Create(&amp;user3)
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span>
+  })
+
+  <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span> <span class="hljs-comment">// commit user1 and user3</span>
+})
+</code></pre>
+<h4 id="savepoint&#xFF0C;rollbackto"><a name="savepoint&#xFF0C;rollbackto" class="anchor-navigation-ex-anchor" href="#savepoint&#xFF0C;rollbackto"><i class="fa fa-link" aria-hidden="true"></i></a>SavePoint&#xFF0C;RollbackTo</h4>
+<pre><code class="lang-go">tx := db.Begin()
+tx.Create(&amp;user1)
+
+tx.SavePoint(<span class="hljs-string">&quot;sp1&quot;</span>)
+tx.Create(&amp;user2)
+tx.RollbackTo(<span class="hljs-string">&quot;sp1&quot;</span>) <span class="hljs-comment">// rollback user2</span>
+
+tx.Commit() <span class="hljs-comment">// commit user1</span>
+</code></pre>
+<h4 id="&#x547D;&#x540D;&#x53C2;&#x6570;"><a name="&#x547D;&#x540D;&#x53C2;&#x6570;" class="anchor-navigation-ex-anchor" href="#&#x547D;&#x540D;&#x53C2;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x547D;&#x540D;&#x53C2;&#x6570;</h4>
+<p>GORM &#x652F;&#x6301;&#x4F7F;&#x7528; <code>sql.NamedArg</code>&#xFF0C;<code>map[string]interface{}</code> &#x4F5C;&#x4E3A;&#x547D;&#x540D;&#x53C2;&#x6570;</p>
+<pre><code class="lang-go">db.Where(<span class="hljs-string">&quot;name1 = @name OR name2 = @name&quot;</span>, sql.Named(<span class="hljs-string">&quot;name&quot;</span>, <span class="hljs-string">&quot;jinzhu&quot;</span>)).Find(&amp;user)
+<span class="hljs-comment">// SELECT * FROM `users` WHERE name1 = &quot;jinzhu&quot; OR name2 = &quot;jinzhu&quot;</span>
+
+db.Where(<span class="hljs-string">&quot;name1 = @name OR name2 = @name&quot;</span>, <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]<span class="hljs-keyword">interface</span>{}{<span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;jinzhu2&quot;</span>}).First(&amp;result3)
+<span class="hljs-comment">// SELECT * FROM `users` WHERE name1 = &quot;jinzhu2&quot; OR name2 = &quot;jinzhu2&quot; ORDER BY `users`.`id` LIMIT 1</span>
+
+db.Raw(
+  <span class="hljs-string">&quot;SELECT * FROM users WHERE name1 = @name OR name2 = @name2 OR name3 = @name&quot;</span>,
+  sql.Named(<span class="hljs-string">&quot;name&quot;</span>, <span class="hljs-string">&quot;jinzhu1&quot;</span>), sql.Named(<span class="hljs-string">&quot;name2&quot;</span>, <span class="hljs-string">&quot;jinzhu2&quot;</span>),
+).Find(&amp;user)
+<span class="hljs-comment">// SELECT * FROM users WHERE name1 = &quot;jinzhu1&quot; OR name2 = &quot;jinzhu2&quot; OR name3 = &quot;jinzhu1&quot;</span>
+
+db.Exec(
+  <span class="hljs-string">&quot;UPDATE users SET name1 = @name, name2 = @name2, name3 = @name&quot;</span>,
+  <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]<span class="hljs-keyword">interface</span>{}{<span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;jinzhu&quot;</span>, <span class="hljs-string">&quot;name2&quot;</span>: <span class="hljs-string">&quot;jinzhu2&quot;</span>},
+)
+<span class="hljs-comment">// UPDATE users SET name1 = &quot;jinzhu&quot;, name2 = &quot;jinzhu2&quot;, name3 = &quot;jinzhu&quot;</span>
+</code></pre>
+<h4 id="&#x5206;&#x7EC4;&#x6761;&#x4EF6;"><a name="&#x5206;&#x7EC4;&#x6761;&#x4EF6;" class="anchor-navigation-ex-anchor" href="#&#x5206;&#x7EC4;&#x6761;&#x4EF6;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5206;&#x7EC4;&#x6761;&#x4EF6;</h4>
+<pre><code class="lang-go">db.Where(
+  db.Where(<span class="hljs-string">&quot;pizza = ?&quot;</span>, <span class="hljs-string">&quot;pepperoni&quot;</span>).Where(db.Where(<span class="hljs-string">&quot;size = ?&quot;</span>, <span class="hljs-string">&quot;small&quot;</span>).Or(<span class="hljs-string">&quot;size = ?&quot;</span>, <span class="hljs-string">&quot;medium&quot;</span>)),
+).Or(
+  db.Where(<span class="hljs-string">&quot;pizza = ?&quot;</span>, <span class="hljs-string">&quot;hawaiian&quot;</span>).Where(<span class="hljs-string">&quot;size = ?&quot;</span>, <span class="hljs-string">&quot;xlarge&quot;</span>),
+).Find(&amp;pizzas)
+
+<span class="hljs-comment">// SELECT * FROM pizzas WHERE (pizza = &apos;pepperoni&apos; AND (size = &apos;small&apos; OR size = &apos;medium&apos;)) OR (pizza = &apos;hawaiian&apos; AND size = &apos;xlarge&apos;)</span>
+</code></pre>
+<h4 id="&#x5B50;&#x67E5;&#x8BE2;"><a name="&#x5B50;&#x67E5;&#x8BE2;" class="anchor-navigation-ex-anchor" href="#&#x5B50;&#x67E5;&#x8BE2;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5B50;&#x67E5;&#x8BE2;</h4>
+<pre><code class="lang-go"><span class="hljs-comment">// Where &#x5B50;&#x67E5;&#x8BE2;</span>
+db.Where(<span class="hljs-string">&quot;amount &gt; (?)&quot;</span>, db.Table(<span class="hljs-string">&quot;orders&quot;</span>).Select(<span class="hljs-string">&quot;AVG(amount)&quot;</span>)).Find(&amp;orders)
+
+<span class="hljs-comment">// From &#x5B50;&#x67E5;&#x8BE2;</span>
+db.Table(<span class="hljs-string">&quot;(?) as u&quot;</span>, db.Model(&amp;User{}).Select(<span class="hljs-string">&quot;name&quot;</span>, <span class="hljs-string">&quot;age&quot;</span>)).Where(<span class="hljs-string">&quot;age = ?&quot;</span>, <span class="hljs-number">18</span>}).Find(&amp;User{})
+<span class="hljs-comment">// SELECT * FROM (SELECT `name`,`age` FROM `users`) as u WHERE age = 18</span>
+
+<span class="hljs-comment">// Update &#x5B50;&#x67E5;&#x8BE2;</span>
+db.Model(&amp;user).Update(
+  <span class="hljs-string">&quot;price&quot;</span>, db.Model(&amp;Company{}).Select(<span class="hljs-string">&quot;name&quot;</span>).Where(<span class="hljs-string">&quot;companies.id = users.company_id&quot;</span>),
+)
+</code></pre>
+<h4 id="upsert"><a name="upsert" class="anchor-navigation-ex-anchor" href="#upsert"><i class="fa fa-link" aria-hidden="true"></i></a>Upsert</h4>
+<p><code>clause.OnConflict</code> &#x4E3A;&#x4E0D;&#x540C;&#x7684;&#x6570;&#x636E;&#x5E93;&#xFF08;SQLite&#xFF0C;MySQL&#xFF0C;PostgreSQL&#xFF0C;SQL Server&#xFF09;&#x63D0;&#x4F9B;&#x4E86;&#x517C;&#x5BB9;&#x7684; Upsert &#x652F;&#x6301;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;gorm.io/gorm/clause&quot;</span>
+
+db.Clauses(clause.OnConflict{DoNothing: <span class="hljs-literal">true</span>}).Create(&amp;users)
+
+db.Clauses(clause.OnConflict{
+  Columns:   []clause.Column{
+      {Name: <span class="hljs-string">&quot;id&quot;</span>},
+  },
+  DoUpdates: clause.Assignments(<span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]<span class="hljs-keyword">interface</span>{}{<span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;jinzhu&quot;</span>, <span class="hljs-string">&quot;age&quot;</span>: <span class="hljs-number">18</span>}),
+}).Create(&amp;users)
+<span class="hljs-comment">// MERGE INTO &quot;users&quot; USING *** WHEN NOT MATCHED THEN INSERT *** WHEN MATCHED THEN UPDATE SET ***; SQL Server</span>
+<span class="hljs-comment">// INSERT INTO `users` *** ON DUPLICATE KEY UPDATE name=&quot;jinzhu&quot;, age=18; MySQL</span>
+
+db.Clauses(clause.OnConflict{
+  Columns:   []clause.Column{
+      {Name: <span class="hljs-string">&quot;id&quot;</span>},
+  },
+  DoUpdates: clause.AssignmentColumns([]<span class="hljs-keyword">string</span>{<span class="hljs-string">&quot;name&quot;</span>, <span class="hljs-string">&quot;age&quot;</span>}),
+}).Create(&amp;users)
+<span class="hljs-comment">// MERGE INTO &quot;users&quot; USING *** WHEN NOT MATCHED THEN INSERT *** WHEN MATCHED THEN UPDATE SET &quot;name&quot;=&quot;excluded&quot;.&quot;name&quot;; SQL Server</span>
+<span class="hljs-comment">// INSERT INTO &quot;users&quot; *** ON CONFLICT (&quot;id&quot;) DO UPDATE SET &quot;name&quot;=&quot;excluded&quot;.&quot;name&quot;, &quot;age&quot;=&quot;excluded&quot;.&quot;age&quot;; PostgreSQL</span>
+<span class="hljs-comment">// INSERT INTO `users` *** ON DUPLICATE KEY UPDATE `name`=VALUES(name),`age=VALUES(age); MySQL</span>
+Copy
+</code></pre>
+<h4 id="locking"><a name="locking" class="anchor-navigation-ex-anchor" href="#locking"><i class="fa fa-link" aria-hidden="true"></i></a>Locking</h4>
+<pre><code class="lang-go">db.Clauses(clause.Locking{Strength: <span class="hljs-string">&quot;UPDATE&quot;</span>}).Find(&amp;users)
+<span class="hljs-comment">// SELECT * FROM `users` FOR UPDATE</span>
+
+db.Clauses(clause.Locking{
+  Strength: <span class="hljs-string">&quot;SHARE&quot;</span>,
+  Table: clause.Table{Name: clause.CurrentTable},
+}).Find(&amp;users)
+<span class="hljs-comment">// SELECT * FROM `users` FOR SHARE OF `users`</span>
+</code></pre>
+<h4 id="optimizerindexcomment-hint"><a name="optimizerindexcomment-hint" class="anchor-navigation-ex-anchor" href="#optimizerindexcomment-hint"><i class="fa fa-link" aria-hidden="true"></i></a>Optimizer/Index/Comment Hint</h4>
+<pre><code class="lang-go"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;gorm.io/hints&quot;</span>
+
+<span class="hljs-comment">// Optimizer Hints</span>
+db.Clauses(hints.New(<span class="hljs-string">&quot;hint&quot;</span>)).Find(&amp;User{})
+<span class="hljs-comment">// SELECT * /*+ hint */ FROM `users`</span>
+
+<span class="hljs-comment">// Index Hints</span>
+db.Clauses(hints.UseIndex(<span class="hljs-string">&quot;idx_user_name&quot;</span>)).Find(&amp;User{})
+<span class="hljs-comment">// SELECT * FROM `users` USE INDEX (`idx_user_name`)</span>
+
+<span class="hljs-comment">// Comment Hints</span>
+db.Clauses(hints.Comment(<span class="hljs-string">&quot;select&quot;</span>, <span class="hljs-string">&quot;master&quot;</span>)).Find(&amp;User{})
+<span class="hljs-comment">// SELECT /*master*/ * FROM `users`;</span>
+</code></pre>
+<p>&#x67E5;&#x770B; <a href="https://learnku.com/docs/gorm/v2/hints" target="_blank">Hint</a> &#x83B7;&#x53D6;&#x8BE6;&#x60C5;</p>
+<h4 id="&#x4F7F;&#x7528;-sql-&#x8868;&#x8FBE;&#x5F0F;&#x3001;context-valuer-&#x8FDB;&#x884C;-crud"><a name="&#x4F7F;&#x7528;-sql-&#x8868;&#x8FBE;&#x5F0F;&#x3001;context-valuer-&#x8FDB;&#x884C;-crud" class="anchor-navigation-ex-anchor" href="#&#x4F7F;&#x7528;-sql-&#x8868;&#x8FBE;&#x5F0F;&#x3001;context-valuer-&#x8FDB;&#x884C;-crud"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4F7F;&#x7528; SQL &#x8868;&#x8FBE;&#x5F0F;&#x3001;Context Valuer &#x8FDB;&#x884C; CRUD</h4>
+<pre><code class="lang-go"><span class="hljs-keyword">type</span> Location <span class="hljs-keyword">struct</span> {
+    X, Y <span class="hljs-keyword">int</span>
+}
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(loc Location)</span> <span class="hljs-title">GormDataType</span><span class="hljs-params">()</span> <span class="hljs-title">string</span></span> {
+  <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;geometry&quot;</span>
+}
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(loc Location)</span> <span class="hljs-title">GormValue</span><span class="hljs-params">(ctx context.Context, db *gorm.DB)</span> <span class="hljs-title">clause</span>.<span class="hljs-title">Expr</span></span> {
+  <span class="hljs-keyword">return</span> clause.Expr{
+    SQL:  <span class="hljs-string">&quot;ST_PointFromText(?)&quot;</span>,
+    Vars: []<span class="hljs-keyword">interface</span>{}{fmt.Sprintf(<span class="hljs-string">&quot;POINT(%d %d)&quot;</span>, loc.X, loc.Y)},
+  }
+}
+
+db.Create(&amp;User{
+  Name:     <span class="hljs-string">&quot;jinzhu&quot;</span>,
+  Location: Location{X: <span class="hljs-number">100</span>, Y: <span class="hljs-number">100</span>},
+})
+<span class="hljs-comment">// INSERT INTO `users` (`name`,`point`) VALUES (&quot;jinzhu&quot;,ST_PointFromText(&quot;POINT(100 100)&quot;))</span>
+
+db.Model(&amp;User{ID: <span class="hljs-number">1</span>}).Updates(User{
+  Name:  <span class="hljs-string">&quot;jinzhu&quot;</span>,
+  Point: Point{X: <span class="hljs-number">100</span>, Y: <span class="hljs-number">100</span>},
+})
+<span class="hljs-comment">// UPDATE `user_with_points` SET `name`=&quot;jinzhu&quot;,`point`=ST_PointFromText(&quot;POINT(100 100)&quot;) WHERE `id` = 1</span>
+</code></pre>
+<p>&#x67E5;&#x770B; <a href="https://learnku.com/docs/gorm/v2/data_types#gorm_valuer_interface" target="_blank">&#x81EA;&#x5B9A;&#x4E49;&#x6570;&#x636E;&#x7C7B;&#x578B;</a> &#x83B7;&#x53D6;&#x8BE6;&#x60C5;</p>
+<h4 id="&#x5B57;&#x6BB5;&#x6743;&#x9650;"><a name="&#x5B57;&#x6BB5;&#x6743;&#x9650;" class="anchor-navigation-ex-anchor" href="#&#x5B57;&#x6BB5;&#x6743;&#x9650;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5B57;&#x6BB5;&#x6743;&#x9650;</h4>
+<p>&#x652F;&#x6301;&#x5B57;&#x6BB5;&#x6743;&#x9650;&#xFF0C;&#x6743;&#x9650;&#x7EA7;&#x522B;&#x6709;&#xFF1A;&#x53EA;&#x8BFB;&#x3001;&#x53EA;&#x5199;&#x3001;&#x53EA;&#x521B;&#x5EFA;&#x3001;&#x53EA;&#x66F4;&#x65B0;&#x3001;&#x5FFD;&#x7565;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">type</span> User <span class="hljs-keyword">struct</span> {
+  Name <span class="hljs-keyword">string</span> <span class="hljs-string">`gorm:&quot;&lt;-:create&quot;`</span> <span class="hljs-comment">// &#x5141;&#x8BB8;&#x8BFB;&#x548C;&#x521B;&#x5EFA;</span>
+  Name <span class="hljs-keyword">string</span> <span class="hljs-string">`gorm:&quot;&lt;-:update&quot;`</span> <span class="hljs-comment">// &#x5141;&#x8BB8;&#x8BFB;&#x548C;&#x66F4;&#x65B0;</span>
+  Name <span class="hljs-keyword">string</span> <span class="hljs-string">`gorm:&quot;&lt;-&quot;`</span>        <span class="hljs-comment">// &#x5141;&#x8BB8;&#x8BFB;&#x548C;&#x5199;&#xFF08;&#x521B;&#x5EFA;&#x548C;&#x66F4;&#x65B0;&#xFF09;</span>
+  Name <span class="hljs-keyword">string</span> <span class="hljs-string">`gorm:&quot;-&gt;:false;&lt;-:create&quot;`</span> <span class="hljs-comment">// &#x53EA;&#x521B;&#x5EFA;</span>
+  Name <span class="hljs-keyword">string</span> <span class="hljs-string">`gorm:&quot;-&gt;&quot;`</span> <span class="hljs-comment">// &#x53EA;&#x8BFB;</span>
+  Name <span class="hljs-keyword">string</span> <span class="hljs-string">`gorm:&quot;-&quot;`</span>  <span class="hljs-comment">// &#x5FFD;&#x7565;</span>
+}
+</code></pre>
+<h4 id="&#x652F;&#x6301;&#x591A;&#x4E2A;&#x5B57;&#x6BB5;&#x8FFD;&#x8E2A;-createupdate-&#x65F6;&#x95F4;&#xFF08;-time&#x3001;unix-&#x6BEB;--&#x7EB3;-&#x79D2;&#xFF09;"><a name="&#x652F;&#x6301;&#x591A;&#x4E2A;&#x5B57;&#x6BB5;&#x8FFD;&#x8E2A;-createupdate-&#x65F6;&#x95F4;&#xFF08;-time&#x3001;unix-&#x6BEB;--&#x7EB3;-&#x79D2;&#xFF09;" class="anchor-navigation-ex-anchor" href="#&#x652F;&#x6301;&#x591A;&#x4E2A;&#x5B57;&#x6BB5;&#x8FFD;&#x8E2A;-createupdate-&#x65F6;&#x95F4;&#xFF08;-time&#x3001;unix-&#x6BEB;--&#x7EB3;-&#x79D2;&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x652F;&#x6301;&#x591A;&#x4E2A;&#x5B57;&#x6BB5;&#x8FFD;&#x8E2A; create/update &#x65F6;&#x95F4;&#xFF08; time&#x3001;unix (&#x6BEB; / &#x7EB3;) &#x79D2;&#xFF09;</h4>
+<pre><code class="lang-go"><span class="hljs-keyword">type</span> User <span class="hljs-keyword">struct</span> {
+  CreatedAt time.Time <span class="hljs-comment">// &#x5728;&#x521B;&#x5EFA;&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x8BE5;&#x5B57;&#x6BB5;&#x503C;&#x4E3A;&#x96F6;&#x503C;&#xFF0C;&#x5219;&#x4F7F;&#x7528;&#x5F53;&#x524D;&#x65F6;&#x95F4;&#x586B;&#x5145;</span>
+  UpdatedAt <span class="hljs-keyword">int</span>       <span class="hljs-comment">// &#x5728;&#x521B;&#x5EFA;&#x65F6;&#x8BE5;&#x5B57;&#x6BB5;&#x503C;&#x4E3A;&#x96F6;&#x503C;&#x6216;&#x8005;&#x5728;&#x66F4;&#x65B0;&#x65F6;&#xFF0C;&#x4F7F;&#x7528;&#x5F53;&#x524D;&#x65F6;&#x95F4;&#x6233;&#x7684;&#x79D2;&#x6570;&#x586B;&#x5145;</span>
+  Updated   <span class="hljs-keyword">int64</span> <span class="hljs-string">`gorm:&quot;autoUpdateTime:nano&quot;`</span> <span class="hljs-comment">// &#x4F7F;&#x7528;&#x65F6;&#x95F4;&#x6233;&#x7684;&#x7EB3;&#x79D2;&#x6570;&#x586B;&#x5145;&#x66F4;&#x65B0;&#x65F6;&#x95F4;</span>
+  Updated2   <span class="hljs-keyword">int64</span> <span class="hljs-string">`gorm:&quot;autoUpdateTime:milli&quot;`</span> <span class="hljs-comment">// &#x4F7F;&#x7528;&#x65F6;&#x95F4;&#x6233;&#x7684;&#x6BEB;&#x79D2;&#x6570;&#x586B;&#x5145;&#x66F4;&#x65B0;&#x65F6;&#x95F4;</span>
+  Created   <span class="hljs-keyword">int64</span> <span class="hljs-string">`gorm:&quot;autoCreateTime&quot;`</span>      <span class="hljs-comment">// &#x4F7F;&#x7528;&#x65F6;&#x95F4;&#x6233;&#x7684;&#x79D2;&#x6570;&#x586B;&#x5145;&#x521B;&#x5EFA;&#x65F6;&#x95F4;</span>
+}
+</code></pre>
+<h4 id="&#x591A;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x8BFB;&#x5199;&#x5206;&#x79BB;"><a name="&#x591A;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x8BFB;&#x5199;&#x5206;&#x79BB;" class="anchor-navigation-ex-anchor" href="#&#x591A;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x8BFB;&#x5199;&#x5206;&#x79BB;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x591A;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x8BFB;&#x5199;&#x5206;&#x79BB;</h4>
+<p>GORM &#x901A;&#x8FC7; <code>DB Resolver</code> &#x63D2;&#x4EF6;&#x63D0;&#x4F9B;&#x4E86;&#x591A;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x8BFB;&#x5199;&#x5206;&#x79BB;&#x652F;&#x6301;&#x3002;&#x8BE5;&#x63D2;&#x4EF6;&#x8FD8;&#x652F;&#x6301;&#x57FA;&#x4E8E;&#x5F53;&#x524D; struct &#x548C;&#x8868;&#x81EA;&#x52A8;&#x5207;&#x6362;&#x6570;&#x636E;&#x5E93;&#x548C;&#x8868;&#xFF0C;&#x81EA;&#x5B9A;&#x4E49;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x903B;&#x8F91;&#x7684;&#x591A; source&#x3001;replica</p>
+<p>&#x67E5;&#x770B; <a href="https://learnku.com/docs/gorm/v2/dbresolver" target="_blank">Database Resolver</a> &#x83B7;&#x53D6;&#x8BE6;&#x60C5;</p>
+<h4 id="prometheus"><a name="prometheus" class="anchor-navigation-ex-anchor" href="#prometheus"><i class="fa fa-link" aria-hidden="true"></i></a>Prometheus</h4>
+<p>GORM &#x63D0;&#x4F9B;&#x4E86; <code>Prometheus</code> &#x63D2;&#x4EF6;&#x6765;&#x6536;&#x96C6; <code>DBStats</code> &#x548C;&#x7528;&#x6237;&#x81EA;&#x5B9A;&#x4E49;&#x6307;&#x6807;</p>
+<p>&#x67E5;&#x770B; <a href="https://learnku.com/docs/gorm/v2/prometheus" target="_blank">Prometheus</a> &#x83B7;&#x53D6;&#x8BE6;&#x60C5;</p>
+<h4 id="&#x547D;&#x540D;&#x7B56;&#x7565;"><a name="&#x547D;&#x540D;&#x7B56;&#x7565;" class="anchor-navigation-ex-anchor" href="#&#x547D;&#x540D;&#x7B56;&#x7565;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x547D;&#x540D;&#x7B56;&#x7565;</h4>
+<p>GORM &#x5141;&#x8BB8;&#x7528;&#x6237;&#x901A;&#x8FC7;&#x8986;&#x76D6;&#x9ED8;&#x8BA4;&#x7684;<code>&#x547D;&#x540D;&#x7B56;&#x7565;</code>&#x66F4;&#x6539;&#x9ED8;&#x8BA4;&#x7684;&#x547D;&#x540D;&#x7EA6;&#x5B9A;&#xFF0C;&#x547D;&#x540D;&#x7B56;&#x7565;&#x88AB;&#x7528;&#x4E8E;&#x6784;&#x5EFA;&#xFF1A; <code>TableName</code>&#x3001;<code>ColumnName</code>&#x3001;<code>JoinTableName</code>&#x3001;<code>RelationshipFKName</code>&#x3001;<code>CheckerName</code>&#x3001;<code>IndexName</code>&#x3002;&#x67E5;&#x770B; <a href="https://learnku.com/docs/gorm/v2/gorm_config" target="_blank">GORM &#x914D;&#x7F6E;</a> &#x83B7;&#x53D6;&#x8BE6;&#x60C5;</p>
+<pre><code class="lang-go">db, err := gorm.Open(sqlite.Open(<span class="hljs-string">&quot;gorm.db&quot;</span>), &amp;gorm.Config{
+  NamingStrategy: schema.NamingStrategy{TablePrefix: <span class="hljs-string">&quot;t_&quot;</span>, SingularTable: <span class="hljs-literal">true</span>},
+})
+</code></pre>
+<h4 id="logger"><a name="logger" class="anchor-navigation-ex-anchor" href="#logger"><i class="fa fa-link" aria-hidden="true"></i></a>Logger</h4>
+<ul>
+<li>Context &#x652F;&#x6301;</li>
+<li>&#x81EA;&#x5B9A;&#x4E49;&#x6216;&#x5173;&#x95ED;&#x65E5;&#x5FD7;&#x7684;&#x989C;&#x8272;</li>
+<li>&#x6162; SQL &#x65E5;&#x5FD7;&#xFF0C;&#x6162; SQL &#x9ED8;&#x8BA4;&#x9608;&#x503C;&#x662F; 100ms</li>
+<li>&#x4F18;&#x5316;&#x4E86; SQL &#x65E5;&#x5FD7;&#x683C;&#x5F0F;&#xFF0C;&#x53EF;&#x4EE5;&#x66F4;&#x65B9;&#x4FBF;&#x7684;&#x590D;&#x5236;&#x5230;&#x6570;&#x636E;&#x5E93;&#x63A7;&#x5236;&#x53F0;&#x4E2D;&#x6267;&#x884C;</li>
+</ul>
+<h4 id="&#x4E8B;&#x52A1;&#x6A21;&#x5F0F;"><a name="&#x4E8B;&#x52A1;&#x6A21;&#x5F0F;" class="anchor-navigation-ex-anchor" href="#&#x4E8B;&#x52A1;&#x6A21;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E8B;&#x52A1;&#x6A21;&#x5F0F;</h4>
+<p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;GORM &#x6240;&#x6709;&#x7684;&#x5199;&#x64CD;&#x4F5C;&#x90FD;&#x4F1A;&#x5728;&#x4E8B;&#x52A1;&#x4E2D;&#x8FD0;&#x884C;&#xFF0C;&#x4EE5;&#x786E;&#x4FDD;&#x6570;&#x636E;&#x7684;&#x4E00;&#x81F4;&#x6027;&#x3002; &#x5982;&#x679C;&#x4E0D;&#x9700;&#x8981;&#xFF0C;&#x60A8;&#x53EF;&#x4EE5;&#x5728;&#x521D;&#x59CB;&#x5316;&#x65F6;&#x7981;&#x7528;&#x5B83;&#x6765;&#x52A0;&#x901F;&#x5199;&#x5165;&#x64CD;&#x4F5C;</p>
+<pre><code class="lang-go">db, err := gorm.Open(sqlite.Open(<span class="hljs-string">&quot;gorm.db&quot;</span>), &amp;gorm.Config{
+  SkipDefaultTransaction: <span class="hljs-literal">true</span>,
+})
+</code></pre>
+<h4 id="&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF08;&#x4EE5;-json-&#x4E3A;&#x4F8B;&#xFF09;"><a name="&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF08;&#x4EE5;-json-&#x4E3A;&#x4F8B;&#xFF09;" class="anchor-navigation-ex-anchor" href="#&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF08;&#x4EE5;-json-&#x4E3A;&#x4F8B;&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF08;&#x4EE5; JSON &#x4E3A;&#x4F8B;&#xFF09;</h4>
+<p>GORM &#x4F18;&#x5316;&#x4E86;&#x5BF9;&#x81EA;&#x5B9A;&#x4E49;&#x7C7B;&#x578B;&#x7684;&#x652F;&#x6301;&#xFF0C;&#x73B0;&#x5728;&#x60A8;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A; struct &#x6765;&#x652F;&#x6301;&#x6240;&#x6709;&#x7C7B;&#x578B;&#x7684;&#x6570;&#x636E;&#x5E93;</p>
+<p>&#x4E0B;&#x9762;&#x4EE5; JSON &#x4E3A;&#x4F8B;&#xFF08;&#x652F;&#x6301; SQLite&#x3001;MySQL&#x3001;Postgres&#x3002;&#x53C2;&#x8003;&#x81EA;&#xFF1A;<a href="https://github.com/go-gorm/datamypes/blob/master/json.go&#xFF09;" target="_blank">https://github.com/go-gorm/datamypes/blob/master/json.go&#xFF09;</a></p>
+<pre><code class="lang-go"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;gorm.io/datatypes&quot;</span>
+
+<span class="hljs-keyword">type</span> User <span class="hljs-keyword">struct</span> {
+  gorm.Model
+  Name       <span class="hljs-keyword">string</span>
+  Attributes datatypes.JSON
+}
+
+db.Create(&amp;User{
+  Name:       <span class="hljs-string">&quot;jinzhu&quot;</span>,
+  Attributes: datatypes.JSON([]<span class="hljs-keyword">byte</span>(<span class="hljs-string">`{&quot;name&quot;: &quot;jinzhu&quot;, &quot;age&quot;: 18, &quot;tags&quot;: [&quot;tag1&quot;, &quot;tag2&quot;], &quot;orgs&quot;: {&quot;orga&quot;: &quot;orga&quot;}}`</span>)),
+}
+
+<span class="hljs-comment">// &#x67E5;&#x8BE2; attributes &#x4E2D;&#x6709; role &#x5B57;&#x6BB5;&#x7684; user</span>
+db.First(&amp;user, datatypes.JSONQuery(<span class="hljs-string">&quot;attributes&quot;</span>).HasKey(<span class="hljs-string">&quot;role&quot;</span>))
+<span class="hljs-comment">// &#x67E5;&#x8BE2; attributes &#x4E2D;&#x6709; orgs-&gt;orga &#x5B57;&#x6BB5;&#x7684; user</span>
+db.First(&amp;user, datatypes.JSONQuery(<span class="hljs-string">&quot;attributes&quot;</span>).HasKey(<span class="hljs-string">&quot;orgs&quot;</span>, <span class="hljs-string">&quot;orga&quot;</span>))
+</code></pre>
+<h4 id="smart-select"><a name="smart-select" class="anchor-navigation-ex-anchor" href="#smart-select"><i class="fa fa-link" aria-hidden="true"></i></a>Smart Select</h4>
+<p>GORM &#x53EF;&#x4EE5;&#x901A;&#x8FC7; <a href="https://learnku.com/docs/gorm/v2/query" target="_blank"><code>Select</code></a> &#x9009;&#x62E9;&#x6307;&#x5B9A;&#x7684;&#x5B57;&#x6BB5;&#xFF0C;&#x800C;&#x5728; V2 &#x4E2D;&#xFF0C;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x8F83;&#x5C0F;&#x7684; struct&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; GORM &#x63D0;&#x4F9B;&#x7684; smart select &#x6A21;&#x5F0F;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">type</span> User <span class="hljs-keyword">struct</span> {
+  ID     <span class="hljs-keyword">uint</span>
+  Name   <span class="hljs-keyword">string</span>
+  Age    <span class="hljs-keyword">int</span>
+  Gender <span class="hljs-keyword">string</span>
+  <span class="hljs-comment">// &#x5047;&#x8BBE;&#x540E;&#x9762;&#x8FD8;&#x6709;&#x51E0;&#x767E;&#x4E2A;&#x5B57;&#x6BB5;...</span>
+}
+
+<span class="hljs-keyword">type</span> APIUser <span class="hljs-keyword">struct</span> {
+  ID   <span class="hljs-keyword">uint</span>
+  Name <span class="hljs-keyword">string</span>
+}
+
+<span class="hljs-comment">// &#x67E5;&#x8BE2;&#x65F6;&#x4F1A;&#x81EA;&#x52A8;&#x9009;&#x62E9; `id`, `name` &#x5B57;&#x6BB5;</span>
+db.Model(&amp;User{}).Limit(<span class="hljs-number">10</span>).Find(&amp;APIUser{})
+<span class="hljs-comment">// SELECT `id`, `name` FROM `users` LIMIT 10</span>
+</code></pre>
+<h4 id="&#x6279;&#x91CF;&#x5173;&#x8054;&#x6A21;&#x5F0F;"><a name="&#x6279;&#x91CF;&#x5173;&#x8054;&#x6A21;&#x5F0F;" class="anchor-navigation-ex-anchor" href="#&#x6279;&#x91CF;&#x5173;&#x8054;&#x6A21;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6279;&#x91CF;&#x5173;&#x8054;&#x6A21;&#x5F0F;</h4>
+<p>&#x5173;&#x8054;&#x6A21;&#x5F0F;&#x4E5F;&#x652F;&#x6301;&#x6279;&#x91CF;&#x5904;&#x7406;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-comment">// &#x67E5;&#x8BE2;&#x6240;&#x6709;&#x7528;&#x6237;&#x7684;&#x6240;&#x6709;&#x89D2;&#x8272;</span>
+db.Model(&amp;users).Association(<span class="hljs-string">&quot;Role&quot;</span>).Find(&amp;roles)
+
+<span class="hljs-comment">// &#x5C06; userA &#x4ECE;&#x6240;&#x6709;&#x7684; Team &#x4E2D;&#x79FB;&#x9664;</span>
+db.Model(&amp;users).Association(<span class="hljs-string">&quot;Team&quot;</span>).Delete(&amp;userA)
+
+<span class="hljs-comment">// &#x83B7;&#x53D6;&#x6240;&#x6709; Team &#x6210;&#x5458;&#x7684;&#x4E0D;&#x91CD;&#x590D;&#x8BA1;&#x6570;</span>
+db.Model(&amp;users).Association(<span class="hljs-string">&quot;Team&quot;</span>).Count()
+
+<span class="hljs-comment">// &#x5BF9;&#x4E8E; `Append`&#x3001;`Replace` &#x7684;&#x6279;&#x91CF;&#x5904;&#x7406;&#xFF0C;&#x53C2;&#x6570;&#x4E0E;&#x6570;&#x636E;&#x7684;&#x957F;&#x5EA6;&#x5FC5;&#x987B;&#x76F8;&#x7B49;&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x8FD4;&#x56DE;&#x9519;&#x8BEF;</span>
+<span class="hljs-keyword">var</span> users = []User{user1, user2, user3}
+<span class="hljs-comment">// &#x4F8B;&#x5982;&#xFF1A;&#x6211;&#x4EEC;&#x6709; 3 &#x4E2A; user&#xFF0C;&#x5C06; userA &#x6DFB;&#x52A0;&#x5230; user1 &#x7684; Team&#xFF0C;&#x5C06; userB &#x6DFB;&#x52A0;&#x5230; user2 &#x7684; Team&#xFF0C;&#x5C06; userA&#x3001;userB&#x3001;userC &#x6DFB;&#x52A0;&#x5230; user3 &#x7684; Team</span>
+db.Model(&amp;users).Association(<span class="hljs-string">&quot;Team&quot;</span>).Append(&amp;userA, &amp;userB, &amp;[]User{userA, userB, userC})
+<span class="hljs-comment">// &#x5C06; user1 &#x7684; Team &#x91CD;&#x7F6E;&#x4E3A; userA&#xFF0C;&#x5C06; user2&#x7684; team &#x91CD;&#x7F6E;&#x4E3A; userB&#xFF0C;&#x5C06; user3 &#x7684; team &#x91CD;&#x7F6E;&#x4E3A; userA&#x3001;userB &#x548C; userC</span>
+db.Model(&amp;users).Association(<span class="hljs-string">&quot;Team&quot;</span>).Replace(&amp;userA, &amp;userB, &amp;[]User{userA, userB, userC})
+</code></pre>
+<h4 id="&#x5220;&#x9664;&#x5173;&#x8054;&#x8BB0;&#x5F55;"><a name="&#x5220;&#x9664;&#x5173;&#x8054;&#x8BB0;&#x5F55;" class="anchor-navigation-ex-anchor" href="#&#x5220;&#x9664;&#x5173;&#x8054;&#x8BB0;&#x5F55;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5220;&#x9664;&#x5173;&#x8054;&#x8BB0;&#x5F55;</h4>
+<p>&#x4F60;&#x53EF;&#x4EE5;&#x5728;&#x5220;&#x9664;&#x8BB0;&#x5F55;&#x65F6;&#x901A;&#x8FC7; <code>Select</code> &#x6765;&#x5220;&#x9664;&#x5177;&#x6709; has one&#x3001;has many&#x3001;many2many &#x5173;&#x7CFB;&#x7684;&#x8BB0;&#x5F55;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-comment">// &#x5220;&#x9664; user &#x65F6;&#xFF0C;&#x4E5F;&#x5220;&#x9664; user &#x7684; account</span>
+db.Select(<span class="hljs-string">&quot;Account&quot;</span>).Delete(&amp;user)
+
+<span class="hljs-comment">// &#x5220;&#x9664; user &#x65F6;&#xFF0C;&#x4E5F;&#x5220;&#x9664; user &#x7684; Orders&#x3001;CreditCards &#x8BB0;&#x5F55;</span>
+db.Select(<span class="hljs-string">&quot;Orders&quot;</span>, <span class="hljs-string">&quot;CreditCards&quot;</span>).Delete(&amp;user)
+
+<span class="hljs-comment">// &#x5220;&#x9664; user &#x65F6;&#xFF0C;&#x4E5F;&#x5220;&#x9664;&#x7528;&#x6237;&#x6240;&#x6709; has one/many&#x3001;many2many &#x8BB0;&#x5F55;</span>
+db.Select(clause.Associations).Delete(&amp;user)
+
+<span class="hljs-comment">// &#x5220;&#x9664; users &#x65F6;&#xFF0C;&#x4E5F;&#x5220;&#x9664; user &#x4EEC;&#x7684; account</span>
+db.Select(<span class="hljs-string">&quot;Account&quot;</span>).Delete(&amp;users)
+</code></pre>
+<h2 id="&#x7834;&#x574F;&#x6027;&#x53D8;&#x66F4;"><a name="&#x7834;&#x574F;&#x6027;&#x53D8;&#x66F4;" class="anchor-navigation-ex-anchor" href="#&#x7834;&#x574F;&#x6027;&#x53D8;&#x66F4;"><i class="fa fa-link" aria-hidden="true"></i></a>3. &#x7834;&#x574F;&#x6027;&#x53D8;&#x66F4;</h2>
+<p>&#x6211;&#x4EEC;&#x5C3D;&#x53EF;&#x80FD;&#x7684;&#x5217;&#x51FA;&#x7834;&#x574F;&#x6027;&#x3001;&#x65E0;&#x6CD5;&#x88AB;&#x7F16;&#x8BD1;&#x5668;&#x6355;&#x83B7;&#x7684;&#x53D8;&#x66F4;&#x3002;&#x5982;&#x679C;&#x60A8;&#x53D1;&#x73B0;&#x4E86;&#x4EFB;&#x4F55;&#x9057;&#x6F0F;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x6B22;&#x8FCE;&#x5728; <a href="https://github.com/go-gorm/gorm.io" target="_blank">&#x8FD9;&#x91CC;</a> &#x521B;&#x5EFA; issue &#x6216; pr</p>
+<h4 id="tag"><a name="tag" class="anchor-navigation-ex-anchor" href="#tag"><i class="fa fa-link" aria-hidden="true"></i></a>Tag</h4>
+<ul>
+<li>GORM V2 &#x4F7F;&#x7528; <code>camelCase</code> &#x98CE;&#x683C;&#x7684; tag &#x540D;&#x3002;<code>snake_case</code> &#x98CE;&#x683C;&#x7684; tag &#x5DF2;&#x7ECF;&#x5931;&#x6548;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A; <code>auto_increment</code>&#x3001;<code>unique_index</code>&#x3001;<code>polymorphic_value</code>&#x3001;<code>embeded_prefix</code>&#xFF0C;&#x67E5;&#x770B; <a href="https://learnku.com/docs/gorm/v2/models#tags" target="_blank">Model Tag</a> &#x83B7;&#x53D6;&#x8BE6;&#x60C5;</li>
+<li>&#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x5916;&#x952E;&#x7684; tag &#x5DF2;&#x53D8;&#x66F4;&#x4E3A; <code>foreignKey</code>&#xFF0C;<code>references</code>&#xFF0C;&#x67E5;&#x770B; <a href="https://learnku.com/docs/gorm/v2/associations#tags" target="_blank">Association Tag</a> &#x83B7;&#x53D6;&#x8BE6;&#x60C5;</li>
+</ul>
+<h4 id="table-name"><a name="table-name" class="anchor-navigation-ex-anchor" href="#table-name"><i class="fa fa-link" aria-hidden="true"></i></a>Table Name</h4>
+<p><code>TableName</code> <em>&#x4E0D;&#x518D;</em> &#x5141;&#x8BB8;&#x52A8;&#x6001;&#x8868;&#x540D;&#xFF0C; &#x56E0;&#x4E3A; <code>TableName</code> &#x7684;&#x8FD4;&#x56DE;&#x503C;&#x4F1A;&#x88AB;&#x7F13;&#x5B58;&#x4E0B;&#x6765;</p>
+<pre><code class="lang-go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(User)</span> <span class="hljs-title">TableName</span><span class="hljs-params">()</span> <span class="hljs-title">string</span></span> {
+  <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;t_user&quot;</span>
+}
+</code></pre>
+<p>&#x52A8;&#x6001;&#x8868;&#x540D;&#x8BF7;&#x4F7F;&#x7528; <code>Scopes</code>&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">UserTable</span><span class="hljs-params">(u *User)</span> <span class="hljs-title">func</span><span class="hljs-params">(*gorm.DB)</span> *<span class="hljs-title">gorm</span>.<span class="hljs-title">DB</span></span> {
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(db *gorm.DB)</span> *<span class="hljs-title">gorm</span>.<span class="hljs-title">DB</span></span> {
+    <span class="hljs-keyword">return</span> db.Table(<span class="hljs-string">&quot;user_&quot;</span> + u.Role)
+  }
+}
+
+db.Scopes(UserTable(&amp;user)).Create(&amp;user)
+</code></pre>
+<h4 id="&#x65B9;&#x6CD5;&#x94FE;&#x548C;&#x534F;&#x7A0B;&#x5B89;&#x5168;"><a name="&#x65B9;&#x6CD5;&#x94FE;&#x548C;&#x534F;&#x7A0B;&#x5B89;&#x5168;" class="anchor-navigation-ex-anchor" href="#&#x65B9;&#x6CD5;&#x94FE;&#x548C;&#x534F;&#x7A0B;&#x5B89;&#x5168;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x65B9;&#x6CD5;&#x94FE;&#x548C;&#x534F;&#x7A0B;&#x5B89;&#x5168;</h4>
+<p>&#x4E3A;&#x4E86;&#x51CF;&#x5C11; GC &#x5206;&#x914D;&#xFF0C;&#x5728;&#x4F7F;&#x7528;&#x94FE;&#x5F0F;&#x8C03;&#x7528;&#x65F6;&#xFF0C;GORM V2 &#x4F1A;&#x5171;&#x4EAB; <code>Statement</code>&#xFF0C;&#x4E14;&#x53EA;&#x5728;&#x521D;&#x59CB;&#x5316; <code>*gorm.DB</code> &#x6216;&#x8C03;&#x7528; <code>New Session Method</code> &#x540E;&#x521B;&#x5EFA;&#x65B0;&#x7684; <code>Statement</code>&#x3002;&#x60F3;&#x8981;&#x590D;&#x7528; <code>*gorm.DB</code>&#xFF0C;&#x60A8;&#x9700;&#x8981;&#x786E;&#x4FDD;&#x8BE5;&#x5B83;&#x521A;&#x8C03;&#x7528;&#x8FC7; <code>New Session Method</code>&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-go">db, err := gorm.Open(sqlite.Open(<span class="hljs-string">&quot;test.db&quot;</span>), &amp;gorm.Config{})
+
+<span class="hljs-comment">// &#x5BF9;&#x4E8E;&#x521A;&#x521D;&#x59CB;&#x5316;&#x7684; *gorm.DB &#x662F;&#x5B89;&#x5168;&#x7684;</span>
+<span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100</span>; i++ {
+  <span class="hljs-keyword">go</span> db.Where(...).First(&amp;user)
+}
+
+tx := db.Where(<span class="hljs-string">&quot;name = ?&quot;</span>, <span class="hljs-string">&quot;jinzhu&quot;</span>)
+<span class="hljs-comment">// &#x4E0D;&#x5B89;&#x5168;&#xFF0C;&#x56E0;&#x4E3A;&#x590D;&#x7528;&#x4E86; Statement</span>
+<span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100</span>; i++ {
+  <span class="hljs-keyword">go</span> tx.Where(...).First(&amp;user)
+}
+
+ctxDB := db.WithContext(ctx)
+<span class="hljs-comment">// Safe after a `New Session Method`</span>
+<span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100</span>; i++ {
+  <span class="hljs-keyword">go</span> ctxDB.Where(...).First(&amp;user)
+}
+
+ctxDB := db.Where(<span class="hljs-string">&quot;name = ?&quot;</span>, <span class="hljs-string">&quot;jinzhu&quot;</span>).WithContext(ctx)
+<span class="hljs-comment">// &#x8C03;&#x7528; `New Session Method` &#x540E;&#x662F;&#x5B89;&#x5168;&#x7684;</span>
+<span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100</span>; i++ {
+  <span class="hljs-keyword">go</span> ctxDB.Where(...).First(&amp;user) <span class="hljs-comment">// `name = &apos;jinzhu&apos;` &#x4F1A;&#x5E94;&#x7528;&#x81F3;&#x8BE5;&#x67E5;&#x8BE2;</span>
+}
+
+tx := db.Where(<span class="hljs-string">&quot;name = ?&quot;</span>, <span class="hljs-string">&quot;jinzhu&quot;</span>).Session(&amp;gorm.Session{})
+<span class="hljs-comment">// &#x8C03;&#x7528; `New Session Method` &#x540E;&#x662F;&#x5B89;&#x5168;&#x7684;</span>
+<span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100</span>; i++ {
+  <span class="hljs-keyword">go</span> tx.Where(...).First(&amp;user) <span class="hljs-comment">// `name = &apos;jinzhu&apos;` &#x4F1A;&#x5E94;&#x7528;&#x81F3;&#x8BE5;&#x67E5;&#x8BE2;</span>
+}
+</code></pre>
+<p>&#x67E5;&#x770B; <a href="https://learnku.com/docs/gorm/v2/method_chaining" target="_blank">&#x65B9;&#x6CD5;&#x94FE;</a> &#x83B7;&#x53D6;&#x8BE6;&#x60C5;</p>
+<h4 id="&#x9ED8;&#x8BA4;&#x503C;"><a name="&#x9ED8;&#x8BA4;&#x503C;" class="anchor-navigation-ex-anchor" href="#&#x9ED8;&#x8BA4;&#x503C;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x9ED8;&#x8BA4;&#x503C;</h4>
+<p>&#x521B;&#x5EFA;&#x8BB0;&#x5F55;&#x540E;&#xFF0C;GORM V2 &#x4E0D;&#x4F1A;&#x81EA;&#x52A8;&#x52A0;&#x8F7D;&#x7531;&#x6570;&#x636E;&#x5E93;&#x751F;&#x6210;&#x7684;&#x9ED8;&#x8BA4;&#x503C;&#xFF0C;&#x67E5;&#x770B; <a href="https://learnku.com/docs/gorm/v2/create#default_values" target="_blank">&#x9ED8;&#x8BA4;&#x503C;</a> &#x83B7;&#x53D6;&#x8BE6;&#x60C5;</p>
+<h4 id="&#x8F6F;&#x5220;&#x9664;"><a name="&#x8F6F;&#x5220;&#x9664;" class="anchor-navigation-ex-anchor" href="#&#x8F6F;&#x5220;&#x9664;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8F6F;&#x5220;&#x9664;</h4>
+<p>&#x5728; GORM V1 &#x4E2D;&#xFF0C;&#x5982;&#x679C; model &#x4E2D;&#x6709;&#x4E00;&#x4E2A;&#x540D;&#x4E3A; <code>DeletedAt</code> &#x7684;&#x5B57;&#x6BB5;&#x5219;&#x81EA;&#x52A8;&#x5F00;&#x542F;&#x8F6F;&#x5220;&#x9664;&#x3002;&#x5728; V2&#xFF0C;&#x60A8;&#x9700;&#x8981;&#x5728;&#x60F3;&#x542F;&#x7528;&#x8F6F;&#x5220;&#x9664;&#x7684; model &#x4E2D;&#x4F7F;&#x7528; <code>gorm.DeletedAt</code>&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">type</span> User <span class="hljs-keyword">struct</span> {
+  ID        <span class="hljs-keyword">uint</span>
+  DeletedAt gorm.DeletedAt
+}
+
+<span class="hljs-keyword">type</span> User <span class="hljs-keyword">struct</span> {
+  ID      <span class="hljs-keyword">uint</span>
+  <span class="hljs-comment">// &#x5B57;&#x6BB5;&#x540D;&#x65E0;&#x8981;&#x6C42;</span>
+  Deleted gorm.DeletedAt
+}
+</code></pre>
+<blockquote>
+<p><strong>&#x6CE8;&#x610F;&#xFF1A;</strong> <code>gorm.Model</code> &#x4F7F;&#x7528;&#x4E86; <code>gorm.DeletedAt</code>&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x5DF2;&#x7ECF;&#x5D4C;&#x5165;&#x4E86;&#x5B83;&#xFF0C;&#x5219;&#x4E0D;&#x9700;&#x8981;&#x505A;&#x4EC0;&#x4E48;&#x4FEE;&#x6539;</p>
+</blockquote>
+<h4 id="blockglobalupdate"><a name="blockglobalupdate" class="anchor-navigation-ex-anchor" href="#blockglobalupdate"><i class="fa fa-link" aria-hidden="true"></i></a>BlockGlobalUpdate</h4>
+<p>GORM V2 &#x9ED8;&#x8BA4;&#x542F;&#x7528;&#x4E86; <code>BlockGlobalUpdate</code> &#x6A21;&#x5F0F;&#x3002;&#x60F3;&#x8981;&#x89E6;&#x53D1;&#x5168;&#x5C40; update/delete&#xFF0C;&#x4F60;&#x5FC5;&#x987B;&#x4F7F;&#x7528;&#x4E00;&#x4E9B;&#x6761;&#x4EF6;&#x3001;&#x539F;&#x751F; SQL &#x6216;&#x8005;&#x542F;&#x7528; <code>AllowGlobalUpdate</code> &#x6A21;&#x5F0F;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-go">db.Where(<span class="hljs-string">&quot;1 = 1&quot;</span>).Delete(&amp;User{})
+
+db.Raw(<span class="hljs-string">&quot;delete from users&quot;</span>)
+
+db.Session(&amp;gorm.Session{AllowGlobalUpdate: <span class="hljs-literal">true</span>}).Delete(&amp;User{})
+</code></pre>
+<h4 id="errrecordnotfound"><a name="errrecordnotfound" class="anchor-navigation-ex-anchor" href="#errrecordnotfound"><i class="fa fa-link" aria-hidden="true"></i></a>ErrRecordNotFound</h4>
+<p>GORM V2 &#x53EA;&#x6709;&#x5728;&#x4F60;&#x4F7F;&#x7528; <code>First</code>&#x3001;<code>Last</code>&#x3001;<code>Take</code> &#x8FD9;&#x4E9B;&#x9884;&#x671F;&#x4F1A;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x7684;&#x65B9;&#x6CD5;&#x67E5;&#x8BE2;&#x8BB0;&#x5F55;&#x65F6;&#xFF0C;&#x624D;&#x4F1A;&#x8FD4;&#x56DE; <code>ErrRecordNotFound</code>&#xFF0C;&#x6211;&#x4EEC;&#x8FD8;&#x79FB;&#x9664;&#x4E86; <code>RecordNotFound</code> &#x65B9;&#x6CD5;&#xFF0C;&#x8BF7;&#x4F7F;&#x7528; <code>errors.Is</code> &#x6765;&#x68C0;&#x67E5;&#x9519;&#x8BEF;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-go">err := db.First(&amp;user).Error
+errors.Is(err, gorm.ErrRecordNotFound)
+</code></pre>
+<h4 id="hook-&#x65B9;&#x6CD5;"><a name="hook-&#x65B9;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#hook-&#x65B9;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>Hook &#x65B9;&#x6CD5;</h4>
+<p>&#x5728; V2 &#x4E2D;&#xFF0C;Before/After Create/Update/Save/Find/Delete &#x5FC5;&#x987B;&#x5B9A;&#x4E49;&#x4E3A; <code>func(tx *gorm.DB) error</code> &#x7C7B;&#x578B;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x8FD9;&#x662F;&#x7C7B;&#x4F3C;&#x4E8E;&#x63D2;&#x4EF6; callback &#x7684;&#x7EDF;&#x4E00;&#x63A5;&#x53E3;&#x3002;&#x5982;&#x679C;&#x5B9A;&#x4E49;&#x4E3A;&#x5176;&#x5B83;&#x7C7B;&#x578B;&#xFF0C;&#x5B83;&#x4E0D;&#x4F1A;&#x751F;&#x6548;&#xFF0C;&#x5E76;&#x4E14;&#x4F1A;&#x6253;&#x5370;&#x4E00;&#x4E2A;&#x8B66;&#x544A;&#x65E5;&#x5FD7;&#xFF0C;&#x67E5;&#x770B; <a href="https://learnku.com/docs/gorm/v2/hooks" target="_blank">Hook</a> &#x83B7;&#x53D6;&#x8BE6;&#x60C5;</p>
+<pre><code class="lang-go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(user *User)</span> <span class="hljs-title">BeforeCreate</span><span class="hljs-params">(tx *gorm.DB)</span> <span class="hljs-title">error</span></span> {
+  <span class="hljs-comment">// &#x901A;&#x8FC7; tx.Statement &#x4FEE;&#x6539;&#x5F53;&#x524D;&#x64CD;&#x4F5C;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</span>
+  tx.Statement.Select(<span class="hljs-string">&quot;Name&quot;</span>, <span class="hljs-string">&quot;Age&quot;</span>)
+  tx.Statement.AddClause(clause.OnConflict{DoNothing: <span class="hljs-literal">true</span>})
+
+  <span class="hljs-comment">// &#x9664;&#x4E86;&#x5F53;&#x524D;&#x5B50;&#x53E5;&#xFF0C;&#x57FA;&#x4E8E; tx &#x7684;&#x64CD;&#x4F5C;&#x4F1A;&#x8FD0;&#x884C;&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x4E8B;&#x52A1;&#x4E2D;</span>
+  <span class="hljs-keyword">var</span> role Role
+  err := tx.First(&amp;role, <span class="hljs-string">&quot;name = ?&quot;</span>, user.Role).Error
+  <span class="hljs-comment">// SELECT * FROM roles WHERE name = &quot;admin&quot;</span>
+  <span class="hljs-keyword">return</span> err
+}
+</code></pre>
+<h4 id="update-hook-&#x652F;&#x6301;-changed"><a name="update-hook-&#x652F;&#x6301;-changed" class="anchor-navigation-ex-anchor" href="#update-hook-&#x652F;&#x6301;-changed"><i class="fa fa-link" aria-hidden="true"></i></a>Update Hook &#x652F;&#x6301; <code>Changed</code></h4>
+<p>&#x5F53;&#x4F7F;&#x7528; <code>Update</code>&#xFF0C;<code>Updates</code> &#x66F4;&#x65B0;&#x65F6;&#xFF0C;&#x60A8;&#x53EF;&#x4EE5;&#x5728; <code>BeforeUpdate</code>, <code>BeforeSave</code> Hook &#x4E2D;&#x4F7F;&#x7528; <code>Changed</code> &#x65B9;&#x6CD5;&#x6765;&#x68C0;&#x67E5;&#x5B57;&#x6BB5;&#x662F;&#x5426;&#x6709;&#x66F4;&#x6539;</p>
+<pre><code class="lang-go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(user *User)</span> <span class="hljs-title">BeforeUpdate</span><span class="hljs-params">(tx *gorm.DB)</span> <span class="hljs-title">error</span></span> {
+  <span class="hljs-keyword">if</span> tx.Statement.Changed(<span class="hljs-string">&quot;Name&quot;</span>, <span class="hljs-string">&quot;Admin&quot;</span>) { <span class="hljs-comment">// if Name or Admin changed</span>
+    tx.Statement.SetColumn(<span class="hljs-string">&quot;Age&quot;</span>, <span class="hljs-number">18</span>)
+  }
+
+  <span class="hljs-keyword">if</span> tx.Statement.Changed() { <span class="hljs-comment">// &#x5982;&#x679C;&#x4EFB;&#x4F55;&#x5B57;&#x6BB5;&#x6709;&#x53D8;&#x52A8;</span>
+    tx.Statement.SetColumn(<span class="hljs-string">&quot;Age&quot;</span>, <span class="hljs-number">18</span>)
+  }
+  <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span>
+}
+
+db.Model(&amp;user).Update(<span class="hljs-string">&quot;Name&quot;</span>, <span class="hljs-string">&quot;Jinzhu&quot;</span>) <span class="hljs-comment">// update field `Name` to `Jinzhu`</span>
+db.Model(&amp;user).Updates(<span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]<span class="hljs-keyword">interface</span>{}{<span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Jinzhu&quot;</span>, <span class="hljs-string">&quot;admin&quot;</span>: <span class="hljs-literal">false</span>}) <span class="hljs-comment">// update field `Name` to `Jinzhu`, `Admin` to false</span>
+db.Model(&amp;user).Updates(User{Name: <span class="hljs-string">&quot;Jinzhu&quot;</span>, Admin: <span class="hljs-literal">false</span>}) <span class="hljs-comment">// Update none zero fields when using struct as argument, will only update `Name` to `Jinzhu`</span>
+
+db.Model(&amp;user).Select(<span class="hljs-string">&quot;Name&quot;</span>, <span class="hljs-string">&quot;Admin&quot;</span>).Updates(User{Name: <span class="hljs-string">&quot;Jinzhu&quot;</span>}) <span class="hljs-comment">// update selected fields `Name`, `Admin`&#xFF0C;`Admin` will be updated to zero value (false)</span>
+db.Model(&amp;user).Select(<span class="hljs-string">&quot;Name&quot;</span>, <span class="hljs-string">&quot;Admin&quot;</span>).Updates(<span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]<span class="hljs-keyword">interface</span>{}{<span class="hljs-string">&quot;Name&quot;</span>: <span class="hljs-string">&quot;Jinzhu&quot;</span>}) <span class="hljs-comment">// update selected fields exists in the map, will only update field `Name` to `Jinzhu`</span>
+
+<span class="hljs-comment">// Attention: `Changed` will only check the field value of `Update` / `Updates` equals `Model`&apos;s field value, it returns true if not equal and the field will be saved</span>
+db.Model(&amp;User{ID: <span class="hljs-number">1</span>, Name: <span class="hljs-string">&quot;jinzhu&quot;</span>}).Updates(<span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]<span class="hljs-keyword">interface</span>{<span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;jinzhu2&quot;</span>}) <span class="hljs-comment">// Changed(&quot;Name&quot;) =&gt; true</span>
+db.Model(&amp;User{ID: <span class="hljs-number">1</span>, Name: <span class="hljs-string">&quot;jinzhu&quot;</span>}).Updates(<span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]<span class="hljs-keyword">interface</span>{<span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;jinzhu&quot;</span>}) <span class="hljs-comment">// Changed(&quot;Name&quot;) =&gt; false, `Name` not changed</span>
+db.Model(&amp;User{ID: <span class="hljs-number">1</span>, Name: <span class="hljs-string">&quot;jinzhu&quot;</span>}).Select(<span class="hljs-string">&quot;Admin&quot;</span>).Updates(<span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]<span class="hljs-keyword">interface</span>{<span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;jinzhu2&quot;</span>, <span class="hljs-string">&quot;admin&quot;</span>: <span class="hljs-literal">false</span>}) <span class="hljs-comment">// Changed(&quot;Name&quot;) =&gt; false, `Name` not selected to update</span>
+
+db.Model(&amp;User{ID: <span class="hljs-number">1</span>, Name: <span class="hljs-string">&quot;jinzhu&quot;</span>}).Updates(User{Name: <span class="hljs-string">&quot;jinzhu2&quot;</span>}) <span class="hljs-comment">// Changed(&quot;Name&quot;) =&gt; true</span>
+db.Model(&amp;User{ID: <span class="hljs-number">1</span>, Name: <span class="hljs-string">&quot;jinzhu&quot;</span>}).Updates(User{Name: <span class="hljs-string">&quot;jinzhu&quot;</span>})  <span class="hljs-comment">// Changed(&quot;Name&quot;) =&gt; false, `Name` not changed</span>
+db.Model(&amp;User{ID: <span class="hljs-number">1</span>, Name: <span class="hljs-string">&quot;jinzhu&quot;</span>}).Select(<span class="hljs-string">&quot;Admin&quot;</span>).Updates(User{Name: <span class="hljs-string">&quot;jinzhu2&quot;</span>}) <span class="hljs-comment">// Changed(&quot;Name&quot;) =&gt; false, `Name` not selected to update</span>
+</code></pre>
+<h4 id="&#x63D2;&#x4EF6;"><a name="&#x63D2;&#x4EF6;" class="anchor-navigation-ex-anchor" href="#&#x63D2;&#x4EF6;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x63D2;&#x4EF6;</h4>
+<p>&#x63D2;&#x4EF6; callback &#x4E5F;&#x9700;&#x8981;&#x88AB;&#x5B9A;&#x4E49;&#x4E3A; <code>func(tx *gorm.DB) error</code> &#x7C7B;&#x578B;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x67E5;&#x770B; <a href="https://learnku.com/docs/gorm/v2/write_plugins" target="_blank">Write Plugins</a> &#x83B7;&#x53D6;&#x8BE6;&#x60C5;</p>
+<h4 id="&#x4F7F;&#x7528;-struct-&#x66F4;&#x65B0;"><a name="&#x4F7F;&#x7528;-struct-&#x66F4;&#x65B0;" class="anchor-navigation-ex-anchor" href="#&#x4F7F;&#x7528;-struct-&#x66F4;&#x65B0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4F7F;&#x7528; struct &#x66F4;&#x65B0;</h4>
+<p>&#x4F7F;&#x7528; struct &#x66F4;&#x65B0;&#x65F6;&#xFF0C;GORM V2 &#x5141;&#x8BB8;&#x4F7F;&#x7528; <code>Select</code> &#x6765;&#x9009;&#x62E9;&#x8981;&#x66F4;&#x65B0;&#x7684;&#x96F6;&#x503C;&#x5B57;&#x6BB5;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-go">db.Model(&amp;user).Select(<span class="hljs-string">&quot;Role&quot;</span>, <span class="hljs-string">&quot;Age&quot;</span>).Update(User{Name: <span class="hljs-string">&quot;jinzhu&quot;</span>, Role: <span class="hljs-string">&quot;&quot;</span>, Age: <span class="hljs-number">0</span>})
+</code></pre>
+<h4 id="&#x5173;&#x8054;"><a name="&#x5173;&#x8054;" class="anchor-navigation-ex-anchor" href="#&#x5173;&#x8054;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5173;&#x8054;</h4>
+<p>GORM V1 &#x5141;&#x8BB8;&#x4F7F;&#x7528;&#x4E00;&#x4E9B;&#x8BBE;&#x7F6E;&#x6765;&#x8DF3;&#x8FC7; create/update &#x5173;&#x8054;&#x3002;&#x5728; V2 &#x4E2D;&#xFF0C;&#x60A8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>Select</code> &#x6765;&#x5B8C;&#x6210;&#x8FD9;&#x9879;&#x5DE5;&#x4F5C;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-go">db.Omit(clause.Associations).Create(&amp;user)
+db.Omit(clause.Associations).Save(&amp;user)
+
+db.Select(<span class="hljs-string">&quot;Company&quot;</span>).Save(&amp;user)
+</code></pre>
+<p>&#x6B64;&#x5916;&#xFF0C;GORM V2 &#x4E0D;&#x518D;&#x5141;&#x8BB8;&#x901A;&#x8FC7; <code>Set(&quot;gorm:auto_preload&quot;, true)</code> &#x8FDB;&#x884C;&#x9884;&#x52A0;&#x8F7D;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x5C06; <code>Preload</code> &#x548C; <code>clause.Associations</code> &#x914D;&#x5408;&#x4F7F;&#x7528;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-comment">// &#x9884;&#x52A0;&#x8F7D;&#x6240;&#x6709;&#x5173;&#x8054;</span>
+db.Preload(clause.Associations).Find(&amp;users)
+</code></pre>
+<p>&#x6B64;&#x5916;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x67E5;&#x770B;&#x5B57;&#x6BB5;&#x6743;&#x9650;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x5168;&#x5C40;&#x8DF3;&#x8FC7; creating/updating &#x5173;&#x8054;</p>
+<p>&#x5728;&#x521B;&#x5EFA;&#x3001;&#x66F4;&#x65B0;&#x8BB0;&#x5F55;&#x65F6;&#xFF0C;GORM V2 &#x5C06;&#x4F7F;&#x7528; upsert &#x6765;&#x4FDD;&#x5B58;&#x5173;&#x8054;&#x8BB0;&#x5F55;&#x3002;&#x4E0D;&#x4F1A;&#x518D;&#x4FDD;&#x5B58;&#x5B8C;&#x6574;&#x7684;&#x5173;&#x8054;&#x6570;&#x636E;&#xFF0C;&#x907F;&#x514D;&#x53D7;&#x672A;&#x5B8C;&#x6210;&#x6570;&#x636E;&#x7684;&#x5F71;&#x54CD;&#xFF0C;&#x4EE5;&#x4FDD;&#x62A4;&#x60A8;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-go">user := User{
+  Name:            <span class="hljs-string">&quot;jinzhu&quot;</span>,
+  BillingAddress:  Address{Address1: <span class="hljs-string">&quot;Billing Address - Address 1&quot;</span>},
+  ShippingAddress: Address{Address1: <span class="hljs-string">&quot;Shipping Address - Address 1&quot;</span>},
+  Emails:          []Email{
+    {Email: <span class="hljs-string">&quot;jinzhu@example.com&quot;</span>},
+    {Email: <span class="hljs-string">&quot;jinzhu-2@example.com&quot;</span>},
+  },
+  Languages:       []Language{
+    {Name: <span class="hljs-string">&quot;ZH&quot;</span>},
+    {Name: <span class="hljs-string">&quot;EN&quot;</span>},
+  },
+}
+
+db.Create(&amp;user)
+<span class="hljs-comment">// BEGIN TRANSACTION;</span>
+<span class="hljs-comment">// INSERT INTO &quot;addresses&quot; (address1) VALUES (&quot;Billing Address - Address 1&quot;), (&quot;Shipping Address - Address 1&quot;) ON DUPLICATE KEY DO NOTHING;</span>
+<span class="hljs-comment">// INSERT INTO &quot;users&quot; (name,billing_address_id,shipping_address_id) VALUES (&quot;jinzhu&quot;, 1, 2);</span>
+<span class="hljs-comment">// INSERT INTO &quot;emails&quot; (user_id,email) VALUES (111, &quot;jinzhu@example.com&quot;), (111, &quot;jinzhu-2@example.com&quot;) ON DUPLICATE KEY DO NOTHING;</span>
+<span class="hljs-comment">// INSERT INTO &quot;languages&quot; (&quot;name&quot;) VALUES (&apos;ZH&apos;), (&apos;EN&apos;) ON DUPLICATE KEY DO NOTHING;</span>
+<span class="hljs-comment">// INSERT INTO &quot;user_languages&quot; (&quot;user_id&quot;,&quot;language_id&quot;) VALUES (111, 1), (111, 2) ON DUPLICATE KEY DO NOTHING;</span>
+<span class="hljs-comment">// COMMIT;</span>
+</code></pre>
+<h4 id="join-table"><a name="join-table" class="anchor-navigation-ex-anchor" href="#join-table"><i class="fa fa-link" aria-hidden="true"></i></a>Join Table</h4>
+<p>&#x5728; GORM V2 &#x4E2D;&#xFF0C;<code>JoinTable</code> &#x53EF;&#x4EE5;&#x662F;&#x4E00;&#x4E2A;&#x5E26;&#x6709; <code>&#x8F6F;&#x5220;&#x9664;</code>&#x3001;<code>Hook</code> &#x4E14;&#x5B9A;&#x4E49;&#x4E86;&#x5176;&#x5B83;&#x5B57;&#x6BB5;&#x7684;&#x5168;&#x529F;&#x80FD; model&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">type</span> Person <span class="hljs-keyword">struct</span> {
+  ID        <span class="hljs-keyword">int</span>
+  Name      <span class="hljs-keyword">string</span>
+  Addresses []Address <span class="hljs-string">`gorm:&quot;many2many:person_addresses;&quot;`</span>
+}
+
+<span class="hljs-keyword">type</span> Address <span class="hljs-keyword">struct</span> {
+  ID   <span class="hljs-keyword">uint</span>
+  Name <span class="hljs-keyword">string</span>
+}
+
+<span class="hljs-keyword">type</span> PersonAddress <span class="hljs-keyword">struct</span> {
+  PersonID  <span class="hljs-keyword">int</span>
+  AddressID <span class="hljs-keyword">int</span>
+  CreatedAt time.Time
+  DeletedAt gorm.DeletedAt
+}
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(PersonAddress)</span> <span class="hljs-title">BeforeCreate</span><span class="hljs-params">(db *gorm.DB)</span> <span class="hljs-title">error</span></span> {
+  <span class="hljs-comment">// ...</span>
+}
+
+<span class="hljs-comment">// PersonAddress &#x5FC5;&#x987B;&#x5B9A;&#x4E49;&#x597D;&#x6240;&#x9700;&#x7684;&#x5916;&#x952E;&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x62A5;&#x9519;</span>
+err := db.SetupJoinTable(&amp;Person{}, <span class="hljs-string">&quot;Addresses&quot;</span>, &amp;PersonAddress{})
+</code></pre>
+<p>&#x7136;&#x540E;&#xFF0C;&#x60A8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x6807;&#x51C6;&#x7684; GORM &#x65B9;&#x6CD5;&#x6765;&#x64CD;&#x4F5C;&#x8FDE;&#x63A5;&#x8868;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">var</span> results []PersonAddress
+db.Where(<span class="hljs-string">&quot;person_id = ?&quot;</span>, person.ID).Find(&amp;results)
+
+db.Where(<span class="hljs-string">&quot;address_id = ?&quot;</span>, address.ID).Delete(&amp;PersonAddress{})
+
+db.Create(&amp;PersonAddress{PersonID: person.ID, AddressID: address.ID})
+</code></pre>
+<h4 id="count"><a name="count" class="anchor-navigation-ex-anchor" href="#count"><i class="fa fa-link" aria-hidden="true"></i></a>Count</h4>
+<p>Count &#x4EC5;&#x652F;&#x6301; <code>*int64</code> &#x4F5C;&#x4E3A;&#x53C2;&#x6570;</p>
+<h4 id="&#x4E8B;&#x52A1;"><a name="&#x4E8B;&#x52A1;" class="anchor-navigation-ex-anchor" href="#&#x4E8B;&#x52A1;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E8B;&#x52A1;</h4>
+<p>&#x79FB;&#x9664;&#x4E86; <code>RollbackUnlessCommitted</code> &#x4E4B;&#x7C7B;&#x7684;&#x4E8B;&#x52A1;&#x65B9;&#x6CD5;&#xFF0C;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528; <code>Transaction</code> &#x65B9;&#x6CD5;&#x5305;&#x88F9;&#x4E8B;&#x52A1;</p>
+<pre><code class="lang-go">db.Transaction(<span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(tx *gorm.DB)</span> <span class="hljs-title">error</span></span> {
+  <span class="hljs-comment">// &#x5728;&#x4E8B;&#x52A1;&#x4E2D;&#x6267;&#x884C;&#x4E00;&#x4E9B; db &#x64CD;&#x4F5C;&#xFF08;&#x4ECE;&#x8FD9;&#x91CC;&#x5F00;&#x59CB;&#xFF0C;&#x60A8;&#x5E94;&#x8BE5;&#x4F7F;&#x7528; &apos;tx&apos; &#x800C;&#x4E0D;&#x662F; &apos;db&apos;&#xFF09;</span>
+  <span class="hljs-keyword">if</span> err := tx.Create(&amp;Animal{Name: <span class="hljs-string">&quot;Giraffe&quot;</span>}).Error; err != <span class="hljs-literal">nil</span> {
+    <span class="hljs-comment">// &#x8FD4;&#x56DE;&#x4EFB;&#x4F55;&#x9519;&#x8BEF;&#x90FD;&#x4F1A;&#x56DE;&#x6EDA;&#x4E8B;&#x52A1;</span>
+    <span class="hljs-keyword">return</span> err
+  }
+
+  <span class="hljs-keyword">if</span> err := tx.Create(&amp;Animal{Name: <span class="hljs-string">&quot;Lion&quot;</span>}).Error; err != <span class="hljs-literal">nil</span> {
+    <span class="hljs-keyword">return</span> err
+  }
+
+  <span class="hljs-comment">// &#x8FD4;&#x56DE; nil &#x63D0;&#x4EA4;&#x4E8B;&#x52A1;</span>
+  <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span>
+})
+</code></pre>
+<p>&#x67E5;&#x770B; <a href="https://learnku.com/docs/gorm/v2/transactions" target="_blank">&#x4E8B;&#x52A1;</a> &#x83B7;&#x53D6;&#x8BE6;&#x60C5;</p>
+<h4 id="migrator"><a name="migrator" class="anchor-navigation-ex-anchor" href="#migrator"><i class="fa fa-link" aria-hidden="true"></i></a>Migrator</h4>
+<ul>
+<li>Migrator &#x9ED8;&#x8BA4;&#x4F1A;&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;&#x5916;&#x952E;</li>
+<li>Migrator &#x66F4;&#x52A0;&#x72EC;&#x7ACB;&#xFF0C;&#x91CD;&#x547D;&#x540D;&#x4E86;&#x5F88;&#x591A; API&#xFF0C;&#x4EE5;&#x4FBF;&#x4F7F;&#x7528;&#x7EDF;&#x4E00; API &#x63A5;&#x53E3;&#x4E3A;&#x6BCF;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#x63D0;&#x4F9B;&#x66F4;&#x597D;&#x7684;&#x652F;&#x6301;</li>
+<li>&#x5982;&#x679C;&#x5927;&#x5C0F;&#x3001;&#x7CBE;&#x5EA6;&#x3001;&#x662F;&#x5426;&#x4E3A;&#x7A7A;&#x53EF;&#x4EE5;&#x66F4;&#x6539;&#xFF0C;&#x5219; AutoMigrate &#x4F1A;&#x6539;&#x53D8;&#x5217;&#x7684;&#x7C7B;&#x578B;</li>
+<li>&#x901A;&#x8FC7; <code>check</code> &#x6807;&#x7B7E;&#x652F;&#x6301;&#x68C0;&#x67E5;&#x5668;</li>
+<li>&#x589E;&#x5F3A; <code>index</code> &#x6807;&#x7B7E;&#x7684;&#x8BBE;&#x7F6E;</li>
+</ul>
+<p>&#x67E5;&#x770B; <a href="https://learnku.com/docs/gorm/v2/migration" target="_blank">Migration</a> &#x83B7;&#x53D6;&#x8BE6;&#x60C5;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">type</span> UserIndex <span class="hljs-keyword">struct</span> {
+  Name  <span class="hljs-keyword">string</span> <span class="hljs-string">`gorm:&quot;check:named_checker,(name &lt;&gt; &apos;jinzhu&apos;)&quot;`</span>
+  Name2 <span class="hljs-keyword">string</span> <span class="hljs-string">`gorm:&quot;check:(age &gt; 13)&quot;`</span>
+  Name4 <span class="hljs-keyword">string</span> <span class="hljs-string">`gorm:&quot;index&quot;`</span>
+  Name5 <span class="hljs-keyword">string</span> <span class="hljs-string">`gorm:&quot;index:idx_name,unique&quot;`</span>
+  Name6 <span class="hljs-keyword">string</span> <span class="hljs-string">`gorm:&quot;index:,sort:desc,collate:utf8,type:btree,length:10,where:name3 != &apos;jinzhu&apos;&quot;`</span>
+}
+</code></pre>
+
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="v1yu-v2.html" class="navigation navigation-prev " aria-label="Previous page: V1与V2">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../ru-men-zhi-nan.html" class="navigation navigation-next " aria-label="Next page: 入门指南">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"GORM2.0发布说明","level":"1.2.3","depth":2,"next":{"title":"入门指南","level":"1.3","depth":1,"path":"ru-men-zhi-nan.md","ref":"ru-men-zhi-nan.md","articles":[{"title":"GORM 指南","level":"1.3.1","depth":2,"path":"ru-men-zhi-nan/gorm-zhi-nan.md","ref":"ru-men-zhi-nan/gorm-zhi-nan.md","articles":[]},{"title":"模型定义","level":"1.3.2","depth":2,"path":"ru-men-zhi-nan/mo-xing-ding-yi.md","ref":"ru-men-zhi-nan/mo-xing-ding-yi.md","articles":[{"title":"外键规范","level":"1.3.2.1","depth":3,"path":"ru-men-zhi-nan/mo-xing-ding-yi/wai-jian-gui-fan.md","ref":"ru-men-zhi-nan/mo-xing-ding-yi/wai-jian-gui-fan.md","articles":[]}]},{"title":"连接数据库","level":"1.3.3","depth":2,"path":"ru-men-zhi-nan/lian-jie-shu-ju-ku.md","ref":"ru-men-zhi-nan/lian-jie-shu-ju-ku.md","articles":[]}]},"previous":{"title":"V1与V2","level":"1.2.2","depth":2,"path":"qian-yan/v1yu-v2.md","ref":"qian-yan/v1yu-v2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["anchor-navigation-ex","-search","-sharing","theme-default","-lunr","fontsettings","livereload","popup","splitter","copy-code-button","highlight","-expandable-chapters-small","chapter-fold","back-to-top-button","search-pro","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"popup":{},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"anchor-navigation-ex":{"showLevelIcon":false,"mode":"float","pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"showLevel":true,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","showGoTop":true,"printLog":false,"multipleH1":false,"multipleH2":false,"associatedWithSummary":true,"multipleH3":false,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"multipleH4":false},"back-to-top-button":{},"copy-code-button":{},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"qian-yan/gorm20fa-bu-shuo-ming.md","mtime":"2023-09-12T14:49:02.549Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-11-14T14:51:30.758Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+
+    </body>
+</html>
+

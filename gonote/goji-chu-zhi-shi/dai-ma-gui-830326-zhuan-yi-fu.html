@@ -1,0 +1,744 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>代码规范&转义符 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../" />
+    
+    
+    <link rel="prev" href="golangguan-fang-bian-cheng-zhi-nan.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../qian-yan.html">
+            
+                <a href="../qian-yan.html">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="../qian-yan/goyu-yan-qi-yuan.html">
+            
+                <a href="../qian-yan/goyu-yan-qi-yuan.html">
+            
+                    
+                    Go语言起源
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2" data-path="../qian-yan/goyu-yan-xiang-mu.html">
+            
+                <a href="../qian-yan/goyu-yan-xiang-mu.html">
+            
+                    
+                    Go语言项目
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../goji-chu-zhi-shi.html">
+            
+                <a href="../goji-chu-zhi-shi.html">
+            
+                    
+                    GO基础知识
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="gogai-shu.html">
+            
+                <a href="gogai-shu.html">
+            
+                    
+                    go概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="di-yi-ge-go-cheng-xu.html">
+            
+                <a href="di-yi-ge-go-cheng-xu.html">
+            
+                    
+                    第一个go程序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="zhu-shi.html">
+            
+                <a href="zhu-shi.html">
+            
+                    
+                    注释
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="golangguan-fang-bian-cheng-zhi-nan.html">
+            
+                <a href="golangguan-fang-bian-cheng-zhi-nan.html">
+            
+                    
+                    Golang官方编程指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.5" data-path="dai-ma-gui-830326-zhuan-yi-fu.html">
+            
+                <a href="dai-ma-gui-830326-zhuan-yi-fu.html">
+            
+                    
+                    代码规范&转义符
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    入门练习
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../hello-world.html">
+            
+                <a href="../hello-world.html">
+            
+                    
+                    Hello, World
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../ming-ling-xing-can-shu.html">
+            
+                <a href="../ming-ling-xing-can-shu.html">
+            
+                    
+                    命令行参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../zhao-chu-zhong-fu-xing.html">
+            
+                <a href="../zhao-chu-zhong-fu-xing.html">
+            
+                    
+                    找出重复行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../gifdong-hua.html">
+            
+                <a href="../gifdong-hua.html">
+            
+                    
+                    GIF动画
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../huo-qu-url.html">
+            
+                <a href="../huo-qu-url.html">
+            
+                    
+                    获取url
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../bing-fa-huo-qu-duo-ge-url.html">
+            
+                <a href="../bing-fa-huo-qu-duo-ge-url.html">
+            
+                    
+                    并发获取多个url
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../da-jian-yi-ge-web-fu-wu-qi.html">
+            
+                <a href="../da-jian-yi-ge-web-fu-wu-qi.html">
+            
+                    
+                    搭建一个web服务器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../cheng-xu-jie-gou.html">
+            
+                <a href="../cheng-xu-jie-gou.html">
+            
+                    
+                    变量及基本数据类型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../cheng-xu-jie-gou/ming-ming.html">
+            
+                <a href="../cheng-xu-jie-gou/ming-ming.html">
+            
+                    
+                    标识符和关键字
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../cheng-xu-jie-gou/sheng-ming.html">
+            
+                <a href="../cheng-xu-jie-gou/sheng-ming.html">
+            
+                    
+                    声明、变量、常量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../cheng-xu-jie-gou/zhi-zhen.html">
+            
+                <a href="../cheng-xu-jie-gou/zhi-zhen.html">
+            
+                    
+                    指针、new函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../fu-zhi.html">
+            
+                <a href="../fu-zhi.html">
+            
+                    
+                    赋值
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../yun-suan-fu.html">
+            
+                <a href="../yun-suan-fu.html">
+            
+                    
+                    运算符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../cheng-xu-jie-gou/shu-ju-lei-xing.html">
+            
+                <a href="../cheng-xu-jie-gou/shu-ju-lei-xing.html">
+            
+                    
+                    基本数据类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" >
+            
+                <span>
+            
+                    
+                    判断语句
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../ji-chu-yu-fa.html">
+            
+                <a href="../ji-chu-yu-fa.html">
+            
+                    
+                    基础语法
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../ji-chu-yu-fa/pan-duan-yu-ju.html">
+            
+                <a href="../ji-chu-yu-fa/pan-duan-yu-ju.html">
+            
+                    
+                    判断语句
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../ji-chu-yu-fa/xun-huan-yu-ju.html">
+            
+                <a href="../ji-chu-yu-fa/xun-huan-yu-ju.html">
+            
+                    
+                    循环语句
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../ji-chu-yu-fa/bi-jiao-3001-guan-xi-yun-suan-fu.html">
+            
+                <a href="../ji-chu-yu-fa/bi-jiao-3001-guan-xi-yun-suan-fu.html">
+            
+                    
+                    比较、关系运算符
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../shu-ju-lei-xing.html">
+            
+                <a href="../shu-ju-lei-xing.html">
+            
+                    
+                    数据类型转换
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../shu-ju-lei-xing/shu-zi-lei-xing.html">
+            
+                <a href="../shu-ju-lei-xing/shu-zi-lei-xing.html">
+            
+                    
+                    数字类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../shu-ju-lei-xing/zi-fu-chuan-lei-xing.html">
+            
+                <a href="../shu-ju-lei-xing/zi-fu-chuan-lei-xing.html">
+            
+                    
+                    字符串类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >代码规范&转义符</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#go-&#x89C4;&#x8303;&#x7684;&#x4EE3;&#x7801;&#x98CE;&#x683C;&#x8BED;&#x8A00;&#x7684;&#x8F6C;&#x4E49;&#x5B57;&#x7B26;escape-char"><b></b>Go &#x89C4;&#x8303;&#x7684;&#x4EE3;&#x7801;&#x98CE;&#x683C;&amp;&#x8BED;&#x8A00;&#x7684;&#x8F6C;&#x4E49;&#x5B57;&#x7B26;(escape char)</a></li><ul><li><span class="title-icon "></span><a href="#&#x8BF4;&#x660E;&#x5E38;&#x7528;&#x7684;&#x8F6C;&#x4E49;&#x5B57;&#x7B26;&#x6709;&#x5982;&#x4E0B;"><b></b>&#x8BF4;&#x660E;:&#x5E38;&#x7528;&#x7684;&#x8F6C;&#x4E49;&#x5B57;&#x7B26;&#x6709;&#x5982;&#x4E0B;</a></li><li><span class="title-icon "></span><a href="#&#x89C4;&#x8303;&#x7684;&#x4EE3;&#x7801;&#x98CE;&#x683C;"><b></b>&#x89C4;&#x8303;&#x7684;&#x4EE3;&#x7801;&#x98CE;&#x683C;</a></li></ul></ul></div><a href="#go-&#x89C4;&#x8303;&#x7684;&#x4EE3;&#x7801;&#x98CE;&#x683C;&#x8BED;&#x8A00;&#x7684;&#x8F6C;&#x4E49;&#x5B57;&#x7B26;escape-char" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="go-&#x89C4;&#x8303;&#x7684;&#x4EE3;&#x7801;&#x98CE;&#x683C;&#x8BED;&#x8A00;&#x7684;&#x8F6C;&#x4E49;&#x5B57;&#x7B26;escape-char"><a name="go-&#x89C4;&#x8303;&#x7684;&#x4EE3;&#x7801;&#x98CE;&#x683C;&#x8BED;&#x8A00;&#x7684;&#x8F6C;&#x4E49;&#x5B57;&#x7B26;escape-char" class="anchor-navigation-ex-anchor" href="#go-&#x89C4;&#x8303;&#x7684;&#x4EE3;&#x7801;&#x98CE;&#x683C;&#x8BED;&#x8A00;&#x7684;&#x8F6C;&#x4E49;&#x5B57;&#x7B26;escape-char"><i class="fa fa-link" aria-hidden="true"></i></a>Go &#x89C4;&#x8303;&#x7684;&#x4EE3;&#x7801;&#x98CE;&#x683C;&amp;&#x8BED;&#x8A00;&#x7684;&#x8F6C;&#x4E49;&#x5B57;&#x7B26;(escape char)</h1>
+<h2 id="&#x8BF4;&#x660E;&#x5E38;&#x7528;&#x7684;&#x8F6C;&#x4E49;&#x5B57;&#x7B26;&#x6709;&#x5982;&#x4E0B;"><a name="&#x8BF4;&#x660E;&#x5E38;&#x7528;&#x7684;&#x8F6C;&#x4E49;&#x5B57;&#x7B26;&#x6709;&#x5982;&#x4E0B;" class="anchor-navigation-ex-anchor" href="#&#x8BF4;&#x660E;&#x5E38;&#x7528;&#x7684;&#x8F6C;&#x4E49;&#x5B57;&#x7B26;&#x6709;&#x5982;&#x4E0B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8BF4;&#x660E;:&#x5E38;&#x7528;&#x7684;&#x8F6C;&#x4E49;&#x5B57;&#x7B26;&#x6709;&#x5982;&#x4E0B;</h2>
+<p>1) \t : &#x8868;&#x793A;&#x4E00;&#x4E2A;&#x5236;&#x8868;&#x7B26;&#xFF0C;&#x901A;&#x5E38;&#x4F7F;&#x7528;&#x5B83;&#x53EF;&#x4EE5;&#x6392;&#x7248;&#x3002;&#x5C1A;&#x7845;&#x8C37; Go &#x8BED;&#x8A00;&#x8BFE;&#x7A0B; </p>
+<p><img src="img/image-20210617215742548-1623938263434.png" alt="img/image-20210617215742548" style="zoom:100%;"></p>
+<p>2) \n &#xFF1A;&#x6362;&#x884C;&#x7B26; </p>
+<p>3) \ </p>
+<p>&#xFF1A;&#x4E00;&#x4E2A;\ </p>
+<p>4) \&quot; &#xFF1A;&#x4E00;&#x4E2A;&quot; </p>
+<p>5) \r </p>
+<p>&#xFF1A;&#x4E00;&#x4E2A;&#x56DE;&#x8F66; fmt.Println(&quot;&#x5929;&#x9F99;&#x516B;&#x90E8;&#x96EA;&#x5C71;&#x98DE;&#x72D0;\r &#x5F20;&#x98DE;&quot;); </p>
+<p>6) &#x6848;&#x4F8B;&#x622A;&#x56FE; </p>
+<p><img src="img/image-20210617215717540-1623938238899.png" alt="img/image-20210617215717540" style="zoom:100%;"></p>
+<h2 id="&#x89C4;&#x8303;&#x7684;&#x4EE3;&#x7801;&#x98CE;&#x683C;"><a name="&#x89C4;&#x8303;&#x7684;&#x4EE3;&#x7801;&#x98CE;&#x683C;" class="anchor-navigation-ex-anchor" href="#&#x89C4;&#x8303;&#x7684;&#x4EE3;&#x7801;&#x98CE;&#x683C;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x89C4;&#x8303;&#x7684;&#x4EE3;&#x7801;&#x98CE;&#x683C;</h2>
+<p>2.12.1 &#x6B63;&#x786E;&#x7684;&#x6CE8;&#x91CA;&#x548C;&#x6CE8;&#x91CA;&#x98CE;&#x683C;&#xFF1A; </p>
+<p>1) Go &#x5B98;&#x65B9;&#x63A8;&#x8350;&#x4F7F;&#x7528;&#x884C;&#x6CE8;&#x91CA;&#x6765;&#x6CE8;&#x91CA;&#x6574;&#x4E2A;&#x65B9;&#x6CD5;&#x548C;&#x8BED;&#x53E5;&#x3002; </p>
+<p>2) &#x5E26;&#x770B; Go &#x6E90;&#x7801; </p>
+<p>2.12.2 &#x6B63;&#x786E;&#x7684;&#x7F29;&#x8FDB;&#x548C;&#x7A7A;&#x767D; </p>
+<p>1) &#x4F7F;&#x7528;&#x4E00;&#x6B21; <strong>tab</strong> <strong>&#x64CD;&#x4F5C;</strong>&#xFF0C;&#x5B9E;&#x73B0;&#x7F29;&#x8FDB;,&#x9ED8;&#x8BA4;&#x6574;&#x4F53;&#x5411;&#x53F3;&#x8FB9;&#x79FB;&#x52A8;&#xFF0C;&#x65F6;&#x5019;&#x7528; <strong>shift+tab</strong> &#x6574;&#x4F53;&#x5411;&#x5DE6;&#x79FB; </p>
+<p>&#x770B;&#x8001;&#x5E08;&#x7684;&#x6F14;&#x793A;&#xFF1A; </p>
+<p>2) &#x6216;&#x8005;&#x4F7F;&#x7528; gofmt &#x6765;&#x8FDB;&#x884C;&#x683C;&#x5F0F;&#x5316; [&#x6F14;&#x793A;]</p>
+<p><img src="img/image-20210617220443708-1623938684818.png" alt="image-20210617220443708"></p>
+<p>3) &#x8FD0;&#x7B97;&#x7B26;&#x4E24;&#x8FB9;&#x4E60;&#x60EF;&#x6027;&#x5404;&#x52A0;&#x4E00;&#x4E2A;&#x7A7A;&#x683C;&#x3002;&#x6BD4;&#x5982;&#xFF1A;2 + 4 * 5&#x3002; </p>
+<p><img src="img/image-20210617220537861.png" alt="image-20210617220537861"></p>
+<p>4) Go &#x8BED;&#x8A00;&#x7684;&#x4EE3;&#x7801;&#x98CE;&#x683C;. </p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main 
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span> 
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> { 
+
+fmt.Println(<span class="hljs-string">&quot;hello,world!&quot;</span>) 
+
+}
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x7684;&#x5199;&#x6CD5;&#x662F;&#x6B63;&#x786E;&#x7684;. </p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main 
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span> 
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> 
+{
+
+fmt.Println(<span class="hljs-string">&quot;hello,world!&quot;</span>)
+
+}
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x7684;&#x5199;&#x6CD5;&#x4E0D;&#x662F;&#x6B63;&#x786E;&#xFF0C;Go &#x8BED;&#x8A00;&#x4E0D;&#x5141;&#x8BB8;&#x8FD9;&#x6837;&#x7F16;&#x5199;&#x3002; &#x3010;Go &#x8BED;&#x8A00;&#x4E0D;&#x5141;&#x8BB8;&#x8FD9;&#x6837;&#x5199;&#xFF0C;&#x662F;&#x9519;&#x8BEF;&#x7684;&#xFF01;&#x3011; </p>
+<p>Go &#x8BBE;&#x8BA1;&#x8005;&#x601D;&#x60F3;: <strong>&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#x5C3D;&#x91CF;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x89E3;&#x51B3;&#x65B9;&#x6CD5;</strong> </p>
+<p>5) &#x4E00;&#x884C;&#x6700;&#x957F;&#x4E0D;&#x8D85;&#x8FC7; 80 &#x4E2A;&#x5B57;&#x7B26;&#xFF0C;&#x8D85;&#x8FC7;&#x7684;&#x8BF7;&#x4F7F;&#x7528;&#x6362;&#x884C;&#x5C55;&#x793A;&#xFF0C;&#x5C3D;&#x91CF;&#x4FDD;&#x6301;&#x683C;&#x5F0F;&#x4F18;&#x96C5; </p>
+<p> &#x4E3E;&#x4F8B;&#x8BF4;&#x660E; </p>
+<p><img src="img/image-20210617220520179-1623938722013.png" alt="image-20210617220520179"></p>
+
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="golangguan-fang-bian-cheng-zhi-nan.html" class="navigation navigation-prev " aria-label="Previous page: Golang官方编程指南">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../" class="navigation navigation-next " aria-label="Next page: 入门练习">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"代码规范&转义符","level":"1.2.5","depth":2,"next":{"title":"入门练习","level":"1.3","depth":1,"path":"README.md","ref":"README.md","articles":[{"title":"Hello, World","level":"1.3.1","depth":2,"path":"hello-world.md","ref":"hello-world.md","articles":[]},{"title":"命令行参数","level":"1.3.2","depth":2,"path":"ming-ling-xing-can-shu.md","ref":"ming-ling-xing-can-shu.md","articles":[]},{"title":"找出重复行","level":"1.3.3","depth":2,"path":"zhao-chu-zhong-fu-xing.md","ref":"zhao-chu-zhong-fu-xing.md","articles":[]},{"title":"GIF动画","level":"1.3.4","depth":2,"path":"gifdong-hua.md","ref":"gifdong-hua.md","articles":[]},{"title":"获取url","level":"1.3.5","depth":2,"path":"huo-qu-url.md","ref":"huo-qu-url.md","articles":[]},{"title":"并发获取多个url","level":"1.3.6","depth":2,"path":"bing-fa-huo-qu-duo-ge-url.md","ref":"bing-fa-huo-qu-duo-ge-url.md","articles":[]},{"title":"搭建一个web服务器","level":"1.3.7","depth":2,"path":"da-jian-yi-ge-web-fu-wu-qi.md","ref":"da-jian-yi-ge-web-fu-wu-qi.md","articles":[]}]},"previous":{"title":"Golang官方编程指南","level":"1.2.4","depth":2,"path":"goji-chu-zhi-shi/golangguan-fang-bian-cheng-zhi-nan.md","ref":"goji-chu-zhi-shi/golangguan-fang-bian-cheng-zhi-nan.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["anchor-navigation-ex","-search","-sharing","theme-default","-lunr","fontsettings","livereload","popup","splitter","copy-code-button","highlight","-expandable-chapters-small","chapter-fold","back-to-top-button","search-pro","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"popup":{},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"anchor-navigation-ex":{"showLevelIcon":false,"mode":"float","pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"showLevel":false,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","showGoTop":true,"printLog":false,"multipleH1":false,"multipleH2":false,"associatedWithSummary":true,"multipleH3":false,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"multipleH4":false},"back-to-top-button":{},"copy-code-button":{},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"goji-chu-zhi-shi/dai-ma-gui-830326-zhuan-yi-fu.md","mtime":"2022-03-09T09:26:43.470Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-03-09T10:06:37.613Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+
+    </body>
+</html>
+

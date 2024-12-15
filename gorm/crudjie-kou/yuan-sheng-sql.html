@@ -1,0 +1,608 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>原生SQL · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="shan-chu.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../qian-yan.html">
+            
+                <a href="../qian-yan.html">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../qian-yan/jing-xiang.html">
+            
+                <a href="../qian-yan/jing-xiang.html">
+            
+                    
+                    镜像
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../qian-yan/v1yu-v2.html">
+            
+                <a href="../qian-yan/v1yu-v2.html">
+            
+                    
+                    V1与V2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../qian-yan/gorm20fa-bu-shuo-ming.html">
+            
+                <a href="../qian-yan/gorm20fa-bu-shuo-ming.html">
+            
+                    
+                    GORM2.0发布说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../ru-men-zhi-nan.html">
+            
+                <a href="../ru-men-zhi-nan.html">
+            
+                    
+                    入门指南
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../ru-men-zhi-nan/gorm-zhi-nan.html">
+            
+                <a href="../ru-men-zhi-nan/gorm-zhi-nan.html">
+            
+                    
+                    GORM 指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../ru-men-zhi-nan/mo-xing-ding-yi.html">
+            
+                <a href="../ru-men-zhi-nan/mo-xing-ding-yi.html">
+            
+                    
+                    模型定义
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="../ru-men-zhi-nan/mo-xing-ding-yi/wai-jian-gui-fan.html">
+            
+                <a href="../ru-men-zhi-nan/mo-xing-ding-yi/wai-jian-gui-fan.html">
+            
+                    
+                    外键规范
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../ru-men-zhi-nan/lian-jie-shu-ju-ku.html">
+            
+                <a href="../ru-men-zhi-nan/lian-jie-shu-ju-ku.html">
+            
+                    
+                    连接数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../crudjie-kou.html">
+            
+                <a href="../crudjie-kou.html">
+            
+                    
+                    CRUD接口
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="chuang-jian.html">
+            
+                <a href="chuang-jian.html">
+            
+                    
+                    创建
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="cha-xun.html">
+            
+                <a href="cha-xun.html">
+            
+                    
+                    查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="geng-xin.html">
+            
+                <a href="geng-xin.html">
+            
+                    
+                    更新
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="shan-chu.html">
+            
+                <a href="shan-chu.html">
+            
+                    
+                    删除
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.5" data-path="yuan-sheng-sql.html">
+            
+                <a href="yuan-sheng-sql.html">
+            
+                    
+                    原生SQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >原生SQL</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><li><span class="title-icon "></span><a href="#&#x539F;&#x751F;&#x67E5;&#x8BE2;-sql-&#x548C;-scan"><b>1. </b>&#x539F;&#x751F;&#x67E5;&#x8BE2; SQL &#x548C; Scan</a></li><li><span class="title-icon "></span><a href="#&#x547D;&#x540D;&#x53C2;&#x6570;"><b>2. </b>&#x547D;&#x540D;&#x53C2;&#x6570;</a></li><li><span class="title-icon "></span><a href="#dryrun-&#x6A21;&#x5F0F;"><b>3. </b>DryRun &#x6A21;&#x5F0F;</a></li><li><span class="title-icon "></span><a href="#row--rows"><b>4. </b>Row &amp; Rows</a></li><li><span class="title-icon "></span><a href="#&#x5C06;-sqlrows-&#x626B;&#x63CF;&#x81F3;-model"><b>5. </b>&#x5C06; sql.Rows &#x626B;&#x63CF;&#x81F3; model</a></li><li><span class="title-icon "></span><a href="#&#x9AD8;&#x7EA7;"><b>6. </b>&#x9AD8;&#x7EA7;</a></li><ul><li><span class="title-icon "></span><a href="#&#x5B50;&#x53E5;&#xFF08;clause&#xFF09;"><b>6.1. </b>&#x5B50;&#x53E5;&#xFF08;Clause&#xFF09;</a></li><li><span class="title-icon "></span><a href="#&#x5B50;&#x53E5;&#x6784;&#x9020;&#x5668;"><b>6.2. </b>&#x5B50;&#x53E5;&#x6784;&#x9020;&#x5668;</a></li><li><span class="title-icon "></span><a href="#&#x5B50;&#x53E5;&#x9009;&#x9879;"><b>6.3. </b>&#x5B50;&#x53E5;&#x9009;&#x9879;</a></li><li><span class="title-icon "></span><a href="#statementmodifier"><b>6.4. </b>StatementModifier</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h2 id="&#x539F;&#x751F;&#x67E5;&#x8BE2;-sql-&#x548C;-scan"><a name="&#x539F;&#x751F;&#x67E5;&#x8BE2;-sql-&#x548C;-scan" class="anchor-navigation-ex-anchor" href="#&#x539F;&#x751F;&#x67E5;&#x8BE2;-sql-&#x548C;-scan"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x539F;&#x751F;&#x67E5;&#x8BE2; SQL &#x548C; Scan</h2>
+<pre><code class="lang-go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">QueryData1</span><span class="hljs-params">(db *gorm.DB)</span></span> {
+    <span class="hljs-keyword">var</span> result Result
+    db.Raw(<span class="hljs-string">&quot;select id, name, age from user where id = ?&quot;</span>, <span class="hljs-number">1</span>).Scan(&amp;result)
+    fmt.Println(result)
+
+    <span class="hljs-keyword">var</span> age <span class="hljs-keyword">int</span>
+    db.Raw(<span class="hljs-string">&quot;select sum(age) from user where id in (?)&quot;</span>, []<span class="hljs-keyword">int</span>{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>}).Scan(&amp;age)
+    fmt.Println(age)
+}
+</code></pre>
+<p><img src="yuan-sheng-sql.assets/image-20220714210711804.png" alt="image-20220714210711804"></p>
+<p><code>Exec</code> &#x539F;&#x751F; SQL</p>
+<pre><code class="lang-go">db.Exec(<span class="hljs-string">&quot;DROP TABLE users&quot;</span>)
+db.Exec(<span class="hljs-string">&quot;UPDATE orders SET shipped_at=? WHERE id IN ?&quot;</span>, time.Now(), []<span class="hljs-keyword">int64</span>{<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>})
+
+<span class="hljs-comment">// Exec SQL &#x8868;&#x8FBE;&#x5F0F;</span>
+db.Exec(<span class="hljs-string">&quot;update users set money=? where name = ?&quot;</span>, gorm.Expr(<span class="hljs-string">&quot;money * ? + ?&quot;</span>, <span class="hljs-number">10000</span>, <span class="hljs-number">1</span>), <span class="hljs-string">&quot;jinzhu&quot;</span>)
+</code></pre>
+<blockquote>
+<p><strong>&#x6CE8;&#x610F;</strong> GORM &#x5141;&#x8BB8;&#x7F13;&#x5B58;&#x9884;&#x7F16;&#x8BD1; SQL &#x8BED;&#x53E5;&#x6765;&#x63D0;&#x9AD8;&#x6027;&#x80FD;&#xFF0C;&#x67E5;&#x770B; <a href="https://learnku.com/docs/gorm/v2/performance" target="_blank">&#x6027;&#x80FD;</a> &#x83B7;&#x53D6;&#x8BE6;&#x60C5;</p>
+</blockquote>
+<p><img src="yuan-sheng-sql.assets/image-20220714211205117.png" alt="image-20220714211205117"></p>
+<h2 id="&#x547D;&#x540D;&#x53C2;&#x6570;"><a name="&#x547D;&#x540D;&#x53C2;&#x6570;" class="anchor-navigation-ex-anchor" href="#&#x547D;&#x540D;&#x53C2;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x547D;&#x540D;&#x53C2;&#x6570;</h2>
+<p>GORM &#x652F;&#x6301; <a href="https://tip.golang.org/pkg/database/sql/#NamedArg" target="_blank"><code>sql.NamedArg</code></a>&#x3001;<code>map[string]interface{}{}</code> &#x6216; struct &#x5F62;&#x5F0F;&#x7684;&#x547D;&#x540D;&#x53C2;&#x6570;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">QueryData3</span><span class="hljs-params">(db *gorm.DB)</span></span> {
+    <span class="hljs-keyword">var</span> user []User
+    db.Where(<span class="hljs-string">&quot;name = @name or name = @name&quot;</span>, sql.Named(<span class="hljs-string">&quot;name&quot;</span>, <span class="hljs-string">&quot;aa_test&quot;</span>)).Find(&amp;user)
+
+    db.Where(<span class="hljs-string">&quot;name = @name or name = @name&quot;</span>, <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]<span class="hljs-keyword">interface</span>{}{
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;ls&quot;</span>,
+    }).First(&amp;User{})
+
+    <span class="hljs-comment">// &#x539F;&#x751F; SQL &#x53CA;&#x547D;&#x540D;&#x53C2;&#x6570;</span>
+    db.Raw(<span class="hljs-string">&quot;select * from user where name = @name or name = @name2&quot;</span>, sql.Named(<span class="hljs-string">&quot;name&quot;</span>, <span class="hljs-string">&quot;zs&quot;</span>), sql.Named(<span class="hljs-string">&quot;name2&quot;</span>, <span class="hljs-string">&quot;aa_test&quot;</span>)).Find(&amp;[]UserInfo{})
+
+    db.Exec(<span class="hljs-string">&quot;update user set name = @name, age = @age where id = 1&quot;</span>, sql.Named(<span class="hljs-string">&quot;name&quot;</span>, <span class="hljs-string">&quot;zs&quot;</span>), sql.Named(<span class="hljs-string">&quot;age&quot;</span>, <span class="hljs-number">25</span>))
+
+    db.Raw(<span class="hljs-string">&quot;select * from user where  (name = @name and age = @age)&quot;</span>, <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]<span class="hljs-keyword">interface</span>{}{
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;zs&quot;</span>,
+        <span class="hljs-string">&quot;age&quot;</span>:  <span class="hljs-number">66</span>,
+    })
+
+    <span class="hljs-keyword">type</span> UserTest <span class="hljs-keyword">struct</span> {
+        Name <span class="hljs-keyword">string</span>
+        Age  <span class="hljs-keyword">int</span>
+    }
+    db.Raw(<span class="hljs-string">&quot;select * from user where (name = @Name AND age = @age)&quot;</span>, UserTest{Name: <span class="hljs-string">&quot;zs&quot;</span>, Age: <span class="hljs-number">55</span>})
+}
+</code></pre>
+<p><img src="yuan-sheng-sql.assets/image-20220714214238023.png" alt="image-20220714214238023"></p>
+<h2 id="dryrun-&#x6A21;&#x5F0F;"><a name="dryrun-&#x6A21;&#x5F0F;" class="anchor-navigation-ex-anchor" href="#dryrun-&#x6A21;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>3. DryRun &#x6A21;&#x5F0F;</h2>
+<p>&#x5728;&#x4E0D;&#x6267;&#x884C;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x751F;&#x6210; <code>SQL</code> &#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x51C6;&#x5907;&#x6216;&#x6D4B;&#x8BD5;&#x751F;&#x6210;&#x7684; SQL&#xFF0C;&#x8BE6;&#x60C5;&#x8BF7;&#x53C2;&#x8003; <a href="https://learnku.com/docs/gorm/v2/session" target="_blank">Session</a></p>
+<pre><code class="lang-go">stmt := db.Session(&amp;Session{DryRun: <span class="hljs-literal">true</span>}).First(&amp;user, <span class="hljs-number">1</span>).Statement
+stmt.SQL.String() <span class="hljs-comment">//=&gt; SELECT * FROM `users` WHERE `id` = $1 ORDER BY `id`</span>
+stmt.Vars         <span class="hljs-comment">//=&gt; []interface{}{1}</span>
+</code></pre>
+<h2 id="row--rows"><a name="row--rows" class="anchor-navigation-ex-anchor" href="#row--rows"><i class="fa fa-link" aria-hidden="true"></i></a>4. Row &amp; Rows</h2>
+<p>&#x83B7;&#x53D6; <code>*sql.Row</code> &#x7ED3;&#x679C;</p>
+<pre><code class="lang-go"><span class="hljs-comment">// &#x4F7F;&#x7528; GORM API &#x6784;&#x5EFA; SQL</span>
+row := db.Table(<span class="hljs-string">&quot;users&quot;</span>).Where(<span class="hljs-string">&quot;name = ?&quot;</span>, <span class="hljs-string">&quot;jinzhu&quot;</span>).Select(<span class="hljs-string">&quot;name&quot;</span>, <span class="hljs-string">&quot;age&quot;</span>).Row()
+row.Scan(&amp;name, &amp;age)
+
+<span class="hljs-comment">// &#x4F7F;&#x7528;&#x539F;&#x751F; SQL</span>
+row := db.Raw(<span class="hljs-string">&quot;select name, age, email from users where name = ?&quot;</span>, <span class="hljs-string">&quot;jinzhu&quot;</span>).Row()
+row.Scan(&amp;name, &amp;age, &amp;email)
+</code></pre>
+<p>&#x83B7;&#x53D6; <code>*sql.Rows</code> &#x7ED3;&#x679C;</p>
+<pre><code class="lang-go"><span class="hljs-comment">// &#x4F7F;&#x7528; GORM API &#x6784;&#x5EFA; SQL</span>
+rows, err := db.Model(&amp;User{}).Where(<span class="hljs-string">&quot;name = ?&quot;</span>, <span class="hljs-string">&quot;jinzhu&quot;</span>).Select(<span class="hljs-string">&quot;name, age, email&quot;</span>).Rows()
+<span class="hljs-keyword">defer</span> rows.Close()
+<span class="hljs-keyword">for</span> rows.Next() {
+  rows.Scan(&amp;name, &amp;age, &amp;email)
+
+  <span class="hljs-comment">// &#x4E1A;&#x52A1;&#x903B;&#x8F91;...</span>
+}
+
+<span class="hljs-comment">// &#x539F;&#x751F; SQL</span>
+rows, err := db.Raw(<span class="hljs-string">&quot;select name, age, email from users where name = ?&quot;</span>, <span class="hljs-string">&quot;jinzhu&quot;</span>).Rows()
+<span class="hljs-keyword">defer</span> rows.Close()
+<span class="hljs-keyword">for</span> rows.Next() {
+  rows.Scan(&amp;name, &amp;age, &amp;email)
+
+  <span class="hljs-comment">// &#x4E1A;&#x52A1;&#x903B;&#x8F91;...</span>
+}
+</code></pre>
+<p>&#x8F6C;&#x5230; <a href="https://learnku.com/docs/gorm/v2/advanced_query" target="_blank">FindInBatches</a> &#x83B7;&#x53D6;&#x5982;&#x4F55;&#x5728;&#x6279;&#x91CF;&#x4E2D;&#x67E5;&#x8BE2;&#x548C;&#x5904;&#x7406;&#x8BB0;&#x5F55;&#x7684;&#x4FE1;&#x606F;&#xFF0C; &#x8F6C;&#x5230; <a href="https://learnku.com/docs/gorm/v2/advanced_query#group_conditions" target="_blank">Group &#x6761;&#x4EF6;</a> &#x83B7;&#x53D6;&#x5982;&#x4F55;&#x6784;&#x5EFA;&#x590D;&#x6742; SQL &#x67E5;&#x8BE2;&#x7684;&#x4FE1;&#x606F;</p>
+<h2 id="&#x5C06;-sqlrows-&#x626B;&#x63CF;&#x81F3;-model"><a name="&#x5C06;-sqlrows-&#x626B;&#x63CF;&#x81F3;-model" class="anchor-navigation-ex-anchor" href="#&#x5C06;-sqlrows-&#x626B;&#x63CF;&#x81F3;-model"><i class="fa fa-link" aria-hidden="true"></i></a>5. &#x5C06; sql.Rows &#x626B;&#x63CF;&#x81F3; model</h2>
+<p>&#x4F7F;&#x7528; <code>ScanRows</code> &#x5C06;&#x4E00;&#x884C;&#x8BB0;&#x5F55;&#x626B;&#x63CF;&#x81F3; struct&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-go">rows, err := db.Model(&amp;User{}).Where(<span class="hljs-string">&quot;name = ?&quot;</span>, <span class="hljs-string">&quot;jinzhu&quot;</span>).Select(<span class="hljs-string">&quot;name, age, email&quot;</span>).Rows() <span class="hljs-comment">// (*sql.Rows, error)</span>
+<span class="hljs-keyword">defer</span> rows.Close()
+
+<span class="hljs-keyword">var</span> user User
+<span class="hljs-keyword">for</span> rows.Next() {
+  <span class="hljs-comment">// ScanRows &#x5C06;&#x4E00;&#x884C;&#x626B;&#x63CF;&#x81F3; user</span>
+  db.ScanRows(rows, &amp;user)
+
+  <span class="hljs-comment">// &#x4E1A;&#x52A1;&#x903B;&#x8F91;...</span>
+}
+</code></pre>
+<h2 id="&#x9AD8;&#x7EA7;"><a name="&#x9AD8;&#x7EA7;" class="anchor-navigation-ex-anchor" href="#&#x9AD8;&#x7EA7;"><i class="fa fa-link" aria-hidden="true"></i></a>6. &#x9AD8;&#x7EA7;</h2>
+<h3 id="&#x5B50;&#x53E5;&#xFF08;clause&#xFF09;"><a name="&#x5B50;&#x53E5;&#xFF08;clause&#xFF09;" class="anchor-navigation-ex-anchor" href="#&#x5B50;&#x53E5;&#xFF08;clause&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>6.1. &#x5B50;&#x53E5;&#xFF08;Clause&#xFF09;</h3>
+<p>GORM &#x5185;&#x90E8;&#x4F7F;&#x7528; SQL builder &#x751F;&#x6210; SQL&#x3002;&#x5BF9;&#x4E8E;&#x6BCF;&#x4E2A;&#x64CD;&#x4F5C;&#xFF0C;GORM &#x90FD;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; <code>*gorm.Statement</code> &#x5BF9;&#x8C61;&#xFF0C;&#x6240;&#x6709;&#x7684; GORM API &#x90FD;&#x662F;&#x5728;&#x4E3A; <code>statement</code> &#x6DFB;&#x52A0; / &#x4FEE;&#x6539; <code>Clause</code>&#xFF0C;&#x6700;&#x540E;&#xFF0C;GORM &#x4F1A;&#x6839;&#x636E;&#x8FD9;&#x4E9B; Clause &#x751F;&#x6210; SQL</p>
+<p>&#x4F8B;&#x5982;&#xFF0C;&#x5F53;&#x901A;&#x8FC7; <code>First</code> &#x8FDB;&#x884C;&#x67E5;&#x8BE2;&#x65F6;&#xFF0C;&#x5B83;&#x4F1A;&#x5728; <code>Statement</code> &#x4E2D;&#x6DFB;&#x52A0;&#x4EE5;&#x4E0B; Clause</p>
+<pre><code class="lang-go">clause.Select{Columns: <span class="hljs-string">&quot;*&quot;</span>}
+clause.From{Tables: clause.CurrentTable}
+clause.Limit{Limit: <span class="hljs-number">1</span>}
+clause.OrderByColumn{
+  Column: clause.Column{Table: clause.CurrentTable, Name: clause.PrimaryKey},
+}
+</code></pre>
+<p>&#x7136;&#x540E; GORM &#x5728; <code>Query</code> callback &#x4E2D;&#x6784;&#x5EFA;&#x6700;&#x7EC8;&#x7684;&#x67E5;&#x8BE2; SQL&#xFF0C;&#x50CF;&#x8FD9;&#x6837;&#xFF1A;</p>
+<pre><code class="lang-go">Statement.Build(<span class="hljs-string">&quot;SELECT&quot;</span>, <span class="hljs-string">&quot;FROM&quot;</span>, <span class="hljs-string">&quot;WHERE&quot;</span>, <span class="hljs-string">&quot;GROUP BY&quot;</span>, <span class="hljs-string">&quot;ORDER BY&quot;</span>, <span class="hljs-string">&quot;LIMIT&quot;</span>, <span class="hljs-string">&quot;FOR&quot;</span>)
+</code></pre>
+<p>&#x751F;&#x6210; SQL&#xFF1A;</p>
+<pre><code class="lang-go">SELECT * FROM <span class="hljs-string">`users`</span> ORDER BY <span class="hljs-string">`users`</span>.<span class="hljs-string">`id`</span> LIMIT <span class="hljs-number">1</span>
+</code></pre>
+<p>&#x60A8;&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49; <code>Clause</code> &#x5E76;&#x4E0E; GORM &#x4E00;&#x8D77;&#x4F7F;&#x7528;&#xFF0C;&#x8FD9;&#x9700;&#x8981;&#x5B9E;&#x73B0; <a href="https://pkg.go.dev/gorm.io/gorm/clause?tab=doc#Interface" target="_blank">Interface</a> &#x63A5;&#x53E3;</p>
+<p>&#x53EF;&#x4EE5;&#x53C2;&#x8003; <a href="https://github.com/go-gorm/gorm/tree/master/clause" target="_blank">&#x793A;&#x4F8B;</a></p>
+<h3 id="&#x5B50;&#x53E5;&#x6784;&#x9020;&#x5668;"><a name="&#x5B50;&#x53E5;&#x6784;&#x9020;&#x5668;" class="anchor-navigation-ex-anchor" href="#&#x5B50;&#x53E5;&#x6784;&#x9020;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a>6.2. &#x5B50;&#x53E5;&#x6784;&#x9020;&#x5668;</h3>
+<p>&#x4E0D;&#x540C;&#x7684;&#x6570;&#x636E;&#x5E93;&#xFF0C;Clause &#x53EF;&#x80FD;&#x4F1A;&#x751F;&#x6210;&#x4E0D;&#x540C;&#x7684; SQL&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-go">db.Offset(<span class="hljs-number">10</span>).Limit(<span class="hljs-number">5</span>).Find(&amp;users)
+<span class="hljs-comment">// SQL Server &#x4F1A;&#x751F;&#x6210;</span>
+<span class="hljs-comment">// SELECT * FROM &quot;users&quot; OFFSET 10 ROW FETCH NEXT 5 ROWS ONLY</span>
+<span class="hljs-comment">// MySQL &#x4F1A;&#x751F;&#x6210;</span>
+<span class="hljs-comment">// SELECT * FROM `users` LIMIT 5 OFFSET 10</span>
+</code></pre>
+<p>&#x4E4B;&#x6240;&#x4EE5;&#x652F;&#x6301; Clause&#xFF0C;&#x662F;&#x56E0;&#x4E3A; GORM &#x5141;&#x8BB8;&#x6570;&#x636E;&#x5E93;&#x9A71;&#x52A8;&#x7A0B;&#x5E8F;&#x901A;&#x8FC7;&#x6CE8;&#x518C; Clause Builder &#x6765;&#x53D6;&#x4EE3;&#x9ED8;&#x8BA4;&#x503C;&#xFF0C;&#x8FD9;&#x513F;&#x6709;&#x4E00;&#x4E2A; <a href="https://github.com/go-gorm/sqlserver/blob/512546241200023819d2e7f8f2f91d7fb3a52e42/sqlserver.go#L45" target="_blank">Limit</a> &#x7684;&#x793A;&#x4F8B;</p>
+<h3 id="&#x5B50;&#x53E5;&#x9009;&#x9879;"><a name="&#x5B50;&#x53E5;&#x9009;&#x9879;" class="anchor-navigation-ex-anchor" href="#&#x5B50;&#x53E5;&#x9009;&#x9879;"><i class="fa fa-link" aria-hidden="true"></i></a>6.3. &#x5B50;&#x53E5;&#x9009;&#x9879;</h3>
+<p>GORM &#x5B9A;&#x4E49;&#x4E86;&#x5F88;&#x591A; <a href="https://github.com/go-gorm/gorm/tree/master/clause" target="_blank">Clause</a>&#xFF0C;&#x5176;&#x4E2D;&#x4E00;&#x4E9B; Clause &#x63D0;&#x4F9B;&#x4E86;&#x4F60;&#x53EF;&#x80FD;&#x4F1A;&#x7528;&#x5230;&#x7684;&#x9009;&#x9879;</p>
+<p>&#x5C3D;&#x7BA1;&#x5F88;&#x5C11;&#x4F1A;&#x7528;&#x5230;&#x5B83;&#x4EEC;&#xFF0C;&#x4F46;&#x5982;&#x679C;&#x4F60;&#x53D1;&#x73B0; GORM API &#x4E0E;&#x4F60;&#x7684;&#x9884;&#x671F;&#x4E0D;&#x7B26;&#x5408;&#x3002;&#x8FD9;&#x53EF;&#x80FD;&#x53EF;&#x4EE5;&#x5F88;&#x597D;&#x5730;&#x68C0;&#x67E5;&#x5B83;&#x4EEC;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-go">db.Clauses(clause.Insert{Modifier: <span class="hljs-string">&quot;IGNORE&quot;</span>}).Create(&amp;user)
+<span class="hljs-comment">// INSERT IGNORE INTO users (name,age...) VALUES (&quot;jinzhu&quot;,18...);</span>
+</code></pre>
+<h3 id="statementmodifier"><a name="statementmodifier" class="anchor-navigation-ex-anchor" href="#statementmodifier"><i class="fa fa-link" aria-hidden="true"></i></a>6.4. StatementModifier</h3>
+<p>GORM &#x63D0;&#x4F9B;&#x4E86; <a href="https://pkg.go.dev/gorm.io/gorm?tab=doc#StatementModifier" target="_blank">StatementModifier</a> &#x63A5;&#x53E3;&#xFF0C;&#x5141;&#x8BB8;&#x60A8;&#x4FEE;&#x6539;&#x8BED;&#x53E5;&#xFF0C;&#x4F7F;&#x5176;&#x7B26;&#x5408;&#x60A8;&#x7684;&#x8981;&#x6C42;&#xFF0C;&#x8FD9;&#x513F;&#x6709;&#x4E00;&#x4E2A; <a href="https://learnku.com/docs/gorm/v2/hints" target="_blank">Hint</a> &#x793A;&#x4F8B;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;gorm.io/hints&quot;</span>
+
+db.Clauses(hints.New(<span class="hljs-string">&quot;hint&quot;</span>)).Find(&amp;User{})
+<span class="hljs-comment">// SELECT * /*+ hint */ FROM `users`</span>
+</code></pre>
+
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="shan-chu.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 删除">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"原生SQL","level":"1.4.5","depth":2,"previous":{"title":"删除","level":"1.4.4","depth":2,"path":"crudjie-kou/shan-chu.md","ref":"crudjie-kou/shan-chu.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["anchor-navigation-ex","-search","-sharing","theme-default","-lunr","fontsettings","livereload","popup","splitter","copy-code-button","highlight","-expandable-chapters-small","chapter-fold","back-to-top-button","search-pro","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"popup":{},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"anchor-navigation-ex":{"showLevelIcon":false,"mode":"float","pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"showLevel":true,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","showGoTop":true,"printLog":false,"multipleH1":false,"multipleH2":false,"associatedWithSummary":true,"multipleH3":false,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"multipleH4":false},"back-to-top-button":{},"copy-code-button":{},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"crudjie-kou/yuan-sheng-sql.md","mtime":"2023-09-12T14:49:02.547Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-11-14T14:51:30.758Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+
+    </body>
+</html>
+

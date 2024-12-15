@@ -1,0 +1,669 @@
+<!DOCTYPE html><html lang="en"><head><!-- hexo injector head_begin start --><link href="https://cdn.jsdelivr.net/npm/hexo-widget-tree@0.2.2/css/index.css" rel="stylesheet"/><!-- hexo injector head_begin end --><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0078E7"><meta name="author" content="王彦翔"><meta name="copyright" content="王彦翔"><meta name="generator" content="Hexo 5.4.0"><meta name="theme" content="hexo-theme-yun"><title>python单元测试 | 心瘾</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><script src="//at.alicdn.com/t/font_1140697_dxory92pb0h.js" async></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>function initScrollReveal() {
+  [".post-card",".post-content img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+}
+document.addEventListener("DOMContentLoaded", initScrollReveal);
+document.addEventListener("pjax:success", initScrollReveal);
+</script><script src="https://cdn.jsdelivr.net/npm/pjax@latest/pjax.min.js" defer></script><script src="/js/pjax.js" defer></script><script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@latest/themes/prism.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@latest/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="icon" type="image/svg+xml" href="/images/yanxiang.svg"><link rel="mask-icon" href="/images/yanxiang.svg" color="#0078E7"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+    const Yun = window.Yun || {};
+    window.CONFIG = {"hostname":"blog.yanxiang.wang","root":"/","title":"彦的个人博客","version":"1.7.0","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms"},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"https://v1.hitokoto.cn","hitokoto":true},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
+  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="心瘾" type="application/atom+xml"><link rel="stylesheet" href="//example.min.css"><script src="//at.alicdn.com/t/c/font_3013545_3o3fuisnga1.js" async></script><link rel="preconnect" href="https://www.google-analytics.com" crossorigin><script async src="https://www.googletagmanager.com/gtag/js?id=G-1LL0D86CY9"></script><script>if (CONFIG.hostname === location.hostname) {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1LL0D86CY9');
+}</script><script>//- only for pjax
+function sendPageView() {
+  if (CONFIG.hostname !== location.hostname) return;
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('event', 'page_view', {
+    page_path: encodeURIComponent(location.pathname),
+  })
+}
+document.addEventListener("pjax:success", sendPageView);</script><script data-ad-client="ca-pub-2245427233262012" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(function(){
+  var bp = document.createElement('script');
+  var curProtocol = window.location.protocol.split(':')[0];
+  if (curProtocol === 'https') {
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else {
+    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();</script><!-- Google Tag Manager --><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-M9KWR9L');</script><!-- End Google Tag Manager --><meta name="description" content="笔落惊风雨，诗成泣鬼神">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python单元测试">
+<meta property="og:url" content="https://blog.yanxiang.wang/python%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/index.html">
+<meta property="og:site_name" content="心瘾">
+<meta property="og:description" content="笔落惊风雨，诗成泣鬼神">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blog.yanxiang.wang/images/python_测试.jpg">
+<meta property="article:published_time" content="2021-05-24T14:16:27.000Z">
+<meta property="article:modified_time" content="2023-09-13T07:36:16.987Z">
+<meta property="article:author" content="王彦翔">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="unittest">
+<meta property="article:tag" content="单元测试">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.yanxiang.wang/images/python_测试.jpg"><script src="/js/ui/mode.js"></script></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js"></script><canvas class="fireworks"></canvas><canvas id="trianglifyContainer"></canvas><script defer src="https://cdn.jsdelivr.net/npm/trianglify@4/dist/trianglify.bundle.js"></script><script>document.addEventListener("DOMContentLoaded", () => {
+  const pattern = trianglify({
+    width: 800,
+    height: 600,
+    cellSize: 75,
+    palette: ["YlGnBu", "GnBu", "Purples", "Blues"],
+  });
+  const canvasOpts = {
+    applyCssScaling: false
+  }
+  document.body.appendChild(pattern.toCanvas(trianglifyContainer, canvasOpts));
+});</script><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="Table of Contents"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-list-ordered"></use></svg></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="Overview"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-passport-line"></use></svg></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="王彦翔"><img width="96" loading="lazy" src="/images/yanxiang.png" alt="王彦翔"><span class="site-author-status" title="Looking for dawn.">👍🏻</span></a><div class="site-author-name"><a href="/about/">王彦翔</a></div><span class="site-name">心瘾</span><sub class="site-subtitle"></sub><div class="site-desciption">年轻就该满腔热血</div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="Home"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item"><a href="/archives/" title="Archives"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">56</span></a></div><div class="site-state-item"><a href="/categories/" title="Categories"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-2-line"></use></svg></span><span class="site-state-item-count">53</span></a></div><div class="site-state-item"><a href="/tags/" title="Tags"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="site-state-item-count">86</span></a></div><a class="site-state-item hty-icon-button" target="_blank" rel="noopener" href="https://yun.yunyoujun.cn" title="文档"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-settings-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="/atom.xml" title="RSS" target="_blank" style="color:orange"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-rss-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="http://wpa.qq.com/msgrd?v=3&amp;uin=515250339&amp;site=qq&amp;menu=yes" title="作者 QQ 515250339" target="_blank" style="color:#12B7F5"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-qq-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/515250339" title="GitHub" target="_blank" style="color:#6e5494"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://blog.csdn.net/weixin_45954124?spm=1000.2115.3001.5113" title="CSDN" target="_blank" style="color:#0088CC"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-csdn"></use></svg></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/python%E5%9F%BA%E7%A1%80/" title="python基础" style="color:green"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-python"></use></svg></a><a class="links-item hty-icon-button" href="/django%E5%88%9D%E7%BA%A7/" title="Django初级" style="color:hotpink"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-bxl-django"></use></svg></a><a class="links-item hty-icon-button" href="/django%E9%AB%98%E7%BA%A7/" title="Django高级" style="color:hotpink"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-django"></use></svg></a><a class="links-item hty-icon-button" href="/python%E9%9D%A2%E8%AF%95%E5%AE%9D%E5%85%B8/" title="python面试宝典" style="color:red"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-shuji"></use></svg></a><a class="links-item hty-icon-button" href="/%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/" title="安装文档" style="color:null"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-anzhuang"></use></svg></a><a class="links-item hty-icon-button" href="/gonote/" title="gonote" style="color:hotpink"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-gopher"></use></svg></a><a class="links-item hty-icon-button" href="/gorm/" title="GORM" style="color:hotpink"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-go_gopher"></use></svg></a><a class="links-item hty-icon-button" href="/algorithm/" title="算法" style="color:null"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-icon-rgb_jiqixuexisuanfayinqing"></use></svg></a><a class="links-item hty-icon-button" href="/albums/" title="相册" style="color:hotpink"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-women-line"></use></svg></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-contrast-2-line"></use></svg></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#python%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E4%B9%8Bunittest"><span class="toc-number">1.</span> <span class="toc-text">python单元测试之unittest</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%EF%BC%8C%E9%9B%86%E6%88%90%E6%B5%8B%E8%AF%95%EF%BC%8C%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">1.1.</span> <span class="toc-text">一:单元测试，集成测试，功能测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95"><span class="toc-number">1.1.1.</span> <span class="toc-text">单元测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%86%E6%88%90%E6%B5%8B%E8%AF%95"><span class="toc-number">1.1.2.</span> <span class="toc-text">集成测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">1.1.3.</span> <span class="toc-text">功能测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%EF%BC%9AUnittest%E9%87%8D%E8%A6%81%E7%BB%84%E6%88%90"><span class="toc-number">1.2.</span> <span class="toc-text">二：Unittest重要组成</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#TestFixture"><span class="toc-number">1.2.1.</span> <span class="toc-text">TestFixture</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TestCase-%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B"><span class="toc-number">1.2.2.</span> <span class="toc-text">TestCase:测试用例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TestSuite"><span class="toc-number">1.2.3.</span> <span class="toc-text">TestSuite</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TextRunner"><span class="toc-number">1.2.4.</span> <span class="toc-text">TextRunner</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%EF%BC%9A%E6%96%AD%E8%A8%80"><span class="toc-number">1.3.</span> <span class="toc-text">三：断言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%EF%BC%9A%E7%94%9F%E6%88%90%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A"><span class="toc-number">1.4.</span> <span class="toc-text">四：生成测试报告</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94-%E6%93%8D%E4%BD%9C"><span class="toc-number">1.5.</span> <span class="toc-text">五:操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%EF%BC%9A%E4%BB%A3%E7%A0%81%E5%B1%95%E7%A4%BA"><span class="toc-number">1.6.</span> <span class="toc-text">六：代码展示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%EF%BC%9A%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6"><span class="toc-number">1.7.</span> <span class="toc-text">七：读取文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%BB%E5%8F%96xml%E6%96%87%E4%BB%B6"><span class="toc-number">1.7.1.</span> <span class="toc-text">读取xml文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%BB%E5%8F%96csv%E6%96%87%E4%BB%B6"><span class="toc-number">1.7.2.</span> <span class="toc-text">读取csv文件</span></a></li></ol></li></ol></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article"><link itemprop="mainEntityOfPage" href="https://blog.yanxiang.wang/python%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="王彦翔"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="心瘾"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">python单元测试</h1><div class="post-meta"><div class="post-time" style="display:block"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-line"></use></svg></span> <span class="post-meta-icon-text">Posted on</span> <time title="Created: 2021-05-24 22:16:27" itemprop="dateCreated datePublished" datetime="2021-05-24T22:16:27+08:00">2021-05-24</time><span class="post-meta-divider">-</span><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-2-line"></use></svg></span> <span class="post-meta-icon-text">Edited on</span> <time title="Modified: 2023-09-13 15:36:16" itemprop="dateModified" datetime="2023-09-13T15:36:16+08:00">2023-09-13</time></div><span class="post-count"><span class="post-symbolcount"><span class="post-meta-item-icon" title="Word count in article"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-file-word-line"></use></svg></span> <span title="Word count in article">2.2k</span><span class="post-meta-divider">-</span><span class="post-meta-item-icon" title="Reading time"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-timer-line"></use></svg></span> <span title="Reading time">8m</span></span></span><span class="leancloud_visitors" id="/python%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" data-flag-title="python单元测试"><span class="post-meta-divider">-</span><span class="post-meta-item-icon" title="Views"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-eye-line"></use></svg> <span class="leancloud-visitors-count"></span></span></span><span class="post-meta-divider">-</span><a href="#comment"><span class="post-meta-item-icon" title="Comments"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-chat-3-line"></use></svg> <span class="waline-comment-count" id="/python%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/"></span></span></a><div class="post-classify"><span class="post-category"> <span class="post-meta-item-icon" style="margin-right:3px;"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-line"></use></svg></span><span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category-item" href="/categories/python/" style="--text-color:var(--hty-text-color)" itemprop="url" rel="index"><span itemprop="text">python</span></a></span> > <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category-item" href="/categories/python/%E6%B5%8B%E8%AF%95/" style="--text-color:var(--hty-text-color)" itemprop="url" rel="index"><span itemprop="text">测试</span></a></span> > <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category-item" href="/categories/python/%E6%B5%8B%E8%AF%95/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" style="--text-color:var(--hty-text-color)" itemprop="url" rel="index"><span itemprop="text">单元测试</span></a></span></span><span class="post-tag"><span class="post-meta-divider">-</span><a class="tag-item" href="/tags/python/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">python</span></a><a class="tag-item" href="/tags/unittest/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">unittest</span></a><a class="tag-item" href="/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">单元测试</span></a></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body" style="--smc-primary:#0078E7;"><center>
+<img src="../images/python_测试.jpg" loading="lazy">
+</center>
+
+<span id="more"></span>
+
+<h1 id="python单元测试之unittest"><a href="#python单元测试之unittest" class="headerlink" title="python单元测试之unittest"></a>python单元测试之unittest</h1><table>
+<thead>
+<tr>
+<th>目录</th>
+<th>类容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>unittest</td>
+<td>单元测试，集成测试，功能测试<br/>Unittest的重要组成部分  <br/>断言的使用<br/>测试用例方法的命名规则<br/>执行测试用例<br/>原始的测试报告和第三方的html格式报告<br/>读取xml文件数据进行单元测试<br/>读取csv文件数据进行单元测试</td>
+</tr>
+</tbody></table>
+<h2 id="一-单元测试，集成测试，功能测试"><a href="#一-单元测试，集成测试，功能测试" class="headerlink" title="一:单元测试，集成测试，功能测试"></a>一:单元测试，集成测试，功能测试</h2><h3 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h3><pre class="language-none"><code class="language-none">颗粒度最小，一般由开发小组采用白盒方式来测试，主要测试单元是否符合“设计”；是指对软件中的最小可测试单元进行检查和验证</code></pre>
+
+
+
+<h3 id="集成测试"><a href="#集成测试" class="headerlink" title="集成测试"></a>集成测试</h3><pre class="language-none"><code class="language-none">介于单元测试和系统测试之间，一般由开发小组采用白盒+黑盒的方法来测试，即验证“设计”又验证“需求”。主要用来测试模板与模板之间的接口，同时还要测试一些主要的业务功能。</code></pre>
+
+
+
+<h3 id="功能测试"><a href="#功能测试" class="headerlink" title="功能测试"></a>功能测试</h3><pre class="language-none"><code class="language-none">颗粒度最大，一般由独立的测试小组采用黑盒的方式来测试，主要测试系统是否符合“需求规格说明书</code></pre>
+
+
+
+<p>问题：什么是白盒测试，什么是黑盒测试</p>
+<pre class="language-none"><code class="language-none">白盒：主要应用于单元测试阶段，主要是对代码级别的测试，针对程序内部的逻辑结构。测试的手段有：语句覆盖、判定覆盖、条件覆盖、路径覆盖和条件组合覆盖
+黑盒： 不考虑程序内部结构和逻辑结构，主要是测试系统的功能是否满足“需求规格说明书”。一般会有一个输入值和一个输出值，和期望值做比较。</code></pre>
+
+
+
+<h2 id="二：Unittest重要组成"><a href="#二：Unittest重要组成" class="headerlink" title="二：Unittest重要组成"></a>二：<em>Unittest</em>重要组成</h2><pre class="language-none"><code class="language-none">Python中有一个自带的单元测试框架是unittest模块，用它来做单元测试，它里面封装好了一些校验返回的结果方法（断言）和一些用例执行前的初始化操作。</code></pre>
+
+
+
+<pre class="language-none"><code class="language-none">unittest中最核心的部分是：TestFixture、TestCase、TestSuite、TestRunner</code></pre>
+
+
+
+<h3 id="TestFixture"><a href="#TestFixture" class="headerlink" title="TestFixture"></a>TestFixture</h3><p>作用:</p>
+<pre class="language-none"><code class="language-none">用于一个测试环境的准备和销毁还原。</code></pre>
+
+<p>功能:    </p>
+<pre class="language-none"><code class="language-none">当测试用例每次执行之前需要准备测试环境，每次测试完成后还原测试环境，比如执行前连接数据库、打开浏览器等，执行完成后需要还原数据库、关闭浏览器等操作。这时候就可以启用testfixture</code></pre>
+
+<p>主要方法:</p>
+<pre class="language-none"><code class="language-none">setUp()：准备环境，执行每个测试用例的前置条件；
+tearDown()：环境还原，执行每个测试用例的后置条件；
+setUpClass()：必须使用@classmethod装饰器，所有case执行的前置条件，只运行一次；
+tearDownClass()：必须使用@classmethod装饰器，所有case运行完后只运行一次；</code></pre>
+
+
+
+<h3 id="TestCase-测试用例"><a href="#TestCase-测试用例" class="headerlink" title="TestCase:测试用例"></a>TestCase:测试用例</h3><p>定义</p>
+<pre class="language-none"><code class="language-none">一个类class继承 unittest.TestCase，就是一个测试用例</code></pre>
+
+<p>什么是测试用例?</p>
+<pre class="language-none"><code class="language-none">就是一个完整的测试流程，包括测试前准备环境的搭建(setUp)，执行测试代码(run)，以及测试后环境的还原(tearDown)。</code></pre>
+
+<p>测试用例命名规则</p>
+<pre class="language-none"><code class="language-none">继承自unittest.TestCase的类中，测试方法的名称要以test开头。且只会执行以test开头定义的方法（测试方法）,测试用例执行的顺序会按照方法名的ASCII值排序。
+如果想跳过某个测试用例，需要添加@unittest.skip)(‘描述信息&#39;)</code></pre>
+
+<p>代码</p>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> unittest
+<span class="token keyword">class</span> <span class="token class-name">Calc_testcase</span><span class="token punctuation">(</span>unittest<span class="token punctuation">.</span>TestCase<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">setUp</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token punctuation">:</span>  <span class="token comment">#测试用例方法执行前的操作</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"start"</span><span class="token punctuation">)</span>
+    <span class="token keyword">def</span> <span class="token function">test1</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>   <span class="token comment">#测试用例</span>
+        resl <span class="token operator">=</span> <span class="token number">4</span>
+        self<span class="token punctuation">.</span>assertEqual<span class="token punctuation">(</span>resl<span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span>  <span class="token comment"># 断言</span>
+<span class="token keyword">def</span> <span class="token function">tearDown</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token punctuation">:</span>  <span class="token comment">#测试用例方法执行后的操作</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"end"</span><span class="token punctuation">)</span>
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span><span class="token string">"__main__"</span><span class="token punctuation">:</span>
+    unittest<span class="token punctuation">.</span>main<span class="token punctuation">(</span><span class="token punctuation">)</span>       <span class="token comment">#调用测试用例中以test开头的方法</span>
+</code></pre>
+
+
+
+<h3 id="TestSuite"><a href="#TestSuite" class="headerlink" title="TestSuite"></a>TestSuite</h3><pre class="language-none"><code class="language-none">测试套件，可以将多个测试用例集合在一起，能一起执行选中的测试用例</code></pre>
+
+
+
+<p>方式一：</p>
+<pre class="language-python" data-language="python"><code class="language-python">suite <span class="token operator">=</span> unittest<span class="token punctuation">.</span>TestSuite<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment">#创建测试套件</span>
+case_list <span class="token operator">=</span> <span class="token punctuation">[</span>“test1”<span class="token punctuation">,</span>”test2”…<span class="token punctuation">.</span><span class="token punctuation">]</span>
+For case <span class="token keyword">in</span> case_list<span class="token punctuation">:</span>
+	suite<span class="token punctuation">.</span>addTest<span class="token punctuation">(</span>类名<span class="token punctuation">(</span>case<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+
+
+
+<p>方式二:</p>
+<pre class="language-python" data-language="python"><code class="language-python">suite <span class="token operator">=</span> unittest<span class="token punctuation">.</span>TestSuite<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment">#创建测试套件</span>
+        suite<span class="token punctuation">.</span>addTest<span class="token punctuation">(</span>类名 <span class="token punctuation">(</span>“test1“<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        suite<span class="token punctuation">.</span>addTest<span class="token punctuation">(</span>类名 <span class="token punctuation">(</span>“test2“<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+
+
+
+<p>方式三:</p>
+<pre class="language-python" data-language="python"><code class="language-python">suite <span class="token operator">=</span> unittest<span class="token punctuation">.</span>TestSuite<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment">#创建测试套件</span>
+loader <span class="token operator">=</span> unittest<span class="token punctuation">.</span>TestLoader<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment"># 创建一个加载对象 </span>
+suite<span class="token punctuation">.</span>addTest<span class="token punctuation">(</span>loader<span class="token punctuation">.</span>loadTestsFromTestCase<span class="token punctuation">(</span>类名<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+
+
+
+<h3 id="TextRunner"><a href="#TextRunner" class="headerlink" title="TextRunner"></a>TextRunner</h3><p>​    执行测试用例</p>
+<p>​    通过TextTestRunner类提供的run()方法来执行test suite/test cas</p>
+<p>格式</p>
+<pre class="language-python" data-language="python"><code class="language-python">runner <span class="token operator">=</span> unittest<span class="token punctuation">.</span>TextTestRunner<span class="token punctuation">(</span>verbosity<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span>
+runner<span class="token punctuation">.</span>run<span class="token punctuation">(</span>suite<span class="token punctuation">)</span></code></pre>
+
+<p>注释</p>
+<pre class="language-none"><code class="language-none"> verbosity ：表示测试报告信息的详细程度，一共三个值，默认是2
+0 (静默模式)：你只能获得总的测试用例数和总的结果，如：总共100个 失败10 成功90
+1 (默认模式)：类似静默模式，只是在每个成功的用例前面有个. 每个失败的用例前面有个F
+2 (详细模式)：测试结果会显示每个测试用例的所有相关的信息</code></pre>
+
+
+
+<h2 id="三：断言"><a href="#三：断言" class="headerlink" title="三：断言"></a>三：断言</h2><p>验证预期结果和实际结果</p>
+<pre class="language-none"><code class="language-none">assertEqual(a,b):断言a和b是否相等，相等则测试用例通过。
+assertNotEqual(a,b):断言a和b是否相等，不相等则测试用例通过。
+assertTrue(x)：断言x是否True，是True则测试用例通过。
+assertFalse(x)：断言x是否False，是False则测试用例通过。
+assertIs(a,b):断言a是否是b，是则测试用例通过。
+assertNotIs(a,b):断言a是否是b，不是则测试用例通过。
+assertIsNone(x)：断言x是否None，是None则测试用例通过。
+assertIsNotNone(x)：断言x是否None，不是None则测试用例通过。
+assertIn(a,b)：断言a是否在b中，在b中则测试用例通过。
+assertNotIn(a,b)：断言a是否在b中，不在b中则测试用例通过。
+assertIsInstance(a,b)：断言a是是b的一个实例，是则测试用例通过。
+assertNotIsInstance(a,b)：断言a是是b的一个实例，不是则测试用例通过。</code></pre>
+
+
+
+<h2 id="四：生成测试报告"><a href="#四：生成测试报告" class="headerlink" title="四：生成测试报告"></a>四：生成测试报告</h2><pre class="language-none"><code class="language-none">html格式的就是HTMLTestRunner了，HTMLTestRunner是 Python 标准库的 unittest 框架的一个扩展，它可以生成一个直观清晰的 HTML 测试报告。使用的前提就是要下载 HTMLTestRunner.py</code></pre>
+
+
+
+<p>格式</p>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"../report.html"</span><span class="token punctuation">,</span><span class="token string">"wb"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+           HTMLTestRunner<span class="token punctuation">(</span>
+               stream<span class="token operator">=</span>f<span class="token punctuation">,</span>
+       title<span class="token operator">=</span><span class="token string">"单元测试"</span><span class="token punctuation">,</span>
+               description<span class="token operator">=</span><span class="token string">"测试一期"</span><span class="token punctuation">,</span>
+               verbosity<span class="token operator">=</span><span class="token number">2</span>
+           <span class="token punctuation">)</span><span class="token punctuation">.</span>run<span class="token punctuation">(</span>suite<span class="token punctuation">)</span>            </code></pre>
+
+<p>生成测试报告</p>
+<p>相关参数说明</p>
+<pre class="language-none"><code class="language-none">stream：指定输出的方式
+description：报告中要显示的面熟信息
+title：测试报告的标题
+verbosity ：表示测试报告信息的详细程度，一共三个值，默认是2
+0 (静默模式)：你只能获得总的测试用例数和总的结果，如：总共100个 失败10 成功90
+1 (默认模式)：类似静默模式，只是在每个成功的用例前面有个. 每个失败的用例前面有个F
+2 (详细模式)：测试结果会显示每个测试用例的所有相关的信息</code></pre>
+
+
+
+<h2 id="五-操作"><a href="#五-操作" class="headerlink" title="五:操作"></a>五:操作</h2><pre class="language-none"><code class="language-none">1：导入unittest模块   &gt;&gt;&gt;import unittest
+2:编写一个类继承unittest.TestCase
+3:调用setUp(self), tearDown(self)方法实现测试用例前后阶段的操作
+4:编写测试用例方法
+	(1)该方法必须以test开头,否则在unittest.main()中调用测试找不到该方法
+	(2)设置断言进行判断，输入数据和输出数据的预期结果
+5:创建套件，将多个测试用例存放套件中，一并执行()
+6:生成测试报告(python自带或者导入HTMLTestRunner生成html格式的测试报告)
+7：运行测试用例unittest.main(),调用测试用例中以test开头的方法</code></pre>
+
+
+
+<h2 id="六：代码展示"><a href="#六：代码展示" class="headerlink" title="六：代码展示"></a>六：代码展示</h2><p>​    对开发的代码块进行单元测试</p>
+<p> 开发被测代码</p>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Calc</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">add</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        c <span class="token operator">=</span>a<span class="token operator">+</span>b
+        <span class="token keyword">return</span> c
+    <span class="token keyword">def</span> <span class="token function">redc</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        c <span class="token operator">=</span> a<span class="token operator">-</span>b
+        <span class="token keyword">print</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span>
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
+    c <span class="token operator">=</span> Calc<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    c<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>c<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+
+<p>单元测试代码</p>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> day<span class="token punctuation">.</span>Calc <span class="token keyword">import</span> Calc
+<span class="token keyword">import</span>  unittest
+c <span class="token operator">=</span> Calc<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment">#实例化开发的类</span>
+<span class="token keyword">class</span> <span class="token class-name">Test</span><span class="token punctuation">(</span>unittest<span class="token punctuation">.</span>TestCase<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token comment">#unittest单元测试类必须继承unittest.TestCase</span>
+    <span class="token keyword">def</span> <span class="token function">setUp</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment">#测试用例之前执行</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"start"</span><span class="token punctuation">)</span>
+    <span class="token keyword">def</span> <span class="token function">test001</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token comment">#测试用例必须test开头</span>
+        res <span class="token operator">=</span> c<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>   <span class="token comment">#调取相加的方法</span>
+        self<span class="token punctuation">.</span>assertEqual <span class="token punctuation">(</span>res<span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span>  <span class="token comment">#断言,预期结果和实际结果的对比</span>
+    <span class="token keyword">def</span> <span class="token function">test002</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token comment">#测试用例必须test开头</span>
+        res <span class="token operator">=</span> c<span class="token punctuation">.</span>redc<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span>   <span class="token comment">#调取相减的方法</span>
+        self<span class="token punctuation">.</span>assertEqual <span class="token punctuation">(</span>res<span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>  <span class="token comment">#断言,预期结果和实际结果的对比</span>
+    <span class="token keyword">def</span> <span class="token function">tearDown</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token comment">#测试用例结束之后执行</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"end"</span><span class="token punctuation">)</span>
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    unittest<span class="token punctuation">.</span>main<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+
+
+
+<h2 id="七：读取文件"><a href="#七：读取文件" class="headerlink" title="七：读取文件"></a>七：读取文件</h2><h3 id="读取xml文件"><a href="#读取xml文件" class="headerlink" title="读取xml文件"></a>读取xml文件</h3><pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> xml<span class="token punctuation">.</span>dom <span class="token keyword">import</span> minidom
+<span class="token keyword">class</span> <span class="token class-name">Readxml</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">read_xml</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>filename<span class="token punctuation">,</span>onename<span class="token punctuation">,</span>twoname<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        root <span class="token operator">=</span>minidom<span class="token punctuation">.</span>parse<span class="token punctuation">(</span>filename<span class="token punctuation">)</span>
+        firstnode <span class="token operator">=</span>root<span class="token punctuation">.</span>getElementsByTagName<span class="token punctuation">(</span>onename<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+        secondnode<span class="token operator">=</span>firstnode<span class="token punctuation">.</span>getElementsByTagName<span class="token punctuation">(</span>twoname<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>firstChild<span class="token punctuation">.</span>data
+        <span class="token keyword">return</span> secondnode
+</code></pre>
+
+<h3 id="读取csv文件"><a href="#读取csv文件" class="headerlink" title="读取csv文件"></a>读取csv文件</h3><pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> csv   <span class="token comment">#导入csv模块</span>
+<span class="token keyword">class</span> <span class="token class-name">ReadCsv</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">read_csv</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        item <span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span>    <span class="token comment">#定义一个空列表</span>
+        c <span class="token operator">=</span> csv<span class="token punctuation">.</span>reader<span class="token punctuation">(</span><span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"../commonDemo/test1.csv"</span><span class="token punctuation">,</span><span class="token string">"r"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>    <span class="token comment">#得到csv文件对象</span>
+        <span class="token keyword">for</span> csv_i <span class="token keyword">in</span> c<span class="token punctuation">:</span>
+            item<span class="token punctuation">.</span>append<span class="token punctuation">(</span>csv_i<span class="token punctuation">)</span>      <span class="token comment">#将获取的数据添加到列表中</span>
+        <span class="token keyword">return</span> item
+            
+r <span class="token operator">=</span> ReadCsv<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>r<span class="token punctuation">.</span>read_csv<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+
+
+
+</div><div id="reward-container"><span class="hty-icon-button button-glow" id="reward-button" title="Donate" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === &quot;none&quot;) ? &quot;block&quot; : &quot;none&quot;;"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-hand-coin-line"></use></svg></span><div id="reward-comment">觉得文章写的不错，可以请喝杯咖啡</div><div id="qr" style="display:none;"><div style="display:inline-block"><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/donate/alipay-qrcode.jpg"><img loading="lazy" src="https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/donate/alipay-qrcode.jpg" alt="支付宝" title="支付宝"></a><div><span style="color:#00A3EE"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-alipay-line"></use></svg></span></div></div><div style="display:inline-block"><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/donate/qqpay-qrcode.png"><img loading="lazy" src="https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/donate/qqpay-qrcode.png" alt="QQ 支付" title="QQ 支付"></a><div><span style="color:#12B7F5"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-qq-line"></use></svg></span></div></div><div style="display:inline-block"><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/donate/wechatpay-qrcode.jpg"><img loading="lazy" src="https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/donate/wechatpay-qrcode.jpg" alt="微信支付" title="微信支付"></a><div><span style="color:#2DC100"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-wechat-pay-line"></use></svg></span></div></div></div></div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>王彦翔</li><li class="post-copyright-link"><strong>Post link: </strong><a href="https://blog.yanxiang.wang/python%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" title="python单元测试">https://blog.yanxiang.wang/python%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/pandas%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C-%E8%AE%A1%E7%AE%97/" rel="prev" title="pandas进阶操作-计算-方法"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">pandas进阶操作-计算-方法</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/Python%E4%B8%AD%E6%93%8D%E4%BD%9CSQLAlchemy/" rel="next" title="Python中操作SQLAlchemy"><span class="post-nav-text">Python中操作SQLAlchemy</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div class="hty-card" id="comment"><div class="comment-tooltip text-center"><span>如果您有任何关于博客内容的相关讨论，欢迎前往 <a href="https://github.com/YunYouJun/yunyoujun.github.io/discussions" target="_blank">GitHub Discussions</a> 与我交流。</span><br></div><div id="waline"></div><script>Yun.utils.getScript("https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js", () => {
+  const walineConfig = {"enable":true,"serverURL":"https://waline.yunyoujun.cn","comment":true,"visitor":true,"emoji":["https://cdn.jsdelivr.net/gh/walinejs/emojis@latest/bilibili/","https://cdn.jsdelivr.net/gh/walinejs/emojis@latest/weibo/","https://cdn.jsdelivr.net/gh/walinejs/emojis@latest/qq/"],"locale":{"placeholder":"填写邮箱，可以收到回复通知哦～"},"requiredMeta":["nick"],"el":"#waline","lang":"en"}
+  walineConfig.path = "/python%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/"
+  walineConfig.dark = 'html[data-user-color-scheme="dark"]'
+  new Waline(walineConfig)
+}, window.Waline);</script></div></main><footer class="sidebar-translate" id="footer"><div class="beian"><a rel="noopener" href="https://beian.miit.gov.cn/" target="_blank">备案号</a></div><div class="copyright"><span>&copy; 2018 – 2024 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 王彦翔</span></div><div class="live_time"><span>运行时间</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
+  setTimeout(blog_live_time, 1000);
+  const start = new Date('2019-04-12T00:00:00');
+  const now = new Date();
+  const timeDiff = (now.getTime() - start.getTime());
+  const msPerMinute = 60 * 1000;
+  const msPerHour = 60 * msPerMinute;
+  const msPerDay = 24 * msPerHour;
+  const passDay = Math.floor(timeDiff / msPerDay);
+  const passHour = Math.floor((timeDiff % msPerDay) / 60 / 60 / 1000);
+  const passMinute = Math.floor((timeDiff % msPerHour) / 60 / 1000);
+  const passSecond = Math.floor((timeDiff % msPerMinute) / 1000);
+  display_live_time.innerHTML = " " + passDay + " 天 " + passHour + " 小时 " + passMinute + " 分 " + passSecond + " 秒";
+}
+blog_live_time();
+</script></div></footer><a class="hty-icon-button" id="back-to-top" aria-label="back-to-top" href="#"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-up-s-line"></use></svg><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#0078E7" stroke-width="2" stroke-linecap="round"></circle></svg></a><a class="popup-trigger hty-icon-button icon-search" id="search" href="javascript:;" title="Search"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-search-line"></use></svg></span></a><script>window.addEventListener("DOMContentLoaded", () => {
+  // Handle and trigger popup window
+  document.querySelector(".popup-trigger").addEventListener("click", () => {
+    document.querySelector(".popup").classList.add("show");
+    setTimeout(() => {
+      document.querySelector(".search-input").focus();
+    }, 100);
+  });
+
+  // Monitor main search box
+  const onPopupClose = () => {
+    document.querySelector(".popup").classList.remove("show");
+  };
+
+  document.querySelector(".popup-btn-close").addEventListener("click", () => {
+    onPopupClose();
+  });
+
+  window.addEventListener("keyup", event => {
+    if (event.key === "Escape") {
+      onPopupClose();
+    }
+  });
+});
+</script><script src="/js/search/local-search.js" defer></script><div class="popup search-popup"><div class="search-header"><span class="popup-btn-close close-icon hty-icon-button"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-close-line"></use></svg></span></div><div class="search-input-container"><input class="search-input" id="local-search-input" type="text" placeholder="Searching..." value=""></div><div id="local-search-result"></div></div><script>const date = new Date();
+const today = (date.getMonth() + 1) + "-" + date.getDate()
+const mourn_days = ["4-4"]
+if (mourn_days.includes(today)) {
+  document.documentElement.style.filter = "grayscale(1)";
+}</script></div><!-- hexo injector body_end start --><script src="https://cdn.jsdelivr.net/npm/hexo-widget-tree@0.2.2/js/index.js"></script><div id="widget-tree">
+      <ul>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/">
+          python
+        </a>
+      <span class="tree-list-count">33</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/debug/">
+          debug
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/Python4%E7%A7%8DDebug%E6%96%B9%E6%B3%95/" title="Python4种Debug方法"><i class="post-icon gg-file-document"></i>Python4种Debug方法</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/django/">
+          django
+        </a>
+      <span class="tree-list-count">9</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/django/websocket/">
+          websocket
+        </a>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/django-vue%E5%9F%BA%E4%BA%8Ewebsocket%E5%88%9B%E9%80%A0%E5%AE%9E%E6%97%B6ECharts%E8%82%A1%E7%A5%A8%E5%9B%BE/" title="django+vue基于websocket创造实时ECharts股票图"><i class="post-icon gg-file-document"></i>django+vue基于websocket创造实时ECharts股票图</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/django-vue%E5%9F%BA%E4%BA%8Ewebsocket%E4%BA%BA%E5%B7%A5%E5%AE%A2%E6%9C%8D%E7%B3%BB%E7%BB%9F%E6%89%93%E9%80%A0/" title="django+vue基于websocket人工客服系统打造"><i class="post-icon gg-file-document"></i>django+vue基于websocket人工客服系统打造</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/django/celery/">
+          celery
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/celery%E4%BD%BF%E7%94%A8%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E5%A4%84%E7%90%86%E4%BB%A5%E5%8F%8A%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" title="Linux下Django使用celery异步任务处理以及定时任务"><i class="post-icon gg-file-document"></i>Linux下Django使用celery异步任务处理以及定时任务</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/django/%E9%83%A8%E7%BD%B2/">
+          部署
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/nginx+uwsgi/" title="win10/Linux系统项目上线Nginx+Django（Uwsgi）+Vue实现高可用部署"><i class="post-icon gg-file-document"></i>win10/Linux系统项目上线Nginx+Django（Uwsgi）+Vue实现高可用部署</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/django/%E6%94%AF%E4%BB%98/">
+          支付
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/django-vue%E6%94%AF%E4%BB%98%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%BE%AE%E4%BF%A1%E3%80%81%E6%94%AF%E4%BB%98%E5%AE%9D%E3%80%81PalPay/" title="django+vue工厂模式 支付融合 微信二维码支付、支付宝、PayPal跨境支付"><i class="post-icon gg-file-document"></i>django+vue工厂模式 支付融合 微信二维码支付、支付宝、PayPal跨境支付</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/django/rest-rest-framework/">
+          rest-rest-framework
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/Django%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" title="Django源码分析-ModelViewSet"><i class="post-icon gg-file-document"></i>Django源码分析-ModelViewSet</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E9%AB%98%E5%B9%B6%E5%8F%91/">
+          高并发
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/IO%E5%AF%86%E9%9B%86%E5%9E%8B%E3%80%81CPU%E5%AF%86%E9%9B%86%E5%9E%8B%E5%88%86%E5%88%AB%E8%AF%A5%E9%80%89%E6%8B%A9%E5%A4%9A%E8%BF%9B%E7%A8%8B%E8%BF%98%E6%98%AF%E5%A4%9A%E7%BA%BF%E7%A8%8B/" title="IO密集型、CPU密集型分别该选择多进程还是多线程"><i class="post-icon gg-file-document"></i>IO密集型、CPU密集型分别该选择多进程还是多线程</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/SQLAlchemy/">
+          SQLAlchemy
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/Python%E4%B8%AD%E6%93%8D%E4%BD%9CSQLAlchemy/" title="Python中操作SQLAlchemy"><i class="post-icon gg-file-document"></i>Python中操作SQLAlchemy</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
+          数据分析
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/pandas/">
+          pandas
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/pandas%E5%85%A5%E9%97%A8/" title="数据分析-初识pandas"><i class="post-icon gg-file-document"></i>数据分析-初识pandas</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
+          多线程
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/pypy3%E4%B8%8Epython%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%AF%94%E8%BE%83/" title="pypy3与python多线程比较"><i class="post-icon gg-file-document"></i>pypy3与python多线程比较</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E4%B8%89%E7%A8%8B/">
+          三程
+        </a>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E4%B8%89%E7%A8%8B%E6%A6%82%E5%BF%B5/" title="python进程-线程-协程-概念"><i class="post-icon gg-file-document"></i>python进程-线程-协程-概念</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E8%BF%9B%E7%A8%8B-%E7%BA%BF%E7%A8%8B-%E5%8D%8F%E7%A8%8B-%E8%AF%A6%E8%A7%A3/" title="python进程-线程-协程-详解"><i class="post-icon gg-file-document"></i>python进程-线程-协程-详解</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/pandas/">
+          pandas
+        </a>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/pandas%E8%BF%9B%E9%98%B6/" title="数据分析-pandas进阶操作"><i class="post-icon gg-file-document"></i>数据分析-pandas进阶操作</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/pandas%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C-%E8%AE%A1%E7%AE%97/" title="pandas进阶操作-计算-方法"><i class="post-icon gg-file-document"></i>pandas进阶操作-计算-方法</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/">
+          垃圾回收机制
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/" title="python垃圾回收机制"><i class="post-icon gg-file-document"></i>python垃圾回收机制</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/celery/">
+          celery
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97%E6%89%A7%E8%A1%8C%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1/" title="python手写队列异步任务"><i class="post-icon gg-file-document"></i>python手写队列异步任务</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E6%B5%8B%E8%AF%95/">
+          测试
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E6%B5%8B%E8%AF%95/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">
+          单元测试
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" title="python单元测试"><i class="post-icon gg-file-document"></i>python单元测试</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E7%94%9F%E6%88%90%E5%99%A8/">
+          生成器
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E7%94%9F%E6%88%90%E5%99%A8/" title="彻底理解python生成器"><i class="post-icon gg-file-document"></i>彻底理解python生成器</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/">
+          深浅拷贝
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D%E7%9A%84%E5%8C%BA%E5%88%AB/" title="python浅拷贝与深拷贝以及is 和 == 的区别"><i class="post-icon gg-file-document"></i>python浅拷贝与深拷贝以及is 和 == 的区别</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E8%A3%85%E9%A5%B0%E5%99%A8/">
+          装饰器
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E8%A3%85%E9%A5%B0%E5%99%A8/" title="彻底理解python装饰器以及使用场景"><i class="post-icon gg-file-document"></i>彻底理解python装饰器以及使用场景</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/">
+          高阶函数
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/" title="python高阶函数详解"><i class="post-icon gg-file-document"></i>python高阶函数详解</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E8%BF%AD%E4%BB%A3%E5%99%A8/">
+          迭代器
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E8%BF%AD%E4%BB%A3%E5%99%A8/" title="彻底理解python迭代器"><i class="post-icon gg-file-document"></i>彻底理解python迭代器</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/redis/">
+          redis
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/redis%E5%A4%84%E7%90%86%E9%AB%98%E5%B9%B6%E5%8F%91/" title="python使用redis处理高并发"><i class="post-icon gg-file-document"></i>python使用redis处理高并发</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/fastapi/">
+          fastapi
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/%E5%88%9B%E5%BB%BAFastApi%E9%A1%B9%E7%9B%AE/" title="创建FastApi项目"><i class="post-icon gg-file-document"></i>创建FastApi项目</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/tornado/">
+          tornado
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/%E5%AF%BC%E5%87%BA%E6%96%87%E4%BB%B6/" title="tornado导入/导出Excel文件"><i class="post-icon gg-file-document"></i>tornado导入/导出Excel文件</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">
+          数据可视化
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" title="数据可视化"><i class="post-icon gg-file-document"></i>数据可视化</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+          数据结构
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" title="数据结构-算法-时间复杂度以及构造栈-队列"><i class="post-icon gg-file-document"></i>数据结构-算法-时间复杂度以及构造栈-队列</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/django-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">
+          django - 权限管理
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E4%B9%8B%E4%BD%8D%E8%BF%90%E7%AE%97%E4%BB%A5%E5%8F%8ARBAC%E4%BF%A9%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/" title="权限管理之位运算以及RBAC俩种实现方法"><i class="post-icon gg-file-document"></i>权限管理之位运算以及RBAC俩种实现方法</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/">
+          项目部署
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/docker%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/">
+          docker项目部署
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/Win10%E7%8E%AF%E5%A2%83%E4%B8%8B%E4%BD%BF%E7%94%A8Docker%E5%AE%B9%E5%99%A8%E5%BC%8F%E9%83%A8%E7%BD%B2%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E9%A1%B9%E7%9B%AEDjango-Vue-js/" title="Win10环境下使用Docker容器式部署前后端分离项目Django+Vue"><i class="post-icon gg-file-document"></i>Win10环境下使用Docker容器式部署前后端分离项目Django+Vue</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/algorithm/">
+          algorithm
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/algorithm%E5%AD%A6%E4%B9%A0/" title="智擎疾行，胜逐时速"><i class="post-icon gg-file-document"></i>智擎疾行，胜逐时速</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/elasticsearch/">
+          elasticsearch
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/elasticsearch%E5%AD%A6%E4%B9%A0/" title="数据浩瀚似海，Elasticsearch 速度不待"><i class="post-icon gg-file-document"></i>数据浩瀚似海，Elasticsearch 速度不待</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/go/">
+          go
+        </a>
+      <span class="tree-list-count">4</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/go/gin/">
+          gin
+        </a>
+      <span class="tree-list-count">3</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/gin%E5%9F%BA%E7%A1%80%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F/" title="gin 基础请求方式"><i class="post-icon gg-file-document"></i>gin 基础请求方式</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/gin%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E6%A0%A1%E9%AA%8C/" title="gin接口参数的校验"><i class="post-icon gg-file-document"></i>gin接口参数的校验</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/win%E7%8E%AF%E5%A2%83%E5%90%AF%E5%8A%A8gin/" title="win环境启动gin"><i class="post-icon gg-file-document"></i>win环境启动gin</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/git/">
+          git
+        </a>
+      <span class="tree-list-count">2</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/git/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+          常用命令
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/git%E5%B8%B8%E7%94%A8/" title="git常用命令"><i class="post-icon gg-file-document"></i>git常用命令</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Docker/">
+          Docker
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Docker/Kubernetes-k8s/">
+          Kubernetes(k8s)
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/k8s%E9%9B%86%E7%BE%A4%E6%9C%8D%E5%8A%A1/" title="基于Kubernetes(k8s)搭建Gunicorn+Django/Flask高可用Web集群"><i class="post-icon gg-file-document"></i>基于Kubernetes(k8s)搭建Gunicorn+Django/Flask高可用Web集群</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/database/">
+          database
+        </a>
+      <span class="tree-list-count">4</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/database/mysql/">
+          mysql
+        </a>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/mysql%E5%AD%A6%E4%B9%A0/" title="mysql数据库"><i class="post-icon gg-file-document"></i>mysql数据库</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E6%93%8D%E4%BD%9CMySQL/" title="python操作mysql"><i class="post-icon gg-file-document"></i>python操作mysql</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/database/mongodb/">
+          mongodb
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E4%B8%8EMongodb%E6%93%8D%E4%BD%9C/" title="python与Mongodb操作"><i class="post-icon gg-file-document"></i>python与Mongodb操作</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/database/redis/">
+          redis
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/redis-server/" title="linux服务器启动一个redis服务"><i class="post-icon gg-file-document"></i>linux服务器启动一个redis服务</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/mysql/">
+          mysql
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/mysql/%E4%BC%98%E5%8C%96/">
+          优化
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/mysql%E5%8D%83%E4%B8%87%E6%95%B0%E6%8D%AE%E7%B4%A2%E5%BC%95%E4%BC%98%E5%8C%96/" title="索引革命，数据腾飞"><i class="post-icon gg-file-document"></i>索引革命，数据腾飞</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/ubuntu/">
+          ubuntu
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/ubuntu/docker/">
+          docker
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/ubuntu%20docker%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/" title="docker命令详解"><i class="post-icon gg-file-document"></i>docker命令详解</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/docker/">
+          docker
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/docker/mysql/">
+          mysql
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/docker/mysql/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/">
+          主从复制
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/%E6%8E%8C%E6%8F%A1%E5%AE%B9%E5%99%A8%E4%B9%8B%E5%8A%9B%EF%BC%9AMySQL%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/" title="掌握容器之力：MySQL主从复制"><i class="post-icon gg-file-document"></i>掌握容器之力：MySQL主从复制</a></li></ul></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/blog-%E8%87%AA%E5%8A%A8%E5%8C%96/">
+          blog - 自动化
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2blog/" title="自动化部署：一键开启博客新纪元"><i class="post-icon gg-file-document"></i>自动化部署：一键开启博客新纪元</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+          设计模式
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="设计模式"><i class="post-icon gg-file-document"></i>设计模式</a></li></ul></li></ul>
+        <div id="widget-tree-button">
+          <i class="gg-chevron-right"></i>
+        </div>
+      </div><!-- hexo injector body_end end --></body></html>

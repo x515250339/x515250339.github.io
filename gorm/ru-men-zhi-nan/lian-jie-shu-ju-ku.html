@@ -1,0 +1,603 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>连接数据库 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../crudjie-kou.html" />
+    
+    
+    <link rel="prev" href="mo-xing-ding-yi/wai-jian-gui-fan.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../qian-yan.html">
+            
+                <a href="../qian-yan.html">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../qian-yan/jing-xiang.html">
+            
+                <a href="../qian-yan/jing-xiang.html">
+            
+                    
+                    镜像
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../qian-yan/v1yu-v2.html">
+            
+                <a href="../qian-yan/v1yu-v2.html">
+            
+                    
+                    V1与V2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../qian-yan/gorm20fa-bu-shuo-ming.html">
+            
+                <a href="../qian-yan/gorm20fa-bu-shuo-ming.html">
+            
+                    
+                    GORM2.0发布说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../ru-men-zhi-nan.html">
+            
+                <a href="../ru-men-zhi-nan.html">
+            
+                    
+                    入门指南
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="gorm-zhi-nan.html">
+            
+                <a href="gorm-zhi-nan.html">
+            
+                    
+                    GORM 指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="mo-xing-ding-yi.html">
+            
+                <a href="mo-xing-ding-yi.html">
+            
+                    
+                    模型定义
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="mo-xing-ding-yi/wai-jian-gui-fan.html">
+            
+                <a href="mo-xing-ding-yi/wai-jian-gui-fan.html">
+            
+                    
+                    外键规范
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.3" data-path="lian-jie-shu-ju-ku.html">
+            
+                <a href="lian-jie-shu-ju-ku.html">
+            
+                    
+                    连接数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../crudjie-kou.html">
+            
+                <a href="../crudjie-kou.html">
+            
+                    
+                    CRUD接口
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../crudjie-kou/chuang-jian.html">
+            
+                <a href="../crudjie-kou/chuang-jian.html">
+            
+                    
+                    创建
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../crudjie-kou/cha-xun.html">
+            
+                <a href="../crudjie-kou/cha-xun.html">
+            
+                    
+                    查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../crudjie-kou/geng-xin.html">
+            
+                <a href="../crudjie-kou/geng-xin.html">
+            
+                    
+                    更新
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../crudjie-kou/shan-chu.html">
+            
+                <a href="../crudjie-kou/shan-chu.html">
+            
+                    
+                    删除
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../crudjie-kou/yuan-sheng-sql.html">
+            
+                <a href="../crudjie-kou/yuan-sheng-sql.html">
+            
+                    
+                    原生SQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >连接数据库</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#&#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;v2"><b> </b>&#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;v2</a></li><ul><li><span class="title-icon "></span><a href="#mysql"><b>1. </b>MySQL</a></li><ul><li><span class="title-icon "></span><a href="#&#x81EA;&#x5B9A;&#x4E49;&#x9A71;&#x52A8;"><b>1.1. </b>&#x81EA;&#x5B9A;&#x4E49;&#x9A71;&#x52A8;</a></li><li><span class="title-icon "></span><a href="#&#x73B0;&#x6709;&#x7684;&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;"><b>1.2. </b>&#x73B0;&#x6709;&#x7684;&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;</a></li></ul><li><span class="title-icon "></span><a href="#postgresql"><b>2. </b>PostgreSQL</a></li><ul><li><span class="title-icon "></span><a href="#&#x81EA;&#x5B9A;&#x4E49;&#x9A71;&#x52A8;_1"><b>2.1. </b>&#x81EA;&#x5B9A;&#x4E49;&#x9A71;&#x52A8;</a></li><li><span class="title-icon "></span><a href="#&#x73B0;&#x6709;&#x7684;&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;_1"><b>2.2. </b>&#x73B0;&#x6709;&#x7684;&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;</a></li></ul><li><span class="title-icon "></span><a href="#sqlite"><b>3. </b>SQLite</a></li><li><span class="title-icon "></span><a href="#sql-server"><b>4. </b>SQL Server</a></li><li><span class="title-icon "></span><a href="#&#x8FDE;&#x63A5;&#x6C60;"><b>5. </b>&#x8FDE;&#x63A5;&#x6C60;</a></li><li><span class="title-icon "></span><a href="#&#x4E0D;&#x652F;&#x6301;&#x7684;&#x6570;&#x636E;&#x5E93;"><b>6. </b>&#x4E0D;&#x652F;&#x6301;&#x7684;&#x6570;&#x636E;&#x5E93;</a></li></ul></ul></div><a href="#&#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;v2" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;v2"><a name="&#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;v2" class="anchor-navigation-ex-anchor" href="#&#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;v2"><i class="fa fa-link" aria-hidden="true"></i></a> &#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;v2</h1>
+<p>GORM &#x5B98;&#x65B9;&#x652F;&#x6301;&#x7684;&#x6570;&#x636E;&#x5E93;&#x7C7B;&#x578B;&#x6709;&#xFF1A; MySQL, PostgreSQL, SQlite, SQL Server</p>
+<h2 id="mysql"><a name="mysql" class="anchor-navigation-ex-anchor" href="#mysql"><i class="fa fa-link" aria-hidden="true"></i></a>1. MySQL</h2>
+<pre><code class="lang-go"><span class="hljs-keyword">import</span> (
+  <span class="hljs-string">&quot;gorm.io/driver/mysql&quot;</span>
+  <span class="hljs-string">&quot;gorm.io/gorm&quot;</span>
+)
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
+  <span class="hljs-comment">// &#x53C2;&#x8003; https://github.com/go-sql-driver/mysql#dsn-data-source-name &#x83B7;&#x53D6;&#x8BE6;&#x60C5;</span>
+  dsn := <span class="hljs-string">&quot;user:pass@tcp(127.0.0.1:3306)/dbname?charset=utf8mb4&amp;parseTime=True&amp;loc=Local&quot;</span>
+  db, err := gorm.Open(mysql.Open(dsn), &amp;gorm.Config{})
+}
+</code></pre>
+<blockquote>
+<p><strong>&#x6CE8;&#x610F;&#xFF1A;</strong>&#x60F3;&#x8981;&#x6B63;&#x786E;&#x7684;&#x5904;&#x7406; <code>time.Time</code> &#xFF0C;&#x60A8;&#x9700;&#x8981;&#x5E26;&#x4E0A; <code>parseTime</code> &#x53C2;&#x6570;&#xFF0C; (<a href="https://github.com/go-sql-driver/mysql#parameters" target="_blank">&#x66F4;&#x591A;&#x53C2;&#x6570;</a>) &#x8981;&#x652F;&#x6301;&#x5B8C;&#x6574;&#x7684; UTF-8 &#x7F16;&#x7801;&#xFF0C;&#x60A8;&#x9700;&#x8981;&#x5C06; <code>charset=utf8</code> &#x66F4;&#x6539;&#x4E3A; <code>charset=utf8mb4</code> &#x67E5;&#x770B; <a href="https://mathiasbynens.be/notes/mysql-utf8mb4" target="_blank">&#x6B64;&#x6587;&#x7AE0;</a> &#x83B7;&#x53D6;&#x8BE6;&#x60C5;</p>
+</blockquote>
+<p>MySQl &#x9A71;&#x52A8;&#x7A0B;&#x5E8F;&#x63D0;&#x4F9B;&#x4E86; <a href="https://github.com/go-gorm/mysql" target="_blank">&#x4E00;&#x4E9B;&#x9AD8;&#x7EA7;&#x914D;&#x7F6E;</a> &#x53EF;&#x4EE5;&#x5728;&#x521D;&#x59CB;&#x5316;&#x8FC7;&#x7A0B;&#x4E2D;&#x4F7F;&#x7528;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-go">db, err := gorm.Open(mysql.New(mysql.Config{
+  DSN: <span class="hljs-string">&quot;gorm:gorm@tcp(127.0.0.1:3306)/gorm?charset=utf8&amp;parseTime=True&amp;loc=Local&quot;</span>, <span class="hljs-comment">// DSN data source name</span>
+  DefaultStringSize: <span class="hljs-number">256</span>, <span class="hljs-comment">// string &#x7C7B;&#x578B;&#x5B57;&#x6BB5;&#x7684;&#x9ED8;&#x8BA4;&#x957F;&#x5EA6;</span>
+  DisableDatetimePrecision: <span class="hljs-literal">true</span>, <span class="hljs-comment">// &#x7981;&#x7528; datetime &#x7CBE;&#x5EA6;&#xFF0C;MySQL 5.6 &#x4E4B;&#x524D;&#x7684;&#x6570;&#x636E;&#x5E93;&#x4E0D;&#x652F;&#x6301;</span>
+  DontSupportRenameIndex: <span class="hljs-literal">true</span>, <span class="hljs-comment">// &#x91CD;&#x547D;&#x540D;&#x7D22;&#x5F15;&#x65F6;&#x91C7;&#x7528;&#x5220;&#x9664;&#x5E76;&#x65B0;&#x5EFA;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;MySQL 5.7 &#x4E4B;&#x524D;&#x7684;&#x6570;&#x636E;&#x5E93;&#x548C; MariaDB &#x4E0D;&#x652F;&#x6301;&#x91CD;&#x547D;&#x540D;&#x7D22;&#x5F15;</span>
+  DontSupportRenameColumn: <span class="hljs-literal">true</span>, <span class="hljs-comment">// &#x7528; `change` &#x91CD;&#x547D;&#x540D;&#x5217;&#xFF0C;MySQL 8 &#x4E4B;&#x524D;&#x7684;&#x6570;&#x636E;&#x5E93;&#x548C; MariaDB &#x4E0D;&#x652F;&#x6301;&#x91CD;&#x547D;&#x540D;&#x5217;</span>
+  SkipInitializeWithVersion: <span class="hljs-literal">false</span>, <span class="hljs-comment">// &#x6839;&#x636E;&#x5F53;&#x524D; MySQL &#x7248;&#x672C;&#x81EA;&#x52A8;&#x914D;&#x7F6E;</span>
+}), &amp;gorm.Config{})
+</code></pre>
+<h3 id="&#x81EA;&#x5B9A;&#x4E49;&#x9A71;&#x52A8;"><a name="&#x81EA;&#x5B9A;&#x4E49;&#x9A71;&#x52A8;" class="anchor-navigation-ex-anchor" href="#&#x81EA;&#x5B9A;&#x4E49;&#x9A71;&#x52A8;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. &#x81EA;&#x5B9A;&#x4E49;&#x9A71;&#x52A8;</h3>
+<p>GORM &#x5141;&#x8BB8;&#x901A;&#x8FC7; <code>DriverName</code> &#x9009;&#x9879;&#x81EA;&#x5B9A;&#x4E49; MySQL &#x9A71;&#x52A8;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">import</span> (
+  _ <span class="hljs-string">&quot;example.com/my_mysql_driver&quot;</span>
+  <span class="hljs-string">&quot;gorm.io/gorm&quot;</span>
+)
+
+db, err := gorm.Open(mysql.New(mysql.Config{
+  DriverName: <span class="hljs-string">&quot;my_mysql_driver&quot;</span>,
+  DSN: <span class="hljs-string">&quot;gorm:gorm@tcp(localhost:9910)/gorm?charset=utf8&amp;parseTime=True&amp;loc=Local&quot;</span>, <span class="hljs-comment">// Data Source Name&#xFF0C;&#x53C2;&#x8003; https://github.com/go-sql-driver/mysql#dsn-data-source-name</span>
+}), &amp;gorm.Config{})
+</code></pre>
+<h3 id="&#x73B0;&#x6709;&#x7684;&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;"><a name="&#x73B0;&#x6709;&#x7684;&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;" class="anchor-navigation-ex-anchor" href="#&#x73B0;&#x6709;&#x7684;&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. &#x73B0;&#x6709;&#x7684;&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;</h3>
+<p>GORM &#x5141;&#x8BB8;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x73B0;&#x6709;&#x7684;&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;&#x6765;&#x521D;&#x59CB;&#x5316; <code>*gorm.DB</code></p>
+<pre><code class="lang-go"><span class="hljs-keyword">import</span> (
+  <span class="hljs-string">&quot;database/sql&quot;</span>
+  <span class="hljs-string">&quot;gorm.io/gorm&quot;</span>
+)
+
+sqlDB, err := sql.Open(<span class="hljs-string">&quot;mysql&quot;</span>, <span class="hljs-string">&quot;mydb_dsn&quot;</span>)
+gormDB, err := gorm.Open(mysql.New(mysql.Config{
+  Conn: sqlDB,
+}), &amp;gorm.Config{})
+</code></pre>
+<h2 id="postgresql"><a name="postgresql" class="anchor-navigation-ex-anchor" href="#postgresql"><i class="fa fa-link" aria-hidden="true"></i></a>2. PostgreSQL</h2>
+<pre><code class="lang-go"><span class="hljs-keyword">import</span> (
+  <span class="hljs-string">&quot;gorm.io/driver/postgres&quot;</span>
+  <span class="hljs-string">&quot;gorm.io/gorm&quot;</span>
+)
+
+dsn := <span class="hljs-string">&quot;user=gorm password=gorm dbname=gorm port=9920 sslmode=disable TimeZone=Asia/Shanghai&quot;</span>
+db, err := gorm.Open(postgres.Open(dsn), &amp;gorm.Config{})
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x4F7F;&#x7528; <a href="https://github.com/jackc/pgx" target="_blank">pgx</a> &#x4F5C;&#x4E3A; postgres &#x7684; database/sql &#x9A71;&#x52A8;&#xFF0C;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5B83;&#x4F1A;&#x542F;&#x7528; prepared statement &#x7F13;&#x5B58;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x7981;&#x7528;&#x5B83;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-comment">// https://github.com/go-gorm/postgres</span>
+db, err := gorm.Open(postgres.New(postgres.Config{
+  DSN: <span class="hljs-string">&quot;user=gorm password=gorm dbname=gorm port=9920 sslmode=disable TimeZone=Asia/Shanghai&quot;</span>,
+  PreferSimpleProtocol: <span class="hljs-literal">true</span>, <span class="hljs-comment">// disables implicit prepared statement usage</span>
+}), &amp;gorm.Config{})
+</code></pre>
+<h3 id="&#x81EA;&#x5B9A;&#x4E49;&#x9A71;&#x52A8;_1"><a name="&#x81EA;&#x5B9A;&#x4E49;&#x9A71;&#x52A8;_1" class="anchor-navigation-ex-anchor" href="#&#x81EA;&#x5B9A;&#x4E49;&#x9A71;&#x52A8;_1"><i class="fa fa-link" aria-hidden="true"></i></a>2.1. &#x81EA;&#x5B9A;&#x4E49;&#x9A71;&#x52A8;</h3>
+<p>GORM &#x5141;&#x8BB8;&#x901A;&#x8FC7; <code>DriverName</code> &#x9009;&#x9879;&#x81EA;&#x5B9A;&#x4E49; PostgreSQL &#x9A71;&#x52A8;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">import</span> (
+  _ <span class="hljs-string">&quot;github.com/GoogleCloudPlatform/cloudsql-proxy/proxy/dialers/postgres&quot;</span>
+  <span class="hljs-string">&quot;gorm.io/gorm&quot;</span>
+)
+
+db, err := gorm.Open(postgres.New(postgres.Config{
+  DriverName: <span class="hljs-string">&quot;cloudsqlpostgres&quot;</span>,
+  DSN: <span class="hljs-string">&quot;host=project:region:instance user=postgres dbname=postgres password=password sslmode=disable&quot;</span>,
+})
+</code></pre>
+<h3 id="&#x73B0;&#x6709;&#x7684;&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;_1"><a name="&#x73B0;&#x6709;&#x7684;&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;_1" class="anchor-navigation-ex-anchor" href="#&#x73B0;&#x6709;&#x7684;&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;_1"><i class="fa fa-link" aria-hidden="true"></i></a>2.2. &#x73B0;&#x6709;&#x7684;&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;</h3>
+<p>GORM &#x5141;&#x8BB8;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x73B0;&#x6709;&#x7684;&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;&#x6765;&#x521D;&#x59CB;&#x5316; <code>*gorm.DB</code></p>
+<pre><code class="lang-go"><span class="hljs-keyword">import</span> (
+  <span class="hljs-string">&quot;database/sql&quot;</span>
+  <span class="hljs-string">&quot;gorm.io/gorm&quot;</span>
+)
+
+sqlDB, err := sql.Open(<span class="hljs-string">&quot;postgres&quot;</span>, <span class="hljs-string">&quot;mydb_dsn&quot;</span>)
+gormDB, err := gorm.Open(postgres.New(postgres.Config{
+  Conn: sqlDB,
+}), &amp;gorm.Config{})
+</code></pre>
+<h2 id="sqlite"><a name="sqlite" class="anchor-navigation-ex-anchor" href="#sqlite"><i class="fa fa-link" aria-hidden="true"></i></a>3. SQLite</h2>
+<pre><code class="lang-go"><span class="hljs-keyword">import</span> (
+  <span class="hljs-string">&quot;gorm.io/driver/sqlite&quot;</span>
+  <span class="hljs-string">&quot;gorm.io/gorm&quot;</span>
+)
+
+<span class="hljs-comment">// github.com/mattn/go-sqlite3</span>
+db, err := gorm.Open(sqlite.Open(<span class="hljs-string">&quot;gorm.db&quot;</span>), &amp;gorm.Config{})
+</code></pre>
+<blockquote>
+<p><strong>&#x6CE8;&#x610F;&#xFF1A;</strong> &#x60A8;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>file:![:memory:](https://cdn.learnku.com/assets/images/emoji/memory.png)?cache=shared</code> &#x66FF;&#x4EE3;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x3002; &#x8FD9;&#x4F1A;&#x544A;&#x8BC9; SQLite &#x5728;&#x7CFB;&#x7EDF;&#x5185;&#x5B58;&#x4E2D;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x4E34;&#x65F6;&#x6570;&#x636E;&#x5E93;&#x3002; (&#x67E5;&#x770B; <a href="https://www.sqlite.org/inmemorydb" target="_blank">SQLite &#x6587;&#x6863;</a> &#x83B7;&#x53D6;&#x8BE6;&#x60C5;)</p>
+</blockquote>
+<h2 id="sql-server"><a name="sql-server" class="anchor-navigation-ex-anchor" href="#sql-server"><i class="fa fa-link" aria-hidden="true"></i></a>4. SQL Server</h2>
+<pre><code class="lang-go"><span class="hljs-keyword">import</span> (
+  <span class="hljs-string">&quot;gorm.io/driver/sqlserver&quot;</span>
+  <span class="hljs-string">&quot;gorm.io/gorm&quot;</span>
+)
+
+<span class="hljs-comment">// github.com/denisenkom/go-mssqldb</span>
+dsn := <span class="hljs-string">&quot;sqlserver://gorm:LoremIpsum86@localhost:9930?database=gorm&quot;</span>
+db, err := gorm.Open(sqlserver.Open(dsn), &amp;gorm.Config{})
+</code></pre>
+<h2 id="&#x8FDE;&#x63A5;&#x6C60;"><a name="&#x8FDE;&#x63A5;&#x6C60;" class="anchor-navigation-ex-anchor" href="#&#x8FDE;&#x63A5;&#x6C60;"><i class="fa fa-link" aria-hidden="true"></i></a>5. &#x8FDE;&#x63A5;&#x6C60;</h2>
+<p>GORM &#x4F7F;&#x7528; <a href="https://pkg.go.dev/database/sql" target="_blank">database/sql</a> &#x7EF4;&#x62A4;&#x8FDE;&#x63A5;&#x6C60;</p>
+<pre><code class="lang-go">sqlDB, err := db.DB()
+
+<span class="hljs-comment">// SetMaxIdleConns &#x8BBE;&#x7F6E;&#x7A7A;&#x95F2;&#x8FDE;&#x63A5;&#x6C60;&#x4E2D;&#x8FDE;&#x63A5;&#x7684;&#x6700;&#x5927;&#x6570;&#x91CF;</span>
+sqlDB.SetMaxIdleConns(<span class="hljs-number">10</span>)
+
+<span class="hljs-comment">// SetMaxOpenConns &#x8BBE;&#x7F6E;&#x6253;&#x5F00;&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;&#x7684;&#x6700;&#x5927;&#x6570;&#x91CF;&#x3002;</span>
+sqlDB.SetMaxOpenConns(<span class="hljs-number">100</span>)
+
+<span class="hljs-comment">// SetConnMaxLifetime &#x8BBE;&#x7F6E;&#x4E86;&#x8FDE;&#x63A5;&#x53EF;&#x590D;&#x7528;&#x7684;&#x6700;&#x5927;&#x65F6;&#x95F4;&#x3002;</span>
+sqlDB.SetConnMaxLifetime(time.Hour)
+</code></pre>
+<p>&#x67E5;&#x770B; <a href="https://learnku.com/docs/gorm/v2/generic_interface" target="_blank">&#x901A;&#x7528;&#x63A5;&#x53E3;</a> &#x83B7;&#x53D6;&#x8BE6;&#x60C5;&#x3002;</p>
+<h2 id="&#x4E0D;&#x652F;&#x6301;&#x7684;&#x6570;&#x636E;&#x5E93;"><a name="&#x4E0D;&#x652F;&#x6301;&#x7684;&#x6570;&#x636E;&#x5E93;" class="anchor-navigation-ex-anchor" href="#&#x4E0D;&#x652F;&#x6301;&#x7684;&#x6570;&#x636E;&#x5E93;"><i class="fa fa-link" aria-hidden="true"></i></a>6. &#x4E0D;&#x652F;&#x6301;&#x7684;&#x6570;&#x636E;&#x5E93;</h2>
+<p>&#x6709;&#x4E9B;&#x6570;&#x636E;&#x5E93;&#x53EF;&#x80FD;&#x517C;&#x5BB9; <code>mysql</code>&#x3001;<code>postgres</code> &#x7684;&#x65B9;&#x8A00;&#xFF0C;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x8FD9;&#x4E9B;&#x6570;&#x636E;&#x5E93;&#x7684;&#x65B9;&#x8A00;&#x3002;</p>
+<p>&#x5BF9;&#x4E8E;&#x5176;&#x5B83;&#x4E0D;&#x652F;&#x6301;&#x7684;&#x6570;&#x636E;&#xFF0C;<a href="https://learnku.com/docs/gorm/v2/write_driver" target="_blank">&#x6211;&#x4EEC;&#x9F13;&#x52B1;&#x4E14;&#x6B22;&#x8FCE;&#x5927;&#x5BB6;&#x4F19;&#x5F00;&#x53D1;&#x66F4;&#x591A;&#x6570;&#x636E;&#x5E93;&#x7C7B;&#x578B;&#x7684;&#x9A71;&#x52A8;&#xFF01;</a></p>
+
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="mo-xing-ding-yi/wai-jian-gui-fan.html" class="navigation navigation-prev " aria-label="Previous page: 外键规范">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../crudjie-kou.html" class="navigation navigation-next " aria-label="Next page: CRUD接口">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"连接数据库","level":"1.3.3","depth":2,"next":{"title":"CRUD接口","level":"1.4","depth":1,"path":"crudjie-kou.md","ref":"crudjie-kou.md","articles":[{"title":"创建","level":"1.4.1","depth":2,"path":"crudjie-kou/chuang-jian.md","ref":"crudjie-kou/chuang-jian.md","articles":[]},{"title":"查询","level":"1.4.2","depth":2,"path":"crudjie-kou/cha-xun.md","ref":"crudjie-kou/cha-xun.md","articles":[]},{"title":"更新","level":"1.4.3","depth":2,"path":"crudjie-kou/geng-xin.md","ref":"crudjie-kou/geng-xin.md","articles":[]},{"title":"删除","level":"1.4.4","depth":2,"path":"crudjie-kou/shan-chu.md","ref":"crudjie-kou/shan-chu.md","articles":[]},{"title":"原生SQL","level":"1.4.5","depth":2,"path":"crudjie-kou/yuan-sheng-sql.md","ref":"crudjie-kou/yuan-sheng-sql.md","articles":[]}]},"previous":{"title":"外键规范","level":"1.3.2.1","depth":3,"path":"ru-men-zhi-nan/mo-xing-ding-yi/wai-jian-gui-fan.md","ref":"ru-men-zhi-nan/mo-xing-ding-yi/wai-jian-gui-fan.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["anchor-navigation-ex","-search","-sharing","theme-default","-lunr","fontsettings","livereload","popup","splitter","copy-code-button","highlight","-expandable-chapters-small","chapter-fold","back-to-top-button","search-pro","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"popup":{},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"anchor-navigation-ex":{"showLevelIcon":false,"mode":"float","pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"showLevel":true,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","showGoTop":true,"printLog":false,"multipleH1":false,"multipleH2":false,"associatedWithSummary":true,"multipleH3":false,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"multipleH4":false},"back-to-top-button":{},"copy-code-button":{},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"ru-men-zhi-nan/lian-jie-shu-ju-ku.md","mtime":"2023-09-12T14:49:02.551Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-11-14T14:51:30.758Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+
+    </body>
+</html>
+

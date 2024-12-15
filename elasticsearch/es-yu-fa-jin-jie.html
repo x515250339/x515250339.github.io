@@ -1,0 +1,932 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>ES语法进阶（📌） · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="dao-pai-suo-yin.html" />
+    
+    
+    <link rel="prev" href="es-ji-ben-yu-fa.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="es-jie-shao.html">
+            
+                <a href="es-jie-shao.html">
+            
+                    
+                    ES介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="docker-an-zhuang-es.html">
+            
+                <a href="docker-an-zhuang-es.html">
+            
+                    
+                    Docker安装es
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="es-ji-ben-yu-fa.html">
+            
+                <a href="es-ji-ben-yu-fa.html">
+            
+                    
+                    ES基本语法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5" data-path="es-yu-fa-jin-jie.html">
+            
+                <a href="es-yu-fa-jin-jie.html">
+            
+                    
+                    ES语法进阶（📌）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="dao-pai-suo-yin.html">
+            
+                <a href="dao-pai-suo-yin.html">
+            
+                    
+                    倒排索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >ES语法进阶（📌）</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#es&#x8BED;&#x6CD5;&#x8FDB;&#x9636;&#xFF08;&#x1F4CC;&#xFF09;"><b> </b>ES&#x8BED;&#x6CD5;&#x8FDB;&#x9636;&#xFF08;&#x1F4CC;&#xFF09;</a></li><ul><li><span class="title-icon "></span><a href="#url&#x53C2;&#x6570;&#x641C;&#x7D22;"><b>1. </b>url&#x53C2;&#x6570;&#x641C;&#x7D22;</a></li><ul><li><span class="title-icon "></span><a href="#&#x67E5;&#x8BE2;&#x6240;&#x6709;"><b>1.1. </b>&#x67E5;&#x8BE2;&#x6240;&#x6709;</a></li><li><span class="title-icon "></span><a href="#&#x591A;&#x7D22;&#x5F15;&#xFF0C;&#x591A;type&#x641C;&#x7D22;"><b>1.2. </b>&#x591A;&#x7D22;&#x5F15;&#xFF0C;&#x591A;type&#x641C;&#x7D22;</a></li><li><span class="title-icon "></span><a href="#&#x6309;&#x6761;&#x4EF6;&#x67E5;&#x8BE2;"><b>1.3. </b>&#x6309;&#x6761;&#x4EF6;&#x67E5;&#x8BE2;</a></li><li><span class="title-icon "></span><a href="#&#x67E5;&#x8BE2;dsl"><b>1.4. </b>&#x67E5;&#x8BE2;DSL</a></li><li><span class="title-icon "></span><a href="#&#x590D;&#x5408;&#x67E5;&#x8BE2;"><b>1.5. </b>&#x590D;&#x5408;&#x67E5;&#x8BE2;</a></li></ul><li><span class="title-icon "></span><a href="#&#x67E5;&#x8BE2;&#x793A;&#x4F8B;"><b>2. </b>&#x67E5;&#x8BE2;&#x793A;&#x4F8B;</a></li><ul><li><span class="title-icon "></span><a href="#&#x83B7;&#x53D6;&#x6240;&#x6709;"><b>2.1. </b>&#x83B7;&#x53D6;&#x6240;&#x6709;</a></li><li><span class="title-icon "></span><a href="#&#x5206;&#x9875;&#x67E5;&#x8BE2;"><b>2.2. </b>&#x5206;&#x9875;&#x67E5;&#x8BE2;</a></li><li><span class="title-icon "></span><a href="#&#x6307;&#x5B9A;&#x67E5;&#x8BE2;&#x51FA;&#x6765;&#x7684;&#x6570;&#x636E;&#x8FD4;&#x56DE;&#x7684;&#x5B57;&#x6BB5;"><b>2.3. </b>&#x6307;&#x5B9A;&#x67E5;&#x8BE2;&#x51FA;&#x6765;&#x7684;&#x6570;&#x636E;&#x8FD4;&#x56DE;&#x7684;&#x5B57;&#x6BB5;</a></li><li><span class="title-icon "></span><a href="#ad&#x5B57;&#x6BB5;&#x4E2D;&#x5305;&#x542B;&#x5355;&#x8BCD;white"><b>2.4. </b>ad&#x5B57;&#x6BB5;&#x4E2D;&#x5305;&#x542B;&#x5355;&#x8BCD;white</a></li><li><span class="title-icon "></span><a href="#ad&#x5B57;&#x6BB5;&#x4E2D;&#x5305;&#x542B;&#x5355;&#x8BCD;white&#xFF0C;&#x5E76;&#x6309;&#x7167;&#x4EF7;&#x683C;&#x5347;&#x5E8F;&#x6392;&#x5217;"><b>2.5. </b>ad&#x5B57;&#x6BB5;&#x4E2D;&#x5305;&#x542B;&#x5355;&#x8BCD;white&#xFF0C;&#x5E76;&#x6309;&#x7167;&#x4EF7;&#x683C;&#x5347;&#x5E8F;&#x6392;&#x5217;</a></li><li><span class="title-icon "></span><a href="#&#x4EF7;&#x683C;&#x5B57;&#x6BB5;&#x5927;&#x4E8E;5000"><b>2.6. </b>&#x4EF7;&#x683C;&#x5B57;&#x6BB5;&#x5927;&#x4E8E;5000</a></li><li><span class="title-icon "></span><a href="#ad&#x5B57;&#x6BB5;&#x4E2D;&#x5305;&#x542B;&#x5355;&#x8BCD;white&#xFF0C;&#x4EF7;&#x683C;&#x5B57;&#x6BB5;&#x5927;&#x4E8E;5000"><b>2.7. </b>ad&#x5B57;&#x6BB5;&#x4E2D;&#x5305;&#x542B;&#x5355;&#x8BCD;white&#xFF0C;&#x4EF7;&#x683C;&#x5B57;&#x6BB5;&#x5927;&#x4E8E;5000</a></li><li><span class="title-icon "></span><a href="#&#x67E5;&#x8BE2;name&#x5B57;&#x6BB5;&#x5305;&#x542B;&#x5355;&#x8BCD;phone&#x7684;&#x6587;&#x6863;&#x7684;&#x6570;&#x91CF;"><b>2.8. </b>&#x67E5;&#x8BE2;name&#x5B57;&#x6BB5;&#x5305;&#x542B;&#x5355;&#x8BCD;phone&#x7684;&#x6587;&#x6863;&#x7684;&#x6570;&#x91CF;</a></li></ul><li><span class="title-icon "></span><a href="#&#x5173;&#x952E;&#x8BCD;&#x8BE6;&#x89E3;"><b>3. </b>&#x5173;&#x952E;&#x8BCD;&#x8BE6;&#x89E3;</a></li><ul><li><span class="title-icon "></span><a href="#matchall&#x67E5;&#x8BE2;"><b>3.1. </b>match_all&#x67E5;&#x8BE2;</a></li><li><span class="title-icon "></span><a href="#match&#x67E5;&#x8BE2;"><b>3.2. </b>match&#x67E5;&#x8BE2;</a></li><li><span class="title-icon "></span><a href="#multimatch&#x67E5;&#x8BE2;"><b>3.3. </b>multi_match&#x67E5;&#x8BE2;</a></li><li><span class="title-icon "></span><a href="#range&#x67E5;&#x8BE2;"><b>3.4. </b>range&#x67E5;&#x8BE2;</a></li><li><span class="title-icon "></span><a href="#term&#x67E5;&#x8BE2;"><b>3.5. </b>term&#x67E5;&#x8BE2;</a></li><li><span class="title-icon "></span><a href="#terms&#x67E5;&#x8BE2;"><b>3.6. </b>terms&#x67E5;&#x8BE2;</a></li><li><span class="title-icon "></span><a href="#exists-&#x67E5;&#x8BE2;&#x548C;-missing-&#x67E5;&#x8BE2;"><b>3.7. </b>exists &#x67E5;&#x8BE2;&#x548C; missing &#x67E5;&#x8BE2;</a></li><li><span class="title-icon "></span><a href="#matchphrase&#x67E5;&#x8BE2;"><b>3.8. </b>match_phrase&#x67E5;&#x8BE2;</a></li><li><span class="title-icon "></span><a href="#scroll&#x67E5;&#x8BE2;"><b>3.9. </b>scroll&#x67E5;&#x8BE2;</a></li><li><span class="title-icon "></span><a href="#multi-get&#x67E5;&#x8BE2;"><b>3.10. </b>multi get&#x67E5;&#x8BE2;</a></li><li><span class="title-icon "></span><a href="#bulk&#x6279;&#x91CF;&#x64CD;&#x4F5C;"><b>3.11. </b>bulk&#x6279;&#x91CF;&#x64CD;&#x4F5C;</a></li><li><span class="title-icon "></span><a href="#fuzzy&#x67E5;&#x8BE2;"><b>3.12. </b>fuzzy&#x67E5;&#x8BE2;</a></li><li><span class="title-icon "></span><a href="#wildcard&#x67E5;&#x8BE2;"><b>3.13. </b>wildcard&#x67E5;&#x8BE2;</a></li></ul></ul></ul></div><a href="#es&#x8BED;&#x6CD5;&#x8FDB;&#x9636;&#xFF08;&#x1F4CC;&#xFF09;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="es&#x8BED;&#x6CD5;&#x8FDB;&#x9636;&#xFF08;&#x1F4CC;&#xFF09;"><a name="es&#x8BED;&#x6CD5;&#x8FDB;&#x9636;&#xFF08;&#x1F4CC;&#xFF09;" class="anchor-navigation-ex-anchor" href="#es&#x8BED;&#x6CD5;&#x8FDB;&#x9636;&#xFF08;&#x1F4CC;&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a> ES&#x8BED;&#x6CD5;&#x8FDB;&#x9636;&#xFF08;&#x1F4CC;&#xFF09;</h1>
+<h2 id="url&#x53C2;&#x6570;&#x641C;&#x7D22;"><a name="url&#x53C2;&#x6570;&#x641C;&#x7D22;" class="anchor-navigation-ex-anchor" href="#url&#x53C2;&#x6570;&#x641C;&#x7D22;"><i class="fa fa-link" aria-hidden="true"></i></a>1. url&#x53C2;&#x6570;&#x641C;&#x7D22;</h2>
+<p>&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x5C31;&#x662F;&#x7C7B;&#x4F3C;&#x4E8E;get&#x8BF7;&#x6C42;&#xFF0C;&#x5C06;&#x8BF7;&#x6C42;&#x53C2;&#x6570;&#x62FC;&#x63A5;&#x5230;&#x94FE;&#x63A5;&#x4E0A;&#xFF0C;&#x4F8B;<code>GET /school/student/_search?&#x53C2;&#x6570;</code>&#xFF0C;&#x591A;&#x4E2A;&#x53C2;&#x6570;&#x7528;&amp;&#x5206;&#x5F00;</p>
+<h3 id="&#x67E5;&#x8BE2;&#x6240;&#x6709;"><a name="&#x67E5;&#x8BE2;&#x6240;&#x6709;" class="anchor-navigation-ex-anchor" href="#&#x67E5;&#x8BE2;&#x6240;&#x6709;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. &#x67E5;&#x8BE2;&#x6240;&#x6709;</h3>
+<p>&#x547D;&#x4EE4;&#xFF1A;<code>GET /school/student/_search</code></p>
+<p>&#x8FD4;&#x56DE;&#xFF1A;</p>
+<pre><code>{
+  &quot;took&quot;: 7, //&#x67E5;&#x8BE2;&#x8017;&#x65F6;&#xFF0C;&#x6BEB;&#x79D2;
+  &quot;timed_out&quot;: false, //&#x662F;&#x5426;&#x8D85;&#x65F6;&#xFF0C;timeout &#x4E0D;&#x662F;&#x505C;&#x6B62;&#x6267;&#x884C;&#x67E5;&#x8BE2;&#xFF0C;&#x5B83;&#x4EC5;&#x4EC5;&#x662F;&#x544A;&#x77E5;&#x6B63;&#x5728;&#x534F;&#x8C03;&#x7684;&#x8282;&#x70B9;&#x8FD4;&#x56DE;&#x5230;&#x76EE;&#x524D;&#x4E3A;&#x6B62;&#x6536;&#x96C6;&#x7684;&#x7ED3;&#x679C;&#x5E76;&#x4E14;&#x5173;&#x95ED;&#x8FDE;&#x63A5;
+  &quot;_shards&quot;: {
+    &quot;total&quot;: 5, //&#x8BF7;&#x6C42;&#x7684;&#x5206;&#x7247;&#x6570;&#x91CF;&#xFF0C;&#x7D22;&#x5F15;&#x62C6;&#x6210;&#x4E86;5&#x4E2A;&#x5206;&#x7247;&#xFF0C;&#x6240;&#x4EE5;&#x5BF9;&#x4E8E;&#x641C;&#x7D22;&#x8BF7;&#x6C42;&#xFF0C;&#x4F1A;&#x6253;&#x5230;&#x6240;&#x6709;&#x7684;primary shard
+    &quot;successful&quot;: 5,
+    &quot;skipped&quot;: 0,
+    &quot;failed&quot;: 0
+  },
+  &quot;hits&quot;: {
+    &quot;total&quot;: 2, //&#x7B26;&#x5408;&#x6761;&#x4EF6;&#x7684;&#x603B;&#x6761;&#x6570;&#xFF0C;&#x8FD9;&#x91CC;&#x67E5;&#x7684;&#x662F;&#x6240;&#x6709;
+    &quot;max_score&quot;: 1, //&#x5339;&#x914D;&#x5206;&#x6570;
+    &quot;hits&quot;: [ //&#x6570;&#x636E;
+      {
+        &quot;_index&quot;: &quot;school&quot;,
+        &quot;_type&quot;: &quot;student&quot;,
+        &quot;_id&quot;: &quot;2&quot;,
+        &quot;_score&quot;: 1,
+        &quot;_source&quot;: {
+          &quot;name&quot;: &quot;houyi&quot;,
+          &quot;age&quot;: 23,
+          &quot;class&quot;: 2,
+          &quot;gender&quot;: &quot;&#x7537;&quot;
+        }
+      },
+      {
+        &quot;_index&quot;: &quot;school&quot;,
+        &quot;_type&quot;: &quot;student&quot;,
+        &quot;_id&quot;: &quot;1&quot;,
+        &quot;_score&quot;: 1,
+        &quot;_source&quot;: {
+          &quot;name&quot;: &quot;&#x5415;&#x5E03;&quot;,
+          &quot;age&quot;: 21,
+          &quot;class&quot;: 2,
+          &quot;gender&quot;: &quot;&#x7537;&quot;
+        }
+      }
+    ]
+  }
+}
+</code></pre><h3 id="&#x591A;&#x7D22;&#x5F15;&#xFF0C;&#x591A;type&#x641C;&#x7D22;"><a name="&#x591A;&#x7D22;&#x5F15;&#xFF0C;&#x591A;type&#x641C;&#x7D22;" class="anchor-navigation-ex-anchor" href="#&#x591A;&#x7D22;&#x5F15;&#xFF0C;&#x591A;type&#x641C;&#x7D22;"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. &#x591A;&#x7D22;&#x5F15;&#xFF0C;&#x591A;type&#x641C;&#x7D22;</h3>
+<p>&#x5728;URL&#x4E2D;&#x6307;&#x5B9A;&#x7279;&#x6B8A;&#x7684;&#x7D22;&#x5F15;&#x548C;&#x7C7B;&#x578B;&#x8FDB;&#x884C;&#x591A;&#x7D22;&#x5F15;&#xFF0C;&#x591A;type&#x641C;&#x7D22;</p>
+<ol>
+<li><code>/_search</code>&#xFF1A;&#x5728;&#x6240;&#x6709;&#x7684;&#x7D22;&#x5F15;&#x4E2D;&#x641C;&#x7D22;&#x6240;&#x6709;&#x7684;&#x7C7B;&#x578B;</li>
+<li><code>/school/_search</code>&#xFF1A;&#x5728; <code>school</code> &#x7D22;&#x5F15;&#x4E2D;&#x641C;&#x7D22;&#x6240;&#x6709;&#x7684;&#x7C7B;&#x578B;</li>
+<li><code>/school,ad/_search</code>&#xFF1A;&#x5728; <code>school</code> &#x548C;<code>ad</code>&#x7D22;&#x5F15;&#x4E2D;&#x641C;&#x7D22;&#x6240;&#x6709;&#x7684;&#x7C7B;&#x578B;</li>
+<li><code>/s*,a*/_search</code>&#xFF1A;&#x5728;&#x6240;&#x6709;&#x4EE5;<code>g</code>&#x548C;<code>a</code>&#x5F00;&#x5934;&#x7684;&#x7D22;&#x5F15;&#x4E2D;&#x6240;&#x6709;&#x6240;&#x6709;&#x7684;&#x7C7B;&#x578B;</li>
+<li><code>/school/student/_search</code>&#xFF1A;&#x5728;<code>school</code>&#x7D22;&#x5F15;&#x4E2D;&#x641C;&#x7D22;<code>student</code>&#x7C7B;&#x578B;</li>
+<li><code>/school,ad/student,phone/_search</code>&#xFF1A;&#x5728;<code>school</code>&#x548C;<code>ad</code>&#x7D22;&#x5F15;&#x4E0A;&#x641C;&#x7D22;<code>student</code>&#x548C;<code>phone</code>&#x7C7B;&#x578B;</li>
+<li><code>/_all/student,phone/_search</code>&#xFF1A;&#x5728;&#x6240;&#x6709;&#x7684;&#x7D22;&#x5F15;&#x4E2D;&#x641C;&#x7D22;<code>student</code>&#x548C;<code>phone</code>&#x7C7B;&#x578B;</li>
+</ol>
+<h3 id="&#x6309;&#x6761;&#x4EF6;&#x67E5;&#x8BE2;"><a name="&#x6309;&#x6761;&#x4EF6;&#x67E5;&#x8BE2;" class="anchor-navigation-ex-anchor" href="#&#x6309;&#x6761;&#x4EF6;&#x67E5;&#x8BE2;"><i class="fa fa-link" aria-hidden="true"></i></a>1.3. &#x6309;&#x6761;&#x4EF6;&#x67E5;&#x8BE2;</h3>
+<p>&#x547D;&#x4EE4;&#xFF1A;<code>GET /school/student/_search?q=name:houyi</code></p>
+<p>&#x67E5;&#x8BE2;name&#x662F;houyi&#x7684;&#x8BB0;&#x5F55;</p>
+<p>&#x66F4;&#x591A;&#x67E5;&#x8BE2;&#x53C2;&#x6570;&#xFF1A;</p>
+<figure><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/5/15/16abb7e4d790149f~tplv-t2oaga2asx-jj-mark:3024:0:0:0:q75.awebp" alt=""><figcaption></figcaption></figure>
+
+<h3 id="&#x67E5;&#x8BE2;dsl"><a name="&#x67E5;&#x8BE2;dsl" class="anchor-navigation-ex-anchor" href="#&#x67E5;&#x8BE2;dsl"><i class="fa fa-link" aria-hidden="true"></i></a>1.4. &#x67E5;&#x8BE2;DSL</h3>
+<p>elasticsearch&#x63D0;&#x4F9B;&#x4E86;&#x57FA;&#x4E8E;JSON&#x7684;&#x5B8C;&#x6574;&#x67E5;&#x8BE2;DSL&#x6765;&#x5B9A;&#x4E49;&#x67E5;&#x8BE2;&#xFF0C;DSL&#x62E5;&#x6709;&#x4E00;&#x5957;&#x67E5;&#x8BE2;&#x7EC4;&#x4EF6;&#xFF0C;&#x8FD9;&#x4E9B;&#x7EC4;&#x4EF6;&#x53EF;&#x4EE5;&#x4EE5;&#x65E0;&#x9650;&#x7EC4;&#x5408;&#x7684;&#x65B9;&#x5F0F;&#x8FDB;&#x884C;&#x642D;&#x914D;&#xFF0C;&#x6784;&#x5EFA;&#x5404;&#x79CD;&#x590D;&#x6742;&#x7684;&#x67E5;&#x8BE2;</p>
+<p><strong>&#x53F6;&#x5B50;&#x8BED;&#x53E5;</strong></p>
+<p>&#x53F6;&#x5B50;&#x8BED;&#x53E5;&#xFF1A;&#x5C31;&#x50CF;match&#x8BED;&#x53E5;&#xFF0C;&#x88AB;&#x7528;&#x4E8E;&#x5C06;&#x67E5;&#x8BE2;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x4E0E;&#x4E00;&#x4E2A;&#x5B57;&#x6BB5;&#x6216;&#x591A;&#x4E2A;&#x5B57;&#x6BB5;&#x8FDB;&#x884C;&#x5BF9;&#x6BD4;&#xFF08;&#x5355;&#x4E2A;&#x6761;&#x4EF6;&#xFF09; &#x6BD4;&#x5982;&#xFF1A;</p>
+<pre><code>GET /ad/phone/_search
+   {
+     &quot;query&quot;: {
+       &quot;match&quot;: {
+         &quot;name&quot;: &quot;phone&quot;
+       }
+     }
+   }
+</code></pre><h3 id="&#x590D;&#x5408;&#x67E5;&#x8BE2;"><a name="&#x590D;&#x5408;&#x67E5;&#x8BE2;" class="anchor-navigation-ex-anchor" href="#&#x590D;&#x5408;&#x67E5;&#x8BE2;"><i class="fa fa-link" aria-hidden="true"></i></a>1.5. &#x590D;&#x5408;&#x67E5;&#x8BE2;</h3>
+<p>&#x7528;&#x6237;&#x5408;&#x5E76;&#x5176;&#x4ED6;&#x67E5;&#x8BE2;&#x8BED;&#x53E5;&#xFF0C;&#x6BD4;&#x5982;&#x4E00;&#x4E2A;<code>bool</code>&#x8BED;&#x53E5;&#xFF0C;&#x5141;&#x8BB8;&#x4F60;&#x5728;&#x9700;&#x8981;&#x7684;&#x65F6;&#x5019;&#x7EC4;&#x5408;&#x5176;&#x4ED6;&#x8BED;&#x53E5;&#xFF0C;&#x5305;&#x62EC;<code>must</code>&#xFF0C;<code>must_not</code>&#xFF0C;<code>should</code>&#x548C;<code>filter</code>&#x8BED;&#x53E5;&#xFF08;&#x591A;&#x6761;&#x4EF6;&#x7EC4;&#x5408;&#x67E5;&#x8BE2;&#xFF09; &#x6BD4;&#x5982;&#xFF1A;</p>
+<pre><code>GET /ad/phone/_search
+{
+  &quot;query&quot;: {
+    &quot;bool&quot;: {
+      &quot;must&quot;: [
+        {&quot;match&quot;: {
+          &quot;name&quot;: &quot;phone&quot;
+        }}
+      ]
+      , &quot;must_not&quot;: [
+        {&quot;match&quot;: {
+          &quot;color&quot;: &quot;red&quot;
+        }}
+      ]
+      , &quot;should&quot;: [
+        {&quot;match&quot;: {
+          &quot;price&quot;: 5000
+        }}
+      ]
+      , &quot;filter&quot;: {
+          &quot;term&quot;: {
+            &quot;label&quot;: &quot;phone&quot;
+          }
+      }
+    }
+  }
+}
+</code></pre><p><code>must</code>&#xFF1A;&#x8868;&#x793A;&#x6587;&#x6863;&#x4E00;&#x5B9A;&#x8981;&#x5305;&#x542B;&#x67E5;&#x8BE2;&#x7684;&#x5185;&#x5BB9;</p>
+<p><code>must_not</code>&#xFF1A;&#x8868;&#x793A;&#x6587;&#x6863;&#x4E00;&#x5B9A;&#x4E0D;&#x8981;&#x5305;&#x542B;&#x67E5;&#x8BE2;&#x7684;&#x5185;&#x5BB9;</p>
+<p><code>should</code>&#xFF1A;&#x8868;&#x793A;&#x5982;&#x679C;&#x6587;&#x6863;&#x5339;&#x914D;&#x4E0A;&#x53EF;&#x4EE5;&#x589E;&#x52A0;&#x6587;&#x6863;&#x76F8;&#x5173;&#x6027;&#x5F97;&#x5206;</p>
+<p>&#x4E8B;&#x5B9E;&#x4E0A;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E24;&#x79CD;&#x7ED3;&#x6784;&#x5316;&#x8BED;&#x53E5;&#xFF1A; &#x7ED3;&#x6784;&#x5316;&#x67E5;&#x8BE2;<code>query DSL</code>&#x548C;&#x7ED3;&#x6784;&#x5316;&#x8FC7;&#x6EE4;<code>Filter DSL</code></p>
+<ol>
+<li><p>&#x7ED3;&#x6784;&#x5316;&#x67E5;&#x8BE2;<code>query DSL</code></p>
+<p>&#x7528;&#x4E8E;&#x68C0;&#x67E5;&#x5185;&#x5BB9;&#x4E0E;&#x6761;&#x4EF6;&#x662F;&#x5426;&#x5339;&#x914D;&#xFF0C;&#x5185;&#x5BB9;&#x67E5;&#x8BE2;&#x4E2D;&#x4F7F;&#x7528;&#x7684;bool&#x548C;match&#x5B57;&#x53E5;&#xFF0C;&#x7528;&#x4E8E;&#x8BA1;&#x7B97;&#x6BCF;&#x4E2A;&#x6587;&#x6863;&#x7684;&#x5339;&#x914D;&#x5F97;&#x5206;&#xFF0C;&#x5143;&#x5B57;&#x6BB5;_score&#x8868;&#x793A;&#x5339;&#x914D;&#x5EA6;&#xFF0C;&#x67E5;&#x8BE2;&#x7684;&#x7ED3;&#x6784;&#x4E2D;&#x4EE5;query&#x53C2;&#x6570;&#x5F00;&#x59CB;&#x6765;&#x6267;&#x884C;&#x5185;&#x5BB9;&#x67E5;&#x8BE2;</p>
+</li>
+<li><p>&#x7ED3;&#x6784;&#x5316;&#x8FC7;&#x6EE4;<code>Filter DSL</code></p>
+<p>&#x53EA;&#x662F;&#x7B80;&#x5355;&#x7684;&#x51B3;&#x5B9A;&#x6587;&#x6863;&#x662F;&#x5426;&#x5339;&#x914D;&#xFF0C;&#x5185;&#x5BB9;&#x8FC7;&#x6EE4;&#x4E2D;&#x4F7F;&#x7528;&#x7684;term&#x548C;range&#x5B57;&#x53E5;&#xFF0C;&#x4F1A;&#x8FC7;&#x6EE4; &#x8C03;&#x4E0D;&#x5339;&#x914D;&#x7684;&#x6587;&#x6863;&#xFF0C;&#x5E76;&#x4E14;&#x4E0D;&#x5F71;&#x54CD;&#x8BA1;&#x7B97;&#x6587;&#x6863;&#x5339;&#x914D;&#x5F97;&#x5206;</p>
+<p>&#x4F7F;&#x7528;&#x8FC7;&#x6EE4;&#x67E5;&#x8BE2;&#x4F1A;&#x88AB;es&#x81EA;&#x52A8;&#x7F13;&#x5B58;&#x7528;&#x6765;&#x63D0;&#x9AD8;&#x6548;&#x7387;</p>
+</li>
+</ol>
+<p>&#x539F;&#x5219;&#x4E0A;&#x6765;&#x8BF4;&#xFF0C;&#x4F7F;&#x7528;&#x67E5;&#x8BE2;&#x8BED;&#x53E5;&#x505A;&#x5168;&#x6587;&#x672C;&#x641C;&#x7D22;&#x6216;&#x5176;&#x4ED6;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x76F8;&#x5173;&#x6027;&#x8BC4;&#x5206;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5269;&#x4E0B;&#x7684;&#x5168;&#x90E8;&#x7528;&#x8FC7;&#x6EE4;&#x8BED;&#x53E5;</p>
+<p><strong>&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x7A0D;&#x5FAE;&#x590D;&#x6742;&#x7684;&#x7D22;&#x5F15;&#xFF0C;&#x6DFB;&#x52A0;&#x4E09;&#x6761;&#x6587;&#x6863;</strong></p>
+<pre><code>PUT /ad/phone/1
+{
+  &quot;name&quot;:&quot;phone 8&quot;,
+  &quot;price&quot;: 6000,
+  &quot;color&quot;:&quot;white&quot;,
+  &quot;ad&quot;:&quot;this is a white phone&quot;,
+  &quot;label&quot;:[&quot;white&quot;,&quot;nice&quot;]
+}
+
+PUT /ad/phone/2
+{
+  &quot;name&quot;:&quot;xiaomi 8&quot;,
+  &quot;price&quot;: 4000,
+  &quot;color&quot;:&quot;red&quot;,
+  &quot;ad&quot;:&quot;this is a red phone&quot;,
+  &quot;label&quot;:[&quot;white&quot;,&quot;xiaomi&quot;]
+}
+
+PUT /ad/phone/3
+{
+  &quot;name&quot;:&quot;huawei p30&quot;,
+  &quot;price&quot;: 5000,
+  &quot;color&quot;:&quot;white&quot;,
+  &quot;ad&quot;:&quot;this is a white phone&quot;,
+  &quot;label&quot;:[&quot;white&quot;,&quot;huawei&quot;]
+}
+</code></pre><h2 id="&#x67E5;&#x8BE2;&#x793A;&#x4F8B;"><a name="&#x67E5;&#x8BE2;&#x793A;&#x4F8B;" class="anchor-navigation-ex-anchor" href="#&#x67E5;&#x8BE2;&#x793A;&#x4F8B;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x67E5;&#x8BE2;&#x793A;&#x4F8B;</h2>
+<h3 id="&#x83B7;&#x53D6;&#x6240;&#x6709;"><a name="&#x83B7;&#x53D6;&#x6240;&#x6709;" class="anchor-navigation-ex-anchor" href="#&#x83B7;&#x53D6;&#x6240;&#x6709;"><i class="fa fa-link" aria-hidden="true"></i></a>2.1. &#x83B7;&#x53D6;&#x6240;&#x6709;</h3>
+<pre><code>GET /ad/phone/_search
+{
+  &quot;query&quot;: {
+    &quot;match_all&quot;: {}
+  }
+}
+</code></pre><p><code>match_all</code>&#x5339;&#x914D;&#x6240;&#x6709;&#x6570;&#x636E;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;&#x7ED3;&#x679C;&#x4E2D;&#x5143;&#x5B57;&#x6BB5;<code>_score</code>&#x5F97;&#x5206;&#x4E3A;1</p>
+<h3 id="&#x5206;&#x9875;&#x67E5;&#x8BE2;"><a name="&#x5206;&#x9875;&#x67E5;&#x8BE2;" class="anchor-navigation-ex-anchor" href="#&#x5206;&#x9875;&#x67E5;&#x8BE2;"><i class="fa fa-link" aria-hidden="true"></i></a>2.2. &#x5206;&#x9875;&#x67E5;&#x8BE2;</h3>
+<p><strong>&#x4ECE;&#x7B2C;&#x4E8C;&#x6761;&#x5F00;&#x59CB;&#xFF0C;&#x67E5;&#x4E24;&#x6761;&#xFF08;&#x4E0D;&#x8981;&#x4F7F;&#x7528;<code>from</code>&#xFF0C;<code>size</code>&#x8FDB;&#x884C;&#x6DF1;&#x5EA6;&#x5206;&#x9875;&#xFF0C;&#x4F1A;&#x6709;&#x6027;&#x80FD;&#x95EE;&#x9898;&#xFF09;</strong></p>
+<pre><code>GET /ad/phone/_search
+{
+  &quot;query&quot;: {
+    &quot;match_all&quot;: {}
+  },
+  &quot;from&quot;: 1,
+  &quot;size&quot;: 2
+}
+</code></pre><p>&#x8FD9;&#x79CD;&#x5206;&#x9875;&#x65B9;&#x5F0F;&#x5982;&#x679C;&#x8FDB;&#x884C;&#x6DF1;&#x5EA6;&#x5206;&#x9875;&#xFF0C;&#x6BD4;&#x5982;&#x5230;100&#x9875;&#xFF0C;&#x6BCF;&#x9875;&#x5341;&#x6761;&#x6570;&#x636E;&#xFF0C;&#x5B83;&#x4F1A;&#x4ECE;&#x6BCF;&#x4E2A;&#x5206;&#x7247;&#x90FD;&#x67E5;&#x8BE2;&#x51FA;100*10&#x6761;&#x6570;&#x636E;&#xFF0C;&#x5047;&#x8BBE;&#x6709;&#x4E94;&#x4E2A;&#x5206;&#x7247;&#xFF0C;&#x5C31;&#x662F;5000&#x6761;&#x6570;&#x636E;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x5185;&#x5B58;&#x4E2D;&#x8FDB;&#x884C;&#x6392;&#x5E8F;&#xFF0C;&#x7136;&#x540E;&#x8FD4;&#x56DE;&#x62CD;&#x8FC7;&#x5E8F;&#x4E4B;&#x540E;&#x7684;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x7B2C;1000-1010&#x6761;&#x6570;&#x636E;</p>
+<h3 id="&#x6307;&#x5B9A;&#x67E5;&#x8BE2;&#x51FA;&#x6765;&#x7684;&#x6570;&#x636E;&#x8FD4;&#x56DE;&#x7684;&#x5B57;&#x6BB5;"><a name="&#x6307;&#x5B9A;&#x67E5;&#x8BE2;&#x51FA;&#x6765;&#x7684;&#x6570;&#x636E;&#x8FD4;&#x56DE;&#x7684;&#x5B57;&#x6BB5;" class="anchor-navigation-ex-anchor" href="#&#x6307;&#x5B9A;&#x67E5;&#x8BE2;&#x51FA;&#x6765;&#x7684;&#x6570;&#x636E;&#x8FD4;&#x56DE;&#x7684;&#x5B57;&#x6BB5;"><i class="fa fa-link" aria-hidden="true"></i></a>2.3. &#x6307;&#x5B9A;&#x67E5;&#x8BE2;&#x51FA;&#x6765;&#x7684;&#x6570;&#x636E;&#x8FD4;&#x56DE;&#x7684;&#x5B57;&#x6BB5;</h3>
+<pre><code>GET /ad/phone/_search
+{
+  &quot;query&quot;: {
+    &quot;match_all&quot;: {}
+  },
+  &quot;_source&quot;: [&quot;name&quot;,&quot;price&quot;]
+}
+</code></pre><p>&#x8FD4;&#x56DE;&#x7684;&#x6570;&#x636E;&#x4E2D;&#x53EA;&#x8FD4;&#x56DE;<code>name</code>&#x548C;<code>price</code>&#x5B57;&#x6BB5;</p>
+<h3 id="ad&#x5B57;&#x6BB5;&#x4E2D;&#x5305;&#x542B;&#x5355;&#x8BCD;white"><a name="ad&#x5B57;&#x6BB5;&#x4E2D;&#x5305;&#x542B;&#x5355;&#x8BCD;white" class="anchor-navigation-ex-anchor" href="#ad&#x5B57;&#x6BB5;&#x4E2D;&#x5305;&#x542B;&#x5355;&#x8BCD;white"><i class="fa fa-link" aria-hidden="true"></i></a>2.4. ad&#x5B57;&#x6BB5;&#x4E2D;&#x5305;&#x542B;&#x5355;&#x8BCD;white</h3>
+<pre><code>GET /ad/phone/_search
+{
+  &quot;query&quot;: {
+    &quot;match&quot;: {
+      &quot;ad&quot;: &quot;white&quot;
+    }
+  }
+}
+</code></pre><p>&#x8FD4;&#x56DE;&#x7684;&#x7ED3;&#x679C;&#x4E2D;&#x5143;&#x5B57;&#x6BB5;<code>_score</code>&#x6709;&#x8BC4;&#x5206;&#xFF0C;&#x8BF4;&#x660E;&#x4F7F;&#x7528;<code>query</code>&#x4F1A;&#x8BA1;&#x7B97;&#x8BC4;&#x5206;</p>
+<h3 id="ad&#x5B57;&#x6BB5;&#x4E2D;&#x5305;&#x542B;&#x5355;&#x8BCD;white&#xFF0C;&#x5E76;&#x6309;&#x7167;&#x4EF7;&#x683C;&#x5347;&#x5E8F;&#x6392;&#x5217;"><a name="ad&#x5B57;&#x6BB5;&#x4E2D;&#x5305;&#x542B;&#x5355;&#x8BCD;white&#xFF0C;&#x5E76;&#x6309;&#x7167;&#x4EF7;&#x683C;&#x5347;&#x5E8F;&#x6392;&#x5217;" class="anchor-navigation-ex-anchor" href="#ad&#x5B57;&#x6BB5;&#x4E2D;&#x5305;&#x542B;&#x5355;&#x8BCD;white&#xFF0C;&#x5E76;&#x6309;&#x7167;&#x4EF7;&#x683C;&#x5347;&#x5E8F;&#x6392;&#x5217;"><i class="fa fa-link" aria-hidden="true"></i></a>2.5. ad&#x5B57;&#x6BB5;&#x4E2D;&#x5305;&#x542B;&#x5355;&#x8BCD;white&#xFF0C;&#x5E76;&#x6309;&#x7167;&#x4EF7;&#x683C;&#x5347;&#x5E8F;&#x6392;&#x5217;</h3>
+<pre><code>GET /ad/phone/_search
+{
+  &quot;query&quot;: {
+    &quot;match&quot;: {
+      &quot;ad&quot;: &quot;white&quot;
+    }
+  }, 
+  &quot;sort&quot;: [
+    {
+      &quot;price&quot;: {
+        &quot;order&quot;: &quot;asc&quot;
+      }
+    }
+  ]
+}
+</code></pre><h3 id="&#x4EF7;&#x683C;&#x5B57;&#x6BB5;&#x5927;&#x4E8E;5000"><a name="&#x4EF7;&#x683C;&#x5B57;&#x6BB5;&#x5927;&#x4E8E;5000" class="anchor-navigation-ex-anchor" href="#&#x4EF7;&#x683C;&#x5B57;&#x6BB5;&#x5927;&#x4E8E;5000"><i class="fa fa-link" aria-hidden="true"></i></a>2.6. &#x4EF7;&#x683C;&#x5B57;&#x6BB5;&#x5927;&#x4E8E;5000</h3>
+<pre><code>GET /ad/phone/_search
+{
+  &quot;query&quot;: {
+    &quot;bool&quot;: {
+      &quot;filter&quot;: {
+        &quot;range&quot;: {
+          &quot;price&quot;: {
+            &quot;gt&quot;: 5000
+          }
+        }
+      }
+    }
+  }
+}
+</code></pre><p>&#x8FD4;&#x56DE;&#x7684;&#x7ED3;&#x679C;&#x4E2D;&#x5143;&#x5B57;&#x6BB5;<code>_score</code>&#x5B57;&#x6BB5;&#x7B49;&#x4E8E;0&#xFF0C;&#x6CA1;&#x8BC4;&#x5206;&#xFF0C;&#x8BF4;&#x660E;&#x4F7F;&#x7528;<code>filter</code>&#x4E0D;&#x4F1A;&#x8BA1;&#x7B97;&#x8BC4;&#x5206;</p>
+<h3 id="ad&#x5B57;&#x6BB5;&#x4E2D;&#x5305;&#x542B;&#x5355;&#x8BCD;white&#xFF0C;&#x4EF7;&#x683C;&#x5B57;&#x6BB5;&#x5927;&#x4E8E;5000"><a name="ad&#x5B57;&#x6BB5;&#x4E2D;&#x5305;&#x542B;&#x5355;&#x8BCD;white&#xFF0C;&#x4EF7;&#x683C;&#x5B57;&#x6BB5;&#x5927;&#x4E8E;5000" class="anchor-navigation-ex-anchor" href="#ad&#x5B57;&#x6BB5;&#x4E2D;&#x5305;&#x542B;&#x5355;&#x8BCD;white&#xFF0C;&#x4EF7;&#x683C;&#x5B57;&#x6BB5;&#x5927;&#x4E8E;5000"><i class="fa fa-link" aria-hidden="true"></i></a>2.7. ad&#x5B57;&#x6BB5;&#x4E2D;&#x5305;&#x542B;&#x5355;&#x8BCD;white&#xFF0C;&#x4EF7;&#x683C;&#x5B57;&#x6BB5;&#x5927;&#x4E8E;5000</h3>
+<pre><code>GET /ad/phone/_search
+{
+  &quot;query&quot;: {
+    &quot;bool&quot;: {
+      &quot;must&quot;: [
+        {
+          &quot;match&quot;: {
+            &quot;ad&quot;: &quot;white&quot;
+          }
+        }
+      ], 
+      &quot;filter&quot;: {
+        &quot;range&quot;: {
+          &quot;price&quot;: {
+            &quot;gt&quot;: 5000
+          }
+        }
+      }
+    }
+  }
+}
+</code></pre><h3 id="&#x67E5;&#x8BE2;name&#x5B57;&#x6BB5;&#x5305;&#x542B;&#x5355;&#x8BCD;phone&#x7684;&#x6587;&#x6863;&#x7684;&#x6570;&#x91CF;"><a name="&#x67E5;&#x8BE2;name&#x5B57;&#x6BB5;&#x5305;&#x542B;&#x5355;&#x8BCD;phone&#x7684;&#x6587;&#x6863;&#x7684;&#x6570;&#x91CF;" class="anchor-navigation-ex-anchor" href="#&#x67E5;&#x8BE2;name&#x5B57;&#x6BB5;&#x5305;&#x542B;&#x5355;&#x8BCD;phone&#x7684;&#x6587;&#x6863;&#x7684;&#x6570;&#x91CF;"><i class="fa fa-link" aria-hidden="true"></i></a>2.8. &#x67E5;&#x8BE2;name&#x5B57;&#x6BB5;&#x5305;&#x542B;&#x5355;&#x8BCD;phone&#x7684;&#x6587;&#x6863;&#x7684;&#x6570;&#x91CF;</h3>
+<pre><code>GET /ad/phone/_count
+{
+  &quot;query&quot;: {
+    &quot;match&quot;: {
+      &quot;name&quot;: &quot;phone&quot;
+    }
+  }
+}
+</code></pre><h2 id="&#x5173;&#x952E;&#x8BCD;&#x8BE6;&#x89E3;"><a name="&#x5173;&#x952E;&#x8BCD;&#x8BE6;&#x89E3;" class="anchor-navigation-ex-anchor" href="#&#x5173;&#x952E;&#x8BCD;&#x8BE6;&#x89E3;"><i class="fa fa-link" aria-hidden="true"></i></a>3. &#x5173;&#x952E;&#x8BCD;&#x8BE6;&#x89E3;</h2>
+<h3 id="matchall&#x67E5;&#x8BE2;"><a name="matchall&#x67E5;&#x8BE2;" class="anchor-navigation-ex-anchor" href="#matchall&#x67E5;&#x8BE2;"><i class="fa fa-link" aria-hidden="true"></i></a>3.1. match_all&#x67E5;&#x8BE2;</h3>
+<p>&#x67E5;&#x8BE2;&#x7B80;&#x5355;&#x7684;&#x5339;&#x914D;&#x6240;&#x6709;&#x6587;&#x6863;</p>
+<pre><code>GET /ad/phone/_search
+{
+  &quot;query&quot;: {
+    &quot;match_all&quot;: {}
+  }
+}
+</code></pre><h3 id="match&#x67E5;&#x8BE2;"><a name="match&#x67E5;&#x8BE2;" class="anchor-navigation-ex-anchor" href="#match&#x67E5;&#x8BE2;"><i class="fa fa-link" aria-hidden="true"></i></a>3.2. match&#x67E5;&#x8BE2;</h3>
+<p>&#x652F;&#x6301;&#x5168;&#x6587;&#x641C;&#x7D22;&#x548C;&#x7CBE;&#x786E;&#x67E5;&#x8BE2;&#xFF0C;&#x53D6;&#x51B3;&#x4E8E;&#x5B57;&#x6BB5;&#x662F;&#x5426;&#x652F;&#x6301;&#x5168;&#x6587;&#x68C0;&#x7D22;</p>
+<h4 id="&#x5168;&#x6587;&#x68C0;&#x7D22;&#xFF1A;"><a name="&#x5168;&#x6587;&#x68C0;&#x7D22;&#xFF1A;" class="anchor-navigation-ex-anchor" href="#&#x5168;&#x6587;&#x68C0;&#x7D22;&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5168;&#x6587;&#x68C0;&#x7D22;&#xFF1A;</h4>
+<pre><code>GET /ad/phone/_search
+{
+  &quot;query&quot;: {
+    &quot;match&quot;: {
+      &quot;ad&quot;: &quot;a red&quot;
+    }
+  }
+}
+</code></pre><p>&#x5168;&#x6587;&#x68C0;&#x7D22;&#x4F1A;&#x5C06;&#x67E5;&#x8BE2;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x5148;&#x8FDB;&#x884C;&#x5206;&#x8BCD;&#xFF0C;<code>a red</code>&#x4F1A;&#x5206;&#x6210;&#x4E3A;<code>a</code>&#x548C;<code>red</code>&#xFF0C;&#x7136;&#x540E;&#x5728;&#x5012;&#x6392;&#x7D22;&#x5F15;&#x4E2D;&#x8FDB;&#x884C;&#x5339;&#x914D;&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x6761;&#x8BED;&#x53E5;&#x4F1A;&#x5C06;&#x4E09;&#x6761;&#x6587;&#x6863;&#x90FD;&#x67E5;&#x51FA;&#x6765;</p>
+<h4 id="&#x7CBE;&#x786E;&#x67E5;&#x8BE2;&#xFF1A;"><a name="&#x7CBE;&#x786E;&#x67E5;&#x8BE2;&#xFF1A;" class="anchor-navigation-ex-anchor" href="#&#x7CBE;&#x786E;&#x67E5;&#x8BE2;&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7CBE;&#x786E;&#x67E5;&#x8BE2;&#xFF1A;</h4>
+<pre><code>GET /ad/phone/_search
+{
+  &quot;query&quot;: {
+    &quot;match&quot;: {
+      &quot;price&quot;: &quot;6000&quot;
+    }
+  }
+}
+</code></pre><p>&#x5BF9;&#x4E8E;&#x7CBE;&#x786E;&#x503C;&#x7684;&#x67E5;&#x8BE2;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; filter &#x8BED;&#x53E5;&#x6765;&#x53D6;&#x4EE3; query&#xFF0C;&#x56E0;&#x4E3A; filter &#x5C06;&#x4F1A;&#x88AB;&#x7F13;&#x5B58;</p>
+<p><code>operator</code>&#x64CD;&#x4F5C;&#xFF1A;</p>
+<p><code>match</code> &#x67E5;&#x8BE2;&#x8FD8;&#x53EF;&#x4EE5;&#x63A5;&#x53D7; <code>operator</code> &#x64CD;&#x4F5C;&#x7B26;&#x4F5C;&#x4E3A;&#x8F93;&#x5165;&#x53C2;&#x6570;&#xFF0C;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x8BE5;&#x64CD;&#x4F5C;&#x7B26;&#x662F; <code>or</code> &#x3002;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5C06;&#x5B83;&#x4FEE;&#x6539;&#x6210; <code>and</code> &#x8BA9;&#x6240;&#x6709;&#x6307;&#x5B9A;&#x8BCD;&#x9879;&#x90FD;&#x5FC5;&#x987B;&#x5339;&#x914D;</p>
+<pre><code>GET /ad/phone/_search
+{
+  &quot;query&quot;: {
+    &quot;match&quot;: {
+      &quot;ad&quot;: {
+        &quot;query&quot;: &quot;a red&quot;,
+        &quot;operator&quot;: &quot;and&quot;
+      }
+    }
+  }
+}
+</code></pre><p>&#x7CBE;&#x786E;&#x5EA6;&#x5339;&#x914D;&#xFF1A;</p>
+<p><code>match</code> &#x67E5;&#x8BE2;&#x652F;&#x6301; <code>minimum_should_match</code> &#x6700;&#x5C0F;&#x5339;&#x914D;&#x53C2;&#x6570;&#xFF0C; &#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x5FC5;&#x987B;&#x5339;&#x914D;&#x7684;&#x8BCD;&#x9879;&#x6570;&#x7528;&#x6765;&#x8868;&#x793A;&#x4E00;&#x4E2A;&#x6587;&#x6863;&#x662F;&#x5426;&#x76F8;&#x5173;&#x3002;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5C06;&#x5176;&#x8BBE;&#x7F6E;&#x4E3A;&#x67D0;&#x4E2A;&#x5177;&#x4F53;&#x6570;&#x5B57;&#xFF08;&#x6307;&#x9700;&#x8981;&#x5339;&#x914D;&#x5012;&#x6392;&#x7D22;&#x5F15;&#x7684;&#x8BCD;&#x7684;&#x6570;&#x91CF;&#xFF09;&#xFF0C;&#x66F4;&#x5E38;&#x7528;&#x7684;&#x505A;&#x6CD5;&#x662F;&#x5C06;&#x5176;&#x8BBE;&#x7F6E;&#x4E3A;&#x4E00;&#x4E2A;&#x767E;&#x5206;&#x6570;&#xFF0C;&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x65E0;&#x6CD5;&#x63A7;&#x5236;&#x7528;&#x6237;&#x641C;&#x7D22;&#x65F6;&#x8F93;&#x5165;&#x7684;&#x5355;&#x8BCD;&#x6570;&#x91CF;</p>
+<pre><code>GET /ad/phone/_search
+{
+  &quot;query&quot;: {
+    &quot;match&quot;: {
+      &quot;ad&quot;: {
+        &quot;query&quot;: &quot;a red&quot;,
+        &quot;minimum_should_match&quot;: &quot;2&quot;
+      }
+    }
+  }
+}
+</code></pre><p>&#x53EA;&#x4F1A;&#x8FD4;&#x56DE;&#x5339;&#x914D;&#x4E0A;<code>a</code>&#x548C;<code>red</code>&#x4E24;&#x4E2A;&#x8BCD;&#x7684;&#x6587;&#x6863;&#x8FD4;&#x56DE;&#xFF0C;&#x5982;&#x679C;<code>minimum_should_match</code>&#x662F;1&#xFF0C;&#x5219;&#x53EA;&#x8981;&#x5339;&#x914D;&#x4E0A;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#x8BCD;&#xFF0C;&#x6587;&#x6863;&#x5C31;&#x4F1A;&#x8FD4;&#x56DE;</p>
+<h3 id="multimatch&#x67E5;&#x8BE2;"><a name="multimatch&#x67E5;&#x8BE2;" class="anchor-navigation-ex-anchor" href="#multimatch&#x67E5;&#x8BE2;"><i class="fa fa-link" aria-hidden="true"></i></a>3.3. multi_match&#x67E5;&#x8BE2;</h3>
+<p>&#x591A;&#x5B57;&#x6BB5;&#x67E5;&#x8BE2;&#xFF0C;&#x6BD4;&#x5982;&#x67E5;&#x8BE2;<code>color</code>&#x548C;<code>ad</code>&#x5B57;&#x6BB5;&#x5305;&#x542B;&#x5355;&#x8BCD;<code>red</code>&#x7684;&#x6587;&#x6863;</p>
+<pre><code>GET /ad/phone/_search
+{
+  &quot;query&quot;: {
+    &quot;multi_match&quot;: {
+      &quot;query&quot;: &quot;red&quot;,
+      &quot;fields&quot;: [&quot;color&quot;,&quot;ad&quot;]
+    }
+  }
+}
+</code></pre><h3 id="range&#x67E5;&#x8BE2;"><a name="range&#x67E5;&#x8BE2;" class="anchor-navigation-ex-anchor" href="#range&#x67E5;&#x8BE2;"><i class="fa fa-link" aria-hidden="true"></i></a>3.4. range&#x67E5;&#x8BE2;</h3>
+<p>&#x8303;&#x56F4;&#x67E5;&#x8BE2;&#xFF0C;&#x67E5;&#x8BE2;&#x4EF7;&#x683C;&#x5927;&#x4E8E;4000&#x5C0F;&#x4E8E;6000&#x7684;&#x6587;&#x6863;</p>
+<pre><code>GET /ad/phone/_search
+{
+  &quot;query&quot;: {
+    &quot;range&quot;: {
+      &quot;price&quot;: {
+        &quot;gt&quot;: 4000,
+        &quot;lt&quot;: 6000
+      }
+    }
+  }
+}
+</code></pre><p>&#x8303;&#x56F4;&#x67E5;&#x8BE2;&#x64CD;&#x4F5C;&#x7B26;&#xFF1A;<code>gt</code> &#xFF08;&#x5927;&#x4E8E;&#xFF09;&#xFF0C;<code>gte</code>&#xFF08;&#x5927;&#x4E8E;&#x7B49;&#x4E8E;&#xFF09;&#xFF0C;<code>lt</code>&#xFF08;&#x5C0F;&#x4E8E;&#xFF09;&#xFF0C;<code>lte</code>&#xFF08;&#x5C0F;&#x4E8E;&#x7B49;&#x4E8E;)&#xFF1B;</p>
+<h3 id="term&#x67E5;&#x8BE2;"><a name="term&#x67E5;&#x8BE2;" class="anchor-navigation-ex-anchor" href="#term&#x67E5;&#x8BE2;"><i class="fa fa-link" aria-hidden="true"></i></a>3.5. term&#x67E5;&#x8BE2;</h3>
+<p>&#x7CBE;&#x786E;&#x503C;&#x67E5;&#x8BE2;</p>
+<p>&#x67E5;&#x8BE2;<code>price</code>&#x5B57;&#x6BB5;&#x7B49;&#x4E8E;6000&#x7684;&#x6587;&#x6863;</p>
+<pre><code>GET /ad/phone/_search
+{
+  &quot;query&quot;: {
+    &quot;term&quot;: {
+      &quot;price&quot;: {
+        &quot;value&quot;: &quot;6000&quot;
+      }
+    }
+  }
+}
+</code></pre><p>&#x67E5;&#x8BE2;<code>name</code>&#x5B57;&#x6BB5;&#x7B49;&#x4E8E;<code>phone 8</code>&#x7684;&#x6587;&#x6863;</p>
+<pre><code>GET /ad/phone/_search
+{
+  &quot;query&quot;: {
+    &quot;term&quot;: {
+      &quot;name&quot;: {
+        &quot;value&quot;: &quot;phone 8&quot;
+      }
+    }
+  }
+}
+</code></pre><p>&#x8FD4;&#x56DE;&#x503C;&#x5982;&#x4E0B;&#xFF0C;&#x6CA1;&#x6709;&#x67E5;&#x8BE2;&#x5230;&#x540D;&#x79F0;&#x4E3A;<code>phone 8</code>&#x7684;&#x6587;&#x6863;</p>
+<pre><code>{
+  &quot;took&quot;: 5,
+  &quot;timed_out&quot;: false,
+  &quot;_shards&quot;: {
+    &quot;total&quot;: 5,
+    &quot;successful&quot;: 5,
+    &quot;skipped&quot;: 0,
+    &quot;failed&quot;: 0
+  },
+  &quot;hits&quot;: {
+    &quot;total&quot;: 0,
+    &quot;max_score&quot;: null,
+    &quot;hits&quot;: []
+  }
+}
+</code></pre><p>&#x4E3A;&#x4EC0;&#x4E48;&#x6CA1;&#x6709;&#x67E5;&#x5230;<code>phone 8</code>&#x7684;&#x8FD9;&#x4E2A;&#x6587;&#x6863;&#x90A3;&#xFF0C;&#x8FD9;&#x91CC;&#x9700;&#x8981;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B;<code>term</code>&#x7684;&#x67E5;&#x8BE2;&#x539F;&#x7406;</p>
+<p>&#x200B; <code>term</code>&#x67E5;&#x8BE2;&#x4F1A;&#x53BB;&#x5012;&#x6392;&#x7D22;&#x5F15;&#x4E2D;&#x5BFB;&#x627E;&#x786E;&#x5207;&#x7684;<code>term</code>,&#x5B83;&#x5E76;&#x4E0D;&#x4F1A;&#x8D70;&#x5206;&#x8BCD;&#x5668;&#xFF0C;&#x53EA;&#x4F1A;&#x53BB;&#x914D;&#x5012;&#x6392;&#x7D22;&#x5F15; &#xFF0C;&#x800C;<code>name</code>&#x5B57;&#x6BB5;&#x7684;<code>type</code>&#x7C7B;&#x578B;&#x662F;<code>text</code>&#xFF0C;&#x4F1A;&#x8FDB;&#x884C;&#x5206;&#x8BCD;&#xFF0C;&#x5C06;<code>phone 8</code> &#x5206;&#x4E3A;<code>phone</code>&#x548C;<code>8</code>&#xFF0C;&#x6211;&#x4EEC;&#x4F7F;&#x7528;<code>term</code>&#x67E5;&#x8BE2;<code>phone 8</code>&#x65F6;&#x5012;&#x6392;&#x7D22;&#x5F15;&#x4E2D;&#x6CA1;&#x6709;<code>phone 8</code>&#xFF0C;&#x6240;&#x4EE5;&#x6CA1;&#x6709;&#x67E5;&#x8BE2;&#x5230;&#x5339;&#x914D;&#x7684;&#x6587;&#x6863;</p>
+<p><code>term</code>&#x67E5;&#x8BE2;&#x4E0E;<code>match</code>&#x67E5;&#x8BE2;&#x7684;&#x533A;&#x522B;</p>
+<ul>
+<li><code>term</code>&#x67E5;&#x8BE2;&#x65F6;&#xFF0C;&#x4E0D;&#x4F1A;&#x5206;&#x8BCD;&#xFF0C;&#x76F4;&#x63A5;&#x5339;&#x914D;&#x5012;&#x6392;&#x7D22;&#x5F15;</li>
+<li><code>match</code>&#x67E5;&#x8BE2;&#x65F6;&#x4F1A;&#x8FDB;&#x884C;&#x5206;&#x8BCD;&#xFF0C;&#x67E5;&#x8BE2;<code>phone 8</code>&#x65F6;&#xFF0C;&#x4F1A;&#x5148;&#x5206;&#x8BCD;&#x6210;<code>phone</code>&#x548C;<code>8</code>&#xFF0C;&#x7136;&#x540E;&#x53BB;&#x5339;&#x914D;&#x5012;&#x6392;&#x7D22;&#x5F15;&#xFF0C;&#x6240;&#x4EE5;&#x7ED3;&#x679C;&#x4F1A;&#x5C06;<code>phone 8</code>&#x548C;<code>xiaomi 8</code>&#x4E24;&#x4E2A;&#x6587;&#x6863;&#x90FD;&#x67E5;&#x51FA;&#x6765;</li>
+</ul>
+<p>&#x8FD8;&#x6709;&#x4E00;&#x70B9;&#x9700;&#x8981;&#x6CE8;&#x610F;&#xFF0C;&#x56E0;&#x4E3A;<code>term</code>&#x67E5;&#x8BE2;&#x4E0D;&#x4F1A;&#x8D70;&#x5206;&#x8BCD;&#x5668;&#xFF0C;&#x4F46;&#x662F;&#x56DE;&#x53BB;&#x5339;&#x914D;&#x5012;&#x6392;&#x7D22;&#x5F15;&#xFF0C;&#x6240;&#x4EE5;&#x67E5;&#x8BE2;&#x7684;&#x7ED3;&#x6784;&#x5C31;&#x8DDF;&#x5206;&#x8BCD;&#x5668;&#x5982;&#x4F55;&#x5206;&#x8BCD;&#x6709;&#x5173;&#x7CFB;&#xFF0C;&#x6BD4;&#x5982;&#x65B0;&#x589E;&#x4E00;&#x4E2A;<code>/ad/phone</code>&#x7C7B;&#x578B;&#x4E0B;&#x7684;&#x6587;&#x6863;&#xFF0C;<code>name</code>&#x5B57;&#x6BB5;&#x8D4B;&#x503C;&#x4E3A;<code>Oppo</code>&#xFF0C;&#x8FD9;&#x65F6;&#x4F7F;&#x7528;<code>term</code>&#x67E5;&#x8BE2;<code>Oppo</code>&#x4E0D;&#x4F1A;&#x67E5;&#x8BE2;&#x51FA;&#x6587;&#x6863;&#xFF0C;&#x8FD9;&#x65F6;&#x56E0;&#x4E3A;es&#x9ED8;&#x8BA4;&#x662F;&#x7528;&#x7684;<code>standard</code>&#x5206;&#x8BCD;&#x5668;&#xFF0C;&#x5B83;&#x5728;&#x5206;&#x8BCD;&#x540E;&#x4F1A;&#x5C06;&#x5355;&#x8BCD;&#x8F6C;&#x6210;&#x5C0F;&#x5199;&#x8F93;&#x51FA;&#xFF0C;&#x6240;&#x4EE5;&#x4F7F;&#x7528;<code>oppo</code>&#x67E5;&#x4E0D;&#x51FA;&#x6587;&#x6863;&#xFF0C;&#x4F7F;&#x7528;&#x5C0F;&#x5199;<code>oppo</code>&#x53EF;&#x4EE5;&#x67E5;&#x51FA;&#x6765;</p>
+<pre><code>GET /ad/phone/_search
+{
+  &quot;query&quot;: {
+    &quot;term&quot;: {
+      &quot;name&quot;: {
+        &quot;value&quot;: &quot;Oppo&quot; //&#x6539;&#x6210;oppo&#x53EF;&#x4EE5;&#x67E5;&#x51FA;&#x65B0;&#x6DFB;&#x52A0;&#x7684;&#x6587;&#x6863;
+      }
+    }
+  }
+}
+</code></pre><p>&#x8FD9;&#x91CC;&#x8BF4;&#x7684;&#x5E76;&#x4E0D;&#x662F;&#x60F3;&#x8BA9;&#x4F60;&#x4E86;&#x89E3;<code>standard</code>&#x5206;&#x8BCD;&#x5668;&#xFF0C;&#x800C;&#x662F;&#x8981;get&#x5230;&#x6240;&#x6709;&#x50CF;<code>term</code>&#x8FD9;&#x7C7B;&#x7684;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#x8DDF;&#x9009;&#x62E9;&#x7684;&#x5206;&#x8BCD;&#x5668;&#x6709;&#x5173;&#x7CFB;&#xFF0C;&#x4E86;&#x89E3;&#x9009;&#x62E9;&#x7684;&#x5206;&#x8BCD;&#x5668;&#x5206;&#x8BCD;&#x65B9;&#x5F0F;&#x6709;&#x52A9;&#x4E8E;&#x6211;&#x4EEC;&#x7F16;&#x5199;&#x67E5;&#x8BE2;&#x8BED;&#x53E5;</p>
+<h3 id="terms&#x67E5;&#x8BE2;"><a name="terms&#x67E5;&#x8BE2;" class="anchor-navigation-ex-anchor" href="#terms&#x67E5;&#x8BE2;"><i class="fa fa-link" aria-hidden="true"></i></a>3.6. terms&#x67E5;&#x8BE2;</h3>
+<p><code>terms</code>&#x67E5;&#x8BE2;&#x4E0E;<code>term</code>&#x67E5;&#x8BE2;&#x4E00;&#x6837;&#xFF0C;&#x4F46;&#x5B83;&#x5141;&#x8BB8;&#x4F60;&#x6307;&#x5B9A;&#x591A;&#x76F4;&#x8FDB;&#x884C;&#x5339;&#x914D;&#xFF0C;&#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x5B57;&#x6BB5;&#x5305;&#x542B;&#x4E86;&#x6307;&#x5B9A;&#x503C;&#x4E2D;&#x7684;&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;&#x503C;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;&#x6587;&#x6863;&#x6EE1;&#x8DB3;&#x6761;&#x4EF6;</p>
+<pre><code>GET /ad/phone/_search
+{
+  &quot;query&quot;: {
+    &quot;terms&quot;: {
+      &quot;ad&quot;: [&quot;red&quot;,&quot;blue&quot;]
+    }
+  }
+}
+</code></pre><h3 id="exists-&#x67E5;&#x8BE2;&#x548C;-missing-&#x67E5;&#x8BE2;"><a name="exists-&#x67E5;&#x8BE2;&#x548C;-missing-&#x67E5;&#x8BE2;" class="anchor-navigation-ex-anchor" href="#exists-&#x67E5;&#x8BE2;&#x548C;-missing-&#x67E5;&#x8BE2;"><i class="fa fa-link" aria-hidden="true"></i></a>3.7. exists &#x67E5;&#x8BE2;&#x548C; missing &#x67E5;&#x8BE2;</h3>
+<p>&#x7528;&#x4E8E;&#x67E5;&#x627E;&#x90A3;&#x4E9B;&#x6307;&#x5B9A;&#x5B57;&#x6BB5;&#x4E2D;&#x6709;&#x503C; (<code>exists</code>) &#x6216;&#x65E0;&#x503C; (<code>missing</code>) &#x7684;&#x6587;&#x6863;</p>
+<p>&#x6307;&#x5B9A;<code>name</code>&#x5B57;&#x6BB5;&#x6709;&#x503C;&#xFF1A;</p>
+<pre><code>GET /ad/phone/_search
+{
+  &quot;query&quot;: {
+    &quot;bool&quot;: {
+      &quot;filter&quot;: {
+        &quot;exists&quot;: {
+          &quot;field&quot;: &quot;name&quot;
+        }
+      }
+    }
+  }
+}
+</code></pre><p>&#x6307;&#x5B9A;<code>name</code>&#x5B57;&#x6BB5;&#x65E0;&#x503C;&#xFF1A;</p>
+<pre><code>GET /ad/phone/_search
+{
+  &quot;query&quot;: {
+    &quot;bool&quot;: {
+      &quot;filter&quot;: {
+        &quot;missing&quot;: {
+          &quot;field&quot;: &quot;name&quot;
+        }
+      }
+    }
+  }
+}
+</code></pre><h3 id="matchphrase&#x67E5;&#x8BE2;"><a name="matchphrase&#x67E5;&#x8BE2;" class="anchor-navigation-ex-anchor" href="#matchphrase&#x67E5;&#x8BE2;"><i class="fa fa-link" aria-hidden="true"></i></a>3.8. match_phrase&#x67E5;&#x8BE2;</h3>
+<p>&#x77ED;&#x8BED;&#x67E5;&#x8BE2;&#xFF0C;&#x7CBE;&#x786E;&#x5339;&#x914D;&#xFF0C;&#x67E5;&#x8BE2;<code>a red</code>&#x4F1A;&#x5339;&#x914D;<code>ad</code>&#x5B57;&#x6BB5;&#x5305;&#x542B;<code>a red</code>&#x77ED;&#x8BED;&#x7684;&#xFF0C;&#x800C;&#x4E0D;&#x4F1A;&#x8FDB;&#x884C;&#x5206;&#x8BCD;&#x67E5;&#x8BE2;&#xFF0C;&#x4E5F;&#x4E0D;&#x4F1A;&#x67E5;&#x8BE2;&#x51FA;&#x5305;&#x542B;<code>a &#x5176;&#x4ED6;&#x8BCD; red</code>&#x8FD9;&#x6837;&#x7684;&#x6587;&#x6863;</p>
+<pre><code>GET /ad/phone/_search
+{
+  &quot;query&quot;: {
+    &quot;match_phrase&quot;: {
+      &quot;ad&quot;: &quot;a red&quot;
+    }
+  }
+}
+</code></pre><h3 id="scroll&#x67E5;&#x8BE2;"><a name="scroll&#x67E5;&#x8BE2;" class="anchor-navigation-ex-anchor" href="#scroll&#x67E5;&#x8BE2;"><i class="fa fa-link" aria-hidden="true"></i></a>3.9. scroll&#x67E5;&#x8BE2;</h3>
+<p>&#x7C7B;&#x4F3C;&#x4E8E;&#x5206;&#x9875;&#x67E5;&#x8BE2;&#xFF0C;&#x4E0D;&#x652F;&#x6301;&#x8DF3;&#x9875;&#x67E5;&#x8BE2;&#xFF0C;&#x53EA;&#x80FD;&#x4E00;&#x9875;&#x4E00;&#x9875;&#x5F80;&#x4E0B;&#x67E5;&#x8BE2;&#xFF0C;<code>scroll</code>&#x67E5;&#x8BE2;&#x4E0D;&#x662F;&#x9488;&#x5BF9;&#x5B9E;&#x65F6;&#x7528;&#x6237;&#x8BF7;&#x6C42;&#xFF0C;&#x800C;&#x662F;&#x9488;&#x5BF9;&#x5904;&#x7406;&#x5927;&#x91CF;&#x6570;&#x636E;&#xFF0C;&#x4F8B;&#x5982;&#x4E3A;&#x4E86;&#x5C06;&#x4E00;&#x4E2A;&#x7D22;&#x5F15;&#x7684;&#x5185;&#x5BB9;&#x91CD;&#x65B0;&#x7D22;&#x5F15;&#x5230;&#x5177;&#x6709;&#x4E0D;&#x540C;&#x914D;&#x7F6E;&#x7684;&#x65B0;&#x7D22;&#x5F15;&#x4E2D;</p>
+<pre><code>POST /ad/phone/_search?scroll=1m
+{
+  &quot;query&quot;: {
+    &quot;match_all&quot;: {}
+  },
+  &quot;size&quot;: 1,
+  &quot;from&quot;: 0
+}
+</code></pre><p>&#x8FD4;&#x56DE;&#x503C;&#x5305;&#x542B;&#x4E00;&#x4E2A; <code>&quot;_scroll_id&quot;: &quot;DnF1ZXJ5VGhlbkZldGNoBQAAAAAAAAAQFlV6T3VqY2NaVDBLRG5uZXdiZ0hFYUEAAAAAAAAAERZVek91amNjWlQwS0RubmV3YmdIRWFBAAAAAAAAABIWVXpPdWpjY1pUMEtEbm5ld2JnSEVhQQAAAAAAAAATFlV6T3VqY2NaVDBLRG5uZXdiZ0hFYUEAAAAAAAAAFBZVek91amNjWlQwS0RubmV3YmdIRWFB&quot;</code></p>
+<p>&#x4E0B;&#x6B21;&#x67E5;&#x8BE2;&#x7684;&#x65F6;&#x5019;&#x4F7F;&#x7528;<code>_scroll_id</code>&#x5C31;&#x53EF;&#x4EE5;&#x67E5;&#x8BE2;&#x4E0B;&#x4E00;&#x9875;&#x7684;&#x6587;&#x6863;</p>
+<pre><code>POST /_search/scroll 
+{
+    &quot;scroll&quot; : &quot;1m&quot;, 
+    &quot;scroll_id&quot; : &quot;DnF1ZXJ5VGhlbkZldGNoBQAAAAAAAAAYFlV6T3VqY2NaVDBLRG5uZXdiZ0hFYUEAAAAAAAAAGRZVek91amNjWlQwS0RubmV3YmdIRWFBAAAAAAAAABYWVXpPdWpjY1pUMEtEbm5ld2JnSEVhQQAAAAAAAAAXFlV6T3VqY2NaVDBLRG5uZXdiZ0hFYUEAAAAAAAAAFRZVek91amNjWlQwS0RubmV3YmdIRWFB&quot; 
+}
+</code></pre><h3 id="multi-get&#x67E5;&#x8BE2;"><a name="multi-get&#x67E5;&#x8BE2;" class="anchor-navigation-ex-anchor" href="#multi-get&#x67E5;&#x8BE2;"><i class="fa fa-link" aria-hidden="true"></i></a>3.10. multi get&#x67E5;&#x8BE2;</h3>
+<p>&#x5141;&#x8BB8;&#x57FA;&#x4E8E;&#x7D22;&#x5F15;&#xFF0C;&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#xFF09;&#x548C;id&#xFF08;&#x4EE5;&#x53CA;&#x53EF;&#x80FD;&#x7684;&#x8DEF;&#x7531;&#xFF09;&#x83B7;&#x53D6;&#x591A;&#x4E2A;&#x6587;&#x6863;&#xFF0C;&#x5982;&#x679C;&#x67D0;&#x4E2A;&#x6587;&#x6863;&#x83B7;&#x53D6;&#x5931;&#x8D25;&#x5219;&#x5C06;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x5305;&#x542B;&#x5728;&#x54CD;&#x5E94;&#x4E2D;</p>
+<pre><code class="lang-autohotkey">GET /ad/phone/_mget
+{
+  <span class="hljs-string">&quot;ids&quot;</span>: [<span class="hljs-string">&quot;1&quot;</span>,<span class="hljs-string">&quot;8&quot;</span>]
+}
+```
+</code></pre>
+<h3 id="bulk&#x6279;&#x91CF;&#x64CD;&#x4F5C;"><a name="bulk&#x6279;&#x91CF;&#x64CD;&#x4F5C;" class="anchor-navigation-ex-anchor" href="#bulk&#x6279;&#x91CF;&#x64CD;&#x4F5C;"><i class="fa fa-link" aria-hidden="true"></i></a>3.11. bulk&#x6279;&#x91CF;&#x64CD;&#x4F5C;</h3>
+<p><code>bulk</code>&#x6279;&#x91CF;&#x64CD;&#x4F5C;&#x53EF;&#x4EE5;&#x5728;&#x5355;&#x6B21;API&#x8C03;&#x7528;&#x4E2D;&#x5B9E;&#x73B0;&#x591A;&#x4E2A;&#x6587;&#x6863;&#x7684;<code>create</code>&#x3001;<code>index</code>&#x3001;<code>update</code>&#x6216;<code>delete</code>&#x3002;&#x8FD9;&#x53EF;&#x4EE5;&#x5927;&#x5927;&#x63D0;&#x9AD8;&#x7D22;&#x5F15;&#x901F;&#x5EA6;</p>
+<p><code>bulk</code>&#x8BF7;&#x6C42;&#x4F53;&#x5982;&#x4E0B;</p>
+<pre><code>{ action: { metadata }}\n 
+{ request body        }\n
+{ action: { metadata }}\n
+{ request body        }\n
+...
+</code></pre><p><strong>action</strong>&#x5FC5;&#x987B;&#x662F;&#x4EE5;&#x4E0B;&#x51E0;&#x79CD;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th>&#x884C;&#x4E3A;</th>
+<th>&#x89E3;&#x91CA;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>create</td>
+<td>&#x5F53;&#x6587;&#x6863;&#x4E0D;&#x5B58;&#x5728;&#x65F6;&#x521B;&#x5EFA;</td>
+</tr>
+<tr>
+<td>index</td>
+<td>&#x521B;&#x5EFA;&#x65B0;&#x6587;&#x6863;&#x6216;&#x66FF;&#x6362;&#x5DF2;&#x6709;&#x6587;&#x6863;</td>
+</tr>
+<tr>
+<td>update</td>
+<td>&#x5C40;&#x90E8;&#x66F4;&#x65B0;&#x6587;&#x6863;</td>
+</tr>
+<tr>
+<td>delete</td>
+<td>&#x5220;&#x9664;&#x4E00;&#x4E2A;&#x6587;&#x6863;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x5728;&#x7D22;&#x5F15;&#x3001;&#x521B;&#x5EFA;&#x3001;&#x66F4;&#x65B0;&#x6216;&#x5220;&#x9664;&#x65F6;&#x5FC5;&#x987B;&#x6307;&#x5B9A;&#x6587;&#x6863;&#x7684;<code>_index</code>&#x3001;<code>_type</code>&#x3001;<code>_id</code>&#x8FD9;&#x4E9B;&#x5143;&#x6570;&#x636E;(<code>metadata</code>)</p>
+<p>&#x4F8B;&#xFF1A;</p>
+<pre><code>PUT _bulk
+    { &quot;create&quot; : { &quot;_index&quot; : &quot;ad&quot;, &quot;_type&quot; : &quot;phone&quot;, &quot;_id&quot; : &quot;6&quot; }}
+    { &quot;doc&quot; : {&quot;name&quot; : &quot;bulk&quot;}}
+    { &quot;index&quot; : { &quot;_index&quot; : &quot;ad&quot;, &quot;_type&quot; : &quot;phone&quot;, &quot;_id&quot; : &quot;6&quot; }}
+    { &quot;doc&quot; : {&quot;name&quot; : &quot;bulk&quot;}}
+    { &quot;delete&quot;:{  &quot;_index&quot; : &quot;ad&quot;, &quot;_type&quot; : &quot;phone&quot;, &quot;_id&quot; : &quot;1&quot;}}
+    { &quot;update&quot;:{  &quot;_index&quot; : &quot;ad&quot;, &quot;_type&quot; : &quot;phone&quot;, &quot;_id&quot; : &quot;3&quot;}}
+    { &quot;doc&quot; : {&quot;name&quot; : &quot;huawei p20&quot;}}
+</code></pre><p>&#x8FD4;&#x56DE;&#xFF1A;</p>
+<pre><code>{
+      &quot;took&quot;: 137,
+      &quot;errors&quot;: true, //&#x5982;&#x679C;&#x4EFB;&#x610F;&#x4E00;&#x4E2A;&#x6587;&#x6863;&#x51FA;&#x9519;&#xFF0C;&#x8FD9;&#x91CC;&#x8FD4;&#x56DE;true,
+      &quot;items&quot;: [ //items&#x6570;&#x7EC4;&#xFF0C;&#x5B83;&#x7F57;&#x5217;&#x4E86;&#x6BCF;&#x4E00;&#x4E2A;&#x8BF7;&#x6C42;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x7ED3;&#x679C;&#x7684;&#x987A;&#x5E8F;&#x4E0E;&#x6211;&#x4EEC;&#x8BF7;&#x6C42;&#x7684;&#x987A;&#x5E8F;&#x76F8;&#x540C;
+        {
+          //create&#x8FD9;&#x4E2A;&#x6587;&#x6863;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#xFF0C;&#x6240;&#x4EE5;&#x5F02;&#x5E38;
+          &quot;create&quot;: { 
+            &quot;_index&quot;: &quot;ad&quot;,
+            &quot;_type&quot;: &quot;phone&quot;,
+            &quot;_id&quot;: &quot;6&quot;,
+            &quot;status&quot;: 409,
+            &quot;error&quot;: {
+              &quot;type&quot;: &quot;version_conflict_engine_exception&quot;,
+              &quot;reason&quot;: &quot;[phone][6]: version conflict, document already exists (current version [2])&quot;,
+              &quot;index_uuid&quot;: &quot;9F5FHqgISYOra_P09HReVQ&quot;,
+              &quot;shard&quot;: &quot;2&quot;,
+              &quot;index&quot;: &quot;ad&quot;
+            }
+          }
+        },
+        {
+          //index&#x8FD9;&#x4E2A;&#x6587;&#x6863;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#xFF0C;&#x4F1A;&#x8986;&#x76D6;
+          &quot;index&quot;: { 
+            &quot;_index&quot;: &quot;ad&quot;,
+            &quot;_type&quot;: &quot;phone&quot;,
+            &quot;_id&quot;: &quot;6&quot;,
+            &quot;_version&quot;: 3,
+            &quot;result&quot;: &quot;updated&quot;,
+            &quot;_shards&quot;: {
+              &quot;total&quot;: 2,
+              &quot;successful&quot;: 1,
+              &quot;failed&quot;: 0
+            },
+            &quot;_seq_no&quot;: 6,
+            &quot;_primary_term&quot;: 5,
+            &quot;status&quot;: 200
+          }
+        },
+        {
+          //&#x5220;&#x9664;  
+          &quot;delete&quot;: { 
+            &quot;_index&quot;: &quot;ad&quot;,
+            &quot;_type&quot;: &quot;phone&quot;,
+            &quot;_id&quot;: &quot;1&quot;,
+            &quot;_version&quot;: 1,
+            &quot;result&quot;: &quot;not_found&quot;,
+            &quot;_shards&quot;: {
+              &quot;total&quot;: 2,
+              &quot;successful&quot;: 1,
+              &quot;failed&quot;: 0
+            },
+            &quot;_seq_no&quot;: 4,
+            &quot;_primary_term&quot;: 5,
+            &quot;status&quot;: 404
+          }
+        },
+        {
+          //&#x4FEE;&#x6539;  
+          &quot;update&quot;: { 
+            &quot;_index&quot;: &quot;ad&quot;,
+            &quot;_type&quot;: &quot;phone&quot;,
+            &quot;_id&quot;: &quot;3&quot;,
+            &quot;_version&quot;: 3,
+            &quot;result&quot;: &quot;noop&quot;,
+            &quot;_shards&quot;: {
+              &quot;total&quot;: 2,
+              &quot;successful&quot;: 1,
+              &quot;failed&quot;: 0
+            },
+            &quot;status&quot;: 200
+          }
+        }
+      ]
+    }
+</code></pre><p><code>bulk</code>&#x8BF7;&#x6C42;&#x4E0D;&#x662F;&#x539F;&#x5B50;&#x64CD;&#x4F5C;&#xFF0C;&#x5B83;&#x4EEC;&#x4E0D;&#x80FD;&#x5B9E;&#x73B0;&#x4E8B;&#x52A1;&#x3002;&#x6BCF;&#x4E2A;&#x8BF7;&#x6C42;&#x64CD;&#x4F5C;&#x65F6;&#x5206;&#x5F00;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x6BCF;&#x4E2A;&#x8BF7;&#x6C42;&#x7684;&#x6210;&#x529F;&#x4E0E;&#x5426;&#x4E0D;&#x5E72;&#x6270;&#x5176;&#x5B83;&#x64CD;&#x4F5C;</p>
+<h3 id="fuzzy&#x67E5;&#x8BE2;"><a name="fuzzy&#x67E5;&#x8BE2;" class="anchor-navigation-ex-anchor" href="#fuzzy&#x67E5;&#x8BE2;"><i class="fa fa-link" aria-hidden="true"></i></a>3.12. fuzzy&#x67E5;&#x8BE2;</h3>
+<p>&#x6A21;&#x7CCA;&#x67E5;&#x8BE2;&#xFF0C;<code>fuzzy</code> &#x67E5;&#x8BE2;&#x4F1A;&#x8BA1;&#x7B97;&#x4E0E;&#x5173;&#x952E;&#x8BCD;&#x7684;&#x62FC;&#x5199;&#x76F8;&#x4F3C;&#x7A0B;&#x5EA6;</p>
+<pre><code>GET /ad/phone/_search
+    {
+      &quot;query&quot;: {
+        &quot;fuzzy&quot;: {
+          &quot;color&quot;:{
+            &quot;value&quot;: &quot;res&quot;
+            , &quot;fuzziness&quot;: 2,
+            &quot;prefix_length&quot;: 1
+          }
+        }
+      }
+    }
+</code></pre><p>&#x53C2;&#x6570;&#x8BBE;&#x7F6E;&#xFF1A;</p>
+<p><code>fuzziness</code>&#xFF1A;&#x6700;&#x5927;&#x7F16;&#x8F91;&#x8DDD;&#x79BB;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;<code>AUTO</code></p>
+<p><code>prefix_length</code>&#xFF1A;&#x4E0D;&#x4F1A;&#x201C;&#x6A21;&#x7CCA;&#x5316;&#x201D;&#x7684;&#x521D;&#x59CB;&#x5B57;&#x7B26;&#x6570;&#x3002;&#x8FD9;&#x6709;&#x52A9;&#x4E8E;&#x51CF;&#x5C11;&#x5FC5;&#x987B;&#x68C0;&#x67E5;&#x7684;&#x672F;&#x8BED;&#x6570;&#x91CF;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;<code>0</code></p>
+<p><code>max_expansions</code>&#xFF1A;<code>fuzzy</code>&#x67E5;&#x8BE2;&#x5C06;&#x6269;&#x5C55;&#x5230; &#x7684;&#x6700;&#x5927;&#x672F;&#x8BED;&#x6570;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A;<code>50</code>&#xFF0C;&#x8BBE;&#x7F6E;&#x5C0F;&#xFF0C;&#x6709;&#x52A9;&#x4E8E;&#x4F18;&#x5316;&#x67E5;&#x8BE2;</p>
+<p><code>transpositions</code>&#xFF1A;&#x662F;&#x5426;&#x652F;&#x6301;&#x6A21;&#x7CCA;&#x8F6C;&#x7F6E;&#xFF08;<code>ab</code>&#x2192; <code>ba</code>&#xFF09;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;<code>false</code></p>
+<h3 id="wildcard&#x67E5;&#x8BE2;"><a name="wildcard&#x67E5;&#x8BE2;" class="anchor-navigation-ex-anchor" href="#wildcard&#x67E5;&#x8BE2;"><i class="fa fa-link" aria-hidden="true"></i></a>3.13. wildcard&#x67E5;&#x8BE2;</h3>
+<p>&#x652F;&#x6301;&#x901A;&#x914D;&#x7B26;&#x7684;&#x6A21;&#x7CCA;&#x67E5;&#x8BE2;&#xFF0C;&#xFF1F;&#x5339;&#x914D;&#x5355;&#x4E2A;&#x5B57;&#x7B26;&#xFF0C;*&#x5339;&#x914D;&#x4EFB;&#x4F55;&#x5B57;&#x7B26;</p>
+<p>&#x4E3A;&#x4E86;&#x9632;&#x6B62;&#x6781;&#x5176;&#x7F13;&#x6162;&#x901A;&#x914D;&#x7B26;&#x67E5;&#x8BE2;&#xFF0C;<code>*</code>&#x6216;<code>?</code>&#x901A;&#x914D;&#x7B26;&#x9879;&#x4E0D;&#x5E94;&#x8BE5;&#x653E;&#x5728;&#x901A;&#x914D;&#x7B26;&#x7684;&#x5F00;&#x59CB;</p>
+<pre><code>GET /ad/phone/_search
+    {
+      &quot;query&quot;: {
+        &quot;wildcard&quot;: {
+          &quot;color&quot;: &quot;r?d&quot;
+        }
+      }
+    }
+</code></pre>
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="es-ji-ben-yu-fa.html" class="navigation navigation-prev " aria-label="Previous page: ES基本语法">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="dao-pai-suo-yin.html" class="navigation navigation-next " aria-label="Next page: 倒排索引">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"ES语法进阶（📌）","level":"1.5","depth":1,"next":{"title":"倒排索引","level":"1.6","depth":1,"path":"dao-pai-suo-yin.md","ref":"dao-pai-suo-yin.md","articles":[]},"previous":{"title":"ES基本语法","level":"1.4","depth":1,"path":"es-ji-ben-yu-fa.md","ref":"es-ji-ben-yu-fa.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["anchor-navigation-ex","-search","-sharing","theme-default","-lunr","fontsettings","livereload","popup","splitter","copy-code-button","highlight","-expandable-chapters-small","chapter-fold","back-to-top-button","search-pro","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"popup":{},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"anchor-navigation-ex":{"showLevelIcon":false,"mode":"float","pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"showLevel":true,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","showGoTop":true,"printLog":false,"multipleH1":false,"multipleH2":false,"associatedWithSummary":true,"multipleH3":false,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"multipleH4":false},"back-to-top-button":{},"copy-code-button":{},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"es-yu-fa-jin-jie.md","mtime":"2024-05-11T06:43:53.495Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-11-14T14:51:31.791Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+
+    </body>
+</html>
+
