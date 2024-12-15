@@ -182,7 +182,7 @@ def write_index():
 
     with open(index_filepath, "w", encoding="utf-8") as f:
         for movie in sorted_movies:
-            f.write(f"[{movie['name']}]({movie['filename']})\n")
+            f.write(f"  * [{movie['name']}](dian-ying/{movie['filename']})\n")
 
 # 主函数
 def main():
