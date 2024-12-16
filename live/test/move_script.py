@@ -17,20 +17,25 @@ session = requests.Session()
 # 替换为你的已登录 Cookie（从浏览器中提取）
 cookies = {
     "bid": "diYTymxGzzI",
-    "ap_v": "0,6.0",
-    "__utma": "30149280.1809040293.1734187053.1734187053.1734187053.1",
-    "__utmc": "30149280",
-    "__utmz": "30149280.1734187053.1.1.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided)",
-    "ll": "108288",
+    "_pk_id.100001.4cf6": "a2e166d0ae147f6e.1734187052.",
+    "__utmc": "223695111",
+    "__utmz": "223695111.1734187053.1.1.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided)",
+    "__yadk_uid": "7DFistGj0Iicos60MzdImei1ZgT1a1i2",
+    "ll": "\"108288\"",
     "_vwo_uuid_v2": "DD2B62AD85B3B570B058DEA1D45BF0EC9|f8617c8fad68166a1e15eecc3b3dffd5",
-    "__yadk_uid": "YTALe0aAukNKeRvMc8Ug8LbHknyXcwBw",
     "push_noty_num": "0",
     "push_doumail_num": "0",
     "__utmv": "30149280.28537",
-    "dbcl2": "285378677:JVbBpS6GZeg",
+    "dbcl2": "\"285378677:JVbBpS6GZeg\"",
     "ck": "p-0H",
+    "frodotk_db": "\"92979b41cea5f4c2b7c6d1c56bf1de46\"",
+    "ap_v": "0,6.0",
+    "_pk_ref.100001.4cf6": "[\"\", \"\", 1734356527, \"https://www.google.com/\"]",
+    "_pk_ses.100001.4cf6": "1",
+    "__utma": "30149280.1809040293.1734187053.1734192732.1734356527.3",
     "__utmt_douban": "1",
-    "__utmb": "30149280.15.10.1734187053"
+    "__utmb": "30149280.2.10.1734356527",
+    "report": "ref=/&from=mv_a_pst",
 }
 
 # 更新会话的 Cookie
@@ -40,6 +45,7 @@ headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
     "Referer": "https://www.douban.com",
 }
+
 
 # 获取网页内容，支持重试
 def fetch_with_retry(url, params=None, retries=3):
@@ -53,6 +59,7 @@ def fetch_with_retry(url, params=None, retries=3):
             time.sleep(random.uniform(5, 10))  # 增加随机延迟
     print("多次尝试后连接失败。")
     return None
+
 
 # 获取电影信息
 def get_movie_info(movie_name):
@@ -114,6 +121,7 @@ def get_movie_info(movie_name):
         "english_title": english_title
     }
 
+
 # 写入 Markdown 文件
 def write_markdown(movie_name, info):
     # 将电影名称转换为拼音
@@ -147,9 +155,10 @@ def write_markdown(movie_name, info):
 
     return filename
 
+
 # 记录所有文件的索引
 def write_index():
-    index_filepath = os.path.join(output_dir, "index.md")
+    index_filepath = os.path.join(output_dir, "_index.md")
     movie_infos = []
 
     for filename in os.listdir(output_dir):
@@ -184,6 +193,7 @@ def write_index():
         for movie in sorted_movies:
             f.write(f"  * [{movie['name']}](dian-ying/{movie['filename']})\n")
 
+
 # 主函数
 def main():
     movies = []
@@ -199,6 +209,7 @@ def main():
 
     write_index()
     print("所有电影信息已处理完毕，索引文件已生成。")
+
 
 if __name__ == "__main__":
     main()
