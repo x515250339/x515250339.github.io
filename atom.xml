@@ -3,11 +3,11 @@
   <title>心瘾</title>
   
   
-  <link href="https://blog.yanxiang.wang/atom.xml" rel="self"/>
+  <link href="https://yanxiang.wang/atom.xml" rel="self"/>
   
-  <link href="https://blog.yanxiang.wang/"/>
+  <link href="https://yanxiang.wang/"/>
   <updated>2024-07-15T14:15:33.617Z</updated>
-  <id>https://blog.yanxiang.wang/</id>
+  <id>https://yanxiang.wang/</id>
   
   <author>
     <name>王彦翔</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>自动化部署：一键开启博客新纪元</title>
-    <link href="https://blog.yanxiang.wang/%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2blog/"/>
-    <id>https://blog.yanxiang.wang/%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2blog/</id>
+    <link href="https://yanxiang.wang/%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2blog/"/>
+    <id>https://yanxiang.wang/%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2blog/</id>
     <published>2024-06-18T14:10:05.000Z</published>
     <updated>2024-07-15T14:15:33.617Z</updated>
     
@@ -30,23 +30,23 @@
     
     
     
-    <category term="blog - 自动化" scheme="https://blog.yanxiang.wang/categories/blog-%E8%87%AA%E5%8A%A8%E5%8C%96/"/>
+    <category term="blog - 自动化" scheme="https://yanxiang.wang/categories/blog-%E8%87%AA%E5%8A%A8%E5%8C%96/"/>
     
     
-    <category term="hexo" scheme="https://blog.yanxiang.wang/tags/hexo/"/>
+    <category term="hexo" scheme="https://yanxiang.wang/tags/hexo/"/>
     
-    <category term="自动化博客" scheme="https://blog.yanxiang.wang/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8D%9A%E5%AE%A2/"/>
+    <category term="自动化博客" scheme="https://yanxiang.wang/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8D%9A%E5%AE%A2/"/>
     
-    <category term="frp" scheme="https://blog.yanxiang.wang/tags/frp/"/>
+    <category term="frp" scheme="https://yanxiang.wang/tags/frp/"/>
     
-    <category term="gitbook" scheme="https://blog.yanxiang.wang/tags/gitbook/"/>
+    <category term="gitbook" scheme="https://yanxiang.wang/tags/gitbook/"/>
     
   </entry>
   
   <entry>
     <title>智擎疾行，胜逐时速</title>
-    <link href="https://blog.yanxiang.wang/algorithm%E5%AD%A6%E4%B9%A0/"/>
-    <id>https://blog.yanxiang.wang/algorithm%E5%AD%A6%E4%B9%A0/</id>
+    <link href="https://yanxiang.wang/algorithm%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://yanxiang.wang/algorithm%E5%AD%A6%E4%B9%A0/</id>
     <published>2024-06-12T13:47:16.000Z</published>
     <updated>2024-06-12T13:21:38.543Z</updated>
     
@@ -57,17 +57,17 @@
     
     
     
-    <category term="algorithm" scheme="https://blog.yanxiang.wang/categories/algorithm/"/>
+    <category term="algorithm" scheme="https://yanxiang.wang/categories/algorithm/"/>
     
     
-    <category term="algorithm" scheme="https://blog.yanxiang.wang/tags/algorithm/"/>
+    <category term="algorithm" scheme="https://yanxiang.wang/tags/algorithm/"/>
     
   </entry>
   
   <entry>
     <title>数据浩瀚似海，Elasticsearch 速度不待</title>
-    <link href="https://blog.yanxiang.wang/elasticsearch%E5%AD%A6%E4%B9%A0/"/>
-    <id>https://blog.yanxiang.wang/elasticsearch%E5%AD%A6%E4%B9%A0/</id>
+    <link href="https://yanxiang.wang/elasticsearch%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://yanxiang.wang/elasticsearch%E5%AD%A6%E4%B9%A0/</id>
     <published>2024-05-09T13:47:16.000Z</published>
     <updated>2024-05-09T14:08:13.157Z</updated>
     
@@ -78,17 +78,17 @@
     
     
     
-    <category term="elasticsearch" scheme="https://blog.yanxiang.wang/categories/elasticsearch/"/>
+    <category term="elasticsearch" scheme="https://yanxiang.wang/categories/elasticsearch/"/>
     
     
-    <category term="elasticsearch" scheme="https://blog.yanxiang.wang/tags/elasticsearch/"/>
+    <category term="elasticsearch" scheme="https://yanxiang.wang/tags/elasticsearch/"/>
     
   </entry>
   
   <entry>
     <title>索引革命，数据腾飞</title>
-    <link href="https://blog.yanxiang.wang/mysql%E5%8D%83%E4%B8%87%E6%95%B0%E6%8D%AE%E7%B4%A2%E5%BC%95%E4%BC%98%E5%8C%96/"/>
-    <id>https://blog.yanxiang.wang/mysql%E5%8D%83%E4%B8%87%E6%95%B0%E6%8D%AE%E7%B4%A2%E5%BC%95%E4%BC%98%E5%8C%96/</id>
+    <link href="https://yanxiang.wang/mysql%E5%8D%83%E4%B8%87%E6%95%B0%E6%8D%AE%E7%B4%A2%E5%BC%95%E4%BC%98%E5%8C%96/"/>
+    <id>https://yanxiang.wang/mysql%E5%8D%83%E4%B8%87%E6%95%B0%E6%8D%AE%E7%B4%A2%E5%BC%95%E4%BC%98%E5%8C%96/</id>
     <published>2023-09-19T14:21:59.000Z</published>
     <updated>2024-12-12T15:18:13.048Z</updated>
     
@@ -99,29 +99,29 @@
     
     
     
-    <category term="mysql" scheme="https://blog.yanxiang.wang/categories/mysql/"/>
+    <category term="mysql" scheme="https://yanxiang.wang/categories/mysql/"/>
     
-    <category term="优化" scheme="https://blog.yanxiang.wang/categories/mysql/%E4%BC%98%E5%8C%96/"/>
+    <category term="优化" scheme="https://yanxiang.wang/categories/mysql/%E4%BC%98%E5%8C%96/"/>
     
     
-    <category term="python" scheme="https://blog.yanxiang.wang/tags/python/"/>
+    <category term="python" scheme="https://yanxiang.wang/tags/python/"/>
     
-    <category term="go" scheme="https://blog.yanxiang.wang/tags/go/"/>
+    <category term="go" scheme="https://yanxiang.wang/tags/go/"/>
     
-    <category term="mysql" scheme="https://blog.yanxiang.wang/tags/mysql/"/>
+    <category term="mysql" scheme="https://yanxiang.wang/tags/mysql/"/>
     
-    <category term="mysql优化" scheme="https://blog.yanxiang.wang/tags/mysql%E4%BC%98%E5%8C%96/"/>
+    <category term="mysql优化" scheme="https://yanxiang.wang/tags/mysql%E4%BC%98%E5%8C%96/"/>
     
-    <category term="海量数据生成" scheme="https://blog.yanxiang.wang/tags/%E6%B5%B7%E9%87%8F%E6%95%B0%E6%8D%AE%E7%94%9F%E6%88%90/"/>
+    <category term="海量数据生成" scheme="https://yanxiang.wang/tags/%E6%B5%B7%E9%87%8F%E6%95%B0%E6%8D%AE%E7%94%9F%E6%88%90/"/>
     
-    <category term="海量数据优化" scheme="https://blog.yanxiang.wang/tags/%E6%B5%B7%E9%87%8F%E6%95%B0%E6%8D%AE%E4%BC%98%E5%8C%96/"/>
+    <category term="海量数据优化" scheme="https://yanxiang.wang/tags/%E6%B5%B7%E9%87%8F%E6%95%B0%E6%8D%AE%E4%BC%98%E5%8C%96/"/>
     
   </entry>
   
   <entry>
     <title>掌握容器之力：MySQL主从复制</title>
-    <link href="https://blog.yanxiang.wang/%E6%8E%8C%E6%8F%A1%E5%AE%B9%E5%99%A8%E4%B9%8B%E5%8A%9B%EF%BC%9AMySQL%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/"/>
-    <id>https://blog.yanxiang.wang/%E6%8E%8C%E6%8F%A1%E5%AE%B9%E5%99%A8%E4%B9%8B%E5%8A%9B%EF%BC%9AMySQL%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/</id>
+    <link href="https://yanxiang.wang/%E6%8E%8C%E6%8F%A1%E5%AE%B9%E5%99%A8%E4%B9%8B%E5%8A%9B%EF%BC%9AMySQL%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/"/>
+    <id>https://yanxiang.wang/%E6%8E%8C%E6%8F%A1%E5%AE%B9%E5%99%A8%E4%B9%8B%E5%8A%9B%EF%BC%9AMySQL%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/</id>
     <published>2023-09-13T15:17:11.000Z</published>
     <updated>2023-09-13T15:33:07.729Z</updated>
     
@@ -132,23 +132,23 @@
     
     
     
-    <category term="docker" scheme="https://blog.yanxiang.wang/categories/docker/"/>
+    <category term="docker" scheme="https://yanxiang.wang/categories/docker/"/>
     
-    <category term="mysql" scheme="https://blog.yanxiang.wang/categories/docker/mysql/"/>
+    <category term="mysql" scheme="https://yanxiang.wang/categories/docker/mysql/"/>
     
-    <category term="主从复制" scheme="https://blog.yanxiang.wang/categories/docker/mysql/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/"/>
+    <category term="主从复制" scheme="https://yanxiang.wang/categories/docker/mysql/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/"/>
     
     
-    <category term="mysql" scheme="https://blog.yanxiang.wang/tags/mysql/"/>
+    <category term="mysql" scheme="https://yanxiang.wang/tags/mysql/"/>
     
-    <category term="docker" scheme="https://blog.yanxiang.wang/tags/docker/"/>
+    <category term="docker" scheme="https://yanxiang.wang/tags/docker/"/>
     
   </entry>
   
   <entry>
     <title>Python4种Debug方法</title>
-    <link href="https://blog.yanxiang.wang/Python4%E7%A7%8DDebug%E6%96%B9%E6%B3%95/"/>
-    <id>https://blog.yanxiang.wang/Python4%E7%A7%8DDebug%E6%96%B9%E6%B3%95/</id>
+    <link href="https://yanxiang.wang/Python4%E7%A7%8DDebug%E6%96%B9%E6%B3%95/"/>
+    <id>https://yanxiang.wang/Python4%E7%A7%8DDebug%E6%96%B9%E6%B3%95/</id>
     <published>2023-08-06T13:16:50.000Z</published>
     <updated>2023-09-13T15:33:52.236Z</updated>
     
@@ -159,21 +159,21 @@
     
     
     
-    <category term="python" scheme="https://blog.yanxiang.wang/categories/python/"/>
+    <category term="python" scheme="https://yanxiang.wang/categories/python/"/>
     
-    <category term="debug" scheme="https://blog.yanxiang.wang/categories/python/debug/"/>
+    <category term="debug" scheme="https://yanxiang.wang/categories/python/debug/"/>
     
     
-    <category term="python" scheme="https://blog.yanxiang.wang/tags/python/"/>
+    <category term="python" scheme="https://yanxiang.wang/tags/python/"/>
     
-    <category term="debug" scheme="https://blog.yanxiang.wang/tags/debug/"/>
+    <category term="debug" scheme="https://yanxiang.wang/tags/debug/"/>
     
   </entry>
   
   <entry>
     <title>数据可视化</title>
-    <link href="https://blog.yanxiang.wang/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
-    <id>https://blog.yanxiang.wang/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/</id>
+    <link href="https://yanxiang.wang/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
+    <id>https://yanxiang.wang/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/</id>
     <published>2023-07-23T13:16:50.000Z</published>
     <updated>2023-09-13T15:33:52.234Z</updated>
     
@@ -184,21 +184,21 @@
     
     
     
-    <category term="python" scheme="https://blog.yanxiang.wang/categories/python/"/>
+    <category term="python" scheme="https://yanxiang.wang/categories/python/"/>
     
-    <category term="数据可视化" scheme="https://blog.yanxiang.wang/categories/python/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
+    <category term="数据可视化" scheme="https://yanxiang.wang/categories/python/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
     
     
-    <category term="python" scheme="https://blog.yanxiang.wang/tags/python/"/>
+    <category term="python" scheme="https://yanxiang.wang/tags/python/"/>
     
-    <category term="数据可视化" scheme="https://blog.yanxiang.wang/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
+    <category term="数据可视化" scheme="https://yanxiang.wang/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
     
   </entry>
   
   <entry>
     <title>IO密集型、CPU密集型分别该选择多进程还是多线程</title>
-    <link href="https://blog.yanxiang.wang/IO%E5%AF%86%E9%9B%86%E5%9E%8B%E3%80%81CPU%E5%AF%86%E9%9B%86%E5%9E%8B%E5%88%86%E5%88%AB%E8%AF%A5%E9%80%89%E6%8B%A9%E5%A4%9A%E8%BF%9B%E7%A8%8B%E8%BF%98%E6%98%AF%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
-    <id>https://blog.yanxiang.wang/IO%E5%AF%86%E9%9B%86%E5%9E%8B%E3%80%81CPU%E5%AF%86%E9%9B%86%E5%9E%8B%E5%88%86%E5%88%AB%E8%AF%A5%E9%80%89%E6%8B%A9%E5%A4%9A%E8%BF%9B%E7%A8%8B%E8%BF%98%E6%98%AF%E5%A4%9A%E7%BA%BF%E7%A8%8B/</id>
+    <link href="https://yanxiang.wang/IO%E5%AF%86%E9%9B%86%E5%9E%8B%E3%80%81CPU%E5%AF%86%E9%9B%86%E5%9E%8B%E5%88%86%E5%88%AB%E8%AF%A5%E9%80%89%E6%8B%A9%E5%A4%9A%E8%BF%9B%E7%A8%8B%E8%BF%98%E6%98%AF%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
+    <id>https://yanxiang.wang/IO%E5%AF%86%E9%9B%86%E5%9E%8B%E3%80%81CPU%E5%AF%86%E9%9B%86%E5%9E%8B%E5%88%86%E5%88%AB%E8%AF%A5%E9%80%89%E6%8B%A9%E5%A4%9A%E8%BF%9B%E7%A8%8B%E8%BF%98%E6%98%AF%E5%A4%9A%E7%BA%BF%E7%A8%8B/</id>
     <published>2023-01-18T12:15:23.000Z</published>
     <updated>2023-09-13T07:36:16.916Z</updated>
     
@@ -209,27 +209,27 @@
     
     
     
-    <category term="python" scheme="https://blog.yanxiang.wang/categories/python/"/>
+    <category term="python" scheme="https://yanxiang.wang/categories/python/"/>
     
-    <category term="高并发" scheme="https://blog.yanxiang.wang/categories/python/%E9%AB%98%E5%B9%B6%E5%8F%91/"/>
+    <category term="高并发" scheme="https://yanxiang.wang/categories/python/%E9%AB%98%E5%B9%B6%E5%8F%91/"/>
     
     
-    <category term="python3" scheme="https://blog.yanxiang.wang/tags/python3/"/>
+    <category term="python3" scheme="https://yanxiang.wang/tags/python3/"/>
     
-    <category term="python" scheme="https://blog.yanxiang.wang/tags/python/"/>
+    <category term="python" scheme="https://yanxiang.wang/tags/python/"/>
     
-    <category term="多进程" scheme="https://blog.yanxiang.wang/tags/%E5%A4%9A%E8%BF%9B%E7%A8%8B/"/>
+    <category term="多进程" scheme="https://yanxiang.wang/tags/%E5%A4%9A%E8%BF%9B%E7%A8%8B/"/>
     
-    <category term="多线程" scheme="https://blog.yanxiang.wang/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
+    <category term="多线程" scheme="https://yanxiang.wang/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
     
-    <category term="高并发" scheme="https://blog.yanxiang.wang/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/"/>
+    <category term="高并发" scheme="https://yanxiang.wang/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/"/>
     
   </entry>
   
   <entry>
     <title>海外多时区日期计算</title>
-    <link href="https://blog.yanxiang.wang/python3%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4/"/>
-    <id>https://blog.yanxiang.wang/python3%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4/</id>
+    <link href="https://yanxiang.wang/python3%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4/"/>
+    <id>https://yanxiang.wang/python3%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4/</id>
     <published>2023-01-06T02:32:48.000Z</published>
     <updated>2023-09-13T07:36:16.908Z</updated>
     
@@ -241,16 +241,16 @@
     
     
     
-    <category term="python" scheme="https://blog.yanxiang.wang/tags/python/"/>
+    <category term="python" scheme="https://yanxiang.wang/tags/python/"/>
     
-    <category term="python2" scheme="https://blog.yanxiang.wang/tags/python2/"/>
+    <category term="python2" scheme="https://yanxiang.wang/tags/python2/"/>
     
   </entry>
   
   <entry>
     <title>Django源码分析-ModelViewSet</title>
-    <link href="https://blog.yanxiang.wang/Django%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/"/>
-    <id>https://blog.yanxiang.wang/Django%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</id>
+    <link href="https://yanxiang.wang/Django%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/"/>
+    <id>https://yanxiang.wang/Django%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</id>
     <published>2022-01-19T07:37:30.000Z</published>
     <updated>2024-12-12T15:18:13.051Z</updated>
     
@@ -269,25 +269,25 @@
     
     
     
-    <category term="python" scheme="https://blog.yanxiang.wang/categories/python/"/>
+    <category term="python" scheme="https://yanxiang.wang/categories/python/"/>
     
-    <category term="django" scheme="https://blog.yanxiang.wang/categories/python/django/"/>
+    <category term="django" scheme="https://yanxiang.wang/categories/python/django/"/>
     
-    <category term="rest-rest-framework" scheme="https://blog.yanxiang.wang/categories/python/django/rest-rest-framework/"/>
+    <category term="rest-rest-framework" scheme="https://yanxiang.wang/categories/python/django/rest-rest-framework/"/>
     
     
-    <category term="django" scheme="https://blog.yanxiang.wang/tags/django/"/>
+    <category term="django" scheme="https://yanxiang.wang/tags/django/"/>
     
-    <category term="python" scheme="https://blog.yanxiang.wang/tags/python/"/>
+    <category term="python" scheme="https://yanxiang.wang/tags/python/"/>
     
-    <category term="rest-rest-framework" scheme="https://blog.yanxiang.wang/tags/rest-rest-framework/"/>
+    <category term="rest-rest-framework" scheme="https://yanxiang.wang/tags/rest-rest-framework/"/>
     
   </entry>
   
   <entry>
     <title>创建FastApi项目</title>
-    <link href="https://blog.yanxiang.wang/%E5%88%9B%E5%BB%BAFastApi%E9%A1%B9%E7%9B%AE/"/>
-    <id>https://blog.yanxiang.wang/%E5%88%9B%E5%BB%BAFastApi%E9%A1%B9%E7%9B%AE/</id>
+    <link href="https://yanxiang.wang/%E5%88%9B%E5%BB%BAFastApi%E9%A1%B9%E7%9B%AE/"/>
+    <id>https://yanxiang.wang/%E5%88%9B%E5%BB%BAFastApi%E9%A1%B9%E7%9B%AE/</id>
     <published>2022-01-10T14:26:49.000Z</published>
     <updated>2023-09-13T07:36:16.909Z</updated>
     
@@ -298,21 +298,21 @@
     
     
     
-    <category term="python" scheme="https://blog.yanxiang.wang/categories/python/"/>
+    <category term="python" scheme="https://yanxiang.wang/categories/python/"/>
     
-    <category term="fastapi" scheme="https://blog.yanxiang.wang/categories/python/fastapi/"/>
+    <category term="fastapi" scheme="https://yanxiang.wang/categories/python/fastapi/"/>
     
     
-    <category term="python" scheme="https://blog.yanxiang.wang/tags/python/"/>
+    <category term="python" scheme="https://yanxiang.wang/tags/python/"/>
     
-    <category term="fastapi" scheme="https://blog.yanxiang.wang/tags/fastapi/"/>
+    <category term="fastapi" scheme="https://yanxiang.wang/tags/fastapi/"/>
     
   </entry>
   
   <entry>
     <title>git常用命令</title>
-    <link href="https://blog.yanxiang.wang/git%E5%B8%B8%E7%94%A8/"/>
-    <id>https://blog.yanxiang.wang/git%E5%B8%B8%E7%94%A8/</id>
+    <link href="https://yanxiang.wang/git%E5%B8%B8%E7%94%A8/"/>
+    <id>https://yanxiang.wang/git%E5%B8%B8%E7%94%A8/</id>
     <published>2022-01-09T13:32:51.000Z</published>
     <updated>2023-09-13T07:36:16.971Z</updated>
     
@@ -323,21 +323,21 @@
     
     
     
-    <category term="git" scheme="https://blog.yanxiang.wang/categories/git/"/>
+    <category term="git" scheme="https://yanxiang.wang/categories/git/"/>
     
-    <category term="常用命令" scheme="https://blog.yanxiang.wang/categories/git/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <category term="常用命令" scheme="https://yanxiang.wang/categories/git/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
     
     
-    <category term="git" scheme="https://blog.yanxiang.wang/tags/git/"/>
+    <category term="git" scheme="https://yanxiang.wang/tags/git/"/>
     
-    <category term="work" scheme="https://blog.yanxiang.wang/tags/work/"/>
+    <category term="work" scheme="https://yanxiang.wang/tags/work/"/>
     
   </entry>
   
   <entry>
     <title>gin接口参数的校验</title>
-    <link href="https://blog.yanxiang.wang/gin%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E6%A0%A1%E9%AA%8C/"/>
-    <id>https://blog.yanxiang.wang/gin%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E6%A0%A1%E9%AA%8C/</id>
+    <link href="https://yanxiang.wang/gin%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E6%A0%A1%E9%AA%8C/"/>
+    <id>https://yanxiang.wang/gin%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E6%A0%A1%E9%AA%8C/</id>
     <published>2021-12-30T13:47:16.000Z</published>
     <updated>2023-09-13T07:36:16.931Z</updated>
     
@@ -348,21 +348,21 @@
     
     
     
-    <category term="go" scheme="https://blog.yanxiang.wang/categories/go/"/>
+    <category term="go" scheme="https://yanxiang.wang/categories/go/"/>
     
-    <category term="gin" scheme="https://blog.yanxiang.wang/categories/go/gin/"/>
+    <category term="gin" scheme="https://yanxiang.wang/categories/go/gin/"/>
     
     
-    <category term="go" scheme="https://blog.yanxiang.wang/tags/go/"/>
+    <category term="go" scheme="https://yanxiang.wang/tags/go/"/>
     
-    <category term="gin" scheme="https://blog.yanxiang.wang/tags/gin/"/>
+    <category term="gin" scheme="https://yanxiang.wang/tags/gin/"/>
     
   </entry>
   
   <entry>
     <title>gin 基础请求方式</title>
-    <link href="https://blog.yanxiang.wang/gin%E5%9F%BA%E7%A1%80%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F/"/>
-    <id>https://blog.yanxiang.wang/gin%E5%9F%BA%E7%A1%80%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F/</id>
+    <link href="https://yanxiang.wang/gin%E5%9F%BA%E7%A1%80%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F/"/>
+    <id>https://yanxiang.wang/gin%E5%9F%BA%E7%A1%80%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F/</id>
     <published>2021-12-29T13:47:16.000Z</published>
     <updated>2023-09-13T07:36:16.939Z</updated>
     
@@ -373,21 +373,21 @@
     
     
     
-    <category term="go" scheme="https://blog.yanxiang.wang/categories/go/"/>
+    <category term="go" scheme="https://yanxiang.wang/categories/go/"/>
     
-    <category term="gin" scheme="https://blog.yanxiang.wang/categories/go/gin/"/>
+    <category term="gin" scheme="https://yanxiang.wang/categories/go/gin/"/>
     
     
-    <category term="go" scheme="https://blog.yanxiang.wang/tags/go/"/>
+    <category term="go" scheme="https://yanxiang.wang/tags/go/"/>
     
-    <category term="gin" scheme="https://blog.yanxiang.wang/tags/gin/"/>
+    <category term="gin" scheme="https://yanxiang.wang/tags/gin/"/>
     
   </entry>
   
   <entry>
     <title>go快速入门基础语法</title>
-    <link href="https://blog.yanxiang.wang/go%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/"/>
-    <id>https://blog.yanxiang.wang/go%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/</id>
+    <link href="https://yanxiang.wang/go%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/"/>
+    <id>https://yanxiang.wang/go%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/</id>
     <published>2021-12-28T13:47:16.000Z</published>
     <updated>2023-09-13T07:36:16.967Z</updated>
     
@@ -398,17 +398,17 @@
     
     
     
-    <category term="go" scheme="https://blog.yanxiang.wang/categories/go/"/>
+    <category term="go" scheme="https://yanxiang.wang/categories/go/"/>
     
     
-    <category term="go" scheme="https://blog.yanxiang.wang/tags/go/"/>
+    <category term="go" scheme="https://yanxiang.wang/tags/go/"/>
     
   </entry>
   
   <entry>
     <title>win环境启动gin</title>
-    <link href="https://blog.yanxiang.wang/win%E7%8E%AF%E5%A2%83%E5%90%AF%E5%8A%A8gin/"/>
-    <id>https://blog.yanxiang.wang/win%E7%8E%AF%E5%A2%83%E5%90%AF%E5%8A%A8gin/</id>
+    <link href="https://yanxiang.wang/win%E7%8E%AF%E5%A2%83%E5%90%AF%E5%8A%A8gin/"/>
+    <id>https://yanxiang.wang/win%E7%8E%AF%E5%A2%83%E5%90%AF%E5%8A%A8gin/</id>
     <published>2021-12-28T13:32:51.000Z</published>
     <updated>2023-09-13T07:36:16.923Z</updated>
     
@@ -419,21 +419,21 @@
     
     
     
-    <category term="go" scheme="https://blog.yanxiang.wang/categories/go/"/>
+    <category term="go" scheme="https://yanxiang.wang/categories/go/"/>
     
-    <category term="gin" scheme="https://blog.yanxiang.wang/categories/go/gin/"/>
+    <category term="gin" scheme="https://yanxiang.wang/categories/go/gin/"/>
     
     
-    <category term="go" scheme="https://blog.yanxiang.wang/tags/go/"/>
+    <category term="go" scheme="https://yanxiang.wang/tags/go/"/>
     
-    <category term="gin" scheme="https://blog.yanxiang.wang/tags/gin/"/>
+    <category term="gin" scheme="https://yanxiang.wang/tags/gin/"/>
     
   </entry>
   
   <entry>
     <title>python手写队列异步任务</title>
-    <link href="https://blog.yanxiang.wang/python%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97%E6%89%A7%E8%A1%8C%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1/"/>
-    <id>https://blog.yanxiang.wang/python%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97%E6%89%A7%E8%A1%8C%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1/</id>
+    <link href="https://yanxiang.wang/python%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97%E6%89%A7%E8%A1%8C%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1/"/>
+    <id>https://yanxiang.wang/python%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97%E6%89%A7%E8%A1%8C%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1/</id>
     <published>2021-12-28T11:35:36.000Z</published>
     <updated>2023-09-13T07:36:16.907Z</updated>
     
@@ -444,23 +444,23 @@
     
     
     
-    <category term="python" scheme="https://blog.yanxiang.wang/categories/python/"/>
+    <category term="python" scheme="https://yanxiang.wang/categories/python/"/>
     
-    <category term="celery" scheme="https://blog.yanxiang.wang/categories/python/celery/"/>
+    <category term="celery" scheme="https://yanxiang.wang/categories/python/celery/"/>
     
     
-    <category term="python" scheme="https://blog.yanxiang.wang/tags/python/"/>
+    <category term="python" scheme="https://yanxiang.wang/tags/python/"/>
     
-    <category term="queue" scheme="https://blog.yanxiang.wang/tags/queue/"/>
+    <category term="queue" scheme="https://yanxiang.wang/tags/queue/"/>
     
-    <category term="celery" scheme="https://blog.yanxiang.wang/tags/celery/"/>
+    <category term="celery" scheme="https://yanxiang.wang/tags/celery/"/>
     
   </entry>
   
   <entry>
     <title>python使用redis处理高并发</title>
-    <link href="https://blog.yanxiang.wang/redis%E5%A4%84%E7%90%86%E9%AB%98%E5%B9%B6%E5%8F%91/"/>
-    <id>https://blog.yanxiang.wang/redis%E5%A4%84%E7%90%86%E9%AB%98%E5%B9%B6%E5%8F%91/</id>
+    <link href="https://yanxiang.wang/redis%E5%A4%84%E7%90%86%E9%AB%98%E5%B9%B6%E5%8F%91/"/>
+    <id>https://yanxiang.wang/redis%E5%A4%84%E7%90%86%E9%AB%98%E5%B9%B6%E5%8F%91/</id>
     <published>2021-12-16T13:42:47.000Z</published>
     <updated>2023-09-13T07:36:16.967Z</updated>
     
@@ -475,27 +475,27 @@
     
     
     
-    <category term="python" scheme="https://blog.yanxiang.wang/categories/python/"/>
+    <category term="python" scheme="https://yanxiang.wang/categories/python/"/>
     
-    <category term="redis" scheme="https://blog.yanxiang.wang/categories/python/redis/"/>
+    <category term="redis" scheme="https://yanxiang.wang/categories/python/redis/"/>
     
     
-    <category term="django" scheme="https://blog.yanxiang.wang/tags/django/"/>
+    <category term="django" scheme="https://yanxiang.wang/tags/django/"/>
     
-    <category term="python" scheme="https://blog.yanxiang.wang/tags/python/"/>
+    <category term="python" scheme="https://yanxiang.wang/tags/python/"/>
     
-    <category term="redis" scheme="https://blog.yanxiang.wang/tags/redis/"/>
+    <category term="redis" scheme="https://yanxiang.wang/tags/redis/"/>
     
-    <category term="databases" scheme="https://blog.yanxiang.wang/tags/databases/"/>
+    <category term="databases" scheme="https://yanxiang.wang/tags/databases/"/>
     
-    <category term="处理高并发" scheme="https://blog.yanxiang.wang/tags/%E5%A4%84%E7%90%86%E9%AB%98%E5%B9%B6%E5%8F%91/"/>
+    <category term="处理高并发" scheme="https://yanxiang.wang/tags/%E5%A4%84%E7%90%86%E9%AB%98%E5%B9%B6%E5%8F%91/"/>
     
   </entry>
   
   <entry>
     <title>tornado导入/导出Excel文件</title>
-    <link href="https://blog.yanxiang.wang/%E5%AF%BC%E5%87%BA%E6%96%87%E4%BB%B6/"/>
-    <id>https://blog.yanxiang.wang/%E5%AF%BC%E5%87%BA%E6%96%87%E4%BB%B6/</id>
+    <link href="https://yanxiang.wang/%E5%AF%BC%E5%87%BA%E6%96%87%E4%BB%B6/"/>
+    <id>https://yanxiang.wang/%E5%AF%BC%E5%87%BA%E6%96%87%E4%BB%B6/</id>
     <published>2021-12-14T09:31:27.000Z</published>
     <updated>2023-09-13T07:36:16.893Z</updated>
     
@@ -506,25 +506,25 @@
     
     
     
-    <category term="python" scheme="https://blog.yanxiang.wang/categories/python/"/>
+    <category term="python" scheme="https://yanxiang.wang/categories/python/"/>
     
-    <category term="tornado" scheme="https://blog.yanxiang.wang/categories/python/tornado/"/>
+    <category term="tornado" scheme="https://yanxiang.wang/categories/python/tornado/"/>
     
     
-    <category term="python" scheme="https://blog.yanxiang.wang/tags/python/"/>
+    <category term="python" scheme="https://yanxiang.wang/tags/python/"/>
     
-    <category term="work" scheme="https://blog.yanxiang.wang/tags/work/"/>
+    <category term="work" scheme="https://yanxiang.wang/tags/work/"/>
     
-    <category term="pandas" scheme="https://blog.yanxiang.wang/tags/pandas/"/>
+    <category term="pandas" scheme="https://yanxiang.wang/tags/pandas/"/>
     
-    <category term="tornado" scheme="https://blog.yanxiang.wang/tags/tornado/"/>
+    <category term="tornado" scheme="https://yanxiang.wang/tags/tornado/"/>
     
   </entry>
   
   <entry>
     <title>linux服务器启动一个redis服务</title>
-    <link href="https://blog.yanxiang.wang/redis-server/"/>
-    <id>https://blog.yanxiang.wang/redis-server/</id>
+    <link href="https://yanxiang.wang/redis-server/"/>
+    <id>https://yanxiang.wang/redis-server/</id>
     <published>2021-12-10T09:17:10.000Z</published>
     <updated>2023-09-13T07:36:16.917Z</updated>
     
@@ -535,14 +535,14 @@
     
     
     
-    <category term="database" scheme="https://blog.yanxiang.wang/categories/database/"/>
+    <category term="database" scheme="https://yanxiang.wang/categories/database/"/>
     
-    <category term="redis" scheme="https://blog.yanxiang.wang/categories/database/redis/"/>
+    <category term="redis" scheme="https://yanxiang.wang/categories/database/redis/"/>
     
     
-    <category term="work" scheme="https://blog.yanxiang.wang/tags/work/"/>
+    <category term="work" scheme="https://yanxiang.wang/tags/work/"/>
     
-    <category term="redis" scheme="https://blog.yanxiang.wang/tags/redis/"/>
+    <category term="redis" scheme="https://yanxiang.wang/tags/redis/"/>
     
   </entry>
   
