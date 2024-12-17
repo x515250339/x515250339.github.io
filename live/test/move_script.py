@@ -63,11 +63,24 @@ def fetch_with_retry(url, params=None, retries=3):
 
 # 获取电影信息
 def get_movie_info(movie_name):
+    # 将电影名称转换为拼音
+    filename = "-".join(lazy_pinyin(movie_name)) + ".md"
+    filepath = os.path.join(output_dir, filename)
+    # 如果文件已存在，跳过写入
+    if os.path.exists(filepath):
+        print(f"文件 {filename} 已存在，跳过获取豆瓣信息。")
+        return
+    res_default = {
+        "intro": "暂无简介",
+        "actors": "暂无演员信息",
+        "rating": 0,
+        "english_title": ""
+    }
     search_url = "https://search.douban.com/movie/subject_search"
     params = {"search_text": movie_name, "cat": "1002"}
     response = fetch_with_retry(search_url, params=params)
     if response is None:
-        return None
+        return res_default
 
     soup = BeautifulSoup(response.text, "html.parser")
     script_tag = soup.find("script", string=re.compile('window.__DATA__'))
@@ -79,25 +92,25 @@ def get_movie_info(movie_name):
         if match:
             json_data = json.loads(match.group(1))
             if not json_data or not json_data['items']:
-                return None
+                return res_default
             # 提取电影的 URL 列表
             movie_urls = [item.get('url') for item in json_data['items']]
 
     if len(movie_urls) == 0:
-        return
+        return res_default
     # 获取电影详情页链接
     link = movie_urls[0]
     if not link:
-        return None
+        return res_default
     if not link.startswith("https://movie.douban.com/subject/"):
         print(f"搜索结果中未找到有效的电影链接: {link}")
-        return None
+        return res_default
 
     time.sleep(random.uniform(2, 5))  # 随机延迟
 
     detail_response = fetch_with_retry(link)
     if detail_response is None:
-        return None
+        return res_default
 
     detail_soup = BeautifulSoup(detail_response.text, "html.parser")
 
@@ -198,8 +211,14 @@ def write_index():
 def main():
     movies = []
 
+    if not os.path.exists("目录.txt"):
+        print("文件不存在！")
+
+    with open("目录.txt", "r", encoding="utf-8") as file:
+        # 按行读取并去掉可能的换行符
+        movies = [line.strip() for line in file if line.strip()]
     for movie_name in movies:
-        print(f"正在获取《{movie_name}》的信息...（仅匹配第一个搜索结果）")
+        print(f"正在获取《{movie_name}》的信息")
         info = get_movie_info(movie_name)
         if info:
             filename = write_markdown(movie_name, info)
