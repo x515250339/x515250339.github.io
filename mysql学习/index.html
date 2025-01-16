@@ -1,760 +1,88 @@
-<!DOCTYPE html><html lang="en"><head><!-- hexo injector head_begin start --><link href="https://cdn.jsdelivr.net/npm/hexo-widget-tree@0.2.2/css/index.css" rel="stylesheet"/><!-- hexo injector head_begin end --><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0078E7"><meta name="author" content="王彦翔"><meta name="copyright" content="王彦翔"><meta name="generator" content="Hexo 5.4.0"><meta name="theme" content="hexo-theme-yun"><title>mysql数据库 | 心瘾</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><script src="//at.alicdn.com/t/font_1140697_dxory92pb0h.js" async></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>function initScrollReveal() {
-  [".post-card",".post-content img"].forEach((target)=> {
-    ScrollReveal().reveal(target);
-  })
+.post-block {
+  color: var(--hty-text-color);
+  margin: 0 1rem;
+  padding: 1rem;
+  background-color: var(--post-block-bg-color);
+mobile()
 }
-document.addEventListener("DOMContentLoaded", initScrollReveal);
-document.addEventListener("pjax:success", initScrollReveal);
-</script><script src="https://cdn.jsdelivr.net/npm/pjax@latest/pjax.min.js" defer></script><script src="/js/pjax.js" defer></script><script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@latest/themes/prism.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@latest/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="icon" type="image/svg+xml" href="/images/yanxiang.svg"><link rel="mask-icon" href="/images/yanxiang.svg" color="#0078E7"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
-    const Yun = window.Yun || {};
-    window.CONFIG = {"hostname":"yanxiang.wang","root":"/","title":"彦的个人博客","version":"1.7.0","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms"},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"https://v1.hitokoto.cn","hitokoto":true},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
-  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="心瘾" type="application/atom+xml"><link rel="stylesheet" href="//example.min.css"><script src="//at.alicdn.com/t/c/font_3013545_3o3fuisnga1.js" async></script><link rel="preconnect" href="https://www.google-analytics.com" crossorigin><script async src="https://www.googletagmanager.com/gtag/js?id=G-1LL0D86CY9"></script><script>if (CONFIG.hostname === location.hostname) {
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-1LL0D86CY9');
-}</script><script>//- only for pjax
-function sendPageView() {
-  if (CONFIG.hostname !== location.hostname) return;
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('event', 'page_view', {
-    page_path: encodeURIComponent(location.pathname),
-  })
+.post-body {
+  padding: 0 5rem;
+tablet()
+mobile()
 }
-document.addEventListener("pjax:success", sendPageView);</script><script data-ad-client="ca-pub-2245427233262012" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(function(){
-  var bp = document.createElement('script');
-  var curProtocol = window.location.protocol.split(':')[0];
-  if (curProtocol === 'https') {
-    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-  }
-  else {
-    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-  }
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(bp, s);
-})();</script><!-- Google Tag Manager --><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-M9KWR9L');</script><!-- End Google Tag Manager --><meta name="description" content="有心才会累，无心无所谓">
-<meta property="og:type" content="article">
-<meta property="og:title" content="mysql数据库">
-<meta property="og:url" content="https://yanxiang.wang/mysql%E5%AD%A6%E4%B9%A0/index.html">
-<meta property="og:site_name" content="心瘾">
-<meta property="og:description" content="有心才会累，无心无所谓">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://yanxiang.wang/images/mysql%E5%AD%A6%E4%B9%A0.assets/mysql.png">
-<meta property="article:published_time" content="2020-12-25T11:03:28.000Z">
-<meta property="article:modified_time" content="2023-09-18T12:10:33.222Z">
-<meta property="article:author" content="王彦翔">
-<meta property="article:tag" content="MySQL">
-<meta property="article:tag" content="关系型数据库">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://yanxiang.wang/images/mysql%E5%AD%A6%E4%B9%A0.assets/mysql.png"><script src="/js/ui/mode.js"></script></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js"></script><canvas class="fireworks"></canvas><canvas id="trianglifyContainer"></canvas><script defer src="https://cdn.jsdelivr.net/npm/trianglify@4/dist/trianglify.bundle.js"></script><script>document.addEventListener("DOMContentLoaded", () => {
-  const pattern = trianglify({
-    width: 800,
-    height: 600,
-    cellSize: 75,
-    palette: ["YlGnBu", "GnBu", "Purples", "Blues"],
-  });
-  const canvasOpts = {
-    applyCssScaling: false
-  }
-  document.body.appendChild(pattern.toCanvas(trianglifyContainer, canvasOpts));
-});</script><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="Table of Contents"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-list-ordered"></use></svg></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="Overview"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-passport-line"></use></svg></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="王彦翔"><img width="96" loading="lazy" src="/images/yanxiang.png" alt="王彦翔"><span class="site-author-status" title="Looking for dawn.">👍🏻</span></a><div class="site-author-name"><a href="/about/">王彦翔</a></div><span class="site-name">心瘾</span><sub class="site-subtitle"></sub><div class="site-desciption">年轻就该满腔热血</div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="Home"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item"><a href="/archives/" title="Archives"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">56</span></a></div><div class="site-state-item"><a href="/categories/" title="Categories"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-2-line"></use></svg></span><span class="site-state-item-count">53</span></a></div><div class="site-state-item"><a href="/tags/" title="Tags"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="site-state-item-count">86</span></a></div><a class="site-state-item hty-icon-button" target="_blank" rel="noopener" href="https://yun.yunyoujun.cn" title="文档"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-settings-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="/atom.xml" title="RSS" target="_blank" style="color:orange"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-rss-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="http://wpa.qq.com/msgrd?v=3&amp;uin=515250339&amp;site=qq&amp;menu=yes" title="作者 QQ 515250339" target="_blank" style="color:#12B7F5"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-qq-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/515250339" title="GitHub" target="_blank" style="color:#6e5494"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://blog.csdn.net/weixin_45954124?spm=1000.2115.3001.5113" title="CSDN" target="_blank" style="color:#0088CC"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-csdn"></use></svg></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/python%E5%9F%BA%E7%A1%80/" title="python基础" style="color:green"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-python"></use></svg></a><a class="links-item hty-icon-button" href="/django%E5%88%9D%E7%BA%A7/" title="Django初级" style="color:hotpink"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-bxl-django"></use></svg></a><a class="links-item hty-icon-button" href="/django%E9%AB%98%E7%BA%A7/" title="Django高级" style="color:hotpink"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-django"></use></svg></a><a class="links-item hty-icon-button" href="/python%E9%9D%A2%E8%AF%95%E5%AE%9D%E5%85%B8/" title="python面试宝典" style="color:red"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-shuji"></use></svg></a><a class="links-item hty-icon-button" href="/%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/" title="安装文档" style="color:null"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-anzhuang"></use></svg></a><a class="links-item hty-icon-button" href="/gonote/" title="gonote" style="color:hotpink"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-gopher"></use></svg></a><a class="links-item hty-icon-button" href="/gorm/" title="GORM" style="color:hotpink"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-go_gopher"></use></svg></a><a class="links-item hty-icon-button" href="/algorithm/" title="算法" style="color:null"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-icon-rgb_jiqixuexisuanfayinqing"></use></svg></a><a class="links-item hty-icon-button" href="/albums/" title="相册" style="color:hotpink"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-women-line"></use></svg></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-contrast-2-line"></use></svg></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">1.</span> <span class="toc-text">数据库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL%E6%93%8D%E4%BD%9C"><span class="toc-number">2.</span> <span class="toc-text">MySQL操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="toc-number">2.1.</span> <span class="toc-text">基本操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%99%BB%E5%BD%95mysql"><span class="toc-number">2.1.1.</span> <span class="toc-text">登录mysql</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%80%E5%87%BAmysql"><span class="toc-number">2.1.2.</span> <span class="toc-text">退出mysql</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%BA%93"><span class="toc-number">2.1.3.</span> <span class="toc-text">查看库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E5%85%A5%E5%BA%93"><span class="toc-number">2.1.4.</span> <span class="toc-text">进入库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E5%BA%93"><span class="toc-number">2.1.5.</span> <span class="toc-text">查看当前库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">2.1.6.</span> <span class="toc-text">删除数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%BA%93"><span class="toc-number">2.1.7.</span> <span class="toc-text">创建一个库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="toc-number">2.1.8.</span> <span class="toc-text">表的基本操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E9%87%8C%E7%9A%84%E6%89%80%E6%9C%89%E8%A1%A8"><span class="toc-number">2.2.</span> <span class="toc-text">查看数据库里的所有表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E8%A1%A8%E7%BB%93%E6%9E%84"><span class="toc-number">2.2.1.</span> <span class="toc-text">查看表结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E8%A1%A8"><span class="toc-number">2.2.2.</span> <span class="toc-text">创建表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%99%E8%A1%A8%E6%B7%BB%E5%8A%A0%E5%AD%97%E6%AE%B5"><span class="toc-number">2.2.3.</span> <span class="toc-text">给表添加字段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8D%E5%91%BD%E5%90%8D%E8%A1%A8%E9%87%8C%E7%9A%84%E5%AD%97%E6%AE%B5%E5%90%8D"><span class="toc-number">2.2.4.</span> <span class="toc-text">重命名表里的字段名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E8%A1%A8%E9%87%8C%E7%9A%84%E5%AD%97%E6%AE%B5%E7%B1%BB%E5%9E%8B%E5%8F%8A%E7%BA%A6%E6%9D%9F-%E4%B8%8D%E9%9C%80%E8%A6%81%E9%87%8D%E5%91%BD%E5%90%8D"><span class="toc-number">2.2.5.</span> <span class="toc-text">修改表里的字段类型及约束(不需要重命名)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E5%AD%97%E6%AE%B5"><span class="toc-number">2.2.6.</span> <span class="toc-text">删除字段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E8%A1%A8"><span class="toc-number">2.2.7.</span> <span class="toc-text">删除表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%88%9B%E5%BB%BA%E8%A1%A8%E7%9A%84%E8%AF%AD%E5%8F%A5"><span class="toc-number">2.2.8.</span> <span class="toc-text">查看创建表的语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E8%A1%A8%E5%90%8D"><span class="toc-number">2.2.9.</span> <span class="toc-text">修改表名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.2.10.</span> <span class="toc-text">类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%A6%E6%9D%9F"><span class="toc-number">2.2.11.</span> <span class="toc-text">约束</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A8%E7%9A%84%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5"><span class="toc-number">2.3.</span> <span class="toc-text">表的增删改查</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5"><span class="toc-number">2.3.1.</span> <span class="toc-text">查</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A2%9E"><span class="toc-number">2.3.2.</span> <span class="toc-text">增</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%B9"><span class="toc-number">2.3.3.</span> <span class="toc-text">改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0"><span class="toc-number">2.3.4.</span> <span class="toc-text">删</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B5%B7%E5%88%AB%E5%90%8D"><span class="toc-number">2.3.5.</span> <span class="toc-text">起别名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%BB%E9%87%8D-%E5%8D%95%E5%88%97"><span class="toc-number">2.3.6.</span> <span class="toc-text">去重  单列</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%96%E9%94%AE"><span class="toc-number">2.4.</span> <span class="toc-text">外键</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E5%A4%96%E9%94%AE"><span class="toc-number">2.4.1.</span> <span class="toc-text">添加外键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E5%A4%96%E9%94%AE%E6%96%B9%E5%BC%8F"><span class="toc-number">2.4.2.</span> <span class="toc-text">删除外键方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%9A%84%E6%9F%A5"><span class="toc-number">2.5.</span> <span class="toc-text">数据的查</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">2.6.</span> <span class="toc-text">比较运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">2.7.</span> <span class="toc-text">逻辑运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E7%B3%8A%E6%9F%A5%E8%AF%A2"><span class="toc-number">2.8.</span> <span class="toc-text">模糊查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8C%83%E5%9B%B4%E6%9F%A5%E8%AF%A2"><span class="toc-number">2.9.</span> <span class="toc-text">范围查询</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E8%BF%9E%E7%BB%AD%E8%8C%83%E5%9B%B4"><span class="toc-number">2.9.1.</span> <span class="toc-text">非连续范围</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9E%E7%BB%AD%E8%8C%83%E5%9B%B4"><span class="toc-number">2.9.2.</span> <span class="toc-text">连续范围</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E7%A9%BA%E5%80%BC"><span class="toc-number">2.9.3.</span> <span class="toc-text">判断空值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-number">2.10.</span> <span class="toc-text">条件优先级</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F"><span class="toc-number">2.11.</span> <span class="toc-text">排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0"><span class="toc-number">2.12.</span> <span class="toc-text">聚合函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E6%95%B0"><span class="toc-number">2.12.1.</span> <span class="toc-text">总数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E5%A4%A7%E5%80%BC"><span class="toc-number">2.12.2.</span> <span class="toc-text">最大值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F%E5%80%BC"><span class="toc-number">2.12.3.</span> <span class="toc-text">最小值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%92%8C"><span class="toc-number">2.12.4.</span> <span class="toc-text">和</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E5%9D%87%E5%80%BC"><span class="toc-number">2.12.5.</span> <span class="toc-text">平均值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%B7%E5%88%AB%E5%90%8D-1"><span class="toc-number">2.13.</span> <span class="toc-text">起别名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B6%88%E9%99%A4%E9%87%8D%E5%A4%8D%E8%A1%8C"><span class="toc-number">2.14.</span> <span class="toc-text">消除重复行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E7%BB%84"><span class="toc-number">2.15.</span> <span class="toc-text">分组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#group-by-%E5%9C%A8%E6%9F%A5%E8%AF%A2%E7%BB%93%E6%9E%9C%E5%90%8E%E9%9D%A2%E8%BF%9B%E8%A1%8C%E5%88%86%E7%BB%84"><span class="toc-number">2.15.1.</span> <span class="toc-text">group by    在查询结果后面进行分组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%80%E5%A4%A7%E7%9A%84%E5%80%BC"><span class="toc-number">2.15.2.</span> <span class="toc-text">计算最大的值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E7%BB%84%E6%9C%89%E5%A4%9A%E4%B8%AA%E7%9A%84%E5%88%86%E7%BB%84"><span class="toc-number">2.15.3.</span> <span class="toc-text">一组有多个的分组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E5%9D%87%E5%88%86%E7%BB%84"><span class="toc-number">2.15.4.</span> <span class="toc-text">平均分组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2%E5%88%86%E7%BB%84"><span class="toc-number">2.15.5.</span> <span class="toc-text">条件查询分组</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%90%E6%9F%A5%E8%AF%A2"><span class="toc-number">2.16.</span> <span class="toc-text">子查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E9%A1%B5"><span class="toc-number">2.17.</span> <span class="toc-text">分页</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2"><span class="toc-number">2.18.</span> <span class="toc-text">连接查询</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E8%BF%9E%E6%8E%A5"><span class="toc-number">2.18.1.</span> <span class="toc-text">内连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A6%E8%BF%9E%E6%8E%A5"><span class="toc-number">2.18.2.</span> <span class="toc-text">左连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%B3%E8%BF%9E%E6%8E%A5"><span class="toc-number">2.18.3.</span> <span class="toc-text">右连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E8%BF%9E%E6%8E%A5-%E8%87%AA%E5%85%B3%E8%81%94"><span class="toc-number">2.18.4.</span> <span class="toc-text">自连接&#x2F;自关联</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%90%E6%9F%A5%E8%AF%A2-1"><span class="toc-number">2.19.</span> <span class="toc-text">子查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E6%9F%A5%E8%AF%A2"><span class="toc-number">2.20.</span> <span class="toc-text">主查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%90%E6%9F%A5%E8%AF%A2%E5%92%8C%E4%B8%BB%E6%9F%A5%E8%AF%A2%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">2.21.</span> <span class="toc-text">子查询和主查询的关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%90%E6%9F%A5%E8%AF%A2%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-number">2.22.</span> <span class="toc-text">子查询的分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E6%A0%87%E9%87%8F%E5%AD%90%E6%9F%A5%E8%AF%A2-%E8%BF%94%E5%9B%9E%E7%9A%84%E6%98%AF%E4%B8%80%E8%A1%8C%E4%B8%80%E5%88%97"><span class="toc-number">2.22.1.</span> <span class="toc-text">1、标量子查询  返回的是一行一列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E5%88%97%E7%BA%A7%E5%AD%90%E6%9F%A5%E8%AF%A2-%E8%BF%94%E5%9B%9E%E7%9A%84%E6%98%AF%E4%B8%80%E5%88%97%E5%A4%9A%E8%A1%8C"><span class="toc-number">2.22.2.</span> <span class="toc-text">2、列级子查询  返回的是一列多行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81%E8%A1%8C%E7%BA%A7%E5%AD%90%E6%9F%A5%E8%AF%A2-%E8%BF%94%E5%9B%9E%E7%9A%84%E6%98%AF%E4%B8%80%E8%A1%8C%E5%A4%9A%E5%88%97"><span class="toc-number">2.22.3.</span> <span class="toc-text">3、行级子查询  返回的是一行多列</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A8%E8%AE%BE%E8%AE%A1"><span class="toc-number">2.23.</span> <span class="toc-text">表设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%86%E5%9B%BE"><span class="toc-number">2.24.</span> <span class="toc-text">视图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E7%9A%84%E8%AF%AD%E5%8F%A5"><span class="toc-number">2.24.1.</span> <span class="toc-text">创建的语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E8%A7%86%E5%9B%BE%E7%9A%84%E8%AF%AD%E5%8F%A5"><span class="toc-number">2.24.2.</span> <span class="toc-text">查看视图的语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E8%A7%86%E5%9B%BE%E7%9A%84%E8%AF%AD%E5%8F%A5"><span class="toc-number">2.24.3.</span> <span class="toc-text">使用视图的语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E8%A7%86%E5%9B%BE"><span class="toc-number">2.24.4.</span> <span class="toc-text">删除视图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E5%9B%BE%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">2.24.5.</span> <span class="toc-text">视图的作用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E5%8A%A1"><span class="toc-number">2.25.</span> <span class="toc-text">事务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E5%A4%A7%E7%89%B9%E6%80%A7"><span class="toc-number">2.25.1.</span> <span class="toc-text">四大特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E7%89%A9%E7%9A%84%E5%BC%80%E5%90%AF"><span class="toc-number">2.25.2.</span> <span class="toc-text">事物的开启</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E7%89%A9%E7%9A%84%E6%8F%90%E4%BA%A4"><span class="toc-number">2.25.3.</span> <span class="toc-text">事物的提交</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E5%8A%A1%E7%9A%84%E5%9B%9E%E6%BB%9A"><span class="toc-number">2.25.4.</span> <span class="toc-text">事务的回滚</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95"><span class="toc-number">2.26.</span> <span class="toc-text">索引</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E7%B4%A2%E5%BC%95"><span class="toc-number">2.26.1.</span> <span class="toc-text">创建索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E7%B4%A2%E5%BC%95"><span class="toc-number">2.26.2.</span> <span class="toc-text">删除索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E7%B4%A2%E5%BC%95"><span class="toc-number">2.26.3.</span> <span class="toc-text">查看索引</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E8%A7%86%E5%9B%BE"><span class="toc-number">2.27.</span> <span class="toc-text">定义视图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E8%AE%AE%E4%BB%A5v-%E5%BC%80%E5%A4%B4"><span class="toc-number">2.27.1.</span> <span class="toc-text">建议以v_开头</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E8%A7%86%E5%9B%BE"><span class="toc-number">2.27.2.</span> <span class="toc-text">查看视图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E8%A7%86%E5%9B%BE"><span class="toc-number">2.27.3.</span> <span class="toc-text">使用视图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E8%A7%86%E5%9B%BE-1"><span class="toc-number">2.27.4.</span> <span class="toc-text">删除视图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E5%9B%BE%E7%9A%84%E4%BD%9C%E7%94%A8-1"><span class="toc-number">2.27.5.</span> <span class="toc-text">视图的作用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">2.28.</span> <span class="toc-text">索引的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E7%B4%A2%E5%BC%95-1"><span class="toc-number">2.28.1.</span> <span class="toc-text">查看索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E7%B4%A2%E5%BC%95-1"><span class="toc-number">2.28.2.</span> <span class="toc-text">创建索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95demo"><span class="toc-number">2.28.3.</span> <span class="toc-text">索引demo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2"><span class="toc-number">2.28.4.</span> <span class="toc-text">查询</span></a></li></ol></li></ol></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article"><link itemprop="mainEntityOfPage" href="https://yanxiang.wang/mysql%E5%AD%A6%E4%B9%A0/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="王彦翔"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="心瘾"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">mysql数据库</h1><div class="post-meta"><div class="post-time" style="display:block"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-line"></use></svg></span> <span class="post-meta-icon-text">Posted on</span> <time title="Created: 2020-12-25 19:03:28" itemprop="dateCreated datePublished" datetime="2020-12-25T19:03:28+08:00">2020-12-25</time><span class="post-meta-divider">-</span><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-2-line"></use></svg></span> <span class="post-meta-icon-text">Edited on</span> <time title="Modified: 2023-09-18 20:10:33" itemprop="dateModified" datetime="2023-09-18T20:10:33+08:00">2023-09-18</time></div><span class="post-count"><span class="post-symbolcount"><span class="post-meta-item-icon" title="Word count in article"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-file-word-line"></use></svg></span> <span title="Word count in article">3.3k</span><span class="post-meta-divider">-</span><span class="post-meta-item-icon" title="Reading time"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-timer-line"></use></svg></span> <span title="Reading time">13m</span></span></span><span class="leancloud_visitors" id="/mysql%E5%AD%A6%E4%B9%A0/" data-flag-title="mysql数据库"><span class="post-meta-divider">-</span><span class="post-meta-item-icon" title="Views"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-eye-line"></use></svg> <span class="leancloud-visitors-count"></span></span></span><span class="post-meta-divider">-</span><a href="#comment"><span class="post-meta-item-icon" title="Comments"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-chat-3-line"></use></svg> <span class="waline-comment-count" id="/mysql%E5%AD%A6%E4%B9%A0/"></span></span></a><div class="post-classify"><span class="post-category"> <span class="post-meta-item-icon" style="margin-right:3px;"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-line"></use></svg></span><span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category-item" href="/categories/database/" style="--text-color:var(--hty-text-color)" itemprop="url" rel="index"><span itemprop="text">database</span></a></span> > <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category-item" href="/categories/database/mysql/" style="--text-color:var(--hty-text-color)" itemprop="url" rel="index"><span itemprop="text">mysql</span></a></span></span><span class="post-tag"><span class="post-meta-divider">-</span><a class="tag-item" href="/tags/MySQL/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">MySQL</span></a><a class="tag-item" href="/tags/%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">关系型数据库</span></a></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body" style="--smc-primary:#0078E7;"><div align=center>
-  <a href=https://baike.baidu.com/item/mySQL/471251?fr=aladdin target="_blank">简介</a>  
-  MySQL是一个
-  <a href=https://baike.baidu.com/item/关系型数据库管理系统/696511 target="_blank">关系型数据库管理系统</a>
-  ，**由瑞典MySQL AB 公司开发，属于 
-    <a href=https://baike.baidu.com/item/Oracle target="_blank">Oracle</a>
-  旗下产品。MySQL 是最流行的
-  <a href=https://baike.baidu.com/item/关系型数据库管理系统/696511 target="_blank">关系型数据库管理系统</a>
-    之一，在 WEB 应用方面，MySQL是最好的
-   <a href=https://baike.baidu.com/item/RDBMS/1048260 target="_blank">RDBMS</a>
-  (Relational Database Management System，关系数据库管理系统) 应用软件之一。
-    </p>
-    <img src="../images/mysql%E5%AD%A6%E4%B9%A0.assets/mysql.png" width="60%" loading="lazy">
-</div>
-
-<span id="more"></span>
-
-<p>MySQL是一种关系型数据库管理系统，关系数据库将数据保存在不同的表中，而不是将所有数据放在一个大仓库内，这样就增加了速度并提高了灵活性。<br>    </p><br>MySQL所使用的 SQL 语言是用于访问<a href=https://baike.baidu.com/item/数据库/103728 target="_blank">数据库</a><br>的最常用标准化语言。MySQL 软件采用了双授权政策，分为社区版和商业版，由于其体积小、速度快、总体拥有成本低，尤其是<a href=https://baike.baidu.com/item/开放源码/7176422 target="_blank">开放源码</a>这一特点，一般中小型网站的开发都选择 MySQL 作为网站数据库。<br>    </p></p>
-<p><a target="_blank" rel="noopener" href="https://www.mysql.com/">官网</a></p>
-<p><strong>传统记录的缺点</strong></p>
-<p>1.0 不易保存<br>2.0 备份困难<br>3.0 查找不便</p>
-<p><strong>现代化手段—-文件</strong></p>
-<p>1.0 使用简单，列如python中的open可以打开文件。用read/write对文件进行读写，close关闭文件<br>2.0 对于数据量较大的数据，不能够很好地满足，而且性能较差<br>3.0 不易扩展</p>
-<p><strong>现代化手段—-数据库</strong></p>
-<p>1.0 持久化存储<br>2.0 读写速度极高<br>3.0 保证数据的有效性<br>4.0 对程序支持性非常好，容易扩展</p>
-<h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><p>数据库就是一种特殊的文件，其中存储着需要的数据</p>
-<p><strong>关系型数据库核心元素</strong></p>
-<p>1.0 数据行（记录）<br>2.0 数据列（字段）<br>3.0 数据表（数据行的集合）<br>4.0 数据库（数据表的集合）</p>
-<p>关系数据库  RDBMS<br>    Relational Database Management System</p>
-<p><strong>当前主要使用俩种类型的数据库：关系型数据库、非关系型数据库</strong></p>
-<p>所谓的关系型数据库RDBMS，是建立在关系模型基础上的数据库，<br>借助于集合代数等数学概念和方法来处理数据库中的数据</p>
-<div align=center>
-  我们异步任务一般会想到什么 celery
-    <a href=https://blog.csdn.net/weixin_45954124/article/details/109493963 >有兴趣戳这里</a>
-
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45954124/article/details/110820950">celery 使用</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.celerycn.io/yong-hu-zhi-nan/ding-qi-ren-wu-periodic-tasks">celery 中文手册</a></p>
-<p>celery 最终实现效果就是异步任务以及定时任务</p>
-<p>那我们先来看看celery底层是什么  </p>
-<p>broker、backend、生产者、消费者、还有celery来调度任务</p>
-<p>消息队列 用来存储任务 以及调度任务</p>
-<p>那我们也可以使用 queue来实现异步任务</p>
-</p>
-</div>
-
-<p>关系型数据库的主要产品</p>
-<p><strong>oracle</strong>：在以前的大型 项目中使用，银行，电信等项目<br><strong>mysql</strong>：web时代使用最广泛的关系型数据库<br><strong>ms sql server</strong>：在微软的项目中使用<br><strong>sqlite</strong>：轻量级数据库，主要应用在移动平台</p>
-<p><strong>数据完整性</strong><br>1.0 一个数据库就是一个完整的业务单元，可以包含多张表，数据被存储在表中<br>2.0 在表中为了更加准确的存储数据，保证数据的正确有效，可以在创建表的时候，为表添加一些强制性的验证，包括数据字段的类型、约束</p>
-<p><strong>数据类型</strong><br>可以通过查看帮助文档查阅所有支持的数据类型<br>使用数据类型的原则是：<br>够用就行，尽量使用取值范围小的，而不用大的，这样可以更多的节省存储空间</p>
-<p>常用数据类型如下：<br>整数：int，bit<br>小数：decimal<br>字符串：varchar,char<br>日期时间: date, time, datetime<br>枚举类型(enum)</p>
-<p>特别说明的类型如下：<br>decimal表示浮点数，如decimal(5,2)表示共存5位数，小数占2位<br>char表示固定长度的字符串，如char(3)，如果填充’ab’时会补一个空格为’ab ‘<br>varchar表示可变长度的字符串，如varchar(3)，填充’ab’时就会存储’ab’<br>字符串text表示存储大文本，当字符大于4000时推荐使用<br>对于图片、音频、视频等文件，不存储在数据库中，而是上传到某个服务器上，然后在表中存储这个文件的保存路径</p>
-<h1 id="MySQL操作"><a href="#MySQL操作" class="headerlink" title="MySQL操作"></a>MySQL操作</h1><h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><h3 id="登录mysql"><a href="#登录mysql" class="headerlink" title="登录mysql"></a>登录mysql</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">mysql -u账户名 -p密码</code></pre>
-
-<h3 id="退出mysql"><a href="#退出mysql" class="headerlink" title="退出mysql"></a>退出mysql</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">quit  exit ctrl+d</code></pre>
-
-<h3 id="查看库"><a href="#查看库" class="headerlink" title="查看库"></a>查看库</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">show databases;</code></pre>
-
-<h3 id="进入库"><a href="#进入库" class="headerlink" title="进入库"></a>进入库</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">use 库名</code></pre>
-
-<h3 id="查看当前库"><a href="#查看当前库" class="headerlink" title="查看当前库"></a>查看当前库</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">select database();</code></pre>
-
-<h3 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">drop database 库名；</code></pre>
-
-<h3 id="创建一个库"><a href="#创建一个库" class="headerlink" title="创建一个库"></a>创建一个库</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">create database 库名 charset&#x3D;utf8;</code></pre>
-
-<h3 id="表的基本操作"><a href="#表的基本操作" class="headerlink" title="表的基本操作"></a>表的基本操作</h3><h2 id="查看数据库里的所有表"><a href="#查看数据库里的所有表" class="headerlink" title="查看数据库里的所有表"></a>查看数据库里的所有表</h2><pre class="language-none"><code class="language-none">show tables;
-
-### </code></pre>
-
-<h3 id="查看表结构"><a href="#查看表结构" class="headerlink" title="查看表结构"></a>查看表结构</h3><pre class="language-none"><code class="language-none">desc 表名;
-
-### </code></pre>
-
-<h3 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">create table 表名()</code></pre>
-
-<h3 id="给表添加字段"><a href="#给表添加字段" class="headerlink" title="给表添加字段"></a>给表添加字段</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">alter table 表名  add  字段名 类型</code></pre>
-
-<h3 id="重命名表里的字段名"><a href="#重命名表里的字段名" class="headerlink" title="重命名表里的字段名"></a>重命名表里的字段名</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">alter table 表名 change  旧名 新民  类型 约束</code></pre>
-
-<h3 id="修改表里的字段类型及约束-不需要重命名"><a href="#修改表里的字段类型及约束-不需要重命名" class="headerlink" title="修改表里的字段类型及约束(不需要重命名)"></a>修改表里的字段类型及约束(不需要重命名)</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">alter table 表名 modify  字段名 新类型 约束</code></pre>
-
-<h3 id="删除字段"><a href="#删除字段" class="headerlink" title="删除字段"></a>删除字段</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">alter table 表名 drop 字段名</code></pre>
-
-<h3 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">drop table 表名</code></pre>
-
-<h3 id="查看创建表的语句"><a href="#查看创建表的语句" class="headerlink" title="查看创建表的语句"></a>查看创建表的语句</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">show  create table 表</code></pre>
-
-<h3 id="修改表名"><a href="#修改表名" class="headerlink" title="修改表名"></a>修改表名</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">alter table 旧表名 rename to 新表名</code></pre>
-
-<h3 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">int    整形
-primary key
-auto_increment
-not null
-varchar(20)
-decimal(5,3)
-enum(&quot;男&quot;,&quot;女&quot;,&quot;妖&quot;)
-datetime</code></pre>
-
-<h3 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">primary key   主键
-auto_increment 自增
-not null      非空
-foreign key   外键
-unique        唯一
-default       默认
-unsigned      无符号约束</code></pre>
-
-<h2 id="表的增删改查"><a href="#表的增删改查" class="headerlink" title="表的增删改查"></a>表的增删改查</h2><h3 id="查"><a href="#查" class="headerlink" title="查"></a>查</h3><p>查询表的所有数据</p>
-<pre class="language-mysql" data-language="mysql"><code class="language-mysql">select *  from  表名;</code></pre>
-
-<p>查询指定的列</p>
-<pre class="language-mysql" data-language="mysql"><code class="language-mysql">select 列名1,列名2  from  表名;</code></pre>
-
-<h3 id="增"><a href="#增" class="headerlink" title="增"></a>增</h3><p>全列插入</p>
-<pre class="language-mysql" data-language="mysql"><code class="language-mysql">insert  into  表名 values(id int primary key auto_increment )</code></pre>
-
-<p>指定列插入</p>
-<p>(插入的数据和列名对应)</p>
-<pre class="language-mysql" data-language="mysql"><code class="language-mysql">insert into  表名(列名1,列名2) values (         )</code></pre>
-
-<p>指定列插入</p>
-<pre class="language-mysql" data-language="mysql"><code class="language-mysql">insert into 表名( 列名)  values ( ..........)</code></pre>
-
-<p>指定列一行一行插入</p>
-<pre class="language-mysql" data-language="mysql"><code class="language-mysql">insert into 表名( 列名)  values ( ..........)</code></pre>
-
-<h3 id="改"><a href="#改" class="headerlink" title="改"></a>改</h3><p> 修改表里的数据</p>
-<pre class="language-mysql" data-language="mysql"><code class="language-mysql">update 表名 set  列名&#x3D;新的值   where id &#x3D; **;</code></pre>
-
-<h3 id="删"><a href="#删" class="headerlink" title="删"></a>删</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">delete from 表名  where id &#x3D; ** ;</code></pre>
-
-<h3 id="起别名"><a href="#起别名" class="headerlink" title="起别名"></a>起别名</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">select  列名 as 新列名, 列名1 as 新列名1   from 表名</code></pre>
-
-<h3 id="去重-单列"><a href="#去重-单列" class="headerlink" title="去重  单列"></a>去重  单列</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">select  distinct  列名 from 表名</code></pre>
-
-<h2 id="外键"><a href="#外键" class="headerlink" title="外键"></a>外键</h2><h3 id="添加外键"><a href="#添加外键" class="headerlink" title="添加外键"></a>添加外键</h3><p>1.0方式</p>
-<pre class="language-mysql" data-language="mysql"><code class="language-mysql">create table goods(cate_id int unsigned, foreign key(cate_id) references 主表名(id) ) charset&#x3D;utf8 ;
-</code></pre>
-
-<p>2.0</p>
-<pre class="language-mysql" data-language="mysql"><code class="language-mysql">alter table 表名 add foreign key(子表列名) references 主表(主键)</code></pre>
-
-<h3 id="删除外键方式"><a href="#删除外键方式" class="headerlink" title="删除外键方式"></a>删除外键方式</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">show create table 表名 查看 复制</code></pre>
-
-
-<p>+——-+—————————————————————————————-+<br>| emp_2 | CREATE TABLE <code>emp_2</code> (<br>  <code>id</code> int(11) NOT NULL AUTO_INCREMENT,<br>  <code>name</code> varchar(20) DEFAULT NULL,<br>  <code>emp_sid</code> int(10) unsigned DEFAULT NULL,<br>  PRIMARY KEY (<code>id</code>),<br>  KEY <code>emp_2</code> (<code>emp_sid</code>),<br>  CONSTRAINT <code>emp_2_ibfk_1</code> FOREIGN KEY (<code>emp_sid</code>) REFERENCES <code>emp</code> (<code>sid</code>)<br>) ENGINE=InnoDB DEFAULT CHARSET=utf8 |<br>+——-+—————————————————————————————–+<br>1 row in set (0.00 sec)</p>
-<pre class="language-mysql" data-language="mysql"><code class="language-mysql">alter table 表名 drop foreign key emp_2_ibfk_1;</code></pre>
-
-<h2 id="数据的查"><a href="#数据的查" class="headerlink" title="数据的查"></a>数据的查</h2><pre class="language-mysql" data-language="mysql"><code class="language-mysql">select * from 表名 where 条件</code></pre>
-
-<h2 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h2><p>=  &lt; &lt;=  =  !=</p>
-<h2 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h2><p>and    两个条件必须同时满足</p>
-<p>or    两个条件满足一个就可以</p>
-<p>not   相反的</p>
-<h2 id="模糊查询"><a href="#模糊查询" class="headerlink" title="模糊查询"></a>模糊查询</h2><p>% 匹配多个任意字符<br>_ 匹配任意一个字符</p>
-<pre class="language-mysql" data-language="mysql"><code class="language-mysql">select * from 表名 where 要查找的列名 like&#39;%或者_&#39;</code></pre>
-
-<h2 id="范围查询"><a href="#范围查询" class="headerlink" title="范围查询"></a>范围查询</h2><h3 id="非连续范围"><a href="#非连续范围" class="headerlink" title="非连续范围"></a>非连续范围</h3><p>in</p>
-<pre class="language-mysql" data-language="mysql"><code class="language-mysql">select * from student where id in (3,6,9);</code></pre>
-
-<h3 id="连续范围"><a href="#连续范围" class="headerlink" title="连续范围"></a>连续范围</h3><p>between   and</p>
-<pre class="language-mysql" data-language="mysql"><code class="language-mysql">select * from student where id between 3 and 8;</code></pre>
-
-<h3 id="判断空值"><a href="#判断空值" class="headerlink" title="判断空值"></a>判断空值</h3><p>空 is null</p>
-<pre class="language-mysql" data-language="mysql"><code class="language-mysql">select * from student where pingjia is null;</code></pre>
-
-<p>非空 is  not null</p>
-<pre class="language-mysql" data-language="mysql"><code class="language-mysql">select * from student where pingjia is not null;</code></pre>
-
-<h2 id="条件优先级"><a href="#条件优先级" class="headerlink" title="条件优先级"></a>条件优先级</h2><p>由高到低<br>小括号  &gt;not &gt; 比较运算符&gt; 逻辑运算符&gt;<br>and 比or 优先   如果希望or比and优先 加 ( )</p>
-<p>修改mysql的密码</p>
-<pre class="language-mysql" data-language="mysql"><code class="language-mysql">update  user set password&#x3D; password(&#39;新密码&#39;) where user&#x3D; &#39;root&#39;;</code></pre>
-
-<h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><p>order by<br>asc  升序<br>desc  降序</p>
-<pre class="language-mysql" data-language="mysql"><code class="language-mysql">select * from 表名 where order by 要排序的列  asc；</code></pre>
-
-<pre class="language-mysql" data-language="mysql"><code class="language-mysql">select * from 表名 where order by 要排序的列  asc，同等条件下 high desc；</code></pre>
-
-<h2 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h2><h3 id="总数"><a href="#总数" class="headerlink" title="总数"></a>总数</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">select count(*) from 表名 ；</code></pre>
-
-<h3 id="最大值"><a href="#最大值" class="headerlink" title="最大值"></a>最大值</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">select max(查找的值) from 表名 ；</code></pre>
-
-<h3 id="最小值"><a href="#最小值" class="headerlink" title="最小值"></a>最小值</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">select min(查找的值) from 表名 where 条件；</code></pre>
-
-<h3 id="和"><a href="#和" class="headerlink" title="和"></a>和</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">select  sum(查找的值) from 表名 where 条件；</code></pre>
-
-<h3 id="平均值"><a href="#平均值" class="headerlink" title="平均值"></a>平均值</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">select  avg(查找的值) from 表名 where 条件；</code></pre>
-
-<pre class="language-mysql" data-language="mysql"><code class="language-mysql">select  round(avg(查找的值),保留几位小数) from 表名 where 条件；</code></pre>
-
-<h2 id="起别名-1"><a href="#起别名-1" class="headerlink" title="起别名"></a>起别名</h2><p>只能在本次查询使用</p>
-<pre class="language-mysql" data-language="mysql"><code class="language-mysql">select 名称 as 起的名称 from 表名</code></pre>
-
-<h2 id="消除重复行"><a href="#消除重复行" class="headerlink" title="消除重复行"></a>消除重复行</h2><p>distinct</p>
-<pre class="language-mysql" data-language="mysql"><code class="language-mysql">select distinct 列名 from 表名</code></pre>
-
-<h2 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h2><h3 id="group-by-在查询结果后面进行分组"><a href="#group-by-在查询结果后面进行分组" class="headerlink" title="group by    在查询结果后面进行分组"></a>group by    在查询结果后面进行分组</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">select  分组的名称 from 表名 group by 分组的名称；</code></pre>
-
-<h3 id="计算最大的值"><a href="#计算最大的值" class="headerlink" title="计算最大的值"></a>计算最大的值</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">select  分组的名称,count(*) from 表名 group by 要分组的名称；</code></pre>
-
-<h3 id="一组有多个的分组"><a href="#一组有多个的分组" class="headerlink" title="一组有多个的分组"></a>一组有多个的分组</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">select gender，group_concat(name) from students group by gender;</code></pre>
-
-<h3 id="平均分组"><a href="#平均分组" class="headerlink" title="平均分组"></a>平均分组</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">select  要分组的名，round（avg（分组的名称），保留几位小数） from 表名 group by 要分组的名称；</code></pre>
-
-<h3 id="条件查询分组"><a href="#条件查询分组" class="headerlink" title="条件查询分组"></a>条件查询分组</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">select  要分组的名，group_concat(name),round（avg（分组的名称），保留几位小数） from 表名 group by 要分组的名称 having round(avg(age),1) &gt; 25；</code></pre>
-
-<h2 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h2><pre class="language-mysql" data-language="mysql"><code class="language-mysql">select 查询条件 from 表名 where age &gt; (select round(avg(age),2) from 表名)</code></pre>
-
-<pre class="language-mysql" data-language="mysql"><code class="language-mysql">select  分组的名称 from 表名 where cls_id in(select 分组名 from 表名)；</code></pre>
-
-<h2 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h2><p>limit</p>
-<p>start 代表从某个位置开始<br>count 代表从开始位置往后数几个<br>select * from students limit 4,2;</p>
-<p>例1：查询前3行男生信息</p>
-<pre class="language-mysql" data-language="mysql"><code class="language-mysql">select * from 表名 where limit  3,2  3往后2个（4,5）</code></pre>
-
-<p>0,2 每页显示2个，第一个页面<br>2,2 每页显示2个，第二个页面<br>4,2 每页显示2个，第三个页面<br>6,2 每页显示2个件 limit 0,3;</p>
-<h2 id="连接查询"><a href="#连接查询" class="headerlink" title="连接查询"></a>连接查询</h2><h3 id="内连接"><a href="#内连接" class="headerlink" title="内连接"></a>内连接</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">select * from 表1 inner join表2 on 表一.字段名 &#x3D; 表2.字段名</code></pre>
-
-<h3 id="左连接"><a href="#左连接" class="headerlink" title="左连接"></a>左连接</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">select * from 表1 left join 表2 on 表一.字段名 &#x3D; 表2.字段名</code></pre>
-
-<h3 id="右连接"><a href="#右连接" class="headerlink" title="右连接"></a>右连接</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">select * from 表1 right join 表2 on 表一.字段名 &#x3D; 表2.字段名</code></pre>
-
-<h3 id="自连接-自关联"><a href="#自连接-自关联" class="headerlink" title="自连接/自关联"></a>自连接/自关联</h3><p>自连接查询就是把一张表模拟成左右两张表，然后进行连表查询。<br>自连接就是一种特殊的连接方式，连接的表还是本身这张表<br>自连接必须起别名</p>
-<h2 id="子查询-1"><a href="#子查询-1" class="headerlink" title="子查询"></a>子查询</h2><p>当一条SELECT 语句满足不了查询条件  这个时候就需要子查询<br>在一个select 语句中 嵌套一个select 语句  那么这个被嵌套的就叫子查询</p>
-<h2 id="主查询"><a href="#主查询" class="headerlink" title="主查询"></a>主查询</h2><p>第一条select 语句就是 主查询</p>
-<h2 id="子查询和主查询的关系"><a href="#子查询和主查询的关系" class="headerlink" title="子查询和主查询的关系"></a>子查询和主查询的关系</h2><p>1、子查询是嵌套在主查询中的<br>2、子查询要么是子查询的条件 要么就是数据源<br>3、子查询必须是一条完整的select 语句</p>
-<h2 id="子查询的分类"><a href="#子查询的分类" class="headerlink" title="子查询的分类"></a>子查询的分类</h2><h3 id="1、标量子查询-返回的是一行一列"><a href="#1、标量子查询-返回的是一行一列" class="headerlink" title="1、标量子查询  返回的是一行一列"></a>1、标量子查询  返回的是一行一列</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">select * from 表名  where age &gt; ( select avg(age) from 表名);</code></pre>
-
-<h3 id="2、列级子查询-返回的是一列多行"><a href="#2、列级子查询-返回的是一列多行" class="headerlink" title="2、列级子查询  返回的是一列多行"></a>2、列级子查询  返回的是一列多行</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">select name from classes where id in (select cls_id from students);</code></pre>
-
-<h3 id="3、行级子查询-返回的是一行多列"><a href="#3、行级子查询-返回的是一行多列" class="headerlink" title="3、行级子查询  返回的是一行多列"></a>3、行级子查询  返回的是一行多列</h3><p>身高最高 年龄最大</p>
-<pre class="language-mysql" data-language="mysql"><code class="language-mysql">select * from students where (height,age) &#x3D; (select max(height),max(age) from students);</code></pre>
-
-<h2 id="表设计"><a href="#表设计" class="headerlink" title="表设计"></a>表设计</h2><p>一对一<br>一对多   通过外键<br>多对多   需要建立第三张表进行多表联查</p>
-<h2 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h2><p>1、一个select 查询数据后返回数据的结果集<br>是一张虚拟的表 会随着基本表的数据改变而变化<br>适用于 经常 查询的表</p>
-<h3 id="创建的语句"><a href="#创建的语句" class="headerlink" title="创建的语句"></a>创建的语句</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">create view 视图名称 as （select 语句）</code></pre>
-
-<h3 id="查看视图的语句"><a href="#查看视图的语句" class="headerlink" title="查看视图的语句"></a>查看视图的语句</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">show tables;</code></pre>
-
-<h3 id="使用视图的语句"><a href="#使用视图的语句" class="headerlink" title="使用视图的语句"></a>使用视图的语句</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">select * from 视图名</code></pre>
-
-<h3 id="删除视图"><a href="#删除视图" class="headerlink" title="删除视图"></a>删除视图</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">drop view 视图名</code></pre>
-
-<h3 id="视图的作用"><a href="#视图的作用" class="headerlink" title="视图的作用"></a>视图的作用</h3><p>提高了重用性 像一个函数一样<br>让数据更加清晰  方便查询<br>提高了安全性  可以针对不同用户<br>对数据库重构  却不影响数据的执行</p>
-<h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><p>是一个操作序列 要么不执行 要么一起执行</p>
-<h3 id="四大特性"><a href="#四大特性" class="headerlink" title="四大特性"></a>四大特性</h3><p><strong>一致性</strong><br><strong>原子性</strong><br><strong>持久性</strong><br><strong>隔离性</strong></p>
-<h3 id="事物的开启"><a href="#事物的开启" class="headerlink" title="事物的开启"></a>事物的开启</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">begin &#x2F; start transaction</code></pre>
-
-
-
-<h3 id="事物的提交"><a href="#事物的提交" class="headerlink" title="事物的提交"></a>事物的提交</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">commit</code></pre>
-
-
-
-<h3 id="事务的回滚"><a href="#事务的回滚" class="headerlink" title="事务的回滚"></a>事务的回滚</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">rollback</code></pre>
-
-
-
-
-<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><p>目的 提高查询速率</p>
-<h3 id="创建索引"><a href="#创建索引" class="headerlink" title="创建索引"></a>创建索引</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">create index 索引名称 on 表名(字段名称)</code></pre>
-
-<h3 id="删除索引"><a href="#删除索引" class="headerlink" title="删除索引"></a>删除索引</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">drop index 索引名称 on 表名</code></pre>
-
-<h3 id="查看索引"><a href="#查看索引" class="headerlink" title="查看索引"></a>查看索引</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">show index  from  表名</code></pre>
-
-
-
-<h2 id="定义视图"><a href="#定义视图" class="headerlink" title="定义视图"></a>定义视图</h2><h3 id="建议以v-开头"><a href="#建议以v-开头" class="headerlink" title="建议以v_开头"></a>建议以v_开头</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">create view 视图名称 as select查询语句</code></pre>
-
-<pre class="language-mysql" data-language="mysql"><code class="language-mysql">create view v_05A as select 语句</code></pre>
-
-<pre class="language-mysql" data-language="mysql"><code class="language-mysql">create view v_05A as select &quot;05A&quot;  as &quot;班级&quot;,s.name as &quot;姓名&quot;,s.gender as &quot;性别&quot; from students as s where s.cid in (select c.id from class as c where c.name&#x3D;&quot;05A&quot;);</code></pre>
-
-<h3 id="查看视图"><a href="#查看视图" class="headerlink" title="查看视图"></a>查看视图</h3><p>​    查看表会将所有的视图也列出来</p>
-<pre class="language-mysql" data-language="mysql"><code class="language-mysql">show tables;</code></pre>
-
-<h3 id="使用视图"><a href="#使用视图" class="headerlink" title="使用视图"></a>使用视图</h3><p>视图的用途就是查询</p>
-<pre class="language-mysql" data-language="mysql"><code class="language-mysql">select * from v_05A;</code></pre>
-
-<h3 id="删除视图-1"><a href="#删除视图-1" class="headerlink" title="删除视图"></a>删除视图</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">drop view 视图名称;
-drop view v_05A;</code></pre>
-
-<h3 id="视图的作用-1"><a href="#视图的作用-1" class="headerlink" title="视图的作用"></a>视图的作用</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">提高了重用性，就像一个函数
-对数据库重构，却不影响程序的运行
-提高了安全性能，可以对不同的用户
-让数据更加清晰</code></pre>
-
-<h2 id="索引的使用"><a href="#索引的使用" class="headerlink" title="索引的使用"></a>索引的使用</h2><h3 id="查看索引-1"><a href="#查看索引-1" class="headerlink" title="查看索引"></a>查看索引</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">show index 索引名 from 表名;</code></pre>
-
-<h3 id="创建索引-1"><a href="#创建索引-1" class="headerlink" title="创建索引"></a>创建索引</h3><p>如果指定字段是字符串，需要指定长度，建议长度与定义字段时的长度一致<br>字段类型如果不是字符串，可以不填写长度部分</p>
-<pre class="language-mysql" data-language="mysql"><code class="language-mysql">create index 索引名称 on 表名(字段名称(长度))</code></pre>
-
-<p>删除索引：</p>
-<pre class="language-mysql" data-language="mysql"><code class="language-mysql">drop index 索引名称 on 表名;</code></pre>
-
-<h3 id="索引demo"><a href="#索引demo" class="headerlink" title="索引demo"></a>索引demo</h3><p>创建测试表testindex</p>
-<pre class="language-mysql" data-language="mysql"><code class="language-mysql">create table test_index(title varchar(10));</code></pre>
-
-<h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><ul>
-<li>开启运行时间监测：</li>
-</ul>
-<pre class="language-mysql" data-language="mysql"><code class="language-mysql">set profiling&#x3D;1;</code></pre>
-
-<ul>
-<li>查找第1万条数据ha-99999</li>
-</ul>
-<pre class="language-mysql" data-language="mysql"><code class="language-mysql">select * from test_index where title&#x3D;&#39;ha-99999&#39;;</code></pre>
-
-<ul>
-<li>查看执行的时间：</li>
-</ul>
-<pre class="language-mysql" data-language="mysql"><code class="language-mysql">show profiles;</code></pre>
-
-<ul>
-<li>为表title_index的title列创建索引：</li>
-</ul>
-<pre class="language-mysql" data-language="mysql"><code class="language-mysql">create index title_index on test_index(title(10));</code></pre>
-
-<ul>
-<li>执行查询语句：</li>
-</ul>
-<pre class="language-mysql" data-language="mysql"><code class="language-mysql">select * from test_index where title&#x3D;&#39;ha-99999&#39;;</code></pre>
-
-<ul>
-<li>再次查看执行的时间</li>
-</ul>
-<pre class="language-mysql" data-language="mysql"><code class="language-mysql">show profiles;</code></pre>
-</div><div id="reward-container"><span class="hty-icon-button button-glow" id="reward-button" title="Donate" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === &quot;none&quot;) ? &quot;block&quot; : &quot;none&quot;;"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-hand-coin-line"></use></svg></span><div id="reward-comment">觉得文章写的不错，可以请喝杯咖啡</div><div id="qr" style="display:none;"><div style="display:inline-block"><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/donate/alipay-qrcode.jpg"><img loading="lazy" src="https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/donate/alipay-qrcode.jpg" alt="支付宝" title="支付宝"></a><div><span style="color:#00A3EE"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-alipay-line"></use></svg></span></div></div><div style="display:inline-block"><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/donate/qqpay-qrcode.png"><img loading="lazy" src="https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/donate/qqpay-qrcode.png" alt="QQ 支付" title="QQ 支付"></a><div><span style="color:#12B7F5"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-qq-line"></use></svg></span></div></div><div style="display:inline-block"><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/donate/wechatpay-qrcode.jpg"><img loading="lazy" src="https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/donate/wechatpay-qrcode.jpg" alt="微信支付" title="微信支付"></a><div><span style="color:#2DC100"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-wechat-pay-line"></use></svg></span></div></div></div></div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>王彦翔</li><li class="post-copyright-link"><strong>Post link: </strong><a href="https://yanxiang.wang/mysql%E5%AD%A6%E4%B9%A0/" title="mysql数据库">https://yanxiang.wang/mysql%E5%AD%A6%E4%B9%A0/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/django-vue%E6%94%AF%E4%BB%98%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%BE%AE%E4%BF%A1%E3%80%81%E6%94%AF%E4%BB%98%E5%AE%9D%E3%80%81PalPay/" rel="prev" title="django+vue工厂模式 支付融合 微信二维码支付、支付宝、PayPal跨境支付"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">django+vue工厂模式 支付融合 微信二维码支付、支付宝、PayPal跨境支付</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/django-vue%E5%9F%BA%E4%BA%8Ewebsocket%E4%BA%BA%E5%B7%A5%E5%AE%A2%E6%9C%8D%E7%B3%BB%E7%BB%9F%E6%89%93%E9%80%A0/" rel="next" title="django+vue基于websocket人工客服系统打造"><span class="post-nav-text">django+vue基于websocket人工客服系统打造</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div class="hty-card" id="comment"><div class="comment-tooltip text-center"><span>如果您有任何关于博客内容的相关讨论，欢迎前往 <a href="https://github.com/YunYouJun/yunyoujun.github.io/discussions" target="_blank">GitHub Discussions</a> 与我交流。</span><br></div><div id="waline"></div><script>Yun.utils.getScript("https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js", () => {
-  const walineConfig = {"enable":true,"serverURL":"https://waline.yunyoujun.cn","comment":true,"visitor":true,"emoji":["https://cdn.jsdelivr.net/gh/walinejs/emojis@latest/bilibili/","https://cdn.jsdelivr.net/gh/walinejs/emojis@latest/weibo/","https://cdn.jsdelivr.net/gh/walinejs/emojis@latest/qq/"],"locale":{"placeholder":"填写邮箱，可以收到回复通知哦～"},"requiredMeta":["nick"],"el":"#waline","lang":"en"}
-  walineConfig.path = "/mysql%E5%AD%A6%E4%B9%A0/"
-  walineConfig.dark = 'html[data-user-color-scheme="dark"]'
-  new Waline(walineConfig)
-}, window.Waline);</script></div></main><footer class="sidebar-translate" id="footer"><div class="beian"><a rel="noopener" href="https://beian.miit.gov.cn/" target="_blank">备案号</a></div><div class="copyright"><span>&copy; 2018 – 2025 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 王彦翔</span></div><div class="live_time"><span>运行时间</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
-  setTimeout(blog_live_time, 1000);
-  const start = new Date('2019-04-12T00:00:00');
-  const now = new Date();
-  const timeDiff = (now.getTime() - start.getTime());
-  const msPerMinute = 60 * 1000;
-  const msPerHour = 60 * msPerMinute;
-  const msPerDay = 24 * msPerHour;
-  const passDay = Math.floor(timeDiff / msPerDay);
-  const passHour = Math.floor((timeDiff % msPerDay) / 60 / 60 / 1000);
-  const passMinute = Math.floor((timeDiff % msPerHour) / 60 / 1000);
-  const passSecond = Math.floor((timeDiff % msPerMinute) / 1000);
-  display_live_time.innerHTML = " " + passDay + " 天 " + passHour + " 小时 " + passMinute + " 分 " + passSecond + " 秒";
+.post-content {
+  padding: 20px 0px;
 }
-blog_live_time();
-</script></div></footer><a class="hty-icon-button" id="back-to-top" aria-label="back-to-top" href="#"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-up-s-line"></use></svg><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#0078E7" stroke-width="2" stroke-linecap="round"></circle></svg></a><a class="popup-trigger hty-icon-button icon-search" id="search" href="javascript:;" title="Search"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-search-line"></use></svg></span></a><script>window.addEventListener("DOMContentLoaded", () => {
-  // Handle and trigger popup window
-  document.querySelector(".popup-trigger").addEventListener("click", () => {
-    document.querySelector(".popup").classList.add("show");
-    setTimeout(() => {
-      document.querySelector(".search-input").focus();
-    }, 100);
-  });
-
-  // Monitor main search box
-  const onPopupClose = () => {
-    document.querySelector(".popup").classList.remove("show");
-  };
-
-  document.querySelector(".popup-btn-close").addEventListener("click", () => {
-    onPopupClose();
-  });
-
-  window.addEventListener("keyup", event => {
-    if (event.key === "Escape") {
-      onPopupClose();
-    }
-  });
-});
-</script><script src="/js/search/local-search.js" defer></script><div class="popup search-popup"><div class="search-header"><span class="popup-btn-close close-icon hty-icon-button"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-close-line"></use></svg></span></div><div class="search-input-container"><input class="search-input" id="local-search-input" type="text" placeholder="Searching..." value=""></div><div id="local-search-result"></div></div><script>const date = new Date();
-const today = (date.getMonth() + 1) + "-" + date.getDate()
-const mourn_days = ["4-4"]
-if (mourn_days.includes(today)) {
-  document.documentElement.style.filter = "grayscale(1)";
-}</script></div><!-- hexo injector body_end start --><script src="https://cdn.jsdelivr.net/npm/hexo-widget-tree@0.2.2/js/index.js"></script><div id="widget-tree">
-      <ul>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/python/">
-          python
-        </a>
-      <span class="tree-list-count">33</span><ul class="tree-list-children">
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/python/debug/">
-          debug
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/Python4%E7%A7%8DDebug%E6%96%B9%E6%B3%95/" title="Python4种Debug方法"><i class="post-icon gg-file-document"></i>Python4种Debug方法</a></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/python/django/">
-          django
-        </a>
-      <span class="tree-list-count">9</span><ul class="tree-list-children">
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/python/django/websocket/">
-          websocket
-        </a>
-      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/django-vue%E5%9F%BA%E4%BA%8Ewebsocket%E5%88%9B%E9%80%A0%E5%AE%9E%E6%97%B6ECharts%E8%82%A1%E7%A5%A8%E5%9B%BE/" title="django+vue基于websocket创造实时ECharts股票图"><i class="post-icon gg-file-document"></i>django+vue基于websocket创造实时ECharts股票图</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/django-vue%E5%9F%BA%E4%BA%8Ewebsocket%E4%BA%BA%E5%B7%A5%E5%AE%A2%E6%9C%8D%E7%B3%BB%E7%BB%9F%E6%89%93%E9%80%A0/" title="django+vue基于websocket人工客服系统打造"><i class="post-icon gg-file-document"></i>django+vue基于websocket人工客服系统打造</a></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/python/django/celery/">
-          celery
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/celery%E4%BD%BF%E7%94%A8%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E5%A4%84%E7%90%86%E4%BB%A5%E5%8F%8A%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" title="Linux下Django使用celery异步任务处理以及定时任务"><i class="post-icon gg-file-document"></i>Linux下Django使用celery异步任务处理以及定时任务</a></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/python/django/%E9%83%A8%E7%BD%B2/">
-          部署
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/nginx+uwsgi/" title="win10/Linux系统项目上线Nginx+Django（Uwsgi）+Vue实现高可用部署"><i class="post-icon gg-file-document"></i>win10/Linux系统项目上线Nginx+Django（Uwsgi）+Vue实现高可用部署</a></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/python/django/%E6%94%AF%E4%BB%98/">
-          支付
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/django-vue%E6%94%AF%E4%BB%98%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%BE%AE%E4%BF%A1%E3%80%81%E6%94%AF%E4%BB%98%E5%AE%9D%E3%80%81PalPay/" title="django+vue工厂模式 支付融合 微信二维码支付、支付宝、PayPal跨境支付"><i class="post-icon gg-file-document"></i>django+vue工厂模式 支付融合 微信二维码支付、支付宝、PayPal跨境支付</a></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/python/django/rest-rest-framework/">
-          rest-rest-framework
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/Django%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" title="Django源码分析-ModelViewSet"><i class="post-icon gg-file-document"></i>Django源码分析-ModelViewSet</a></li></ul></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/python/%E9%AB%98%E5%B9%B6%E5%8F%91/">
-          高并发
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/IO%E5%AF%86%E9%9B%86%E5%9E%8B%E3%80%81CPU%E5%AF%86%E9%9B%86%E5%9E%8B%E5%88%86%E5%88%AB%E8%AF%A5%E9%80%89%E6%8B%A9%E5%A4%9A%E8%BF%9B%E7%A8%8B%E8%BF%98%E6%98%AF%E5%A4%9A%E7%BA%BF%E7%A8%8B/" title="IO密集型、CPU密集型分别该选择多进程还是多线程"><i class="post-icon gg-file-document"></i>IO密集型、CPU密集型分别该选择多进程还是多线程</a></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/python/SQLAlchemy/">
-          SQLAlchemy
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/Python%E4%B8%AD%E6%93%8D%E4%BD%9CSQLAlchemy/" title="Python中操作SQLAlchemy"><i class="post-icon gg-file-document"></i>Python中操作SQLAlchemy</a></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/python/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
-          数据分析
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children">
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/python/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/pandas/">
-          pandas
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/pandas%E5%85%A5%E9%97%A8/" title="数据分析-初识pandas"><i class="post-icon gg-file-document"></i>数据分析-初识pandas</a></li></ul></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/python/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
-          多线程
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/pypy3%E4%B8%8Epython%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%AF%94%E8%BE%83/" title="pypy3与python多线程比较"><i class="post-icon gg-file-document"></i>pypy3与python多线程比较</a></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/python/%E4%B8%89%E7%A8%8B/">
-          三程
-        </a>
-      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E4%B8%89%E7%A8%8B%E6%A6%82%E5%BF%B5/" title="python进程-线程-协程-概念"><i class="post-icon gg-file-document"></i>python进程-线程-协程-概念</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E8%BF%9B%E7%A8%8B-%E7%BA%BF%E7%A8%8B-%E5%8D%8F%E7%A8%8B-%E8%AF%A6%E8%A7%A3/" title="python进程-线程-协程-详解"><i class="post-icon gg-file-document"></i>python进程-线程-协程-详解</a></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/python/pandas/">
-          pandas
-        </a>
-      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/pandas%E8%BF%9B%E9%98%B6/" title="数据分析-pandas进阶操作"><i class="post-icon gg-file-document"></i>数据分析-pandas进阶操作</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/pandas%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C-%E8%AE%A1%E7%AE%97/" title="pandas进阶操作-计算-方法"><i class="post-icon gg-file-document"></i>pandas进阶操作-计算-方法</a></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/python/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/">
-          垃圾回收机制
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/" title="python垃圾回收机制"><i class="post-icon gg-file-document"></i>python垃圾回收机制</a></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/python/celery/">
-          celery
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97%E6%89%A7%E8%A1%8C%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1/" title="python手写队列异步任务"><i class="post-icon gg-file-document"></i>python手写队列异步任务</a></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/python/%E6%B5%8B%E8%AF%95/">
-          测试
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children">
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/python/%E6%B5%8B%E8%AF%95/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">
-          单元测试
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" title="python单元测试"><i class="post-icon gg-file-document"></i>python单元测试</a></li></ul></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/python/%E7%94%9F%E6%88%90%E5%99%A8/">
-          生成器
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E7%94%9F%E6%88%90%E5%99%A8/" title="彻底理解python生成器"><i class="post-icon gg-file-document"></i>彻底理解python生成器</a></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/python/%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/">
-          深浅拷贝
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D%E7%9A%84%E5%8C%BA%E5%88%AB/" title="python浅拷贝与深拷贝以及is 和 == 的区别"><i class="post-icon gg-file-document"></i>python浅拷贝与深拷贝以及is 和 == 的区别</a></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/python/%E8%A3%85%E9%A5%B0%E5%99%A8/">
-          装饰器
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E8%A3%85%E9%A5%B0%E5%99%A8/" title="彻底理解python装饰器以及使用场景"><i class="post-icon gg-file-document"></i>彻底理解python装饰器以及使用场景</a></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/python/%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/">
-          高阶函数
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/" title="python高阶函数详解"><i class="post-icon gg-file-document"></i>python高阶函数详解</a></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/python/%E8%BF%AD%E4%BB%A3%E5%99%A8/">
-          迭代器
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E8%BF%AD%E4%BB%A3%E5%99%A8/" title="彻底理解python迭代器"><i class="post-icon gg-file-document"></i>彻底理解python迭代器</a></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/python/redis/">
-          redis
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/redis%E5%A4%84%E7%90%86%E9%AB%98%E5%B9%B6%E5%8F%91/" title="python使用redis处理高并发"><i class="post-icon gg-file-document"></i>python使用redis处理高并发</a></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/python/fastapi/">
-          fastapi
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/%E5%88%9B%E5%BB%BAFastApi%E9%A1%B9%E7%9B%AE/" title="创建FastApi项目"><i class="post-icon gg-file-document"></i>创建FastApi项目</a></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/python/tornado/">
-          tornado
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/%E5%AF%BC%E5%87%BA%E6%96%87%E4%BB%B6/" title="tornado导入/导出Excel文件"><i class="post-icon gg-file-document"></i>tornado导入/导出Excel文件</a></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/python/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">
-          数据可视化
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" title="数据可视化"><i class="post-icon gg-file-document"></i>数据可视化</a></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/python/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-          数据结构
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" title="数据结构-算法-时间复杂度以及构造栈-队列"><i class="post-icon gg-file-document"></i>数据结构-算法-时间复杂度以及构造栈-队列</a></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/python/django-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">
-          django - 权限管理
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E4%B9%8B%E4%BD%8D%E8%BF%90%E7%AE%97%E4%BB%A5%E5%8F%8ARBAC%E4%BF%A9%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/" title="权限管理之位运算以及RBAC俩种实现方法"><i class="post-icon gg-file-document"></i>权限管理之位运算以及RBAC俩种实现方法</a></li></ul></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/">
-          项目部署
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children">
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/docker%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/">
-          docker项目部署
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/Win10%E7%8E%AF%E5%A2%83%E4%B8%8B%E4%BD%BF%E7%94%A8Docker%E5%AE%B9%E5%99%A8%E5%BC%8F%E9%83%A8%E7%BD%B2%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E9%A1%B9%E7%9B%AEDjango-Vue-js/" title="Win10环境下使用Docker容器式部署前后端分离项目Django+Vue"><i class="post-icon gg-file-document"></i>Win10环境下使用Docker容器式部署前后端分离项目Django+Vue</a></li></ul></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/algorithm/">
-          algorithm
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/algorithm%E5%AD%A6%E4%B9%A0/" title="智擎疾行，胜逐时速"><i class="post-icon gg-file-document"></i>智擎疾行，胜逐时速</a></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/elasticsearch/">
-          elasticsearch
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/elasticsearch%E5%AD%A6%E4%B9%A0/" title="数据浩瀚似海，Elasticsearch 速度不待"><i class="post-icon gg-file-document"></i>数据浩瀚似海，Elasticsearch 速度不待</a></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/go/">
-          go
-        </a>
-      <span class="tree-list-count">4</span><ul class="tree-list-children">
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/go/gin/">
-          gin
-        </a>
-      <span class="tree-list-count">3</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/gin%E5%9F%BA%E7%A1%80%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F/" title="gin 基础请求方式"><i class="post-icon gg-file-document"></i>gin 基础请求方式</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/gin%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E6%A0%A1%E9%AA%8C/" title="gin接口参数的校验"><i class="post-icon gg-file-document"></i>gin接口参数的校验</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/win%E7%8E%AF%E5%A2%83%E5%90%AF%E5%8A%A8gin/" title="win环境启动gin"><i class="post-icon gg-file-document"></i>win环境启动gin</a></li></ul></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/git/">
-          git
-        </a>
-      <span class="tree-list-count">2</span><ul class="tree-list-children">
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/git/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
-          常用命令
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/git%E5%B8%B8%E7%94%A8/" title="git常用命令"><i class="post-icon gg-file-document"></i>git常用命令</a></li></ul></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/Docker/">
-          Docker
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children">
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/Docker/Kubernetes-k8s/">
-          Kubernetes(k8s)
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/k8s%E9%9B%86%E7%BE%A4%E6%9C%8D%E5%8A%A1/" title="基于Kubernetes(k8s)搭建Gunicorn+Django/Flask高可用Web集群"><i class="post-icon gg-file-document"></i>基于Kubernetes(k8s)搭建Gunicorn+Django/Flask高可用Web集群</a></li></ul></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/database/">
-          database
-        </a>
-      <span class="tree-list-count">4</span><ul class="tree-list-children">
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/database/mysql/">
-          mysql
-        </a>
-      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/mysql%E5%AD%A6%E4%B9%A0/" title="mysql数据库"><i class="post-icon gg-file-document"></i>mysql数据库</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E6%93%8D%E4%BD%9CMySQL/" title="python操作mysql"><i class="post-icon gg-file-document"></i>python操作mysql</a></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/database/mongodb/">
-          mongodb
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E4%B8%8EMongodb%E6%93%8D%E4%BD%9C/" title="python与Mongodb操作"><i class="post-icon gg-file-document"></i>python与Mongodb操作</a></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/database/redis/">
-          redis
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/redis-server/" title="linux服务器启动一个redis服务"><i class="post-icon gg-file-document"></i>linux服务器启动一个redis服务</a></li></ul></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/mysql/">
-          mysql
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children">
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/mysql/%E4%BC%98%E5%8C%96/">
-          优化
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/mysql%E5%8D%83%E4%B8%87%E6%95%B0%E6%8D%AE%E7%B4%A2%E5%BC%95%E4%BC%98%E5%8C%96/" title="索引革命，数据腾飞"><i class="post-icon gg-file-document"></i>索引革命，数据腾飞</a></li></ul></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/ubuntu/">
-          ubuntu
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children">
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/ubuntu/docker/">
-          docker
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/ubuntu%20docker%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/" title="docker命令详解"><i class="post-icon gg-file-document"></i>docker命令详解</a></li></ul></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/docker/">
-          docker
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children">
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/docker/mysql/">
-          mysql
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children">
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/docker/mysql/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/">
-          主从复制
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/%E6%8E%8C%E6%8F%A1%E5%AE%B9%E5%99%A8%E4%B9%8B%E5%8A%9B%EF%BC%9AMySQL%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/" title="掌握容器之力：MySQL主从复制"><i class="post-icon gg-file-document"></i>掌握容器之力：MySQL主从复制</a></li></ul></li></ul></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/blog-%E8%87%AA%E5%8A%A8%E5%8C%96/">
-          blog - 自动化
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2blog/" title="自动化部署：一键开启博客新纪元"><i class="post-icon gg-file-document"></i>自动化部署：一键开启博客新纪元</a></li></ul></li>
-      <li class="tree-list-item">
-        <i class="toggle-post-icon gg-folder-add"></i>
-        <a class="tree-list-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
-          设计模式
-        </a>
-      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="设计模式"><i class="post-icon gg-file-document"></i>设计模式</a></li></ul></li></ul>
-        <div id="widget-tree-button">
-          <i class="gg-chevron-right"></i>
-        </div>
-      </div><!-- hexo injector body_end end --></body></html>
+.post-meta {
+  font-size: 14px;
+  color: var(--hty-secondary-text-color);
+}
+.post-meta .icon {
+  margin-bottom: -1px;
+}
+.post-description {
+  font-weight: normal;
+  padding: 0.5rem;
+}
+.post-author {
+  display: flex;
+  justify-content: center;
+}
+.post-author .author-avatar {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 0;
+}
+.post-author .author-avatar img {
+  border-radius: 50%;
+  height: 1rem;
+  width: 1rem;
+  padding: 2px;
+  border: 2px solid #d3d3d3;
+}
+.post-author .author-name {
+  margin-left: 0.5rem;
+  font-size: 1rem;
+}
+.post-meta-item-icon {
+  display: inline-block;
+  color: var(--text-color, --hty-secondary-text-color);
+}
+.post-meta-divider {
+  height: 25px;
+  color: var(--hty-secondary-text-color);
+  margin: 0 0.5rem;
+}
+.post-eof {
+  margin: 50px auto;
+  width: 50%;
+  height: 1px;
+  background: $blue;
+  opacity: 0.1;
+}
+.post-copyright {
+  font-size: 0.9rem;
+  margin: 2rem 0;
+  padding: 0.5rem 1rem;
+  border-left: 4px solid #ff5252;
+  background-color: var(--hty-bg-color);
+  list-style: none;
+  word-break: break-all;
+  position: relative;
+  overflow: hidden;
+}
+.post-copyright::after {
+  position: absolute;
+  color: #fff;
+  background: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 496 512'%3E%3Cpath fill='gray' d='M245.8 214.9l-33.2 17.3c-9.4-19.6-25.2-20-27.4-20-22.2 0-33.3 14.6-33.3 43.9 0 23.5 9.2 43.8 33.3 43.8 14.4 0 24.6-7 30.5-21.3l30.6 15.5a73.2 73.2 0 01-65.1 39c-22.6 0-74-10.3-74-77 0-58.7 43-77 72.6-77 30.8-.1 52.7 11.9 66 35.8zm143 0l-32.7 17.3c-9.5-19.8-25.7-20-27.9-20-22.1 0-33.2 14.6-33.2 43.9 0 23.5 9.2 43.8 33.2 43.8 14.5 0 24.7-7 30.5-21.3l31 15.5c-2 3.8-21.3 39-65 39-22.7 0-74-9.9-74-77 0-58.7 43-77 72.6-77C354 179 376 191 389 214.8zM247.7 8C104.7 8 0 123 0 256c0 138.4 113.6 248 247.6 248C377.5 504 496 403 496 256 496 118 389.4 8 247.6 8zm.8 450.8c-112.5 0-203.7-93-203.7-202.8 0-105.5 85.5-203.3 203.8-203.3A201.7 201.7 0 01451.3 256c0 121.7-99.7 202.9-202.9 202.9z'/%3E%3C/svg%3E");
+  content: ' ';
+  height: 10rem;
+  width: 10rem;
+  right: -2rem;
+  top: -2rem;
+  opacity: 0.1;
+}
+.tag-name {
+  padding: 0 0.1rem;
+}
