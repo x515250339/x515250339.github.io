@@ -1,0 +1,1499 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>GORM基本查询 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="gormcao-zuo.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="../qian-yan/goyu-yan-qi-yuan.html">
+            
+                <a href="../qian-yan/goyu-yan-qi-yuan.html">
+            
+                    
+                    Go语言起源
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2" data-path="../qian-yan/goyu-yan-xiang-mu.html">
+            
+                <a href="../qian-yan/goyu-yan-xiang-mu.html">
+            
+                    
+                    Go语言项目
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../goji-chu-zhi-shi.html">
+            
+                <a href="../goji-chu-zhi-shi.html">
+            
+                    
+                    GO基础知识
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../goji-chu-zhi-shi/gogai-shu.html">
+            
+                <a href="../goji-chu-zhi-shi/gogai-shu.html">
+            
+                    
+                    go概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../goji-chu-zhi-shi/di-yi-ge-go-cheng-xu.html">
+            
+                <a href="../goji-chu-zhi-shi/di-yi-ge-go-cheng-xu.html">
+            
+                    
+                    第一个go程序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../goji-chu-zhi-shi/zhu-shi.html">
+            
+                <a href="../goji-chu-zhi-shi/zhu-shi.html">
+            
+                    
+                    注释
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../goji-chu-zhi-shi/golangguan-fang-bian-cheng-zhi-nan.html">
+            
+                <a href="../goji-chu-zhi-shi/golangguan-fang-bian-cheng-zhi-nan.html">
+            
+                    
+                    Golang官方编程指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../goji-chu-zhi-shi/dai-ma-gui-830326-zhuan-yi-fu.html">
+            
+                <a href="../goji-chu-zhi-shi/dai-ma-gui-830326-zhuan-yi-fu.html">
+            
+                    
+                    代码规范&转义符
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../ru-men-lian-xi/">
+            
+                <a href="../ru-men-lian-xi/">
+            
+                    
+                    入门练习
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../ru-men-lian-xi/page-1.html">
+            
+                <a href="../ru-men-lian-xi/page-1.html">
+            
+                    
+                    Page 1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../ru-men-lian-xi/hello-world.html">
+            
+                <a href="../ru-men-lian-xi/hello-world.html">
+            
+                    
+                    Hello, World
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../ru-men-lian-xi/ming-ling-xing-can-shu.html">
+            
+                <a href="../ru-men-lian-xi/ming-ling-xing-can-shu.html">
+            
+                    
+                    命令行参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../ru-men-lian-xi/zhao-chu-zhong-fu-xing.html">
+            
+                <a href="../ru-men-lian-xi/zhao-chu-zhong-fu-xing.html">
+            
+                    
+                    找出重复行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../ru-men-lian-xi/gifdong-hua.html">
+            
+                <a href="../ru-men-lian-xi/gifdong-hua.html">
+            
+                    
+                    GIF动画
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../ru-men-lian-xi/huo-qu-url.html">
+            
+                <a href="../ru-men-lian-xi/huo-qu-url.html">
+            
+                    
+                    获取url
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../ru-men-lian-xi/bing-fa-huo-qu-duo-ge-url.html">
+            
+                <a href="../ru-men-lian-xi/bing-fa-huo-qu-duo-ge-url.html">
+            
+                    
+                    并发获取多个url
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../ru-men-lian-xi/da-jian-yi-ge-web-fu-wu-qi.html">
+            
+                <a href="../ru-men-lian-xi/da-jian-yi-ge-web-fu-wu-qi.html">
+            
+                    
+                    搭建一个web服务器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../cheng-xu-jie-gou.html">
+            
+                <a href="../cheng-xu-jie-gou.html">
+            
+                    
+                    常量、变量及基本数据类型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../cheng-xu-jie-gou/ming-ming.html">
+            
+                <a href="../cheng-xu-jie-gou/ming-ming.html">
+            
+                    
+                    标识符和关键字
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../cheng-xu-jie-gou/sheng-ming.html">
+            
+                <a href="../cheng-xu-jie-gou/sheng-ming.html">
+            
+                    
+                    声明、变量、常量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../cheng-xu-jie-gou/zhi-zhen.html">
+            
+                <a href="../cheng-xu-jie-gou/zhi-zhen.html">
+            
+                    
+                    指针、new函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../fu-zhi.html">
+            
+                <a href="../fu-zhi.html">
+            
+                    
+                    赋值
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../cheng-xu-jie-gou/shu-ju-lei-xing.html">
+            
+                <a href="../cheng-xu-jie-gou/shu-ju-lei-xing.html">
+            
+                    
+                    基本数据类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../cheng-xu-jie-gou/dan-wei.html">
+            
+                <a href="../cheng-xu-jie-gou/dan-wei.html">
+            
+                    
+                    单位
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../ji-chu-yu-fa.html">
+            
+                <a href="../ji-chu-yu-fa.html">
+            
+                    
+                    基础语法
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../ji-chu-yu-fa/pan-duan-yu-ju.html">
+            
+                <a href="../ji-chu-yu-fa/pan-duan-yu-ju.html">
+            
+                    
+                    条件语句
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../ji-chu-yu-fa/xun-huan-yu-ju.html">
+            
+                <a href="../ji-chu-yu-fa/xun-huan-yu-ju.html">
+            
+                    
+                    循环语句
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../ji-chu-yu-fa/yun-suan-fu/">
+            
+                <a href="../ji-chu-yu-fa/yun-suan-fu/">
+            
+                    
+                    比较、关系运算符
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.3.1" data-path="../ji-chu-yu-fa/yun-suan-fu/yun-suan-fu.html">
+            
+                <a href="../ji-chu-yu-fa/yun-suan-fu/yun-suan-fu.html">
+            
+                    
+                    运算符
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../shu-ju-lei-xing.html">
+            
+                <a href="../shu-ju-lei-xing.html">
+            
+                    
+                    数据类型与常见操作
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../shu-ju-lei-xing/shu-zi-lei-xing/">
+            
+                <a href="../shu-ju-lei-xing/shu-zi-lei-xing/">
+            
+                    
+                    数字类型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1.1" data-path="../shu-ju-lei-xing/shu-zi-lei-xing/chang-jian-shu-xue-yun-suan.html">
+            
+                <a href="../shu-ju-lei-xing/shu-zi-lei-xing/chang-jian-shu-xue-yun-suan.html">
+            
+                    
+                    常见数学运算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.1.2" data-path="../shu-ju-lei-xing/shu-zi-lei-xing/chao-da-zheng-xing.html">
+            
+                <a href="../shu-ju-lei-xing/shu-zi-lei-xing/chao-da-zheng-xing.html">
+            
+                    
+                    超大整型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.1.3" data-path="../shu-ju-lei-xing/shu-zi-lei-xing/fu-dian-xing-di-ceng.html">
+            
+                <a href="../shu-ju-lei-xing/shu-zi-lei-xing/fu-dian-xing-di-ceng.html">
+            
+                    
+                    浮点型底层
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.1.4" data-path="../shu-ju-lei-xing/shu-zi-lei-xing/decimal.html">
+            
+                <a href="../shu-ju-lei-xing/shu-zi-lei-xing/decimal.html">
+            
+                    
+                    decimal
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../shu-ju-lei-xing/bu-er-zhi.html">
+            
+                <a href="../shu-ju-lei-xing/bu-er-zhi.html">
+            
+                    
+                    布尔值
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../shu-ju-lei-xing/zi-fu-chuan-lei-xing/">
+            
+                <a href="../shu-ju-lei-xing/zi-fu-chuan-lei-xing/">
+            
+                    
+                    字符串类型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.3.1" data-path="../shu-ju-lei-xing/zi-fu-chuan-lei-xing/zi-fu-chuan-di-ceng-yi-ji-chang-yong-fang-fa.html">
+            
+                <a href="../shu-ju-lei-xing/zi-fu-chuan-lei-xing/zi-fu-chuan-di-ceng-yi-ji-chang-yong-fang-fa.html">
+            
+                    
+                    字符串底层以及常用方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../shu-ju-lei-xing/shu-zu/">
+            
+                <a href="../shu-ju-lei-xing/shu-zu/">
+            
+                    
+                    数组
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.4.1" data-path="../shu-ju-lei-xing/shu-zu/shu-zu-di-ceng.html">
+            
+                <a href="../shu-ju-lei-xing/shu-zu/shu-zu-di-ceng.html">
+            
+                    
+                    数组底层
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../shu-ju-lei-xing/qie-pian/">
+            
+                <a href="../shu-ju-lei-xing/qie-pian/">
+            
+                    
+                    切片
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.5.1" data-path="../shu-ju-lei-xing/qie-pian/qie-pian-di-ceng.html">
+            
+                <a href="../shu-ju-lei-xing/qie-pian/qie-pian-di-ceng.html">
+            
+                    
+                    切片底层
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../shu-ju-lei-xing/map/">
+            
+                <a href="../shu-ju-lei-xing/map/">
+            
+                    
+                    map
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.6.1" data-path="../shu-ju-lei-xing/map/map-di-ceng-yuan-li-pou-xi.html">
+            
+                <a href="../shu-ju-lei-xing/map/map-di-ceng-yuan-li-pou-xi.html">
+            
+                    
+                    Map底层原理剖析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6.2" data-path="../shu-ju-lei-xing/map/map-ji-chu-cao-zuo.html">
+            
+                <a href="../shu-ju-lei-xing/map/map-ji-chu-cao-zuo.html">
+            
+                    
+                    map基础操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../shu-ju-lei-xing/zhi-zhen.html">
+            
+                <a href="../shu-ju-lei-xing/zhi-zhen.html">
+            
+                    
+                    指针详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="../shu-ju-lei-xing/jie-gou-ti/">
+            
+                <a href="../shu-ju-lei-xing/jie-gou-ti/">
+            
+                    
+                    结构体
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.8.1" data-path="../shu-ju-lei-xing/jie-gou-ti/jie-gou-ti.html">
+            
+                <a href="../shu-ju-lei-xing/jie-gou-ti/jie-gou-ti.html">
+            
+                    
+                    结构体
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="../shu-ju-lei-xing/interfacejie-kou.html">
+            
+                <a href="../shu-ju-lei-xing/interfacejie-kou.html">
+            
+                    
+                    interface接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../mian-xiang-dui-xiang.html">
+            
+                <a href="../mian-xiang-dui-xiang.html">
+            
+                    
+                    面向对象
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../mian-xiang-dui-xiang/han-shu.html">
+            
+                <a href="../mian-xiang-dui-xiang/han-shu.html">
+            
+                    
+                    函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../mian-xiang-dui-xiang/deferyan-chi-diao-yong.html">
+            
+                <a href="../mian-xiang-dui-xiang/deferyan-chi-diao-yong.html">
+            
+                    
+                    defer延迟调用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../mian-xiang-dui-xiang/yi-chang-chu-li.html">
+            
+                <a href="../mian-xiang-dui-xiang/yi-chang-chu-li.html">
+            
+                    
+                    异常处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../mian-xiang-dui-xiang/zhuang-shi-qi.html">
+            
+                <a href="../mian-xiang-dui-xiang/zhuang-shi-qi.html">
+            
+                    
+                    装饰器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../bing-fa-bian-cheng.html">
+            
+                <a href="../bing-fa-bian-cheng.html">
+            
+                    
+                    并发编程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../bing-fa-bian-cheng/goroutinejie-shao.html">
+            
+                <a href="../bing-fa-bian-cheng/goroutinejie-shao.html">
+            
+                    
+                    goroutine介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../bing-fa-bian-cheng/xie-cheng-diao-du-grm-mo-xing.html">
+            
+                <a href="../bing-fa-bian-cheng/xie-cheng-diao-du-grm-mo-xing.html">
+            
+                    
+                    协程调度GRM模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../bing-fa-bian-cheng/xie-cheng-ji-ben-shi-yong.html">
+            
+                <a href="../bing-fa-bian-cheng/xie-cheng-ji-ben-shi-yong.html">
+            
+                    
+                    协程基本使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../bing-fa-bian-cheng/channel.html">
+            
+                <a href="../bing-fa-bian-cheng/channel.html">
+            
+                    
+                    Channel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5" data-path="../bing-fa-bian-cheng/select.html">
+            
+                <a href="../bing-fa-bian-cheng/select.html">
+            
+                    
+                    select
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.6" data-path="../bing-fa-bian-cheng/bing-fa-an-quan-he-suo.html">
+            
+                <a href="../bing-fa-bian-cheng/bing-fa-an-quan-he-suo.html">
+            
+                    
+                    并发安全和锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.7" data-path="../bing-fa-bian-cheng/goroutineyuan-li.html">
+            
+                <a href="../bing-fa-bian-cheng/goroutineyuan-li.html">
+            
+                    
+                    goroutine原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.8" data-path="../bing-fa-bian-cheng/goroutinebian-cheng.html">
+            
+                <a href="../bing-fa-bian-cheng/goroutinebian-cheng.html">
+            
+                    
+                    goroutine编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../shu-ju-ku-cao-zuo.html">
+            
+                <a href="../shu-ju-ku-cao-zuo.html">
+            
+                    
+                    数据库操作
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../gorm.html">
+            
+                <a href="../gorm.html">
+            
+                    
+                    GORM
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1.1" data-path="gormru-men.html">
+            
+                <a href="gormru-men.html">
+            
+                    
+                    GORM入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.1.2" data-path="gormcao-zuo.html">
+            
+                <a href="gormcao-zuo.html">
+            
+                    
+                    GORM操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.9.1.3" data-path="gormji-ben-cha-xun.html">
+            
+                <a href="gormji-ben-cha-xun.html">
+            
+                    
+                    GORM基本查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >GORM基本查询</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#gorm&#x67E5;&#x8BE2;"><b> </b>GORM&#x67E5;&#x8BE2;</a></li><ul><li><span class="title-icon "></span><a href="#gorm&#x57FA;&#x672C;&#x67E5;&#x8BE2;"><b>1. </b>GORM&#x57FA;&#x672C;&#x67E5;&#x8BE2;</a></li><ul><li><span class="title-icon "></span><a href="#&#x57FA;&#x672C;&#x67E5;&#x8BE2;"><b>1.1. </b>&#x57FA;&#x672C;&#x67E5;&#x8BE2;</a></li><li><span class="title-icon "></span><a href="#&#x7528;&#x4E3B;&#x952E;&#x68C0;&#x7D22;"><b>1.2. </b>&#x7528;&#x4E3B;&#x952E;&#x68C0;&#x7D22;</a></li></ul><li><span class="title-icon "></span><a href="#&#x6761;&#x4EF6;&#x67E5;&#x8BE2;"><b>2. </b>&#x6761;&#x4EF6;&#x67E5;&#x8BE2;</a></li><ul><li><span class="title-icon "></span><a href="#string-&#x6761;&#x4EF6;"><b>2.1. </b>String &#x6761;&#x4EF6;</a></li><li><span class="title-icon "></span><a href="#struch--map-&#x67E5;&#x8BE2;"><b>2.2. </b>Struch &amp; Map &#x67E5;&#x8BE2;</a></li><li><span class="title-icon "></span><a href="#not&#x6761;&#x4EF6;"><b>2.3. </b>Not&#x6761;&#x4EF6;</a></li><li><span class="title-icon "></span><a href="#or&#x6761;&#x4EF6;"><b>2.4. </b>Or&#x6761;&#x4EF6;</a></li></ul><li><span class="title-icon "></span><a href="#&#x9AD8;&#x7EA7;&#x67E5;&#x8BE2;"><b>3. </b>&#x9AD8;&#x7EA7;&#x67E5;&#x8BE2;</a></li><ul><li><span class="title-icon "></span><a href="#&#x9009;&#x62E9;&#x7279;&#x5B9A;&#x5B57;&#x6BB5;"><b>3.1. </b>&#x9009;&#x62E9;&#x7279;&#x5B9A;&#x5B57;&#x6BB5;</a></li><li><span class="title-icon "></span><a href="#order"><b>3.2. </b>Order</a></li><li><span class="title-icon "></span><a href="#limit--offset"><b>3.3. </b>Limit &amp; Offset</a></li><li><span class="title-icon "></span><a href="#group--having"><b>3.4. </b>Group &amp; Having</a></li><li><span class="title-icon "></span><a href="#distinct"><b>3.5. </b>Distinct</a></li></ul><li><span class="title-icon "></span><a href="#&#x8FDE;&#x8868;&#x67E5;&#x8BE2;"><b>4. </b>&#x8FDE;&#x8868;&#x67E5;&#x8BE2;</a></li><ul><li><span class="title-icon "></span><a href="#joins"><b>4.1. </b>Joins</a></li><li><span class="title-icon "></span><a href="#joins-&#x9884;&#x52A0;&#x8F7D;"><b>4.2. </b>Joins &#x9884;&#x52A0;&#x8F7D;</a></li></ul></ul></ul></div><a href="#gorm&#x67E5;&#x8BE2;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="gorm&#x67E5;&#x8BE2;"><a name="gorm&#x67E5;&#x8BE2;" class="anchor-navigation-ex-anchor" href="#gorm&#x67E5;&#x8BE2;"><i class="fa fa-link" aria-hidden="true"></i></a> GORM&#x67E5;&#x8BE2;</h1>
+<h2 id="gorm&#x57FA;&#x672C;&#x67E5;&#x8BE2;"><a name="gorm&#x57FA;&#x672C;&#x67E5;&#x8BE2;" class="anchor-navigation-ex-anchor" href="#gorm&#x57FA;&#x672C;&#x67E5;&#x8BE2;"><i class="fa fa-link" aria-hidden="true"></i></a>1. GORM&#x57FA;&#x672C;&#x67E5;&#x8BE2;</h2>
+<ul>
+<li><a href="https://gorm.io/zh_CN/docs/query.html" target="_blank">&#x5B98;&#x65B9;&#x6587;&#x6863;</a></li>
+</ul>
+<h3 id="&#x57FA;&#x672C;&#x67E5;&#x8BE2;"><a name="&#x57FA;&#x672C;&#x67E5;&#x8BE2;" class="anchor-navigation-ex-anchor" href="#&#x57FA;&#x672C;&#x67E5;&#x8BE2;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. &#x57FA;&#x672C;&#x67E5;&#x8BE2;</h3>
+<pre><code class="lang-go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(c *UserController)</span> <span class="hljs-title">UserSelect</span><span class="hljs-params">()</span></span> {
+    <span class="hljs-comment">//1&#x3001;&#x67E5;&#x8BE2;id=3&#x7684;&#x7528;&#x6237;</span>
+    user := models.User{Id: <span class="hljs-number">3</span>}
+    models.DB.Find(&amp;user)
+
+    <span class="hljs-comment">//2&#x3001;&#x67E5;&#x8BE2;&#x6240;&#x6709;&#x6570;&#x636E;</span>
+    user := []models.User{}
+    result := models.DB.Find(&amp;user)  <span class="hljs-comment">//5 &#xFF08;&#x7EDF;&#x8BA1;&#x6709;&#x51E0;&#x6761;&#x6570;&#x636E;&#xFF09;</span>
+    fmt.Println(result.RowsAffected )
+
+    <span class="hljs-comment">//3&#x3001;&#x67E5;&#x8BE2;&#x7B2C;&#x4E00;&#x6761;&#x6570;&#x636E;</span>
+    users := models.User{}
+    models.DB.First(&amp;users)
+
+    c.Data[<span class="hljs-string">&quot;json&quot;</span>] = user
+    c.ServeJSON()
+}
+</code></pre>
+<h3 id="&#x7528;&#x4E3B;&#x952E;&#x68C0;&#x7D22;"><a name="&#x7528;&#x4E3B;&#x952E;&#x68C0;&#x7D22;" class="anchor-navigation-ex-anchor" href="#&#x7528;&#x4E3B;&#x952E;&#x68C0;&#x7D22;"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. &#x7528;&#x4E3B;&#x952E;&#x68C0;&#x7D22;</h3>
+<pre><code class="lang-go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(c *UserController)</span> <span class="hljs-title">UserSelect</span><span class="hljs-params">()</span></span> {
+    user := []models.User{}
+
+    <span class="hljs-comment">//1) SELECT * FROM users WHERE id = 2;</span>
+    models.DB.First(&amp;user, <span class="hljs-number">2</span>)
+    <span class="hljs-comment">//2) SELECT * FROM users WHERE id IN (1,2,3);</span>
+    models.DB.Find(&amp;user, []<span class="hljs-keyword">int</span>{<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>})
+
+    c.Data[<span class="hljs-string">&quot;json&quot;</span>] = user
+    c.ServeJSON()
+}
+</code></pre>
+<h2 id="&#x6761;&#x4EF6;&#x67E5;&#x8BE2;"><a name="&#x6761;&#x4EF6;&#x67E5;&#x8BE2;" class="anchor-navigation-ex-anchor" href="#&#x6761;&#x4EF6;&#x67E5;&#x8BE2;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x6761;&#x4EF6;&#x67E5;&#x8BE2;</h2>
+<h3 id="string-&#x6761;&#x4EF6;"><a name="string-&#x6761;&#x4EF6;" class="anchor-navigation-ex-anchor" href="#string-&#x6761;&#x4EF6;"><i class="fa fa-link" aria-hidden="true"></i></a>2.1. String &#x6761;&#x4EF6;</h3>
+<pre><code class="lang-go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(c *UserController)</span> <span class="hljs-title">UserSelect</span><span class="hljs-params">()</span></span> {
+    user := []models.User{}
+
+    <span class="hljs-comment">//1) Get first matched record</span>
+    models.DB.Where(<span class="hljs-string">&quot;username = ?&quot;</span>, <span class="hljs-string">&quot;zhangsan&quot;</span>).First(&amp;user)
+    <span class="hljs-comment">// SELECT * FROM users WHERE name = &apos;jinzhu&apos; limit 1;</span>
+
+    <span class="hljs-comment">//2) Get all matched records</span>
+    models.DB.Where(<span class="hljs-string">&quot;username = ?&quot;</span>, <span class="hljs-string">&quot;zhangsan&quot;</span>).Find(&amp;user)
+    <span class="hljs-comment">// SELECT * FROM users WHERE name = &apos;jinzhu&apos;;</span>
+
+    <span class="hljs-comment">//3&#xFF09; &lt;&gt;</span>
+    models.DB.Where(<span class="hljs-string">&quot;username &lt;&gt; ?&quot;</span>, <span class="hljs-string">&quot;jinzhu&quot;</span>).Find(&amp;user)
+    <span class="hljs-comment">//SELECT * FROM users WHERE name &lt;&gt; &apos;jinzhu&apos;;</span>
+
+    <span class="hljs-comment">//4&#xFF09; IN</span>
+    models.DB.Where(<span class="hljs-string">&quot;username IN (?)&quot;</span>, []<span class="hljs-keyword">string</span>{<span class="hljs-string">&quot;jinzhu&quot;</span>, <span class="hljs-string">&quot;jinzhu 2&quot;</span>}).Find(&amp;user)
+    <span class="hljs-comment">//5&#xFF09; SELECT * FROM users WHERE name in (&apos;jinzhu&apos;,&apos;jinzhu 2&apos;);</span>
+
+    <span class="hljs-comment">//6&#xFF09; LIKE</span>
+    models.DB.Where(<span class="hljs-string">&quot;username LIKE ?&quot;</span>, <span class="hljs-string">&quot;%jin%&quot;</span>).Find(&amp;user)
+    <span class="hljs-comment">// SELECT * FROM users WHERE name LIKE &apos;%jin%&apos;;</span>
+
+    <span class="hljs-comment">//7&#xFF09; AND</span>
+    models.DB.Where(<span class="hljs-string">&quot;username = ? AND age &gt;= ?&quot;</span>, <span class="hljs-string">&quot;jinzhu&quot;</span>, <span class="hljs-string">&quot;22&quot;</span>).Find(&amp;user)
+    <span class="hljs-comment">// SELECT * FROM users WHERE name = &apos;jinzhu&apos; AND age &gt;= 22;</span>
+
+    <span class="hljs-comment">//8&#xFF09; Time</span>
+    models.DB.Where(<span class="hljs-string">&quot;updated_at &gt; ?&quot;</span>, lastWeek).Find(&amp;user)
+    <span class="hljs-comment">// SELECT * FROM users WHERE updated_at &gt; &apos;2000-01-01 00:00:00&apos;;</span>
+
+    <span class="hljs-comment">//9&#xFF09; BETWEEN</span>
+    models.DB.Where(<span class="hljs-string">&quot;created_at BETWEEN ? AND ?&quot;</span>, lastWeek, today).Find(&amp;user)
+    <span class="hljs-comment">// SELECT * FROM users WHERE created_at BETWEEN &apos;2000-01-01 00:00:00&apos; AND &apos;2000-01-08 00:00:00&apos;;</span>
+
+    c.Data[<span class="hljs-string">&quot;json&quot;</span>] = user
+    c.ServeJSON()
+}
+</code></pre>
+<h3 id="struch--map-&#x67E5;&#x8BE2;"><a name="struch--map-&#x67E5;&#x8BE2;" class="anchor-navigation-ex-anchor" href="#struch--map-&#x67E5;&#x8BE2;"><i class="fa fa-link" aria-hidden="true"></i></a>2.2. Struch &amp; Map &#x67E5;&#x8BE2;</h3>
+<pre><code class="lang-go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(c *UserController)</span> <span class="hljs-title">UserSelect</span><span class="hljs-params">()</span></span> {
+    user := []models.User{}
+
+    <span class="hljs-comment">// 1&#xFF09;Struct</span>
+    models.DB.Where(&amp;models.User{Username: <span class="hljs-string">&quot;zhangsan&quot;</span>, Age: <span class="hljs-number">26</span>}).First(&amp;user)
+    <span class="hljs-comment">// SELECT * FROM users WHERE name = &quot;jinzhu&quot; AND age = 20 LIMIT 1;</span>
+
+    <span class="hljs-comment">// 2&#xFF09;Map</span>
+    models.DB.Where(<span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]<span class="hljs-keyword">interface</span>{}{<span class="hljs-string">&quot;username&quot;</span>: <span class="hljs-string">&quot;zhangsan&quot;</span>, <span class="hljs-string">&quot;age&quot;</span>: <span class="hljs-number">26</span>}).Find(&amp;user)
+    <span class="hljs-comment">// SELECT * FROM users WHERE name = &quot;jinzhu&quot; AND age = 20;</span>
+
+    <span class="hljs-comment">// 3&#xFF09;&#x4E3B;&#x952E;&#x7684;&#x5207;&#x7247;</span>
+    models.DB.Where([]<span class="hljs-keyword">int64</span>{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>}).Find(&amp;user)
+    <span class="hljs-comment">//SELECT * FROM users WHERE id IN (20, 21, 22);</span>
+
+    c.Data[<span class="hljs-string">&quot;json&quot;</span>] = user
+    c.ServeJSON()
+}
+</code></pre>
+<ul>
+<li>&#x5B9A;&#x4E49;&#x7684;&#x7ED3;&#x6784;&#x4F53;</li>
+</ul>
+<pre><code class="lang-go"><span class="hljs-keyword">type</span> User <span class="hljs-keyword">struct</span> {
+    Id       <span class="hljs-keyword">int</span>
+    Username <span class="hljs-keyword">string</span>
+    Age      <span class="hljs-keyword">int</span>
+    Email    <span class="hljs-keyword">string</span>
+    AddTime  <span class="hljs-keyword">int</span>
+}
+</code></pre>
+<h3 id="not&#x6761;&#x4EF6;"><a name="not&#x6761;&#x4EF6;" class="anchor-navigation-ex-anchor" href="#not&#x6761;&#x4EF6;"><i class="fa fa-link" aria-hidden="true"></i></a>2.3. Not&#x6761;&#x4EF6;</h3>
+<pre><code class="lang-go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(c *UserController)</span> <span class="hljs-title">UserSelect</span><span class="hljs-params">()</span></span> {
+    user := []models.User{}
+
+    <span class="hljs-comment">//1&#xFF09;&#x4E0D;&#x7B49;&#x4E8E;</span>
+    models.DB.Not(<span class="hljs-string">&quot;zhangsan&quot;</span>, <span class="hljs-string">&quot;lisi&quot;</span>).First(&amp;user)
+    <span class="hljs-comment">// SELECT * FROM users WHERE name &lt;&gt; &quot;jinzhu&quot; LIMIT 1;</span>
+
+    <span class="hljs-comment">//2&#xFF09; Not In</span>
+    models.DB.Not(<span class="hljs-string">&quot;username&quot;</span>, []<span class="hljs-keyword">string</span>{<span class="hljs-string">&quot;zhangsan&quot;</span>, <span class="hljs-string">&quot;lisi&quot;</span>}).Find(&amp;user)
+    <span class="hljs-comment">//// SELECT * FROM users WHERE name NOT IN (&quot;jinzhu&quot;, &quot;jinzhu 2&quot;);</span>
+
+    <span class="hljs-comment">//3&#xFF09; Not In slice of primary keys</span>
+    models.DB.Not([]<span class="hljs-keyword">int64</span>{<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>}).First(&amp;user)
+    <span class="hljs-comment">// SELECT * FROM users WHERE id NOT IN (1,2,3);</span>
+
+    <span class="hljs-comment">//4&#xFF09; Plain SQL</span>
+    models.DB.Not(<span class="hljs-string">&quot;name = ?&quot;</span>, <span class="hljs-string">&quot;jinzhu&quot;</span>).First(&amp;user)
+    <span class="hljs-comment">// SELECT * FROM users WHERE NOT(name = &quot;jinzhu&quot;);</span>
+
+    <span class="hljs-comment">//5&#xFF09; Struct</span>
+    models.DB.Not(models.User{Username: <span class="hljs-string">&quot;jinzhu&quot;</span>}).First(&amp;user)
+    <span class="hljs-comment">// SELECT * FROM users WHERE name &lt;&gt; &quot;jinzhu&quot;;</span>
+
+    c.Data[<span class="hljs-string">&quot;json&quot;</span>] = user
+    c.ServeJSON()
+}
+</code></pre>
+<h3 id="or&#x6761;&#x4EF6;"><a name="or&#x6761;&#x4EF6;" class="anchor-navigation-ex-anchor" href="#or&#x6761;&#x4EF6;"><i class="fa fa-link" aria-hidden="true"></i></a>2.4. Or&#x6761;&#x4EF6;</h3>
+<pre><code class="lang-go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(c *UserController)</span> <span class="hljs-title">UserSelect</span><span class="hljs-params">()</span></span> {
+    user := []models.User{}
+
+    <span class="hljs-comment">//1&#xFF09;</span>
+    models.DB.Where(<span class="hljs-string">&quot;role = ?&quot;</span>, <span class="hljs-string">&quot;admin&quot;</span>).Or(<span class="hljs-string">&quot;role = ?&quot;</span>, <span class="hljs-string">&quot;super_admin&quot;</span>).Find(&amp;user)
+    <span class="hljs-comment">// SELECT * FROM users WHERE role = &apos;admin&apos; OR role = &apos;super_admin&apos;;</span>
+
+    <span class="hljs-comment">//2&#xFF09; Struct</span>
+    models.DB.Where(<span class="hljs-string">&quot;name = &apos;jinzhu&apos;&quot;</span>).Or(models.User{Username: <span class="hljs-string">&quot;jinzhu 2&quot;</span>}).Find(&amp;user)
+    <span class="hljs-comment">// SELECT * FROM users WHERE name = &apos;jinzhu&apos; OR name = &apos;jinzhu 2&apos;;</span>
+
+    <span class="hljs-comment">//3&#xFF09; Map</span>
+    models.DB.Where(<span class="hljs-string">&quot;name = &apos;jinzhu&apos;&quot;</span>).Or(<span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]<span class="hljs-keyword">interface</span>{}{<span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;jinzhu 2&quot;</span>}).Find(&amp;user)
+    <span class="hljs-comment">// SELECT * FROM users WHERE name = &apos;jinzhu&apos; OR name = &apos;jinzhu 2&apos;;</span>
+
+    c.Data[<span class="hljs-string">&quot;json&quot;</span>] = user
+    c.ServeJSON()
+}
+</code></pre>
+<h2 id="&#x9AD8;&#x7EA7;&#x67E5;&#x8BE2;"><a name="&#x9AD8;&#x7EA7;&#x67E5;&#x8BE2;" class="anchor-navigation-ex-anchor" href="#&#x9AD8;&#x7EA7;&#x67E5;&#x8BE2;"><i class="fa fa-link" aria-hidden="true"></i></a>3. &#x9AD8;&#x7EA7;&#x67E5;&#x8BE2;</h2>
+<h3 id="&#x9009;&#x62E9;&#x7279;&#x5B9A;&#x5B57;&#x6BB5;"><a name="&#x9009;&#x62E9;&#x7279;&#x5B9A;&#x5B57;&#x6BB5;" class="anchor-navigation-ex-anchor" href="#&#x9009;&#x62E9;&#x7279;&#x5B9A;&#x5B57;&#x6BB5;"><i class="fa fa-link" aria-hidden="true"></i></a>3.1. &#x9009;&#x62E9;&#x7279;&#x5B9A;&#x5B57;&#x6BB5;</h3>
+<ul>
+<li>&#x9009;&#x62E9;&#x60A8;&#x60F3;&#x4ECE;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x68C0;&#x7D22;&#x7684;&#x5B57;&#x6BB5;&#xFF0C;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x4F1A;&#x9009;&#x62E9;&#x5168;&#x90E8;&#x5B57;&#x6BB5;</li>
+</ul>
+<pre><code class="lang-go">db.Select(<span class="hljs-string">&quot;name&quot;</span>, <span class="hljs-string">&quot;age&quot;</span>).Find(&amp;users)
+<span class="hljs-comment">// SELECT name, age FROM users;</span>
+
+db.Select([]<span class="hljs-keyword">string</span>{<span class="hljs-string">&quot;name&quot;</span>, <span class="hljs-string">&quot;age&quot;</span>}).Find(&amp;users)
+<span class="hljs-comment">// SELECT name, age FROM users;</span>
+
+db.Table(<span class="hljs-string">&quot;users&quot;</span>).Select(<span class="hljs-string">&quot;COALESCE(age,?)&quot;</span>, <span class="hljs-number">42</span>).Rows()
+<span class="hljs-comment">// SELECT COALESCE(age,&apos;42&apos;) FROM users;</span>
+</code></pre>
+<h3 id="order"><a name="order" class="anchor-navigation-ex-anchor" href="#order"><i class="fa fa-link" aria-hidden="true"></i></a>3.2. Order</h3>
+<ul>
+<li>&#x6307;&#x5B9A;&#x4ECE;&#x6570;&#x636E;&#x5E93;&#x68C0;&#x7D22;&#x8BB0;&#x5F55;&#x65F6;&#x7684;&#x6392;&#x5E8F;&#x65B9;&#x5F0F;</li>
+</ul>
+<pre><code class="lang-go">db.Order(<span class="hljs-string">&quot;age desc, name&quot;</span>).Find(&amp;users)
+<span class="hljs-comment">// SELECT * FROM users ORDER BY age desc, name;</span>
+
+<span class="hljs-comment">// &#x591A;&#x4E2A; order</span>
+db.Order(<span class="hljs-string">&quot;age desc&quot;</span>).Order(<span class="hljs-string">&quot;name&quot;</span>).Find(&amp;users)
+<span class="hljs-comment">// SELECT * FROM users ORDER BY age desc, name;</span>
+
+db.Clauses(clause.OrderBy{
+  Expression: clause.Expr{SQL: <span class="hljs-string">&quot;FIELD(id,?)&quot;</span>, Vars: []<span class="hljs-keyword">interface</span>{}{[]<span class="hljs-keyword">int</span>{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>}}, WithoutParentheses: <span class="hljs-literal">true</span>},
+}).Find(&amp;User{})
+<span class="hljs-comment">// SELECT * FROM users ORDER BY FIELD(id,1,2,3)</span>
+</code></pre>
+<h3 id="limit--offset"><a name="limit--offset" class="anchor-navigation-ex-anchor" href="#limit--offset"><i class="fa fa-link" aria-hidden="true"></i></a>3.3. Limit &amp; Offset</h3>
+<pre><code class="lang-go">db.Limit(<span class="hljs-number">3</span>).Find(&amp;users)
+<span class="hljs-comment">// SELECT * FROM users LIMIT 3;</span>
+
+<span class="hljs-comment">// &#x901A;&#x8FC7; -1 &#x6D88;&#x9664; Limit &#x6761;&#x4EF6;</span>
+db.Limit(<span class="hljs-number">10</span>).Find(&amp;users1).Limit(<span class="hljs-number">-1</span>).Find(&amp;users2)
+<span class="hljs-comment">// SELECT * FROM users LIMIT 10; (users1)</span>
+<span class="hljs-comment">// SELECT * FROM users; (users2)</span>
+
+db.Offset(<span class="hljs-number">3</span>).Find(&amp;users)
+<span class="hljs-comment">// SELECT * FROM users OFFSET 3;</span>
+
+db.Limit(<span class="hljs-number">10</span>).Offset(<span class="hljs-number">5</span>).Find(&amp;users)
+<span class="hljs-comment">// SELECT * FROM users OFFSET 5 LIMIT 10;</span>
+
+<span class="hljs-comment">// &#x901A;&#x8FC7; -1 &#x6D88;&#x9664; Offset &#x6761;&#x4EF6;</span>
+db.Offset(<span class="hljs-number">10</span>).Find(&amp;users1).Offset(<span class="hljs-number">-1</span>).Find(&amp;users2)
+<span class="hljs-comment">// SELECT * FROM users OFFSET 10; (users1)</span>
+<span class="hljs-comment">// SELECT * FROM users; (users2)</span>
+</code></pre>
+<h3 id="group--having"><a name="group--having" class="anchor-navigation-ex-anchor" href="#group--having"><i class="fa fa-link" aria-hidden="true"></i></a>3.4. Group &amp; Having</h3>
+<pre><code class="lang-go"><span class="hljs-keyword">type</span> result <span class="hljs-keyword">struct</span> {
+  Date  time.Time
+  Total <span class="hljs-keyword">int</span>
+}
+
+db.Model(&amp;User{}).Select(<span class="hljs-string">&quot;name, sum(age) as total&quot;</span>).Where(<span class="hljs-string">&quot;name LIKE ?&quot;</span>, <span class="hljs-string">&quot;group%&quot;</span>).Group(<span class="hljs-string">&quot;name&quot;</span>).First(&amp;result)
+<span class="hljs-comment">// SELECT name, sum(age) as total FROM `users` WHERE name LIKE &quot;group%&quot; GROUP BY `name`</span>
+
+
+db.Model(&amp;User{}).Select(<span class="hljs-string">&quot;name, sum(age) as total&quot;</span>).Group(<span class="hljs-string">&quot;name&quot;</span>).Having(<span class="hljs-string">&quot;name = ?&quot;</span>, <span class="hljs-string">&quot;group&quot;</span>).Find(&amp;result)
+<span class="hljs-comment">// SELECT name, sum(age) as total FROM `users` GROUP BY `name` HAVING name = &quot;group&quot;</span>
+
+rows, err := db.Table(<span class="hljs-string">&quot;orders&quot;</span>).Select(<span class="hljs-string">&quot;date(created_at) as date, sum(amount) as total&quot;</span>).Group(<span class="hljs-string">&quot;date(created_at)&quot;</span>).Rows()
+<span class="hljs-keyword">for</span> rows.Next() {
+  ...
+}
+
+rows, err := db.Table(<span class="hljs-string">&quot;orders&quot;</span>).Select(<span class="hljs-string">&quot;date(created_at) as date, sum(amount) as total&quot;</span>).Group(<span class="hljs-string">&quot;date(created_at)&quot;</span>).Having(<span class="hljs-string">&quot;sum(amount) &gt; ?&quot;</span>, <span class="hljs-number">100</span>).Rows()
+<span class="hljs-keyword">for</span> rows.Next() {
+  ...
+}
+
+<span class="hljs-keyword">type</span> Result <span class="hljs-keyword">struct</span> {
+  Date  time.Time
+  Total <span class="hljs-keyword">int64</span>
+}
+db.Table(<span class="hljs-string">&quot;orders&quot;</span>).Select(<span class="hljs-string">&quot;date(created_at) as date, sum(amount) as total&quot;</span>).Group(<span class="hljs-string">&quot;date(created_at)&quot;</span>).Having(<span class="hljs-string">&quot;sum(amount) &gt; ?&quot;</span>, <span class="hljs-number">100</span>).Scan(&amp;results)
+</code></pre>
+<h3 id="distinct"><a name="distinct" class="anchor-navigation-ex-anchor" href="#distinct"><i class="fa fa-link" aria-hidden="true"></i></a>3.5. Distinct</h3>
+<pre><code class="lang-go">db.Distinct(<span class="hljs-string">&quot;name&quot;</span>, <span class="hljs-string">&quot;age&quot;</span>).Order(<span class="hljs-string">&quot;name, age desc&quot;</span>).Find(&amp;results)
+</code></pre>
+<h2 id="&#x8FDE;&#x8868;&#x67E5;&#x8BE2;"><a name="&#x8FDE;&#x8868;&#x67E5;&#x8BE2;" class="anchor-navigation-ex-anchor" href="#&#x8FDE;&#x8868;&#x67E5;&#x8BE2;"><i class="fa fa-link" aria-hidden="true"></i></a>4. &#x8FDE;&#x8868;&#x67E5;&#x8BE2;</h2>
+<h3 id="joins"><a name="joins" class="anchor-navigation-ex-anchor" href="#joins"><i class="fa fa-link" aria-hidden="true"></i></a>4.1. Joins</h3>
+<pre><code class="lang-go"><span class="hljs-keyword">type</span> result <span class="hljs-keyword">struct</span> {
+  Name  <span class="hljs-keyword">string</span>
+  Email <span class="hljs-keyword">string</span>
+}
+db.Model(&amp;User{}).Select(<span class="hljs-string">&quot;users.name, emails.email&quot;</span>).Joins(<span class="hljs-string">&quot;left join emails on emails.user_id = users.id&quot;</span>).Scan(&amp;result{})
+<span class="hljs-comment">// SELECT users.name, emails.email FROM `users` left join emails on emails.user_id = users.id</span>
+
+rows, err := db.Table(<span class="hljs-string">&quot;users&quot;</span>).Select(<span class="hljs-string">&quot;users.name, emails.email&quot;</span>).Joins(<span class="hljs-string">&quot;left join emails on emails.user_id = users.id&quot;</span>).Rows()
+<span class="hljs-keyword">for</span> rows.Next() {
+  ...
+}
+
+db.Table(<span class="hljs-string">&quot;users&quot;</span>).Select(<span class="hljs-string">&quot;users.name, emails.email&quot;</span>).Joins(<span class="hljs-string">&quot;left join emails on emails.user_id = users.id&quot;</span>).Scan(&amp;results)
+
+<span class="hljs-comment">// &#x5E26;&#x53C2;&#x6570;&#x7684;&#x591A;&#x8868;&#x8FDE;&#x63A5;</span>
+db.Joins(<span class="hljs-string">&quot;JOIN emails ON emails.user_id = users.id AND emails.email = ?&quot;</span>, <span class="hljs-string">&quot;jinzhu@example.org&quot;</span>).Joins(<span class="hljs-string">&quot;JOIN credit_cards ON credit_cards.user_id = users.id&quot;</span>).Where(<span class="hljs-string">&quot;credit_cards.number = ?&quot;</span>, <span class="hljs-string">&quot;411111111111&quot;</span>).Find(&amp;user)
+</code></pre>
+<h3 id="joins-&#x9884;&#x52A0;&#x8F7D;"><a name="joins-&#x9884;&#x52A0;&#x8F7D;" class="anchor-navigation-ex-anchor" href="#joins-&#x9884;&#x52A0;&#x8F7D;"><i class="fa fa-link" aria-hidden="true"></i></a>4.2. Joins &#x9884;&#x52A0;&#x8F7D;</h3>
+<ul>
+<li>&#x60A8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>Joins</code> &#x5B9E;&#x73B0;&#x5355;&#x6761; SQL &#x9884;&#x52A0;&#x8F7D;&#x5173;&#x8054;&#x8BB0;&#x5F55;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</li>
+</ul>
+<pre><code class="lang-go">db.Joins(<span class="hljs-string">&quot;Company&quot;</span>).Find(&amp;users)
+<span class="hljs-comment">// SELECT `users`.`id`,`users`.`name`,`users`.`age`,`Company`.`id` AS `Company__id`,`Company`.`name` AS `Company__name` FROM `users` LEFT JOIN `companies` AS `Company` ON `users`.`company_id` = `Company`.`id`;</span>
+</code></pre>
+
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="gormcao-zuo.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: GORM操作">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"GORM基本查询","level":"1.9.1.3","depth":3,"previous":{"title":"GORM操作","level":"1.9.1.2","depth":3,"path":"gorm/gormcao-zuo.md","ref":"gorm/gormcao-zuo.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["anchor-navigation-ex","-search","-sharing","theme-default","-lunr","fontsettings","livereload","popup","splitter","copy-code-button","highlight","-expandable-chapters-small","chapter-fold","back-to-top-button","search-pro","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"popup":{},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"anchor-navigation-ex":{"showLevelIcon":false,"mode":"float","pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"showLevel":true,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","showGoTop":true,"printLog":false,"multipleH1":false,"multipleH2":false,"associatedWithSummary":true,"multipleH3":false,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"multipleH4":false},"back-to-top-button":{},"copy-code-button":{},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"gorm/gormji-ben-cha-xun.md","mtime":"2023-09-12T14:49:04.555Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-02-07T16:00:33.590Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+
+    </body>
+</html>
+

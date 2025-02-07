@@ -73,6 +73,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="../go.html" />
+    
     
     <link rel="prev" href="xin-jila-qu-git-xiang-mu.html" />
     
@@ -188,7 +190,33 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="xin-jila-qu-git-xiang-mu.html">
+        <li class="chapter " data-level="1.4.1" data-path="zhong-xin-shu-ru-zhang-hao-mi-ma.html">
+            
+                <a href="zhong-xin-shu-ru-zhang-hao-mi-ma.html">
+            
+                    
+                    重新输入账号密码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="push-code-get-token.html">
+            
+                <a href="push-code-get-token.html">
+            
+                    
+                    push code get token
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="xin-jila-qu-git-xiang-mu.html">
             
                 <a href="xin-jila-qu-git-xiang-mu.html">
             
@@ -201,7 +229,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4.2" data-path="gitshang-4f20-la-qu-wen-ti.html">
+        <li class="chapter active" data-level="1.4.4" data-path="gitshang-4f20-la-qu-wen-ti.html">
             
                 <a href="gitshang-4f20-la-qu-wen-ti.html">
             
@@ -216,6 +244,39 @@
     
 
             </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../go.html">
+            
+                <a href="../go.html">
+            
+                    
+                    go
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Group 1</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../group-1/gong-zuo-xin-de.html">
+            
+                <a href="../group-1/gong-zuo-xin-de.html">
+            
+                    
+                    工作心得
+            
+                </a>
+            
+
             
         </li>
     
@@ -264,25 +325,41 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>git &#x5E38;&#x89C1;&#x9519;&#x8BEF;&#x89E3;&#x51B3;</p>
-<p>Failed to connect to github.com port 443: Timed out
-git &#x62C9;&#x53D6;github&#x4EE3;&#x7801;&#x5931;&#x8D25;&#xFF0C;&#x63D0;&#x793A; Failed to connect to github.com port 443: Timed out&#xFF0C;&#x53D6;&#x6D88;&#x8BBE;&#x7F6E;git&#x4EE3;&#x7406;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#x3002;</p>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#git&#x4E0A;&#x4F20;&#x62C9;&#x53D6;&#x95EE;&#x9898;"><b></b>git&#x4E0A;&#x4F20;/&#x62C9;&#x53D6;&#x95EE;&#x9898;</a></li></ul></div><a href="#git&#x4E0A;&#x4F20;&#x62C9;&#x53D6;&#x95EE;&#x9898;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="git&#x4E0A;&#x4F20;&#x62C9;&#x53D6;&#x95EE;&#x9898;"><a name="git&#x4E0A;&#x4F20;&#x62C9;&#x53D6;&#x95EE;&#x9898;" class="anchor-navigation-ex-anchor" href="#git&#x4E0A;&#x4F20;&#x62C9;&#x53D6;&#x95EE;&#x9898;"><i class="fa fa-link" aria-hidden="true"></i></a>git&#x4E0A;&#x4F20;/&#x62C9;&#x53D6;&#x95EE;&#x9898;</h1>
+<p>git &#x5E38;&#x89C1;&#x9519;&#x8BEF;&#x89E3;&#x51B3;</p>
+<p>Failed to connect to github.com port 443: Timed out git &#x62C9;&#x53D6;github&#x4EE3;&#x7801;&#x5931;&#x8D25;&#xFF0C;&#x63D0;&#x793A; Failed to connect to github.com port 443: Timed out&#xFF0C;&#x53D6;&#x6D88;&#x8BBE;&#x7F6E;git&#x4EE3;&#x7406;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#x3002;</p>
 <p>&#x8BBE;&#x7F6E;&#x4EE3;&#x7406;</p>
-<pre><code>git config --global https.proxy [http://127.0.0.1:1080](http://127.0.0.1:1080/)
+<pre><code>git config --global http.proxy http://127.0.0.1:1080
 
-git config --global https.proxy [https://127.0.0.1:1080](https://127.0.0.1:1080/)
+git config --global https.proxy http://127.0.0.1:1080
 </code></pre><p>&#x53D6;&#x6D88;&#x4EE3;&#x7406;</p>
 <pre><code>git config --global --unset http.proxy
 
 git config --global --unset https.proxy
 </code></pre><p>&#x6DFB;&#x52A0;key&#x6B63;&#x786E;&#xFF0C;&#x4F46;&#x662F;&#x8F93;&#x5165;&#x547D;&#x4EE4;</p>
 <pre><code>ssh -T git@github.com
-</code></pre><p>&#x5F97;&#x5230;&#x7ED3;&#x679C;&#x662F;
-Hi xxx! You&#x2019;ve successfully authenticated, but GitHub does not provide shell access.</p>
+</code></pre><p>&#x5F97;&#x5230;&#x7ED3;&#x679C;&#x662F; Hi xxx! You&#x2019;ve successfully authenticated, but GitHub does not provide shell access.</p>
 <p>&#x89E3;&#x51B3;&#xFF1A;&#x8F93;&#x5165;&#x547D;&#x4EE4;</p>
 <pre><code>git remote set-url origin git@github.com:&#x540D;&#x5B57;/&#x4ED3;&#x5E93;&#x540D;.git
 </code></pre><p>OpenSSL SSL_read: Connection was reset, errno 10054 &#x9519;&#x8BEF;&#x89E3;&#x51B3;</p>
 <pre><code>git config --global http.sslVerify &quot;false&quot;
+</code></pre><p>&#x4E0A;&#x4F20;&#x5F88;&#x6B63;&#x5E38;&#xFF0C;&#x7136;&#x540E;&#x63D0;&#x793A;</p>
+<p>error: unable to rewind rpc post data - try increasing http.postBuffer| 231.00 KiB/s</p>
+<p>error: RPC failed; curl 56 LibreSSL SSL_read: error:02FFF036:system library:func(4095):Connection reset by peer, errno 54</p>
+<pre><code>&#x279C;  hexo git:(mac) &#x2717; git push
+Enumerating objects: 799, done.
+Counting objects: 100% (799/799), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (473/473), done.
+error: unable to rewind rpc post data - try increasing http.postBuffer| 231.00 KiB/s
+error: RPC failed; curl 56 LibreSSL SSL_read: error:02FFF036:system library:func(4095):Connection reset by peer, errno 54
+send-pack: unexpected disconnect while reading sideband packet
+Writing objects: 100% (509/509), 160.20 MiB | 243.00 KiB/s, done.
+Total 509 (delta 251), reused 0 (delta 0), pack-reused 0
+fatal: the remote end hung up unexpectedly
+Everything up-to-date
+</code></pre><p>&#x89E3;&#x51B3;&#x529E;&#x6CD5;:&#x589E;&#x52A0;http.postBuffer&#x7684;&#x5927;&#x5C0F; </p>
+<pre><code>git config http.postBuffer 524288000
 </code></pre>
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
@@ -311,10 +388,14 @@ Hi xxx! You&#x2019;ve successfully authenticated, but GitHub does not provide sh
 
             
                 
-                <a href="xin-jila-qu-git-xiang-mu.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 新机拉取git项目">
+                <a href="xin-jila-qu-git-xiang-mu.html" class="navigation navigation-prev " aria-label="Previous page: 新机拉取git项目">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
+                
+                <a href="../go.html" class="navigation navigation-next " aria-label="Next page: go">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -323,7 +404,7 @@ Hi xxx! You&#x2019;ve successfully authenticated, but GitHub does not provide sh
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"git上传/拉取问题","level":"1.4.2","depth":2,"previous":{"title":"新机拉取git项目","level":"1.4.1","depth":2,"path":"git/xin-jila-qu-git-xiang-mu.md","ref":"git/xin-jila-qu-git-xiang-mu.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["anchor-navigation-ex","-search","-sharing","theme-default","-lunr","fontsettings","livereload","popup","splitter","copy-code-button","highlight","-expandable-chapters-small","chapter-fold","back-to-top-button","search-pro","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"popup":{},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"anchor-navigation-ex":{"showLevelIcon":false,"mode":"float","pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"showLevel":false,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","showGoTop":true,"printLog":false,"multipleH1":false,"multipleH2":false,"associatedWithSummary":true,"multipleH3":false,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"multipleH4":false},"back-to-top-button":{},"copy-code-button":{},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"git/gitshang-4f20-la-qu-wen-ti.md","mtime":"2022-03-02T11:47:34.466Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-03-09T10:06:11.109Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"git上传/拉取问题","level":"1.4.4","depth":2,"next":{"title":"go","level":"1.5","depth":1,"path":"go.md","ref":"go.md","articles":[]},"previous":{"title":"新机拉取git项目","level":"1.4.3","depth":2,"path":"git/xin-jila-qu-git-xiang-mu.md","ref":"git/xin-jila-qu-git-xiang-mu.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["anchor-navigation-ex","-search","-sharing","theme-default","-lunr","fontsettings","livereload","popup","splitter","copy-code-button","highlight","-expandable-chapters-small","chapter-fold","back-to-top-button","search-pro","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"popup":{},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"anchor-navigation-ex":{"showLevelIcon":false,"mode":"float","pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"showLevel":false,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","showGoTop":true,"printLog":false,"multipleH1":false,"multipleH2":false,"associatedWithSummary":true,"multipleH3":false,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"multipleH4":false},"back-to-top-button":{},"copy-code-button":{},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"git/gitshang-4f20-la-qu-wen-ti.md","mtime":"2023-09-12T14:49:01.789Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-02-07T16:00:33.248Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

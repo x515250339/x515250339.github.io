@@ -1,0 +1,1534 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>goroutine原理 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="goroutinebian-cheng.html" />
+    
+    
+    <link rel="prev" href="bing-fa-an-quan-he-suo.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="../qian-yan/goyu-yan-qi-yuan.html">
+            
+                <a href="../qian-yan/goyu-yan-qi-yuan.html">
+            
+                    
+                    Go语言起源
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2" data-path="../qian-yan/goyu-yan-xiang-mu.html">
+            
+                <a href="../qian-yan/goyu-yan-xiang-mu.html">
+            
+                    
+                    Go语言项目
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../goji-chu-zhi-shi.html">
+            
+                <a href="../goji-chu-zhi-shi.html">
+            
+                    
+                    GO基础知识
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../goji-chu-zhi-shi/gogai-shu.html">
+            
+                <a href="../goji-chu-zhi-shi/gogai-shu.html">
+            
+                    
+                    go概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../goji-chu-zhi-shi/di-yi-ge-go-cheng-xu.html">
+            
+                <a href="../goji-chu-zhi-shi/di-yi-ge-go-cheng-xu.html">
+            
+                    
+                    第一个go程序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../goji-chu-zhi-shi/zhu-shi.html">
+            
+                <a href="../goji-chu-zhi-shi/zhu-shi.html">
+            
+                    
+                    注释
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../goji-chu-zhi-shi/golangguan-fang-bian-cheng-zhi-nan.html">
+            
+                <a href="../goji-chu-zhi-shi/golangguan-fang-bian-cheng-zhi-nan.html">
+            
+                    
+                    Golang官方编程指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../goji-chu-zhi-shi/dai-ma-gui-830326-zhuan-yi-fu.html">
+            
+                <a href="../goji-chu-zhi-shi/dai-ma-gui-830326-zhuan-yi-fu.html">
+            
+                    
+                    代码规范&转义符
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../ru-men-lian-xi/">
+            
+                <a href="../ru-men-lian-xi/">
+            
+                    
+                    入门练习
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../ru-men-lian-xi/page-1.html">
+            
+                <a href="../ru-men-lian-xi/page-1.html">
+            
+                    
+                    Page 1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../ru-men-lian-xi/hello-world.html">
+            
+                <a href="../ru-men-lian-xi/hello-world.html">
+            
+                    
+                    Hello, World
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../ru-men-lian-xi/ming-ling-xing-can-shu.html">
+            
+                <a href="../ru-men-lian-xi/ming-ling-xing-can-shu.html">
+            
+                    
+                    命令行参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../ru-men-lian-xi/zhao-chu-zhong-fu-xing.html">
+            
+                <a href="../ru-men-lian-xi/zhao-chu-zhong-fu-xing.html">
+            
+                    
+                    找出重复行
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../ru-men-lian-xi/gifdong-hua.html">
+            
+                <a href="../ru-men-lian-xi/gifdong-hua.html">
+            
+                    
+                    GIF动画
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../ru-men-lian-xi/huo-qu-url.html">
+            
+                <a href="../ru-men-lian-xi/huo-qu-url.html">
+            
+                    
+                    获取url
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../ru-men-lian-xi/bing-fa-huo-qu-duo-ge-url.html">
+            
+                <a href="../ru-men-lian-xi/bing-fa-huo-qu-duo-ge-url.html">
+            
+                    
+                    并发获取多个url
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../ru-men-lian-xi/da-jian-yi-ge-web-fu-wu-qi.html">
+            
+                <a href="../ru-men-lian-xi/da-jian-yi-ge-web-fu-wu-qi.html">
+            
+                    
+                    搭建一个web服务器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../cheng-xu-jie-gou.html">
+            
+                <a href="../cheng-xu-jie-gou.html">
+            
+                    
+                    常量、变量及基本数据类型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../cheng-xu-jie-gou/ming-ming.html">
+            
+                <a href="../cheng-xu-jie-gou/ming-ming.html">
+            
+                    
+                    标识符和关键字
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../cheng-xu-jie-gou/sheng-ming.html">
+            
+                <a href="../cheng-xu-jie-gou/sheng-ming.html">
+            
+                    
+                    声明、变量、常量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../cheng-xu-jie-gou/zhi-zhen.html">
+            
+                <a href="../cheng-xu-jie-gou/zhi-zhen.html">
+            
+                    
+                    指针、new函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../fu-zhi.html">
+            
+                <a href="../fu-zhi.html">
+            
+                    
+                    赋值
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../cheng-xu-jie-gou/shu-ju-lei-xing.html">
+            
+                <a href="../cheng-xu-jie-gou/shu-ju-lei-xing.html">
+            
+                    
+                    基本数据类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../cheng-xu-jie-gou/dan-wei.html">
+            
+                <a href="../cheng-xu-jie-gou/dan-wei.html">
+            
+                    
+                    单位
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../ji-chu-yu-fa.html">
+            
+                <a href="../ji-chu-yu-fa.html">
+            
+                    
+                    基础语法
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../ji-chu-yu-fa/pan-duan-yu-ju.html">
+            
+                <a href="../ji-chu-yu-fa/pan-duan-yu-ju.html">
+            
+                    
+                    条件语句
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../ji-chu-yu-fa/xun-huan-yu-ju.html">
+            
+                <a href="../ji-chu-yu-fa/xun-huan-yu-ju.html">
+            
+                    
+                    循环语句
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../ji-chu-yu-fa/yun-suan-fu/">
+            
+                <a href="../ji-chu-yu-fa/yun-suan-fu/">
+            
+                    
+                    比较、关系运算符
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.3.1" data-path="../ji-chu-yu-fa/yun-suan-fu/yun-suan-fu.html">
+            
+                <a href="../ji-chu-yu-fa/yun-suan-fu/yun-suan-fu.html">
+            
+                    
+                    运算符
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../shu-ju-lei-xing.html">
+            
+                <a href="../shu-ju-lei-xing.html">
+            
+                    
+                    数据类型与常见操作
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../shu-ju-lei-xing/shu-zi-lei-xing/">
+            
+                <a href="../shu-ju-lei-xing/shu-zi-lei-xing/">
+            
+                    
+                    数字类型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1.1" data-path="../shu-ju-lei-xing/shu-zi-lei-xing/chang-jian-shu-xue-yun-suan.html">
+            
+                <a href="../shu-ju-lei-xing/shu-zi-lei-xing/chang-jian-shu-xue-yun-suan.html">
+            
+                    
+                    常见数学运算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.1.2" data-path="../shu-ju-lei-xing/shu-zi-lei-xing/chao-da-zheng-xing.html">
+            
+                <a href="../shu-ju-lei-xing/shu-zi-lei-xing/chao-da-zheng-xing.html">
+            
+                    
+                    超大整型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.1.3" data-path="../shu-ju-lei-xing/shu-zi-lei-xing/fu-dian-xing-di-ceng.html">
+            
+                <a href="../shu-ju-lei-xing/shu-zi-lei-xing/fu-dian-xing-di-ceng.html">
+            
+                    
+                    浮点型底层
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.1.4" data-path="../shu-ju-lei-xing/shu-zi-lei-xing/decimal.html">
+            
+                <a href="../shu-ju-lei-xing/shu-zi-lei-xing/decimal.html">
+            
+                    
+                    decimal
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../shu-ju-lei-xing/bu-er-zhi.html">
+            
+                <a href="../shu-ju-lei-xing/bu-er-zhi.html">
+            
+                    
+                    布尔值
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../shu-ju-lei-xing/zi-fu-chuan-lei-xing/">
+            
+                <a href="../shu-ju-lei-xing/zi-fu-chuan-lei-xing/">
+            
+                    
+                    字符串类型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.3.1" data-path="../shu-ju-lei-xing/zi-fu-chuan-lei-xing/zi-fu-chuan-di-ceng-yi-ji-chang-yong-fang-fa.html">
+            
+                <a href="../shu-ju-lei-xing/zi-fu-chuan-lei-xing/zi-fu-chuan-di-ceng-yi-ji-chang-yong-fang-fa.html">
+            
+                    
+                    字符串底层以及常用方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../shu-ju-lei-xing/shu-zu/">
+            
+                <a href="../shu-ju-lei-xing/shu-zu/">
+            
+                    
+                    数组
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.4.1" data-path="../shu-ju-lei-xing/shu-zu/shu-zu-di-ceng.html">
+            
+                <a href="../shu-ju-lei-xing/shu-zu/shu-zu-di-ceng.html">
+            
+                    
+                    数组底层
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../shu-ju-lei-xing/qie-pian/">
+            
+                <a href="../shu-ju-lei-xing/qie-pian/">
+            
+                    
+                    切片
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.5.1" data-path="../shu-ju-lei-xing/qie-pian/qie-pian-di-ceng.html">
+            
+                <a href="../shu-ju-lei-xing/qie-pian/qie-pian-di-ceng.html">
+            
+                    
+                    切片底层
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../shu-ju-lei-xing/map/">
+            
+                <a href="../shu-ju-lei-xing/map/">
+            
+                    
+                    map
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.6.1" data-path="../shu-ju-lei-xing/map/map-di-ceng-yuan-li-pou-xi.html">
+            
+                <a href="../shu-ju-lei-xing/map/map-di-ceng-yuan-li-pou-xi.html">
+            
+                    
+                    Map底层原理剖析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6.2" data-path="../shu-ju-lei-xing/map/map-ji-chu-cao-zuo.html">
+            
+                <a href="../shu-ju-lei-xing/map/map-ji-chu-cao-zuo.html">
+            
+                    
+                    map基础操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../shu-ju-lei-xing/zhi-zhen.html">
+            
+                <a href="../shu-ju-lei-xing/zhi-zhen.html">
+            
+                    
+                    指针详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="../shu-ju-lei-xing/jie-gou-ti/">
+            
+                <a href="../shu-ju-lei-xing/jie-gou-ti/">
+            
+                    
+                    结构体
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.8.1" data-path="../shu-ju-lei-xing/jie-gou-ti/jie-gou-ti.html">
+            
+                <a href="../shu-ju-lei-xing/jie-gou-ti/jie-gou-ti.html">
+            
+                    
+                    结构体
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="../shu-ju-lei-xing/interfacejie-kou.html">
+            
+                <a href="../shu-ju-lei-xing/interfacejie-kou.html">
+            
+                    
+                    interface接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../mian-xiang-dui-xiang.html">
+            
+                <a href="../mian-xiang-dui-xiang.html">
+            
+                    
+                    面向对象
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../mian-xiang-dui-xiang/han-shu.html">
+            
+                <a href="../mian-xiang-dui-xiang/han-shu.html">
+            
+                    
+                    函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../mian-xiang-dui-xiang/deferyan-chi-diao-yong.html">
+            
+                <a href="../mian-xiang-dui-xiang/deferyan-chi-diao-yong.html">
+            
+                    
+                    defer延迟调用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../mian-xiang-dui-xiang/yi-chang-chu-li.html">
+            
+                <a href="../mian-xiang-dui-xiang/yi-chang-chu-li.html">
+            
+                    
+                    异常处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../mian-xiang-dui-xiang/zhuang-shi-qi.html">
+            
+                <a href="../mian-xiang-dui-xiang/zhuang-shi-qi.html">
+            
+                    
+                    装饰器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../bing-fa-bian-cheng.html">
+            
+                <a href="../bing-fa-bian-cheng.html">
+            
+                    
+                    并发编程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="goroutinejie-shao.html">
+            
+                <a href="goroutinejie-shao.html">
+            
+                    
+                    goroutine介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="xie-cheng-diao-du-grm-mo-xing.html">
+            
+                <a href="xie-cheng-diao-du-grm-mo-xing.html">
+            
+                    
+                    协程调度GRM模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="xie-cheng-ji-ben-shi-yong.html">
+            
+                <a href="xie-cheng-ji-ben-shi-yong.html">
+            
+                    
+                    协程基本使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="channel.html">
+            
+                <a href="channel.html">
+            
+                    
+                    Channel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5" data-path="select.html">
+            
+                <a href="select.html">
+            
+                    
+                    select
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.6" data-path="bing-fa-an-quan-he-suo.html">
+            
+                <a href="bing-fa-an-quan-he-suo.html">
+            
+                    
+                    并发安全和锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.8.7" data-path="goroutineyuan-li.html">
+            
+                <a href="goroutineyuan-li.html">
+            
+                    
+                    goroutine原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.8" data-path="goroutinebian-cheng.html">
+            
+                <a href="goroutinebian-cheng.html">
+            
+                    
+                    goroutine编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../shu-ju-ku-cao-zuo.html">
+            
+                <a href="../shu-ju-ku-cao-zuo.html">
+            
+                    
+                    数据库操作
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../gorm.html">
+            
+                <a href="../gorm.html">
+            
+                    
+                    GORM
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1.1" data-path="../gorm/gormru-men.html">
+            
+                <a href="../gorm/gormru-men.html">
+            
+                    
+                    GORM入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.1.2" data-path="../gorm/gormcao-zuo.html">
+            
+                <a href="../gorm/gormcao-zuo.html">
+            
+                    
+                    GORM操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.1.3" data-path="../gorm/gormji-ben-cha-xun.html">
+            
+                <a href="../gorm/gormji-ben-cha-xun.html">
+            
+                    
+                    GORM基本查询
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >goroutine原理</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#goroutine&#x539F;&#x7406;not-finishing"><b> </b>goroutine&#x539F;&#x7406;(Not finishing)</a></li><ul><li><span class="title-icon "></span><a href="#&#x8BBE;&#x8BA1;&#x601D;&#x8DEF;"><b>1. </b>&#x8BBE;&#x8BA1;&#x601D;&#x8DEF;</a></li><ul><li><span class="title-icon "></span><a href="#&#x8BBE;&#x8BA1;&#x63CF;&#x8FF0;"><b>1.1. </b>&#x8BBE;&#x8BA1;&#x63CF;&#x8FF0;</a></li><li><span class="title-icon "></span><a href="#pool-struct"><b>1.2. </b>Pool struct</a></li><li><span class="title-icon "></span><a href="#&#x521D;&#x59CB;&#x5316;-pool-&#x5E76;&#x542F;&#x52A8;&#x5B9A;&#x671F;&#x6E05;&#x7406;&#x8FC7;&#x671F;-worker-&#x4EFB;&#x52A1;"><b>1.3. </b>&#x521D;&#x59CB;&#x5316; Pool &#x5E76;&#x542F;&#x52A8;&#x5B9A;&#x671F;&#x6E05;&#x7406;&#x8FC7;&#x671F; worker &#x4EFB;&#x52A1;</a></li><li><span class="title-icon "></span><a href="#&#x63D0;&#x4EA4;&#x4EFB;&#x52A1;&#x5230;-pool"><b>1.4. </b>&#x63D0;&#x4EA4;&#x4EFB;&#x52A1;&#x5230; Pool</a></li><li><span class="title-icon "></span><a href="#&#x83B7;&#x53D6;&#x53EF;&#x7528;-worker&#x6838;&#x5FC3;"><b>1.5. </b>&#x83B7;&#x53D6;&#x53EF;&#x7528; worker(&#x6838;&#x5FC3;)</a></li><li><span class="title-icon "></span><a href="#&#x6267;&#x884C;&#x4EFB;&#x52A1;"><b>1.6. </b>&#x6267;&#x884C;&#x4EFB;&#x52A1;</a></li><li><span class="title-icon "></span><a href="#worker&#x56DE;&#x6536;goroutine-&#x590D;&#x7528;"><b>1.7. </b>worker&#x56DE;&#x6536;(goroutine &#x590D;&#x7528;)</a></li><li><span class="title-icon "></span><a href="#&#x52A8;&#x6001;&#x6269;&#x5BB9;&#x6216;&#x8005;&#x7F29;&#x5C0F;&#x6C60;&#x5BB9;&#x91CF;"><b>1.8. </b>&#x52A8;&#x6001;&#x6269;&#x5BB9;&#x6216;&#x8005;&#x7F29;&#x5C0F;&#x6C60;&#x5BB9;&#x91CF;</a></li><li><span class="title-icon "></span><a href="#&#x5B9A;&#x671F;&#x6E05;&#x7406;&#x8FC7;&#x671F;-worker"><b>1.9. </b>&#x5B9A;&#x671F;&#x6E05;&#x7406;&#x8FC7;&#x671F; Worker</a></li></ul><li><span class="title-icon "></span><a href="#pool&#x4F7F;&#x7528;"><b>2. </b>pool&#x4F7F;&#x7528;</a></li><ul><li><span class="title-icon "></span><a href="#&#x516C;&#x5171;&#x6C60;"><b>2.1. </b>&#x516C;&#x5171;&#x6C60;</a></li><li><span class="title-icon "></span><a href="#&#x65B9;&#x6CD5;&#x7ED1;&#x5B9A;&#x6C60;"><b>2.2. </b>&#x65B9;&#x6CD5;&#x7ED1;&#x5B9A;&#x6C60;</a></li></ul></ul></ul></div><a href="#goroutine&#x539F;&#x7406;not-finishing" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="goroutine&#x539F;&#x7406;not-finishing"><a name="goroutine&#x539F;&#x7406;not-finishing" class="anchor-navigation-ex-anchor" href="#goroutine&#x539F;&#x7406;not-finishing"><i class="fa fa-link" aria-hidden="true"></i></a> goroutine&#x539F;&#x7406;(Not finishing)</h1>
+<h2 id="&#x8BBE;&#x8BA1;&#x601D;&#x8DEF;"><a name="&#x8BBE;&#x8BA1;&#x601D;&#x8DEF;" class="anchor-navigation-ex-anchor" href="#&#x8BBE;&#x8BA1;&#x601D;&#x8DEF;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x8BBE;&#x8BA1;&#x601D;&#x8DEF;</h2>
+<ul>
+<li><a href="https://strikefreedom.top/high-performance-implementation-of-goroutine-pool" target="_blank">&#x53C2;&#x8003;&#x535A;&#x5BA2;</a></li>
+<li><a href="https://draveness.me/golang/docs/part3-runtime/ch06-concurrency/golang-goroutine/#651-&#x8BBE;&#x8BA1;&#x539F;&#x7406;" target="_blank">goroutine</a></li>
+</ul>
+<h3 id="&#x8BBE;&#x8BA1;&#x63CF;&#x8FF0;"><a name="&#x8BBE;&#x8BA1;&#x63CF;&#x8FF0;" class="anchor-navigation-ex-anchor" href="#&#x8BBE;&#x8BA1;&#x63CF;&#x8FF0;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. &#x8BBE;&#x8BA1;&#x63CF;&#x8FF0;</h3>
+<ul>
+<li>&#x542F;&#x52A8;&#x670D;&#x52A1;&#x4E4B;&#x65F6;&#x5148;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A; Goroutine Pool &#x6C60;&#xFF0C;&#x8FD9;&#x4E2A; Pool &#x7EF4;&#x62A4;&#x4E86;&#x4E00;&#x4E2A;&#x7C7B;&#x4F3C;&#x6808;&#x7684; LIFO &#x961F;&#x5217; &#xFF0C;&#x91CC;&#x9762;&#x5B58;&#x653E;&#x8D1F;&#x8D23;&#x5904;&#x7406;&#x4EFB;&#x52A1;&#x7684; Worker</li>
+<li>&#x7136;&#x540E;&#x5728; client &#x7AEF;&#x63D0;&#x4EA4; task &#x5230; Pool &#x4E2D;&#x4E4B;&#x540E;&#xFF0C;&#x5728; Pool &#x5185;&#x90E8;&#xFF0C;&#x63A5;&#x6536; task &#x4E4B;&#x540E;&#x7684;&#x6838;&#x5FC3;&#x64CD;&#x4F5C;&#x662F;<ul>
+<li>&#x68C0;&#x67E5;&#x5F53;&#x524D; Worker &#x961F;&#x5217;&#x4E2D;&#x662F;&#x5426;&#x6709;&#x53EF;&#x7528;&#x7684; Worker&#xFF0C;&#x5982;&#x679C;&#x6709;&#xFF0C;&#x53D6;&#x51FA;&#x6267;&#x884C;&#x5F53;&#x524D;&#x7684; task&#xFF1B;</li>
+<li>&#x6CA1;&#x6709;&#x53EF;&#x7528;&#x7684; Worker&#xFF0C;&#x5224;&#x65AD;&#x5F53;&#x524D;&#x5728;&#x8FD0;&#x884C;&#x7684; Worker &#x662F;&#x5426;&#x5DF2;&#x8D85;&#x8FC7;&#x8BE5; Pool &#x7684;&#x5BB9;&#x91CF;</li>
+<li>&#x6BCF;&#x4E2A; Worker &#x6267;&#x884C;&#x5B8C;&#x4EFB;&#x52A1;&#x4E4B;&#x540E;&#xFF0C;&#x653E;&#x56DE; Pool &#x7684;&#x961F;&#x5217;&#x4E2D;&#x7B49;&#x5F85;</li>
+</ul>
+</li>
+</ul>
+<p><img src="../images/goroutineyuan-li.assets/image-20220111110347525.04783d49.png" alt="img"></p>
+<h3 id="pool-struct"><a name="pool-struct" class="anchor-navigation-ex-anchor" href="#pool-struct"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. Pool struct</h3>
+<pre><code class="lang-go"><span class="hljs-keyword">type</span> sig <span class="hljs-keyword">struct</span>{}
+
+<span class="hljs-keyword">type</span> f <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">()</span> <span class="hljs-title">error</span>
+
+// <span class="hljs-title">pool</span>&#x4ECE;&#x5BA2;&#x6237;&#x7AEF;&#x83B7;&#x53D6;&#x4EFB;&#x52A1;&#xFF0C;&#x5B83;&#x9650;&#x5236;<span class="hljs-title">goroutines</span>&#x603B;&#x6570;&#xFF0C;&#x5E76;&#x4E14;&#x56DE;&#x6536;&#x518D;&#x4F7F;&#x7528;
+<span class="hljs-title">type</span> <span class="hljs-title">Pool</span> <span class="hljs-title">struct</span></span> {
+    capacity <span class="hljs-keyword">int32</span>                   <span class="hljs-comment">// &#x534F;&#x7A0B;&#x6C60;&#x5BB9;&#x91CF;</span>
+    running <span class="hljs-keyword">int32</span>                    <span class="hljs-comment">// &#x6B63;&#x5728;&#x8FD0;&#x884C;&#x7684;goroutine&#x6570;&#x91CF;</span>
+    expiryDuration time.Duration     <span class="hljs-comment">// &#x4E3A;&#x6BCF;&#x4E2A;worker&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x8FC7;&#x671F;&#x65F6;&#x95F4;</span>
+    workers []*Worker                <span class="hljs-comment">// &#x5B58;&#x653E;&#x7A7A;&#x95F2; worker,&#x8BF7;&#x6C42;&#x8FDB;&#x5165; Pool&#x5148;&#x68C0;&#x67E5;workers&#x82E5;&#x6709;&#x5219;&#x53D6;&#x51FA;&#x7ED1;&#x5B9A;&#x4EFB;&#x52A1;&#x6267;&#x884C;</span>
+    release <span class="hljs-keyword">chan</span> sig                 <span class="hljs-comment">// &#x5F53;&#x5173;&#x95ED;&#x8BE5; Pool &#x652F;&#x6301;&#x901A;&#x77E5;&#x6240;&#x6709; worker &#x9000;&#x51FA;&#x8FD0;&#x884C;&#x4EE5;&#x9632; goroutine &#x6CC4;&#x9732;</span>
+    lock sync.Mutex                  <span class="hljs-comment">// &#x540C;&#x6B65;&#x64CD;&#x4F5C;&#x9501;</span>
+    once sync.Once                   <span class="hljs-comment">// &#x786E;&#x4FDD; Pool &#x5173;&#x95ED;&#x64CD;&#x4F5C;&#x53EA;&#x4F1A;&#x6267;&#x884C;&#x4E00;&#x6B21;</span>
+}
+</code></pre>
+<h3 id="&#x521D;&#x59CB;&#x5316;-pool-&#x5E76;&#x542F;&#x52A8;&#x5B9A;&#x671F;&#x6E05;&#x7406;&#x8FC7;&#x671F;-worker-&#x4EFB;&#x52A1;"><a name="&#x521D;&#x59CB;&#x5316;-pool-&#x5E76;&#x542F;&#x52A8;&#x5B9A;&#x671F;&#x6E05;&#x7406;&#x8FC7;&#x671F;-worker-&#x4EFB;&#x52A1;" class="anchor-navigation-ex-anchor" href="#&#x521D;&#x59CB;&#x5316;-pool-&#x5E76;&#x542F;&#x52A8;&#x5B9A;&#x671F;&#x6E05;&#x7406;&#x8FC7;&#x671F;-worker-&#x4EFB;&#x52A1;"><i class="fa fa-link" aria-hidden="true"></i></a>1.3. &#x521D;&#x59CB;&#x5316; Pool &#x5E76;&#x542F;&#x52A8;&#x5B9A;&#x671F;&#x6E05;&#x7406;&#x8FC7;&#x671F; worker &#x4EFB;&#x52A1;</h3>
+<pre><code class="lang-go"><span class="hljs-comment">// &#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x6C60;&#x5B9E;&#x4F8B;</span>
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">NewPool</span><span class="hljs-params">(size <span class="hljs-keyword">int</span>)</span> <span class="hljs-params">(*Pool, error)</span></span> {
+    <span class="hljs-keyword">return</span> NewTimingPool(size, DefaultCleanIntervalTime)
+}
+
+<span class="hljs-comment">// &#x4EA7;&#x751F;&#x4E00;&#x4E2A;&#x5E26;&#x6709;&#x81EA;&#x5B9A;&#x4E49;&#x5B9A;&#x65F6;&#x5668;&#x7684;&#x7EBF;&#x7A0B;&#x6C60;&#x5B9E;&#x4F8B;</span>
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">NewTimingPool</span><span class="hljs-params">(size, expiry <span class="hljs-keyword">int</span>)</span> <span class="hljs-params">(*Pool, error)</span></span> {
+    <span class="hljs-keyword">if</span> size &lt;= <span class="hljs-number">0</span> {
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span>, ErrInvalidPoolSize
+    }
+    <span class="hljs-keyword">if</span> expiry &lt;= <span class="hljs-number">0</span> {
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span>, ErrInvalidPoolExpiry
+    }
+    p := &amp;Pool{
+        capacity:       <span class="hljs-keyword">int32</span>(size),
+        freeSignal:     <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> sig, math.MaxInt32),
+        release:        <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> sig, <span class="hljs-number">1</span>),
+        expiryDuration: time.Duration(expiry) * time.Second,
+    }
+    <span class="hljs-comment">// &#x542F;&#x52A8;&#x5B9A;&#x671F;&#x6E05;&#x7406;&#x8FC7;&#x671F;worker&#x4EFB;&#x52A1;&#xFF0C;&#x72EC;&#x7ACB;goroutine&#x8FD0;&#x884C;&#xFF0C;&#x8FDB;&#x4E00;&#x6B65;&#x8282;&#x7701;&#x7CFB;&#x7EDF;&#x8D44;&#x6E90;</span>
+    p.monitorAndClear()
+    <span class="hljs-keyword">return</span> p, <span class="hljs-literal">nil</span>
+}
+</code></pre>
+<h3 id="&#x63D0;&#x4EA4;&#x4EFB;&#x52A1;&#x5230;-pool"><a name="&#x63D0;&#x4EA4;&#x4EFB;&#x52A1;&#x5230;-pool" class="anchor-navigation-ex-anchor" href="#&#x63D0;&#x4EA4;&#x4EFB;&#x52A1;&#x5230;-pool"><i class="fa fa-link" aria-hidden="true"></i></a>1.4. &#x63D0;&#x4EA4;&#x4EFB;&#x52A1;&#x5230; Pool</h3>
+<ul>
+<li>&#x7B2C;&#x4E00;&#x4E2A; if &#x5224;&#x65AD;&#x5F53;&#x524D; Pool &#x662F;&#x5426;&#x5DF2;&#x88AB;&#x5173;&#x95ED;&#xFF0C;&#x82E5;&#x662F;&#x5219;&#x4E0D;&#x518D;&#x63A5;&#x53D7;&#x65B0;&#x4EFB;&#x52A1;&#xFF0C;&#x5426;&#x5219;&#x83B7;&#x53D6;&#x4E00;&#x4E2A; Pool &#x4E2D;&#x53EF;&#x7528;&#x7684; worker&#xFF0C;&#x7ED1;&#x5B9A;&#x8BE5; <code>task</code> &#x6267;&#x884C;&#x3002;</li>
+</ul>
+<pre><code class="lang-go"><span class="hljs-comment">// Submit submit a task to pool</span>
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(p *Pool)</span> <span class="hljs-title">Submit</span><span class="hljs-params">(task f)</span> <span class="hljs-title">error</span></span> {
+    <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(p.release) &gt; <span class="hljs-number">0</span> {
+        <span class="hljs-keyword">return</span> ErrPoolClosed
+    }
+    w := p.getWorker()
+    w.task &lt;- task
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span>
+}
+</code></pre>
+<h3 id="&#x83B7;&#x53D6;&#x53EF;&#x7528;-worker&#x6838;&#x5FC3;"><a name="&#x83B7;&#x53D6;&#x53EF;&#x7528;-worker&#x6838;&#x5FC3;" class="anchor-navigation-ex-anchor" href="#&#x83B7;&#x53D6;&#x53EF;&#x7528;-worker&#x6838;&#x5FC3;"><i class="fa fa-link" aria-hidden="true"></i></a>1.5. &#x83B7;&#x53D6;&#x53EF;&#x7528; worker(&#x6838;&#x5FC3;)</h3>
+<ul>
+<li><code>p.getWorker()</code> &#x6E90;&#x7801;</li>
+</ul>
+<pre><code class="lang-go"><span class="hljs-comment">// &#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x53EF;&#x7528;&#x7684;worker&#x6765;&#x8FD0;&#x884C;&#x8FD9;&#x4E9B;&#x4EFB;&#x52A1;&#x3002;</span>
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(p *Pool)</span> <span class="hljs-title">getWorker</span><span class="hljs-params">()</span> *<span class="hljs-title">Worker</span></span> {
+    <span class="hljs-keyword">var</span> w *Worker
+    waiting := <span class="hljs-literal">false</span>    <span class="hljs-comment">// &#x6807;&#x5FD7;&#x53D8;&#x91CF;&#xFF0C;&#x5224;&#x65AD;&#x5F53;&#x524D;&#x6B63;&#x5728;&#x8FD0;&#x884C;&#x7684;worker&#x6570;&#x91CF;&#x662F;&#x5426;&#x5DF2;&#x5230;&#x8FBE;Pool&#x7684;&#x5BB9;&#x91CF;&#x4E0A;&#x9650;</span>
+    p.lock.Lock()       <span class="hljs-comment">// &#x52A0;&#x9501;&#xFF0C;&#x68C0;&#x6D4B;&#x961F;&#x5217;&#x4E2D;&#x662F;&#x5426;&#x6709;&#x53EF;&#x7528;worker&#xFF0C;&#x5E76;&#x8FDB;&#x884C;&#x76F8;&#x5E94;&#x64CD;&#x4F5C;</span>
+    idleWorkers := p.workers
+    n := <span class="hljs-built_in">len</span>(idleWorkers) - <span class="hljs-number">1</span>
+    <span class="hljs-keyword">if</span> n &lt; <span class="hljs-number">0</span> {     <span class="hljs-comment">// &#x5F53;&#x524D;&#x961F;&#x5217;&#x4E2D;&#x65E0;&#x53EF;&#x7528;worker</span>
+        <span class="hljs-comment">// &#x5224;&#x65AD;&#x8FD0;&#x884C;worker&#x6570;&#x76EE;&#x5DF2;&#x8FBE;&#x5230;&#x8BE5;Pool&#x7684;&#x5BB9;&#x91CF;&#x4E0A;&#x9650;&#xFF0C;&#x7F6E;&#x7B49;&#x5F85;&#x6807;&#x5FD7;</span>
+        waiting = p.Running() &gt;= p.Cap()
+    } <span class="hljs-keyword">else</span> {        <span class="hljs-comment">// &#x5F53;&#x524D;&#x961F;&#x5217;&#x6709;&#x53EF;&#x7528;worker&#xFF0C;&#x4ECE;&#x961F;&#x5217;&#x5C3E;&#x90E8;&#x53D6;&#x51FA;&#x4E00;&#x4E2A;&#x4F7F;&#x7528;</span>
+        w = idleWorkers[n]
+        idleWorkers[n] = <span class="hljs-literal">nil</span>
+        p.workers = idleWorkers[:n]
+    }
+
+    p.lock.Unlock()      <span class="hljs-comment">// &#x68C0;&#x6D4B;&#x5B8C;&#x6210;&#xFF0C;&#x89E3;&#x9501;</span>
+    <span class="hljs-keyword">if</span> waiting {     <span class="hljs-comment">// Pool&#x5BB9;&#x91CF;&#x5DF2;&#x6EE1;&#xFF0C;&#x65B0;&#x8BF7;&#x6C42;&#x7B49;&#x5F85;</span>
+        <span class="hljs-keyword">for</span> {         <span class="hljs-comment">// &#x5229;&#x7528;&#x9501;&#x963B;&#x585E;&#x7B49;&#x5F85;&#x76F4;&#x5230;&#x6709;&#x7A7A;&#x95F2;worker</span>
+            p.lock.Lock()
+            idleWorkers = p.workers
+            l := <span class="hljs-built_in">len</span>(idleWorkers) - <span class="hljs-number">1</span>
+            <span class="hljs-keyword">if</span> l &lt; <span class="hljs-number">0</span> {
+                p.lock.Unlock()
+                <span class="hljs-keyword">continue</span>
+            }
+            w = idleWorkers[l]
+            idleWorkers[l] = <span class="hljs-literal">nil</span>
+            p.workers = idleWorkers[:l]
+            p.lock.Unlock()
+            <span class="hljs-keyword">break</span>
+        }
+        <span class="hljs-comment">// &#x5F53;&#x524D;&#x65E0;&#x7A7A;&#x95F2;worker&#x4F46;&#x662F;Pool&#x8FD8;&#x6CA1;&#x6709;&#x6EE1;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x65B0;&#x5F00;&#x4E00;&#x4E2A;worker&#x6267;&#x884C;&#x4EFB;&#x52A1;</span>
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> w == <span class="hljs-literal">nil</span> {
+        w = &amp;Worker{
+            pool: p,
+            task: <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> f, <span class="hljs-number">1</span>),
+        }
+        w.run()
+        <span class="hljs-comment">// &#x8FD0;&#x884C;worker&#x6570;&#x52A0;&#x4E00;</span>
+        p.incRunning()
+    }
+    <span class="hljs-keyword">return</span> w
+}
+</code></pre>
+<h3 id="&#x6267;&#x884C;&#x4EFB;&#x52A1;"><a name="&#x6267;&#x884C;&#x4EFB;&#x52A1;" class="anchor-navigation-ex-anchor" href="#&#x6267;&#x884C;&#x4EFB;&#x52A1;"><i class="fa fa-link" aria-hidden="true"></i></a>1.6. &#x6267;&#x884C;&#x4EFB;&#x52A1;</h3>
+<ul>
+<li>&#x7ED3;&#x5408;&#x524D;&#x9762;&#x7684; <code>p.Submit(task f)</code> &#x548C; <code>p.getWorker()</code> &#xFF0C;&#x63D0;&#x4EA4;&#x4EFB;&#x52A1;&#x5230; Pool &#x4E4B;&#x540E;&#xFF0C;&#x83B7;&#x53D6;&#x4E00;&#x4E2A;&#x53EF;&#x7528; worker</li>
+<li>&#x6BCF;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A; worker &#x5B9E;&#x4F8B;&#x4E4B;&#x65F6;&#x90FD;&#x9700;&#x8981;&#x8C03;&#x7528; <code>w.run()</code> &#x542F;&#x52A8;&#x4E00;&#x4E2A; goroutine &#x76D1;&#x542C; worker &#x7684;&#x4EFB;&#x52A1;&#x5217;&#x8868; <code>task</code> &#xFF0C;&#x4E00;&#x6709;&#x4EFB;&#x52A1;&#x63D0;&#x4EA4;&#x8FDB;&#x6765;&#x5C31;&#x6267;&#x884C;&#xFF1B;</li>
+<li>&#x6240;&#x4EE5;&#xFF0C;&#x5F53;&#x8C03;&#x7528; worker &#x7684; <code>sendTask(task f)</code> &#x65B9;&#x6CD5;&#x63D0;&#x4EA4;&#x4EFB;&#x52A1;&#x5230; worker &#x7684;&#x4EFB;&#x52A1;&#x961F;&#x5217;&#x4E4B;&#x540E;&#xFF0C;&#x9A6C;&#x4E0A;&#x5C31;&#x53EF;&#x4EE5;&#x88AB;&#x63A5;&#x6536;&#x5E76;&#x6267;&#x884C;</li>
+<li>&#x5F53;&#x4EFB;&#x52A1;&#x6267;&#x884C;&#x5B8C;&#x4E4B;&#x540E;&#xFF0C;&#x4F1A;&#x8C03;&#x7528; <code>w.pool.putWorker(w *Worker)</code> &#x65B9;&#x6CD5;&#x5C06;&#x8FD9;&#x4E2A;&#x5DF2;&#x7ECF;&#x6267;&#x884C;&#x5B8C;&#x4EFB;&#x52A1;&#x7684; worker &#x4ECE;&#x5F53;&#x524D;&#x4EFB;&#x52A1;&#x89E3;&#x7ED1;&#x653E;&#x56DE; Pool &#x4E2D;&#xFF0C;&#x4EE5;&#x4F9B;&#x4E0B;&#x4E2A;&#x4EFB;&#x52A1;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;</li>
+<li>&#x81F3;&#x6B64;&#xFF0C;&#x4E00;&#x4E2A;&#x4EFB;&#x52A1;&#x4ECE;&#x63D0;&#x4EA4;&#x5230;&#x5B8C;&#x6210;&#x7684;&#x8FC7;&#x7A0B;&#x5C31;&#x6B64;&#x7ED3;&#x675F;&#xFF0C;Pool &#x8C03;&#x5EA6;&#x5C06;&#x8FDB;&#x5165;&#x4E0B;&#x4E00;&#x4E2A;&#x5FAA;&#x73AF;&#x3002;</li>
+</ul>
+<pre><code class="lang-go"><span class="hljs-comment">// Worker&#x662F;&#x8FD0;&#x884C;&#x4EFB;&#x52A1;&#x7684;&#x5B9E;&#x9645;&#x6267;&#x884C;&#x8005;&#xFF0C;&#x5B83;&#x542F;&#x52A8;&#x4E00;&#x4E2A;&#x63A5;&#x53D7;&#x4EFB;&#x52A1;&#x5E76;&#x6267;&#x884C;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x7684;goroutine</span>
+<span class="hljs-keyword">type</span> Worker <span class="hljs-keyword">struct</span> {
+    pool *Pool   <span class="hljs-comment">// &#x6BCF;&#x4E2A;pool&#x5BF9;&#x5E94;&#x4E00;&#x4E2A;worker</span>
+    task <span class="hljs-keyword">chan</span> f  <span class="hljs-comment">// &#x4EFB;&#x52A1;&#x662F;&#x4E00;&#x9879;&#x5E94;&#x8BE5;&#x5B8C;&#x6210;&#x7684;&#x5DE5;&#x4F5C;</span>
+    recycleTime time.Time     <span class="hljs-comment">// &#x5F53;&#x5C06;&#x4E00;&#x4E2A;worker&#x653E;&#x56DE;&#x961F;&#x5217;&#x65F6;&#xFF0C;recycleTime&#x5C06;&#x88AB;&#x66F4;&#x65B0;&#x3002;</span>
+}
+
+<span class="hljs-comment">// Run&#x542F;&#x52A8;&#x4E00;&#x4E2A;goroutine&#x4EE5;&#x91CD;&#x590D;&#x6267;&#x884C;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x7684;&#x8FC7;&#x7A0B;</span>
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(w *Worker)</span> <span class="hljs-title">run</span><span class="hljs-params">()</span></span> {
+    <span class="hljs-keyword">go</span> <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">()</span></span> {
+        <span class="hljs-comment">// &#x5FAA;&#x73AF;&#x76D1;&#x542C;&#x4EFB;&#x52A1;&#x5217;&#x8868;&#xFF0C;&#x4E00;&#x65E6;&#x6709;&#x4EFB;&#x52A1;&#x7ACB;&#x9A6C;&#x53D6;&#x51FA;&#x8FD0;&#x884C;</span>
+        <span class="hljs-keyword">for</span> f := <span class="hljs-keyword">range</span> w.task {
+            <span class="hljs-keyword">if</span> f == <span class="hljs-literal">nil</span> {
+                <span class="hljs-comment">// &#x9000;&#x51FA;goroutine&#xFF0C;&#x8FD0;&#x884C;worker&#x6570;&#x51CF;&#x4E00;</span>
+                w.pool.decRunning()
+                <span class="hljs-keyword">return</span>
+            }
+            f()
+            <span class="hljs-comment">// worker&#x56DE;&#x6536;&#x590D;&#x7528;</span>
+            w.pool.putWorker(w)
+        }
+    }()
+}
+</code></pre>
+<h3 id="worker&#x56DE;&#x6536;goroutine-&#x590D;&#x7528;"><a name="worker&#x56DE;&#x6536;goroutine-&#x590D;&#x7528;" class="anchor-navigation-ex-anchor" href="#worker&#x56DE;&#x6536;goroutine-&#x590D;&#x7528;"><i class="fa fa-link" aria-hidden="true"></i></a>1.7. worker&#x56DE;&#x6536;(goroutine &#x590D;&#x7528;)</h3>
+<pre><code class="lang-go"><span class="hljs-comment">// putWorker&#x5C06;&#x4E00;&#x4E2A;worker&#x653E;&#x56DE;&#x7A7A;&#x95F2;&#x6C60;&#xFF0C;&#x56DE;&#x6536;goroutines</span>
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(p *Pool)</span> <span class="hljs-title">putWorker</span><span class="hljs-params">(worker *Worker)</span></span> {
+    <span class="hljs-comment">// &#x5199;&#x5165;&#x56DE;&#x6536;&#x65F6;&#x95F4;&#xFF0C;&#x4EA6;&#x5373;&#x8BE5;worker&#x7684;&#x6700;&#x540E;&#x4E00;&#x6B21;&#x7ED3;&#x675F;&#x8FD0;&#x884C;&#x7684;&#x65F6;&#x95F4;</span>
+    worker.recycleTime = time.Now()
+    p.lock.Lock()
+    p.workers = <span class="hljs-built_in">append</span>(p.workers, worker)
+    p.lock.Unlock()
+}
+</code></pre>
+<h3 id="&#x52A8;&#x6001;&#x6269;&#x5BB9;&#x6216;&#x8005;&#x7F29;&#x5C0F;&#x6C60;&#x5BB9;&#x91CF;"><a name="&#x52A8;&#x6001;&#x6269;&#x5BB9;&#x6216;&#x8005;&#x7F29;&#x5C0F;&#x6C60;&#x5BB9;&#x91CF;" class="anchor-navigation-ex-anchor" href="#&#x52A8;&#x6001;&#x6269;&#x5BB9;&#x6216;&#x8005;&#x7F29;&#x5C0F;&#x6C60;&#x5BB9;&#x91CF;"><i class="fa fa-link" aria-hidden="true"></i></a>1.8. &#x52A8;&#x6001;&#x6269;&#x5BB9;&#x6216;&#x8005;&#x7F29;&#x5C0F;&#x6C60;&#x5BB9;&#x91CF;</h3>
+<pre><code class="lang-go"><span class="hljs-comment">// ReSize&#x66F4;&#x6539;&#x6B64;&#x6C60;&#x7684;&#x5BB9;&#x91CF;</span>
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(p *Pool)</span> <span class="hljs-title">ReSize</span><span class="hljs-params">(size <span class="hljs-keyword">int</span>)</span></span> {
+    <span class="hljs-keyword">if</span> size == p.Cap() {
+        <span class="hljs-keyword">return</span>
+    }
+    atomic.StoreInt32(&amp;p.capacity, <span class="hljs-keyword">int32</span>(size))
+    diff := p.Running() - size
+    <span class="hljs-keyword">if</span> diff &gt; <span class="hljs-number">0</span> {
+        <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; diff; i++ {
+            p.getWorker().task &lt;- <span class="hljs-literal">nil</span>
+        }
+    }
+}
+</code></pre>
+<h3 id="&#x5B9A;&#x671F;&#x6E05;&#x7406;&#x8FC7;&#x671F;-worker"><a name="&#x5B9A;&#x671F;&#x6E05;&#x7406;&#x8FC7;&#x671F;-worker" class="anchor-navigation-ex-anchor" href="#&#x5B9A;&#x671F;&#x6E05;&#x7406;&#x8FC7;&#x671F;-worker"><i class="fa fa-link" aria-hidden="true"></i></a>1.9. &#x5B9A;&#x671F;&#x6E05;&#x7406;&#x8FC7;&#x671F; Worker</h3>
+<ul>
+<li>&#x5B9A;&#x671F;&#x68C0;&#x67E5;&#x7A7A;&#x95F2; worker &#x961F;&#x5217;&#x4E2D;&#x662F;&#x5426;&#x6709;&#x5DF2;&#x8FC7;&#x671F;&#x7684; worker &#x5E76;&#x6E05;&#x7406;</li>
+<li>&#x56E0;&#x4E3A;&#x91C7;&#x7528;&#x4E86; LIFO &#x540E;&#x8FDB;&#x5148;&#x51FA;&#x961F;&#x5217;&#x5B58;&#x653E;&#x7A7A;&#x95F2; worker&#xFF0C;&#x6240;&#x4EE5;&#x8BE5;&#x961F;&#x5217;&#x9ED8;&#x8BA4;&#x5DF2;&#x7ECF;&#x662F;&#x6309;&#x7167; worker &#x7684;&#x6700;&#x540E;&#x8FD0;&#x884C;&#x65F6;&#x95F4;&#x7531;&#x8FDC;&#x53CA;&#x8FD1;&#x6392;&#x5E8F;</li>
+<li>&#x53EF;&#x4EE5;&#x65B9;&#x4FBF;&#x5730;&#x6309;&#x987A;&#x5E8F;&#x53D6;&#x51FA;&#x7A7A;&#x95F2;&#x961F;&#x5217;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A; worker &#x5E76;&#x5224;&#x65AD;&#x5B83;&#x4EEC;&#x7684;&#x6700;&#x540E;&#x8FD0;&#x884C;&#x65F6;&#x95F4;&#x4E0E;&#x5F53;&#x524D;&#x65F6;&#x95F4;&#x4E4B;&#x5DEE;&#x662F;&#x5426;&#x8D85;&#x8FC7;&#x8BBE;&#x7F6E;&#x7684;&#x8FC7;&#x671F;&#x65F6;&#x957F;</li>
+<li>&#x82E5;&#x662F;&#xFF0C;&#x5219;&#x6E05;&#x7406;&#x6389;&#x8BE5; goroutine&#xFF0C;&#x91CA;&#x653E;&#x8BE5; worker&#xFF0C;&#x5E76;&#x4E14;&#x5C06;&#x5269;&#x4E0B;&#x7684;&#x672A;&#x8FC7;&#x671F; worker &#x91CD;&#x65B0;&#x5206;&#x914D;&#x5230;&#x5F53;&#x524D; Pool &#x7684;&#x7A7A;&#x95F2; worker &#x961F;&#x5217;&#x4E2D;&#xFF0C;&#x8FDB;&#x4E00;&#x6B65;&#x8282;&#x7701;&#x7CFB;&#x7EDF;&#x8D44;&#x6E90;</li>
+</ul>
+<pre><code class="lang-go"><span class="hljs-comment">//  &#x5B9A;&#x671F;&#x6E05;&#x7406;&#x8FC7;&#x671F; Worker</span>
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(p *Pool)</span> <span class="hljs-title">periodicallyPurge</span><span class="hljs-params">()</span></span> {
+    heartbeat := time.NewTicker(p.expiryDuration)
+    <span class="hljs-keyword">for</span> <span class="hljs-keyword">range</span> heartbeat.C {
+        currentTime := time.Now()
+        p.lock.Lock()
+        idleWorkers := p.workers
+        <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(idleWorkers) == <span class="hljs-number">0</span> &amp;&amp; p.Running() == <span class="hljs-number">0</span> &amp;&amp; <span class="hljs-built_in">len</span>(p.release) &gt; <span class="hljs-number">0</span> {
+            p.lock.Unlock()
+            <span class="hljs-keyword">return</span>
+        }
+        n := <span class="hljs-number">0</span>
+        <span class="hljs-keyword">for</span> i, w := <span class="hljs-keyword">range</span> idleWorkers {
+            <span class="hljs-keyword">if</span> currentTime.Sub(w.recycleTime) &lt;= p.expiryDuration {
+                <span class="hljs-keyword">break</span>
+            }
+            n = i
+            w.task &lt;- <span class="hljs-literal">nil</span>
+            idleWorkers[i] = <span class="hljs-literal">nil</span>
+        }
+        n++
+        <span class="hljs-keyword">if</span> n &gt;= <span class="hljs-built_in">len</span>(idleWorkers) {
+            p.workers = idleWorkers[:<span class="hljs-number">0</span>]
+        } <span class="hljs-keyword">else</span> {
+            p.workers = idleWorkers[n:]
+        }
+        p.lock.Unlock()
+    }
+}
+</code></pre>
+<h2 id="pool&#x4F7F;&#x7528;"><a name="pool&#x4F7F;&#x7528;" class="anchor-navigation-ex-anchor" href="#pool&#x4F7F;&#x7528;"><i class="fa fa-link" aria-hidden="true"></i></a>2. pool&#x4F7F;&#x7528;</h2>
+<h3 id="&#x516C;&#x5171;&#x6C60;"><a name="&#x516C;&#x5171;&#x6C60;" class="anchor-navigation-ex-anchor" href="#&#x516C;&#x5171;&#x6C60;"><i class="fa fa-link" aria-hidden="true"></i></a>2.1. &#x516C;&#x5171;&#x6C60;</h3>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+    <span class="hljs-string">&quot;sync&quot;</span>
+    <span class="hljs-string">&quot;time&quot;</span>
+
+    <span class="hljs-string">&quot;github.com/panjf2000/ants/v2&quot;</span>
+)
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">demoFunc</span><span class="hljs-params">()</span></span> {
+    time.Sleep(<span class="hljs-number">10</span> * time.Millisecond)
+    fmt.Println(<span class="hljs-string">&quot;Hello World!&quot;</span>)
+}
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
+    <span class="hljs-comment">// &#x5728;retrieveWorker()&#x4E2D;&#x53EF;&#x80FD;&#x6709;&#x4E00;&#x4E9B;&#x8C03;&#x7528;&#x8005;&#x5728;&#x7B49;&#x5F85;&#xFF0C;&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5524;&#x9192;&#x5B83;&#x4EEC;&#x6765;&#x9632;&#x6B62;&#x90A3;&#x4E9B;&#x65E0;&#x9650;&#x963B;&#x585E;&#x7684;&#x8C03;&#x7528;&#x8005;</span>
+    <span class="hljs-keyword">defer</span> ants.Release()
+    <span class="hljs-keyword">var</span> wg sync.WaitGroup
+    syncCalculateSum := <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">()</span></span> {
+        demoFunc()
+        wg.Done()
+    }
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000</span>; i++ {
+        wg.Add(<span class="hljs-number">1</span>)
+        _ = ants.Submit(syncCalculateSum)
+    }
+    wg.Wait()
+    fmt.Printf(<span class="hljs-string">&quot;running goroutines: %d\n&quot;</span>, ants.Running())
+    fmt.Printf(<span class="hljs-string">&quot;finish all tasks.\n&quot;</span>)
+}
+
+<span class="hljs-comment">/*
+    Hello World!
+    Hello World!
+    running goroutines: 1000
+    finish all tasks.
+ */</span>
+</code></pre>
+<h3 id="&#x65B9;&#x6CD5;&#x7ED1;&#x5B9A;&#x6C60;"><a name="&#x65B9;&#x6CD5;&#x7ED1;&#x5B9A;&#x6C60;" class="anchor-navigation-ex-anchor" href="#&#x65B9;&#x6CD5;&#x7ED1;&#x5B9A;&#x6C60;"><i class="fa fa-link" aria-hidden="true"></i></a>2.2. &#x65B9;&#x6CD5;&#x7ED1;&#x5B9A;&#x6C60;</h3>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+    <span class="hljs-string">&quot;github.com/panjf2000/ants/v2&quot;</span>
+    <span class="hljs-string">&quot;sync&quot;</span>
+)
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">myFunc</span><span class="hljs-params">(i <span class="hljs-keyword">interface</span>{})</span></span> {
+    fmt.Printf(<span class="hljs-string">&quot;run with %d\n&quot;</span>, i)
+}
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
+    <span class="hljs-keyword">defer</span> ants.Release()
+    <span class="hljs-keyword">var</span> wg sync.WaitGroup
+    <span class="hljs-comment">// &#x4F7F;&#x7528;&#x6C60;&#x548C;&#x51FD;&#x6570;&#xFF0C;&#x8BBE;&#x7F6E;goroutine pool&#x7684;&#x5BB9;&#x91CF;&#x4E3A;10&#xFF0C;&#x8D85;&#x65F6;&#x65F6;&#x95F4;&#x4E3A;1&#x79D2;&#x3002;</span>
+    p, _ := ants.NewPoolWithFunc(<span class="hljs-number">10</span>, <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(i <span class="hljs-keyword">interface</span>{})</span></span> {
+        myFunc(i)
+        wg.Done()
+    })
+    <span class="hljs-keyword">defer</span> p.Release()
+    <span class="hljs-comment">// &#x9010;&#x4E2A;&#x63D0;&#x4EA4;&#x4EFB;&#x52A1;</span>
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000</span>; i++ {
+        wg.Add(<span class="hljs-number">1</span>)
+        _ = p.Invoke(<span class="hljs-keyword">int32</span>(i))
+    }
+    wg.Wait()
+    fmt.Printf(<span class="hljs-string">&quot;running goroutines: %d\n&quot;</span>, p.Running())
+}
+
+<span class="hljs-comment">/*
+run with 976
+run with 990
+run with 971
+running goroutines: 10
+ */</span>
+</code></pre>
+
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="bing-fa-an-quan-he-suo.html" class="navigation navigation-prev " aria-label="Previous page: 并发安全和锁">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="goroutinebian-cheng.html" class="navigation navigation-next " aria-label="Next page: goroutine编程">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"goroutine原理","level":"1.8.7","depth":2,"next":{"title":"goroutine编程","level":"1.8.8","depth":2,"path":"bing-fa-bian-cheng/goroutinebian-cheng.md","ref":"bing-fa-bian-cheng/goroutinebian-cheng.md","articles":[]},"previous":{"title":"并发安全和锁","level":"1.8.6","depth":2,"path":"bing-fa-bian-cheng/bing-fa-an-quan-he-suo.md","ref":"bing-fa-bian-cheng/bing-fa-an-quan-he-suo.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["anchor-navigation-ex","-search","-sharing","theme-default","-lunr","fontsettings","livereload","popup","splitter","copy-code-button","highlight","-expandable-chapters-small","chapter-fold","back-to-top-button","search-pro","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"popup":{},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"anchor-navigation-ex":{"showLevelIcon":false,"mode":"float","pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"showLevel":true,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","showGoTop":true,"printLog":false,"multipleH1":false,"multipleH2":false,"associatedWithSummary":true,"multipleH3":false,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"multipleH4":false},"back-to-top-button":{},"copy-code-button":{},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"bing-fa-bian-cheng/goroutineyuan-li.md","mtime":"2023-09-12T14:49:04.190Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-02-07T16:00:33.590Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+
+    </body>
+</html>
+
