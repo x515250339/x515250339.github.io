@@ -1,88 +1,686 @@
-.post-block {
-  color: var(--hty-text-color);
-  margin: 0 1rem;
-  padding: 1rem;
-  background-color: var(--post-block-bg-color);
-mobile()
+<!DOCTYPE html><html lang="en"><head><!-- hexo injector head_begin start --><link href="https://cdn.jsdelivr.net/npm/hexo-widget-tree@0.2.2/css/index.css" rel="stylesheet"/><!-- hexo injector head_begin end --><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0078E7"><meta name="author" content="王彦翔"><meta name="copyright" content="王彦翔"><meta name="generator" content="Hexo 5.4.0"><meta name="theme" content="hexo-theme-yun"><title>权限管理之位运算以及RBAC俩种实现方法 | 心瘾</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><script src="//at.alicdn.com/t/font_1140697_dxory92pb0h.js" async></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>function initScrollReveal() {
+  [".post-card",".post-content img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
 }
-.post-body {
-  padding: 0 5rem;
-tablet()
-mobile()
+document.addEventListener("DOMContentLoaded", initScrollReveal);
+document.addEventListener("pjax:success", initScrollReveal);
+</script><script src="https://cdn.jsdelivr.net/npm/pjax@latest/pjax.min.js" defer></script><script src="/js/pjax.js" defer></script><script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@latest/themes/prism.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@latest/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="icon" type="image/svg+xml" href="/images/yanxiang.svg"><link rel="mask-icon" href="/images/yanxiang.svg" color="#0078E7"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+    const Yun = window.Yun || {};
+    window.CONFIG = {"hostname":"yanxiang.wang","root":"/","title":"彦的个人博客","version":"1.7.0","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms"},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"https://v1.hitokoto.cn","hitokoto":true},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
+  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="心瘾" type="application/atom+xml"><link rel="stylesheet" href="//example.min.css"><script src="//at.alicdn.com/t/c/font_3013545_3o3fuisnga1.js" async></script><link rel="preconnect" href="https://www.google-analytics.com" crossorigin><script async src="https://www.googletagmanager.com/gtag/js?id=G-1LL0D86CY9"></script><script>if (CONFIG.hostname === location.hostname) {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1LL0D86CY9');
+}</script><script>//- only for pjax
+function sendPageView() {
+  if (CONFIG.hostname !== location.hostname) return;
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('event', 'page_view', {
+    page_path: encodeURIComponent(location.pathname),
+  })
 }
-.post-content {
-  padding: 20px 0px;
+document.addEventListener("pjax:success", sendPageView);</script><script data-ad-client="ca-pub-2245427233262012" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(function(){
+  var bp = document.createElement('script');
+  var curProtocol = window.location.protocol.split(':')[0];
+  if (curProtocol === 'https') {
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else {
+    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();</script><!-- Google Tag Manager --><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-M9KWR9L');</script><!-- End Google Tag Manager --><meta name="description" content="修身、齐家、治国、平天下">
+<meta property="og:type" content="article">
+<meta property="og:title" content="权限管理之位运算以及RBAC俩种实现方法">
+<meta property="og:url" content="https://yanxiang.wang/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E4%B9%8B%E4%BD%8D%E8%BF%90%E7%AE%97%E4%BB%A5%E5%8F%8ARBAC%E4%BF%A9%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/index.html">
+<meta property="og:site_name" content="心瘾">
+<meta property="og:description" content="修身、齐家、治国、平天下">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yanxiang.wang/images/权限管理.jpeg">
+<meta property="og:image" content="https://yanxiang.wang/images/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E4%B9%8B%E4%BD%8D%E8%BF%90%E7%AE%97%E4%BB%A5%E5%8F%8ARBAC%E4%BF%A9%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95.assets/20201221200059924.png">
+<meta property="og:image" content="https://yanxiang.wang/images/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E4%B9%8B%E4%BD%8D%E8%BF%90%E7%AE%97%E4%BB%A5%E5%8F%8ARBAC%E4%BF%A9%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95.assets/2020122120045577.png">
+<meta property="og:image" content="https://yanxiang.wang/images/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E4%B9%8B%E4%BD%8D%E8%BF%90%E7%AE%97%E4%BB%A5%E5%8F%8ARBAC%E4%BF%A9%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95.assets/20201221202731845.png">
+<meta property="article:published_time" content="2020-12-31T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-09-13T07:36:16.925Z">
+<meta property="article:author" content="王彦翔">
+<meta property="article:tag" content="django">
+<meta property="article:tag" content="中间件">
+<meta property="article:tag" content="位运算">
+<meta property="article:tag" content="RBAC">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yanxiang.wang/images/权限管理.jpeg"><script src="/js/ui/mode.js"></script></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js"></script><canvas class="fireworks"></canvas><canvas id="trianglifyContainer"></canvas><script defer src="https://cdn.jsdelivr.net/npm/trianglify@4/dist/trianglify.bundle.js"></script><script>document.addEventListener("DOMContentLoaded", () => {
+  const pattern = trianglify({
+    width: 800,
+    height: 600,
+    cellSize: 75,
+    palette: ["YlGnBu", "GnBu", "Purples", "Blues"],
+  });
+  const canvasOpts = {
+    applyCssScaling: false
+  }
+  document.body.appendChild(pattern.toCanvas(trianglifyContainer, canvasOpts));
+});</script><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="Table of Contents"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-list-ordered"></use></svg></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="Overview"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-passport-line"></use></svg></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="王彦翔"><img width="96" loading="lazy" src="/images/yanxiang.png" alt="王彦翔"><span class="site-author-status" title="Looking for dawn.">👍🏻</span></a><div class="site-author-name"><a href="/about/">王彦翔</a></div><span class="site-name">心瘾</span><sub class="site-subtitle"></sub><div class="site-desciption">年轻就该满腔热血</div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="Home"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item"><a href="/archives/" title="Archives"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">56</span></a></div><div class="site-state-item"><a href="/categories/" title="Categories"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-2-line"></use></svg></span><span class="site-state-item-count">53</span></a></div><div class="site-state-item"><a href="/tags/" title="Tags"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="site-state-item-count">86</span></a></div><a class="site-state-item hty-icon-button" target="_blank" rel="noopener" href="https://yun.yunyoujun.cn" title="文档"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-settings-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="/atom.xml" title="RSS" target="_blank" style="color:orange"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-rss-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="http://wpa.qq.com/msgrd?v=3&amp;uin=515250339&amp;site=qq&amp;menu=yes" title="作者 QQ 515250339" target="_blank" style="color:#12B7F5"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-qq-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/515250339" title="GitHub" target="_blank" style="color:#6e5494"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://blog.csdn.net/weixin_45954124?spm=1000.2115.3001.5113" title="CSDN" target="_blank" style="color:#0088CC"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-csdn"></use></svg></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/python%E5%9F%BA%E7%A1%80/" title="python基础" style="color:green"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-python"></use></svg></a><a class="links-item hty-icon-button" href="/django%E5%88%9D%E7%BA%A7/" title="Django初级" style="color:hotpink"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-bxl-django"></use></svg></a><a class="links-item hty-icon-button" href="/django%E9%AB%98%E7%BA%A7/" title="Django高级" style="color:hotpink"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-django"></use></svg></a><a class="links-item hty-icon-button" href="/python%E9%9D%A2%E8%AF%95%E5%AE%9D%E5%85%B8/" title="python面试宝典" style="color:red"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-shuji"></use></svg></a><a class="links-item hty-icon-button" href="/%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/" title="安装文档" style="color:null"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-anzhuang"></use></svg></a><a class="links-item hty-icon-button" href="/gonote/" title="gonote" style="color:hotpink"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-gopher"></use></svg></a><a class="links-item hty-icon-button" href="/gorm/" title="GORM" style="color:hotpink"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-go_gopher"></use></svg></a><a class="links-item hty-icon-button" href="/algorithm/" title="算法" style="color:null"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-icon-rgb_jiqixuexisuanfayinqing"></use></svg></a><a class="links-item hty-icon-button" href="/albums/" title="相册" style="color:hotpink"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-women-line"></use></svg></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-contrast-2-line"></use></svg></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%8E%E5%8F%B0%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E2%80%94%E2%80%94%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90"><span class="toc-number">1.</span> <span class="toc-text">后台系统设计——角色权限</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%89%8D%E8%A8%80"><span class="toc-number">2.</span> <span class="toc-text">一、前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E7%BB%8F%E5%85%B8%E6%A8%A1%E5%9E%8B%E2%80%94%E2%80%94RBAC"><span class="toc-number">3.</span> <span class="toc-text">二、经典模型——RBAC</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81RBAC%E2%80%94%E2%80%94%E5%9F%BA%E4%BA%8E%E8%A7%92%E8%89%B2%E7%9A%84%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6%EF%BC%88Role-Based-Access-Control-%EF%BC%89"><span class="toc-number">3.1.</span> <span class="toc-text">1、RBAC——基于角色的访问控制（Role-Based Access Control ）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%9F%BA%E4%BA%8E-Django-%E7%9A%84%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E5%B9%B3%E5%8F%B0%EF%BC%8C%E9%87%87%E7%94%A8-RBAC-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6"><span class="toc-number">3.2.</span> <span class="toc-text">2.基于 Django 的后台管理平台，采用 RBAC 权限管理机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-RBAC%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6%E5%AE%9E%E7%8E%B0%E6%80%9D%E8%B7%AF"><span class="toc-number">3.3.</span> <span class="toc-text">3. RBAC角色权限管理机制实现思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">3.4.</span> <span class="toc-text">4. 代码实现</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E4%BD%8D%E8%BF%90%E7%AE%97%E5%AE%9E%E7%8E%B0%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86"><span class="toc-number">4.</span> <span class="toc-text">三、位运算实现权限管理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%BD%8D%E8%BF%90%E7%AE%97"><span class="toc-number">4.1.</span> <span class="toc-text">1. 位运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%AE%80%E5%8D%95demo%E4%BA%8B%E4%BE%8B"><span class="toc-number">4.2.</span> <span class="toc-text">2. 简单demo事例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">4.3.</span> <span class="toc-text">3. 代码实现</span></a></li></ol></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article"><link itemprop="mainEntityOfPage" href="https://yanxiang.wang/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E4%B9%8B%E4%BD%8D%E8%BF%90%E7%AE%97%E4%BB%A5%E5%8F%8ARBAC%E4%BF%A9%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="王彦翔"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="心瘾"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">权限管理之位运算以及RBAC俩种实现方法</h1><div class="post-meta"><div class="post-time" style="display:block"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-line"></use></svg></span> <span class="post-meta-icon-text">Posted on</span> <time title="Created: 2021-01-01 00:00:00" itemprop="dateCreated datePublished" datetime="2021-01-01T00:00:00+08:00">2021-01-01</time><span class="post-meta-divider">-</span><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-2-line"></use></svg></span> <span class="post-meta-icon-text">Edited on</span> <time title="Modified: 2023-09-13 15:36:16" itemprop="dateModified" datetime="2023-09-13T15:36:16+08:00">2023-09-13</time></div><span class="post-count"><span class="post-symbolcount"><span class="post-meta-item-icon" title="Word count in article"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-file-word-line"></use></svg></span> <span title="Word count in article">2k</span><span class="post-meta-divider">-</span><span class="post-meta-item-icon" title="Reading time"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-timer-line"></use></svg></span> <span title="Reading time">8m</span></span></span><span class="leancloud_visitors" id="/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E4%B9%8B%E4%BD%8D%E8%BF%90%E7%AE%97%E4%BB%A5%E5%8F%8ARBAC%E4%BF%A9%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/" data-flag-title="权限管理之位运算以及RBAC俩种实现方法"><span class="post-meta-divider">-</span><span class="post-meta-item-icon" title="Views"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-eye-line"></use></svg> <span class="leancloud-visitors-count"></span></span></span><span class="post-meta-divider">-</span><a href="#comment"><span class="post-meta-item-icon" title="Comments"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-chat-3-line"></use></svg> <span class="waline-comment-count" id="/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E4%B9%8B%E4%BD%8D%E8%BF%90%E7%AE%97%E4%BB%A5%E5%8F%8ARBAC%E4%BF%A9%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/"></span></span></a><div class="post-classify"><span class="post-category"> <span class="post-meta-item-icon" style="margin-right:3px;"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-line"></use></svg></span><span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category-item" href="/categories/python/" style="--text-color:var(--hty-text-color)" itemprop="url" rel="index"><span itemprop="text">python</span></a></span> > <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category-item" href="/categories/python/django-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" style="--text-color:var(--hty-text-color)" itemprop="url" rel="index"><span itemprop="text">django - 权限管理</span></a></span></span><span class="post-tag"><span class="post-meta-divider">-</span><a class="tag-item" href="/tags/django/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">django</span></a><a class="tag-item" href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">中间件</span></a><a class="tag-item" href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">位运算</span></a><a class="tag-item" href="/tags/RBAC/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">RBAC</span></a></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body" style="--smc-primary:#0078E7;"><div >
+  <center>
+        <img src="../images/权限管理.jpeg" width="50%" height="50%" loading="lazy">
+        </p>
+  </center>
+</div>
+
+
+<span id="more"></span>
+
+
+<h1 id="后台系统设计——角色权限"><a href="#后台系统设计——角色权限" class="headerlink" title="后台系统设计——角色权限"></a>后台系统设计——角色权限</h1><h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p>不论是哪种后台管理系统，“人员权限”始终是绕不开的话题。无论是移动端，PC端产品，登陆都需要一个账号。只是对于C端的产品，大多都是用户自己注册即可。</p>
+<p>而对于后台产品而言，是需要公司内部人员去创建账号的。每个使用系统的用户都有一个独一无二的账号，每个账号都有自己对应的权限。</p>
+<p>多数情况下，除了超级管理员外，我们会对大多数的账号的权限做一些限制，以此来管理不同用户的使用权限问题。</p>
+<p>譬如，做企业使用类软件，不同部门、不同职位的人的权限是不同的；再例如一款收费产品的收费用户和免费用户权限也是迥然不同的。</p>
+<p>如果每个用户都单独做权限控制的话，当系统用户体量非常大的时候，就会发现以下问题：</p>
+<p>很多账号权限都是一样的，但每次都要再配一次；</p>
+<p>当某类权限用户的权限需要修改时，无法批量修改，只能一个个去修改非常耗时；</p>
+<h1 id="二、经典模型——RBAC"><a href="#二、经典模型——RBAC" class="headerlink" title="二、经典模型——RBAC"></a>二、经典模型——RBAC</h1><p>这时候，聪明的产品先人就创建了“角色”的概念，通过对权限集的抽象，创立了角色，通过修改角色的权限，来控制拥有该角色的人员账号的权限。</p>
+<h2 id="1、RBAC——基于角色的访问控制（Role-Based-Access-Control-）"><a href="#1、RBAC——基于角色的访问控制（Role-Based-Access-Control-）" class="headerlink" title="1、RBAC——基于角色的访问控制（Role-Based Access Control ）"></a><strong>1、RBAC——基于角色的访问控制（Role-Based Access Control ）</strong></h2><p>其基本思想是，对系统操作的各种权限不是直接授予具体的用户，而是在用户集合与权限集合之间建立一个角色集合。每一种角色对应一组相应的权限。一旦用户被分配了适当的角色后，该用户就拥有此角色的所有操作权限。</p>
+<p>这样做的好处是，不必在每次创建用户时都进行分配权限的操作，只要分配用户相应的角色即可，而且角色的权限变更比用户的权限变更要少得多，这样将简化用户的权限管理，减少系统的开销。</p>
+<p>按照百度百科对RBAC的定义，我们可以理解为此模型是通过角色关联用户，角色关联权限的方式，间接赋予用户权限。</p>
+<h2 id="2-基于-Django-的后台管理平台，采用-RBAC-权限管理机制"><a href="#2-基于-Django-的后台管理平台，采用-RBAC-权限管理机制" class="headerlink" title="2.基于 Django 的后台管理平台，采用 RBAC 权限管理机制"></a>2.基于 Django 的后台管理平台，采用 RBAC 权限管理机制</h2><ul>
+<li>用户表、角色表、权限表、资源列表<ul>
+<li><code>用户表</code>：</li>
+<li><code>角色表</code>：</li>
+<li><code>资源列表(路径正则)</code>：资源名称（项目模块名称），资源路径（后台路由）<ul>
+<li>资源分类：商品模块、订单模块、营销模块、权限模块、内容模块、其他模块</li>
+</ul>
+</li>
+<li><code>权限表</code>：对某一个路由的增删改查权限</li>
+<li><img src="../images/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E4%B9%8B%E4%BD%8D%E8%BF%90%E7%AE%97%E4%BB%A5%E5%8F%8ARBAC%E4%BF%A9%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95.assets/20201221200059924.png" alt="20201221200059924" style="height:100%; width:100%;" / loading="lazy"></li>
+</ul>
+</li>
+</ul>
+<h2 id="3-RBAC角色权限管理机制实现思路"><a href="#3-RBAC角色权限管理机制实现思路" class="headerlink" title="3. RBAC角色权限管理机制实现思路"></a>3. RBAC角色权限管理机制实现思路</h2><pre class="language-python" data-language="python"><code class="language-python"><span class="token comment"># 面向资源编程</span>
+https<span class="token punctuation">:</span><span class="token operator">//</span>www<span class="token punctuation">.</span>shiyanlou<span class="token punctuation">.</span>com<span class="token operator">/</span>v1<span class="token operator">/</span>books<span class="token operator">/</span>        <span class="token comment"># 请求后端 books书籍表中数据</span>
+	get
+    post
+<span class="token comment"># 用户表</span>
+<span class="token comment"># 角色表</span>
+<span class="token comment"># 权限表</span>
+get<span class="token operator">/</span>post<span class="token operator">/</span>put<span class="token operator">/</span>delete 对应关系</code></pre>
+
+<ul>
+<li>所有权限的本质是对数据库中表中数据增删改查的操作</li>
+<li>而这些增删改查的操作是通过前端不同路由，通过get、post、put、delete方法操作数据库的</li>
+<li>对权限的控制，最简单的方法就是判断当前用户是否可以对指定路由请求操作的权限</li>
+<li>把角色和这个角色能够访问的 url 和 请求方式进行关联（因为正是的业务逻辑用户权限划分力度可能非常细致）</li>
+<li>再简单的业务逻辑中这一张表就是权限表</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>路由 资源(可能对应的是后端路由的 name名称，可以通过name名称解析出对应路由)</th>
+<th>请求方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://www.shiyanlou.com/v1/books/">https://www.shiyanlou.com/v1/books/</a></td>
+<td>get</td>
+<td>判断用户是否可以查询books表中数据</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.shiyanlou.com/v1/books/">https://www.shiyanlou.com/v1/books/</a></td>
+<td>post</td>
+<td>判断用户是否可以添加books表中数据</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.shiyanlou.com/v1/books/">https://www.shiyanlou.com/v1/books/</a></td>
+<td>put</td>
+<td>判断用户是否可以更新books表中数据</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.shiyanlou.com/v1/books/">https://www.shiyanlou.com/v1/books/</a></td>
+<td>delete</td>
+<td>判断用户是否可以删除books表中数据</td>
+</tr>
+</tbody></table>
+<ul>
+<li>后端如何判断用户权限<ul>
+<li>用户发送求方法 <a target="_blank" rel="noopener" href="https://www.shiyanlou.com/v1/books/">https://www.shiyanlou.com/v1/books/</a> 的url</li>
+<li>后端首先查询时哪一个用户，然后查询当前用户的角色</li>
+<li>最后判断这个角色是否可以访问 <a target="_blank" rel="noopener" href="https://www.shiyanlou.com/v1/books/">https://www.shiyanlou.com/v1/books/</a> 的对应方法即可</li>
+<li>如果这个角色有权限访问这个url就返回数据，不能访问就返回 401状态码</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-代码实现"><a href="#4-代码实现" class="headerlink" title="4. 代码实现"></a>4. 代码实现</h2><p><strong>表的设计</strong> </p>
+<img src="../images/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E4%B9%8B%E4%BD%8D%E8%BF%90%E7%AE%97%E4%BB%A5%E5%8F%8ARBAC%E4%BF%A9%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95.assets/2020122120045577.png" alt="2020122120045577" style="height:100%; width:100%;" / loading="lazy">
+
+
+
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> django<span class="token punctuation">.</span>contrib<span class="token punctuation">.</span>auth<span class="token punctuation">.</span>models <span class="token keyword">import</span> AbstractUser
+<span class="token keyword">from</span> django<span class="token punctuation">.</span>db <span class="token keyword">import</span> models
+<span class="token keyword">from</span> utils<span class="token punctuation">.</span>basemodel <span class="token keyword">import</span> Base
+
+
+<span class="token comment"># Create your models here.</span>
+<span class="token comment"># 角色表</span>
+<span class="token keyword">class</span> <span class="token class-name">Role</span><span class="token punctuation">(</span>models<span class="token punctuation">.</span>Model<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    name <span class="token operator">=</span> models<span class="token punctuation">.</span>CharField<span class="token punctuation">(</span>max_length<span class="token operator">=</span><span class="token number">32</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">class</span> <span class="token class-name">Meta</span><span class="token punctuation">:</span>
+        db_table <span class="token operator">=</span> <span class="token string">'角色'</span>
+
+
+<span class="token comment"># 用户表</span>
+<span class="token keyword">class</span> <span class="token class-name">User</span><span class="token punctuation">(</span>AbstractUser<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    username <span class="token operator">=</span> models<span class="token punctuation">.</span>CharField<span class="token punctuation">(</span>max_length<span class="token operator">=</span><span class="token number">32</span><span class="token punctuation">,</span> unique<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    password <span class="token operator">=</span> models<span class="token punctuation">.</span>CharField<span class="token punctuation">(</span>max_length<span class="token operator">=</span><span class="token number">132</span><span class="token punctuation">)</span>
+    email <span class="token operator">=</span> models<span class="token punctuation">.</span>CharField<span class="token punctuation">(</span>max_length<span class="token operator">=</span><span class="token number">32</span><span class="token punctuation">,</span> null<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> blank<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    per <span class="token operator">=</span> models<span class="token punctuation">.</span>CharField<span class="token punctuation">(</span>max_length<span class="token operator">=</span><span class="token number">32</span><span class="token punctuation">,</span> null<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> blank<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    role <span class="token operator">=</span> models<span class="token punctuation">.</span>ForeignKey<span class="token punctuation">(</span>Role<span class="token punctuation">,</span> on_delete<span class="token operator">=</span>models<span class="token punctuation">.</span>CASCADE<span class="token punctuation">,</span> null<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> blank<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">class</span> <span class="token class-name">Meta</span><span class="token punctuation">:</span>
+        db_table <span class="token operator">=</span> <span class="token string">"用户"</span>
+
+    <span class="token keyword">def</span> <span class="token function">__str__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>username
+
+
+
+<span class="token comment"># 节点表</span>
+<span class="token keyword">class</span> <span class="token class-name">Node</span><span class="token punctuation">(</span>models<span class="token punctuation">.</span>Model<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    name <span class="token operator">=</span> models<span class="token punctuation">.</span>CharField<span class="token punctuation">(</span>max_length<span class="token operator">=</span><span class="token number">32</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">class</span> <span class="token class-name">Meta</span><span class="token punctuation">:</span>
+        db_table <span class="token operator">=</span> <span class="token string">'节点表'</span>
+
+
+<span class="token comment"># 权限表</span>
+<span class="token keyword">class</span> <span class="token class-name">Access</span><span class="token punctuation">(</span>models<span class="token punctuation">.</span>Model<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    role <span class="token operator">=</span> models<span class="token punctuation">.</span>ForeignKey<span class="token punctuation">(</span>Role<span class="token punctuation">,</span> on_delete<span class="token operator">=</span>models<span class="token punctuation">.</span>CASCADE<span class="token punctuation">)</span>
+    node <span class="token operator">=</span> models<span class="token punctuation">.</span>ForeignKey<span class="token punctuation">(</span>Node<span class="token punctuation">,</span> on_delete<span class="token operator">=</span>models<span class="token punctuation">.</span>CASCADE<span class="token punctuation">)</span>
+
+    <span class="token keyword">class</span> <span class="token class-name">Meta</span><span class="token punctuation">:</span>
+        db_table <span class="token operator">=</span> <span class="token string">'权限表'</span>
+</code></pre>
+
+<p>在自定义中间件 添加判断权限</p>
+<p>我们在响应视图前添加如下判断  </p>
+<p>我们在访问<code>/user/blacklist/</code>时进行判断  </p>
+<p>获取token解码获取当前用户信息 进行关联查询</p>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> rest_framework_jwt<span class="token punctuation">.</span>utils <span class="token keyword">import</span> jwt_decode_handler
+<span class="token keyword">from</span> django<span class="token punctuation">.</span>utils<span class="token punctuation">.</span>deprecation <span class="token keyword">import</span> MiddlewareMixin
+
+<span class="token comment"># 判断用户属于的角色是否有权限</span>
+<span class="token keyword">class</span> <span class="token class-name">JurisdictionMyMiddleware</span><span class="token punctuation">(</span>MiddlewareMixin<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># redis</span>
+    <span class="token keyword">def</span> <span class="token function">process_view</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> request<span class="token punctuation">,</span> view_func<span class="token punctuation">,</span> view_args<span class="token punctuation">,</span> view_kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> request<span class="token punctuation">.</span>path <span class="token operator">==</span> <span class="token string">"/user/blacklist/"</span><span class="token punctuation">:</span>
+            <span class="token keyword">try</span><span class="token punctuation">:</span>
+                <span class="token comment"># 获取token</span>
+                token <span class="token operator">=</span> request<span class="token punctuation">.</span>META<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'HTTP_AUTHORIZATION'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">:</span><span class="token punctuation">]</span>
+                <span class="token comment"># 获取userid</span>
+                user_id <span class="token operator">=</span> jwt_decode_handler<span class="token punctuation">(</span>token<span class="token punctuation">)</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"user_id"</span><span class="token punctuation">)</span>
+                <span class="token comment"># 获取用户id角色</span>
+                role_id <span class="token operator">=</span> User<span class="token punctuation">.</span>objects<span class="token punctuation">.</span><span class="token builtin">filter</span><span class="token punctuation">(</span>pk<span class="token operator">=</span>user_id<span class="token punctuation">)</span><span class="token punctuation">.</span>first<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>role_id
+                <span class="token comment"># 获取角色的权限（路由）</span>
+                path <span class="token operator">=</span> Access<span class="token punctuation">.</span>objects<span class="token punctuation">.</span><span class="token builtin">filter</span><span class="token punctuation">(</span>role_id<span class="token operator">=</span>role_id<span class="token punctuation">)</span>
+                i <span class="token operator">=</span> <span class="token punctuation">[</span>i<span class="token punctuation">.</span>node<span class="token punctuation">.</span>name <span class="token keyword">for</span> i <span class="token keyword">in</span> path <span class="token keyword">if</span> request<span class="token punctuation">.</span>path <span class="token operator">==</span> i<span class="token punctuation">.</span>node<span class="token punctuation">.</span>name<span class="token punctuation">]</span>
+                <span class="token comment"># 判断当前用户有没有权限</span>
+                <span class="token keyword">if</span> <span class="token keyword">not</span> i<span class="token punctuation">:</span>
+                    <span class="token keyword">return</span> HttpResponse<span class="token punctuation">(</span><span class="token string">"No"</span><span class="token punctuation">)</span>
+            <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span>
+                <span class="token keyword">return</span></code></pre>
+
+
+
+<h1 id="三、位运算实现权限管理"><a href="#三、位运算实现权限管理" class="headerlink" title="三、位运算实现权限管理"></a>三、位运算实现权限管理</h1><h2 id="1-位运算"><a href="#1-位运算" class="headerlink" title="1. 位运算"></a>1. 位运算</h2><p>程序中的所有数在计算机内存中都是以二进制的形式<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%82%A8%E5%AD%98/2446499">储存</a>的。位运算就是直接对整数在内存中的二进制位进行<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%93%8D%E4%BD%9C/33052">操作</a>。比如，and运算本来是一个逻辑<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E8%BF%90%E7%AE%97%E7%AC%A6">运算符</a>，但整数与整数之间也可以进行and运算。举个例子，6的二进制是110，11的二进制是1011，那么6 and 11的结果就是2，它是二进制对应位进行逻辑运算的结果（0表示False，1表示True，空位都当0处理）。</p>
+<img src="../images/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E4%B9%8B%E4%BD%8D%E8%BF%90%E7%AE%97%E4%BB%A5%E5%8F%8ARBAC%E4%BF%A9%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95.assets/20201221202731845.png" alt="20201221202731845" style="height:100%; width:100%;" / loading="lazy">
+
+<p><strong>二进制</strong></p>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">0b001</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">0b011</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">0b100</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">0b110</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">0b111</span><span class="token punctuation">)</span>
+
+
+<span class="token comment"># 打印结果</span>
+<span class="token number">1</span>
+<span class="token number">3</span>
+<span class="token number">4</span>
+<span class="token number">6</span>
+<span class="token number">7</span></code></pre>
+
+
+
+
+
+<h2 id="2-简单demo事例"><a href="#2-简单demo事例" class="headerlink" title="2. 简单demo事例"></a>2. 简单demo事例</h2><pre class="language-python" data-language="python"><code class="language-python">user <span class="token operator">=</span> <span class="token number">0b110</span>
+permisssion <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">'usermange'</span><span class="token punctuation">:</span> <span class="token number">0b100</span><span class="token punctuation">,</span> <span class="token string">'blacklist'</span><span class="token punctuation">:</span> <span class="token number">0b010</span><span class="token punctuation">,</span> <span class="token string">'login'</span><span class="token punctuation">:</span> <span class="token number">0b001</span><span class="token punctuation">&#125;</span>
+
+
+<span class="token keyword">def</span> <span class="token function">my_decorator</span><span class="token punctuation">(</span>func<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">wrapper</span><span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> user <span class="token operator">&amp;</span> permisssion<span class="token punctuation">[</span>args<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+            func<span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"没权限"</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">return</span> wrapper
+
+
+<span class="token decorator annotation punctuation">@my_decorator</span>
+<span class="token keyword">def</span> <span class="token function">view</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'进入视图'</span><span class="token punctuation">)</span>
+    <span class="token keyword">pass</span>
+
+
+view<span class="token punctuation">(</span><span class="token string">"usermange"</span><span class="token punctuation">)</span>
+view<span class="token punctuation">(</span><span class="token string">"blacklist"</span><span class="token punctuation">)</span>
+view<span class="token punctuation">(</span><span class="token string">"login"</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 打印结果</span>
+进入视图
+进入视图
+没权限</code></pre>
+
+
+
+<h2 id="3-代码实现"><a href="#3-代码实现" class="headerlink" title="3. 代码实现"></a>3. 代码实现</h2><p>在中间件加入判断  我们的<code>permission</code>也可以创建相应的表</p>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token comment"># 使用位运算来判断权限</span>
+<span class="token keyword">class</span> <span class="token class-name">JurisdictionMyMiddleware</span><span class="token punctuation">(</span>MiddlewareMixin<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># redis</span>
+    <span class="token keyword">def</span> <span class="token function">process_view</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> request<span class="token punctuation">,</span> view_func<span class="token punctuation">,</span> view_args<span class="token punctuation">,</span> view_kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment"># 权限对应表</span>
+        permission <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">'/user/blacklist/'</span><span class="token punctuation">:</span> <span class="token number">0b100</span><span class="token punctuation">,</span> <span class="token string">'/user/user/'</span><span class="token punctuation">:</span> <span class="token number">0b010</span><span class="token punctuation">,</span> <span class="token string">'/user/user//'</span><span class="token punctuation">:</span> <span class="token number">0b100</span><span class="token punctuation">&#125;</span>
+        <span class="token keyword">if</span> request<span class="token punctuation">.</span>path <span class="token operator">==</span> <span class="token string">"/user/blacklist/"</span><span class="token punctuation">:</span>
+            <span class="token keyword">try</span><span class="token punctuation">:</span>
+                <span class="token comment"># 获取当前用户的权限</span>
+                per <span class="token operator">=</span> User<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>get<span class="token punctuation">(</span>
+                pk<span class="token operator">=</span>jwt_decode_handler<span class="token punctuation">(</span>token<span class="token operator">=</span>request<span class="token punctuation">.</span>META<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'HTTP_AUTHORIZATION'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"user_id"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>per
+                <span class="token comment"># print(not bin(int(per)))   # False</span>
+                <span class="token comment"># print(permission[request.path]) # 4</span>
+                <span class="token comment"># 判断当前用户的权限 是否在 权限对应表中 有相应的权限</span>
+                <span class="token keyword">if</span> <span class="token keyword">not</span> <span class="token builtin">int</span><span class="token punctuation">(</span>per<span class="token punctuation">)</span> <span class="token operator">&amp;</span> permission<span class="token punctuation">[</span>request<span class="token punctuation">.</span>path<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">123</span><span class="token punctuation">)</span>
+                    <span class="token keyword">return</span> HttpResponse<span class="token punctuation">(</span><span class="token string">"No"</span><span class="token punctuation">)</span>
+            <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"utils/mymidder--142"</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span>
+                <span class="token keyword">return</span></code></pre>
+
+<p><strong>在实际开发中，往往一个类对象拥有多种权限，每种权限有两个状态即有和无，正常情况下，有多少个权限，就需要多少个字段保存相应状态，如果权限过多，那么这种方式显得极其笨重，最近学习了一种用位运算权限管理的方式，方便快捷，实现原理简单，大大简化操作，简单实现权限的管理</strong></p>
+</div><div id="reward-container"><span class="hty-icon-button button-glow" id="reward-button" title="Donate" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === &quot;none&quot;) ? &quot;block&quot; : &quot;none&quot;;"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-hand-coin-line"></use></svg></span><div id="reward-comment">觉得文章写的不错，可以请喝杯咖啡</div><div id="qr" style="display:none;"><div style="display:inline-block"><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/donate/alipay-qrcode.jpg"><img loading="lazy" src="https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/donate/alipay-qrcode.jpg" alt="支付宝" title="支付宝"></a><div><span style="color:#00A3EE"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-alipay-line"></use></svg></span></div></div><div style="display:inline-block"><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/donate/qqpay-qrcode.png"><img loading="lazy" src="https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/donate/qqpay-qrcode.png" alt="QQ 支付" title="QQ 支付"></a><div><span style="color:#12B7F5"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-qq-line"></use></svg></span></div></div><div style="display:inline-block"><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/donate/wechatpay-qrcode.jpg"><img loading="lazy" src="https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/donate/wechatpay-qrcode.jpg" alt="微信支付" title="微信支付"></a><div><span style="color:#2DC100"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-wechat-pay-line"></use></svg></span></div></div></div></div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>王彦翔</li><li class="post-copyright-link"><strong>Post link: </strong><a href="https://yanxiang.wang/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E4%B9%8B%E4%BD%8D%E8%BF%90%E7%AE%97%E4%BB%A5%E5%8F%8ARBAC%E4%BF%A9%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/" title="权限管理之位运算以及RBAC俩种实现方法">https://yanxiang.wang/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E4%B9%8B%E4%BD%8D%E8%BF%90%E7%AE%97%E4%BB%A5%E5%8F%8ARBAC%E4%BF%A9%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="prev" title="设计模式"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">设计模式</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/django-vue%E6%94%AF%E4%BB%98%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%BE%AE%E4%BF%A1%E3%80%81%E6%94%AF%E4%BB%98%E5%AE%9D%E3%80%81PalPay/" rel="next" title="django+vue工厂模式 支付融合 微信二维码支付、支付宝、PayPal跨境支付"><span class="post-nav-text">django+vue工厂模式 支付融合 微信二维码支付、支付宝、PayPal跨境支付</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div class="hty-card" id="comment"><div class="comment-tooltip text-center"><span>如果您有任何关于博客内容的相关讨论，欢迎前往 <a href="https://github.com/YunYouJun/yunyoujun.github.io/discussions" target="_blank">GitHub Discussions</a> 与我交流。</span><br></div><div id="waline"></div><script>Yun.utils.getScript("https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js", () => {
+  const walineConfig = {"enable":true,"serverURL":"https://waline.yunyoujun.cn","comment":true,"visitor":true,"emoji":["https://cdn.jsdelivr.net/gh/walinejs/emojis@latest/bilibili/","https://cdn.jsdelivr.net/gh/walinejs/emojis@latest/weibo/","https://cdn.jsdelivr.net/gh/walinejs/emojis@latest/qq/"],"locale":{"placeholder":"填写邮箱，可以收到回复通知哦～"},"requiredMeta":["nick"],"el":"#waline","lang":"en"}
+  walineConfig.path = "/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E4%B9%8B%E4%BD%8D%E8%BF%90%E7%AE%97%E4%BB%A5%E5%8F%8ARBAC%E4%BF%A9%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/"
+  walineConfig.dark = 'html[data-user-color-scheme="dark"]'
+  new Waline(walineConfig)
+}, window.Waline);</script></div></main><footer class="sidebar-translate" id="footer"><div class="beian"><a rel="noopener" href="https://beian.miit.gov.cn/" target="_blank">备案号</a></div><div class="copyright"><span>&copy; 2018 – 2025 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 王彦翔</span></div><div class="live_time"><span>运行时间</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
+  setTimeout(blog_live_time, 1000);
+  const start = new Date('2019-04-12T00:00:00');
+  const now = new Date();
+  const timeDiff = (now.getTime() - start.getTime());
+  const msPerMinute = 60 * 1000;
+  const msPerHour = 60 * msPerMinute;
+  const msPerDay = 24 * msPerHour;
+  const passDay = Math.floor(timeDiff / msPerDay);
+  const passHour = Math.floor((timeDiff % msPerDay) / 60 / 60 / 1000);
+  const passMinute = Math.floor((timeDiff % msPerHour) / 60 / 1000);
+  const passSecond = Math.floor((timeDiff % msPerMinute) / 1000);
+  display_live_time.innerHTML = " " + passDay + " 天 " + passHour + " 小时 " + passMinute + " 分 " + passSecond + " 秒";
 }
-.post-meta {
-  font-size: 14px;
-  color: var(--hty-secondary-text-color);
-}
-.post-meta .icon {
-  margin-bottom: -1px;
-}
-.post-description {
-  font-weight: normal;
-  padding: 0.5rem;
-}
-.post-author {
-  display: flex;
-  justify-content: center;
-}
-.post-author .author-avatar {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  line-height: 0;
-}
-.post-author .author-avatar img {
-  border-radius: 50%;
-  height: 1rem;
-  width: 1rem;
-  padding: 2px;
-  border: 2px solid #d3d3d3;
-}
-.post-author .author-name {
-  margin-left: 0.5rem;
-  font-size: 1rem;
-}
-.post-meta-item-icon {
-  display: inline-block;
-  color: var(--text-color, --hty-secondary-text-color);
-}
-.post-meta-divider {
-  height: 25px;
-  color: var(--hty-secondary-text-color);
-  margin: 0 0.5rem;
-}
-.post-eof {
-  margin: 50px auto;
-  width: 50%;
-  height: 1px;
-  background: $blue;
-  opacity: 0.1;
-}
-.post-copyright {
-  font-size: 0.9rem;
-  margin: 2rem 0;
-  padding: 0.5rem 1rem;
-  border-left: 4px solid #ff5252;
-  background-color: var(--hty-bg-color);
-  list-style: none;
-  word-break: break-all;
-  position: relative;
-  overflow: hidden;
-}
-.post-copyright::after {
-  position: absolute;
-  color: #fff;
-  background: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 496 512'%3E%3Cpath fill='gray' d='M245.8 214.9l-33.2 17.3c-9.4-19.6-25.2-20-27.4-20-22.2 0-33.3 14.6-33.3 43.9 0 23.5 9.2 43.8 33.3 43.8 14.4 0 24.6-7 30.5-21.3l30.6 15.5a73.2 73.2 0 01-65.1 39c-22.6 0-74-10.3-74-77 0-58.7 43-77 72.6-77 30.8-.1 52.7 11.9 66 35.8zm143 0l-32.7 17.3c-9.5-19.8-25.7-20-27.9-20-22.1 0-33.2 14.6-33.2 43.9 0 23.5 9.2 43.8 33.2 43.8 14.5 0 24.7-7 30.5-21.3l31 15.5c-2 3.8-21.3 39-65 39-22.7 0-74-9.9-74-77 0-58.7 43-77 72.6-77C354 179 376 191 389 214.8zM247.7 8C104.7 8 0 123 0 256c0 138.4 113.6 248 247.6 248C377.5 504 496 403 496 256 496 118 389.4 8 247.6 8zm.8 450.8c-112.5 0-203.7-93-203.7-202.8 0-105.5 85.5-203.3 203.8-203.3A201.7 201.7 0 01451.3 256c0 121.7-99.7 202.9-202.9 202.9z'/%3E%3C/svg%3E");
-  content: ' ';
-  height: 10rem;
-  width: 10rem;
-  right: -2rem;
-  top: -2rem;
-  opacity: 0.1;
-}
-.tag-name {
-  padding: 0 0.1rem;
-}
+blog_live_time();
+</script></div></footer><a class="hty-icon-button" id="back-to-top" aria-label="back-to-top" href="#"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-up-s-line"></use></svg><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#0078E7" stroke-width="2" stroke-linecap="round"></circle></svg></a><a class="popup-trigger hty-icon-button icon-search" id="search" href="javascript:;" title="Search"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-search-line"></use></svg></span></a><script>window.addEventListener("DOMContentLoaded", () => {
+  // Handle and trigger popup window
+  document.querySelector(".popup-trigger").addEventListener("click", () => {
+    document.querySelector(".popup").classList.add("show");
+    setTimeout(() => {
+      document.querySelector(".search-input").focus();
+    }, 100);
+  });
+
+  // Monitor main search box
+  const onPopupClose = () => {
+    document.querySelector(".popup").classList.remove("show");
+  };
+
+  document.querySelector(".popup-btn-close").addEventListener("click", () => {
+    onPopupClose();
+  });
+
+  window.addEventListener("keyup", event => {
+    if (event.key === "Escape") {
+      onPopupClose();
+    }
+  });
+});
+</script><script src="/js/search/local-search.js" defer></script><div class="popup search-popup"><div class="search-header"><span class="popup-btn-close close-icon hty-icon-button"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-close-line"></use></svg></span></div><div class="search-input-container"><input class="search-input" id="local-search-input" type="text" placeholder="Searching..." value=""></div><div id="local-search-result"></div></div><script>const date = new Date();
+const today = (date.getMonth() + 1) + "-" + date.getDate()
+const mourn_days = ["4-4"]
+if (mourn_days.includes(today)) {
+  document.documentElement.style.filter = "grayscale(1)";
+}</script></div><!-- hexo injector body_end start --><script src="https://cdn.jsdelivr.net/npm/hexo-widget-tree@0.2.2/js/index.js"></script><div id="widget-tree">
+      <ul>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/">
+          python
+        </a>
+      <span class="tree-list-count">33</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/debug/">
+          debug
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/Python4%E7%A7%8DDebug%E6%96%B9%E6%B3%95/" title="Python4种Debug方法"><i class="post-icon gg-file-document"></i>Python4种Debug方法</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/django/">
+          django
+        </a>
+      <span class="tree-list-count">9</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/django/websocket/">
+          websocket
+        </a>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/django-vue%E5%9F%BA%E4%BA%8Ewebsocket%E5%88%9B%E9%80%A0%E5%AE%9E%E6%97%B6ECharts%E8%82%A1%E7%A5%A8%E5%9B%BE/" title="django+vue基于websocket创造实时ECharts股票图"><i class="post-icon gg-file-document"></i>django+vue基于websocket创造实时ECharts股票图</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/django-vue%E5%9F%BA%E4%BA%8Ewebsocket%E4%BA%BA%E5%B7%A5%E5%AE%A2%E6%9C%8D%E7%B3%BB%E7%BB%9F%E6%89%93%E9%80%A0/" title="django+vue基于websocket人工客服系统打造"><i class="post-icon gg-file-document"></i>django+vue基于websocket人工客服系统打造</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/django/celery/">
+          celery
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/celery%E4%BD%BF%E7%94%A8%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E5%A4%84%E7%90%86%E4%BB%A5%E5%8F%8A%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" title="Linux下Django使用celery异步任务处理以及定时任务"><i class="post-icon gg-file-document"></i>Linux下Django使用celery异步任务处理以及定时任务</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/django/%E9%83%A8%E7%BD%B2/">
+          部署
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/nginx+uwsgi/" title="win10/Linux系统项目上线Nginx+Django（Uwsgi）+Vue实现高可用部署"><i class="post-icon gg-file-document"></i>win10/Linux系统项目上线Nginx+Django（Uwsgi）+Vue实现高可用部署</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/django/%E6%94%AF%E4%BB%98/">
+          支付
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/django-vue%E6%94%AF%E4%BB%98%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%BE%AE%E4%BF%A1%E3%80%81%E6%94%AF%E4%BB%98%E5%AE%9D%E3%80%81PalPay/" title="django+vue工厂模式 支付融合 微信二维码支付、支付宝、PayPal跨境支付"><i class="post-icon gg-file-document"></i>django+vue工厂模式 支付融合 微信二维码支付、支付宝、PayPal跨境支付</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/django/rest-rest-framework/">
+          rest-rest-framework
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/Django%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" title="Django源码分析-ModelViewSet"><i class="post-icon gg-file-document"></i>Django源码分析-ModelViewSet</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E9%AB%98%E5%B9%B6%E5%8F%91/">
+          高并发
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/IO%E5%AF%86%E9%9B%86%E5%9E%8B%E3%80%81CPU%E5%AF%86%E9%9B%86%E5%9E%8B%E5%88%86%E5%88%AB%E8%AF%A5%E9%80%89%E6%8B%A9%E5%A4%9A%E8%BF%9B%E7%A8%8B%E8%BF%98%E6%98%AF%E5%A4%9A%E7%BA%BF%E7%A8%8B/" title="IO密集型、CPU密集型分别该选择多进程还是多线程"><i class="post-icon gg-file-document"></i>IO密集型、CPU密集型分别该选择多进程还是多线程</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/SQLAlchemy/">
+          SQLAlchemy
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/Python%E4%B8%AD%E6%93%8D%E4%BD%9CSQLAlchemy/" title="Python中操作SQLAlchemy"><i class="post-icon gg-file-document"></i>Python中操作SQLAlchemy</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
+          数据分析
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/pandas/">
+          pandas
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/pandas%E5%85%A5%E9%97%A8/" title="数据分析-初识pandas"><i class="post-icon gg-file-document"></i>数据分析-初识pandas</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
+          多线程
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/pypy3%E4%B8%8Epython%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%AF%94%E8%BE%83/" title="pypy3与python多线程比较"><i class="post-icon gg-file-document"></i>pypy3与python多线程比较</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E4%B8%89%E7%A8%8B/">
+          三程
+        </a>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E4%B8%89%E7%A8%8B%E6%A6%82%E5%BF%B5/" title="python进程-线程-协程-概念"><i class="post-icon gg-file-document"></i>python进程-线程-协程-概念</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E8%BF%9B%E7%A8%8B-%E7%BA%BF%E7%A8%8B-%E5%8D%8F%E7%A8%8B-%E8%AF%A6%E8%A7%A3/" title="python进程-线程-协程-详解"><i class="post-icon gg-file-document"></i>python进程-线程-协程-详解</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/pandas/">
+          pandas
+        </a>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/pandas%E8%BF%9B%E9%98%B6/" title="数据分析-pandas进阶操作"><i class="post-icon gg-file-document"></i>数据分析-pandas进阶操作</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/pandas%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C-%E8%AE%A1%E7%AE%97/" title="pandas进阶操作-计算-方法"><i class="post-icon gg-file-document"></i>pandas进阶操作-计算-方法</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/">
+          垃圾回收机制
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/" title="python垃圾回收机制"><i class="post-icon gg-file-document"></i>python垃圾回收机制</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/celery/">
+          celery
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97%E6%89%A7%E8%A1%8C%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1/" title="python手写队列异步任务"><i class="post-icon gg-file-document"></i>python手写队列异步任务</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E6%B5%8B%E8%AF%95/">
+          测试
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E6%B5%8B%E8%AF%95/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">
+          单元测试
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" title="python单元测试"><i class="post-icon gg-file-document"></i>python单元测试</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E7%94%9F%E6%88%90%E5%99%A8/">
+          生成器
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E7%94%9F%E6%88%90%E5%99%A8/" title="彻底理解python生成器"><i class="post-icon gg-file-document"></i>彻底理解python生成器</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/">
+          深浅拷贝
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D%E7%9A%84%E5%8C%BA%E5%88%AB/" title="python浅拷贝与深拷贝以及is 和 == 的区别"><i class="post-icon gg-file-document"></i>python浅拷贝与深拷贝以及is 和 == 的区别</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E8%A3%85%E9%A5%B0%E5%99%A8/">
+          装饰器
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E8%A3%85%E9%A5%B0%E5%99%A8/" title="彻底理解python装饰器以及使用场景"><i class="post-icon gg-file-document"></i>彻底理解python装饰器以及使用场景</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/">
+          高阶函数
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/" title="python高阶函数详解"><i class="post-icon gg-file-document"></i>python高阶函数详解</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E8%BF%AD%E4%BB%A3%E5%99%A8/">
+          迭代器
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E8%BF%AD%E4%BB%A3%E5%99%A8/" title="彻底理解python迭代器"><i class="post-icon gg-file-document"></i>彻底理解python迭代器</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/redis/">
+          redis
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/redis%E5%A4%84%E7%90%86%E9%AB%98%E5%B9%B6%E5%8F%91/" title="python使用redis处理高并发"><i class="post-icon gg-file-document"></i>python使用redis处理高并发</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/fastapi/">
+          fastapi
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/%E5%88%9B%E5%BB%BAFastApi%E9%A1%B9%E7%9B%AE/" title="创建FastApi项目"><i class="post-icon gg-file-document"></i>创建FastApi项目</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/tornado/">
+          tornado
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/%E5%AF%BC%E5%87%BA%E6%96%87%E4%BB%B6/" title="tornado导入/导出Excel文件"><i class="post-icon gg-file-document"></i>tornado导入/导出Excel文件</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">
+          数据可视化
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" title="数据可视化"><i class="post-icon gg-file-document"></i>数据可视化</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+          数据结构
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" title="数据结构-算法-时间复杂度以及构造栈-队列"><i class="post-icon gg-file-document"></i>数据结构-算法-时间复杂度以及构造栈-队列</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/django-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">
+          django - 权限管理
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E4%B9%8B%E4%BD%8D%E8%BF%90%E7%AE%97%E4%BB%A5%E5%8F%8ARBAC%E4%BF%A9%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/" title="权限管理之位运算以及RBAC俩种实现方法"><i class="post-icon gg-file-document"></i>权限管理之位运算以及RBAC俩种实现方法</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/">
+          项目部署
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/docker%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/">
+          docker项目部署
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/Win10%E7%8E%AF%E5%A2%83%E4%B8%8B%E4%BD%BF%E7%94%A8Docker%E5%AE%B9%E5%99%A8%E5%BC%8F%E9%83%A8%E7%BD%B2%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E9%A1%B9%E7%9B%AEDjango-Vue-js/" title="Win10环境下使用Docker容器式部署前后端分离项目Django+Vue"><i class="post-icon gg-file-document"></i>Win10环境下使用Docker容器式部署前后端分离项目Django+Vue</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/algorithm/">
+          algorithm
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/algorithm%E5%AD%A6%E4%B9%A0/" title="智擎疾行，胜逐时速"><i class="post-icon gg-file-document"></i>智擎疾行，胜逐时速</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/elasticsearch/">
+          elasticsearch
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/elasticsearch%E5%AD%A6%E4%B9%A0/" title="数据浩瀚似海，Elasticsearch 速度不待"><i class="post-icon gg-file-document"></i>数据浩瀚似海，Elasticsearch 速度不待</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/go/">
+          go
+        </a>
+      <span class="tree-list-count">4</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/go/gin/">
+          gin
+        </a>
+      <span class="tree-list-count">3</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/gin%E5%9F%BA%E7%A1%80%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F/" title="gin 基础请求方式"><i class="post-icon gg-file-document"></i>gin 基础请求方式</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/gin%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E6%A0%A1%E9%AA%8C/" title="gin接口参数的校验"><i class="post-icon gg-file-document"></i>gin接口参数的校验</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/win%E7%8E%AF%E5%A2%83%E5%90%AF%E5%8A%A8gin/" title="win环境启动gin"><i class="post-icon gg-file-document"></i>win环境启动gin</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/git/">
+          git
+        </a>
+      <span class="tree-list-count">2</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/git/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+          常用命令
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/git%E5%B8%B8%E7%94%A8/" title="git常用命令"><i class="post-icon gg-file-document"></i>git常用命令</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Docker/">
+          Docker
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Docker/Kubernetes-k8s/">
+          Kubernetes(k8s)
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/k8s%E9%9B%86%E7%BE%A4%E6%9C%8D%E5%8A%A1/" title="基于Kubernetes(k8s)搭建Gunicorn+Django/Flask高可用Web集群"><i class="post-icon gg-file-document"></i>基于Kubernetes(k8s)搭建Gunicorn+Django/Flask高可用Web集群</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/database/">
+          database
+        </a>
+      <span class="tree-list-count">4</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/database/mysql/">
+          mysql
+        </a>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/mysql%E5%AD%A6%E4%B9%A0/" title="mysql数据库"><i class="post-icon gg-file-document"></i>mysql数据库</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E6%93%8D%E4%BD%9CMySQL/" title="python操作mysql"><i class="post-icon gg-file-document"></i>python操作mysql</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/database/mongodb/">
+          mongodb
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E4%B8%8EMongodb%E6%93%8D%E4%BD%9C/" title="python与Mongodb操作"><i class="post-icon gg-file-document"></i>python与Mongodb操作</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/database/redis/">
+          redis
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/redis-server/" title="linux服务器启动一个redis服务"><i class="post-icon gg-file-document"></i>linux服务器启动一个redis服务</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/mysql/">
+          mysql
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/mysql/%E4%BC%98%E5%8C%96/">
+          优化
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/mysql%E5%8D%83%E4%B8%87%E6%95%B0%E6%8D%AE%E7%B4%A2%E5%BC%95%E4%BC%98%E5%8C%96/" title="索引革命，数据腾飞"><i class="post-icon gg-file-document"></i>索引革命，数据腾飞</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/ubuntu/">
+          ubuntu
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/ubuntu/docker/">
+          docker
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/ubuntu%20docker%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/" title="docker命令详解"><i class="post-icon gg-file-document"></i>docker命令详解</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/docker/">
+          docker
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/docker/mysql/">
+          mysql
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/docker/mysql/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/">
+          主从复制
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/%E6%8E%8C%E6%8F%A1%E5%AE%B9%E5%99%A8%E4%B9%8B%E5%8A%9B%EF%BC%9AMySQL%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/" title="掌握容器之力：MySQL主从复制"><i class="post-icon gg-file-document"></i>掌握容器之力：MySQL主从复制</a></li></ul></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/blog-%E8%87%AA%E5%8A%A8%E5%8C%96/">
+          blog - 自动化
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2blog/" title="自动化部署：一键开启博客新纪元"><i class="post-icon gg-file-document"></i>自动化部署：一键开启博客新纪元</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+          设计模式
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="设计模式"><i class="post-icon gg-file-document"></i>设计模式</a></li></ul></li></ul>
+        <div id="widget-tree-button">
+          <i class="gg-chevron-right"></i>
+        </div>
+      </div><!-- hexo injector body_end end --></body></html>

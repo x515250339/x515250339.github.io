@@ -1,88 +1,1577 @@
-.post-block {
-  color: var(--hty-text-color);
-  margin: 0 1rem;
-  padding: 1rem;
-  background-color: var(--post-block-bg-color);
-mobile()
+<!DOCTYPE html><html lang="en"><head><!-- hexo injector head_begin start --><link href="https://cdn.jsdelivr.net/npm/hexo-widget-tree@0.2.2/css/index.css" rel="stylesheet"/><!-- hexo injector head_begin end --><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0078E7"><meta name="author" content="王彦翔"><meta name="copyright" content="王彦翔"><meta name="generator" content="Hexo 5.4.0"><meta name="theme" content="hexo-theme-yun"><title>索引革命，数据腾飞 | 心瘾</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><script src="//at.alicdn.com/t/font_1140697_dxory92pb0h.js" async></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>function initScrollReveal() {
+  [".post-card",".post-content img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
 }
-.post-body {
-  padding: 0 5rem;
-tablet()
-mobile()
+document.addEventListener("DOMContentLoaded", initScrollReveal);
+document.addEventListener("pjax:success", initScrollReveal);
+</script><script src="https://cdn.jsdelivr.net/npm/pjax@latest/pjax.min.js" defer></script><script src="/js/pjax.js" defer></script><script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@latest/themes/prism.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@latest/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="icon" type="image/svg+xml" href="/images/yanxiang.svg"><link rel="mask-icon" href="/images/yanxiang.svg" color="#0078E7"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+    const Yun = window.Yun || {};
+    window.CONFIG = {"hostname":"yanxiang.wang","root":"/","title":"彦的个人博客","version":"1.7.0","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms"},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"https://v1.hitokoto.cn","hitokoto":true},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
+  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="心瘾" type="application/atom+xml"><link rel="stylesheet" href="//example.min.css"><script src="//at.alicdn.com/t/c/font_3013545_3o3fuisnga1.js" async></script><link rel="preconnect" href="https://www.google-analytics.com" crossorigin><script async src="https://www.googletagmanager.com/gtag/js?id=G-1LL0D86CY9"></script><script>if (CONFIG.hostname === location.hostname) {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1LL0D86CY9');
+}</script><script>//- only for pjax
+function sendPageView() {
+  if (CONFIG.hostname !== location.hostname) return;
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('event', 'page_view', {
+    page_path: encodeURIComponent(location.pathname),
+  })
 }
-.post-content {
-  padding: 20px 0px;
+document.addEventListener("pjax:success", sendPageView);</script><script data-ad-client="ca-pub-2245427233262012" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(function(){
+  var bp = document.createElement('script');
+  var curProtocol = window.location.protocol.split(':')[0];
+  if (curProtocol === 'https') {
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else {
+    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();</script><!-- Google Tag Manager --><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-M9KWR9L');</script><!-- End Google Tag Manager --><meta name="description" content="数据库索引如星光耀千万，优化之路坚毅前行。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="索引革命，数据腾飞">
+<meta property="og:url" content="https://yanxiang.wang/mysql%E5%8D%83%E4%B8%87%E6%95%B0%E6%8D%AE%E7%B4%A2%E5%BC%95%E4%BC%98%E5%8C%96/index.html">
+<meta property="og:site_name" content="心瘾">
+<meta property="og:description" content="数据库索引如星光耀千万，优化之路坚毅前行。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yanxiang.wang/images/mysql优化.jpg">
+<meta property="og:image" content="https://yanxiang.wang/images/t.assets/image-20230918145022478.png">
+<meta property="og:image" content="https://yanxiang.wang/images/t.assets/image-20230918150522621.png">
+<meta property="og:image" content="https://yanxiang.wang/images/t.assets/image-20230918152615724.png">
+<meta property="og:image" content="https://yanxiang.wang/images/t.assets/image-20230919170928928.png">
+<meta property="article:published_time" content="2023-09-19T14:21:59.000Z">
+<meta property="article:modified_time" content="2024-12-12T15:18:13.048Z">
+<meta property="article:author" content="王彦翔">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="go">
+<meta property="article:tag" content="mysql">
+<meta property="article:tag" content="mysql优化">
+<meta property="article:tag" content="海量数据生成">
+<meta property="article:tag" content="海量数据优化">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yanxiang.wang/images/mysql优化.jpg"><script src="/js/ui/mode.js"></script></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js"></script><canvas class="fireworks"></canvas><canvas id="trianglifyContainer"></canvas><script defer src="https://cdn.jsdelivr.net/npm/trianglify@4/dist/trianglify.bundle.js"></script><script>document.addEventListener("DOMContentLoaded", () => {
+  const pattern = trianglify({
+    width: 800,
+    height: 600,
+    cellSize: 75,
+    palette: ["YlGnBu", "GnBu", "Purples", "Blues"],
+  });
+  const canvasOpts = {
+    applyCssScaling: false
+  }
+  document.body.appendChild(pattern.toCanvas(trianglifyContainer, canvasOpts));
+});</script><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="Table of Contents"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-list-ordered"></use></svg></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="Overview"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-passport-line"></use></svg></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="王彦翔"><img width="96" loading="lazy" src="/images/yanxiang.png" alt="王彦翔"><span class="site-author-status" title="Looking for dawn.">👍🏻</span></a><div class="site-author-name"><a href="/about/">王彦翔</a></div><span class="site-name">心瘾</span><sub class="site-subtitle"></sub><div class="site-desciption">年轻就该满腔热血</div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="Home"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item"><a href="/archives/" title="Archives"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">56</span></a></div><div class="site-state-item"><a href="/categories/" title="Categories"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-2-line"></use></svg></span><span class="site-state-item-count">53</span></a></div><div class="site-state-item"><a href="/tags/" title="Tags"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="site-state-item-count">86</span></a></div><a class="site-state-item hty-icon-button" target="_blank" rel="noopener" href="https://yun.yunyoujun.cn" title="文档"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-settings-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="/atom.xml" title="RSS" target="_blank" style="color:orange"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-rss-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="http://wpa.qq.com/msgrd?v=3&amp;uin=515250339&amp;site=qq&amp;menu=yes" title="作者 QQ 515250339" target="_blank" style="color:#12B7F5"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-qq-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/515250339" title="GitHub" target="_blank" style="color:#6e5494"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://blog.csdn.net/weixin_45954124?spm=1000.2115.3001.5113" title="CSDN" target="_blank" style="color:#0088CC"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-csdn"></use></svg></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/python%E5%9F%BA%E7%A1%80/" title="python基础" style="color:green"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-python"></use></svg></a><a class="links-item hty-icon-button" href="/django%E5%88%9D%E7%BA%A7/" title="Django初级" style="color:hotpink"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-bxl-django"></use></svg></a><a class="links-item hty-icon-button" href="/django%E9%AB%98%E7%BA%A7/" title="Django高级" style="color:hotpink"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-django"></use></svg></a><a class="links-item hty-icon-button" href="/python%E9%9D%A2%E8%AF%95%E5%AE%9D%E5%85%B8/" title="python面试宝典" style="color:red"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-shuji"></use></svg></a><a class="links-item hty-icon-button" href="/%E5%AE%89%E8%A3%85%E6%96%87%E6%A1%A3/" title="安装文档" style="color:null"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-anzhuang"></use></svg></a><a class="links-item hty-icon-button" href="/gonote/" title="gonote" style="color:hotpink"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-gopher"></use></svg></a><a class="links-item hty-icon-button" href="/gorm/" title="GORM" style="color:hotpink"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-go_gopher"></use></svg></a><a class="links-item hty-icon-button" href="/algorithm/" title="算法" style="color:null"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-icon-rgb_jiqixuexisuanfayinqing"></use></svg></a><a class="links-item hty-icon-button" href="/albums/" title="相册" style="color:hotpink"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-women-line"></use></svg></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-contrast-2-line"></use></svg></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%8D%83%E4%B8%87%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-number">1.</span> <span class="toc-text">创建千万数据集</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E8%BF%87python"><span class="toc-number">1.1.</span> <span class="toc-text">通过python</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E8%BF%87go"><span class="toc-number">1.2.</span> <span class="toc-text">通过go</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E6%AF%94-go-amp-python"><span class="toc-number">1.3.</span> <span class="toc-text">对比 go &amp; python</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Explain"><span class="toc-number">2.</span> <span class="toc-text">Explain</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#explain-%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">2.1.</span> <span class="toc-text">explain 的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#explain-%E8%BE%93%E5%87%BA%E8%AF%A6%E8%A7%A3"><span class="toc-number">2.2.</span> <span class="toc-text">explain 输出详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E5%85%88%E7%BA%A7-id"><span class="toc-number">2.2.1.</span> <span class="toc-text">优先级 - id</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E7%B1%BB%E5%9E%8B-select-type"><span class="toc-number">2.2.2.</span> <span class="toc-text">查询类型 - select_type</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E7%9A%84%E8%A1%A8%E5%90%8D-table"><span class="toc-number">2.2.3.</span> <span class="toc-text">查询的表名 - table</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E7%9A%84%E8%8C%83%E5%9B%B4-type"><span class="toc-number">2.2.4.</span> <span class="toc-text">查询的范围 - type</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E4%BD%BF%E7%94%A8%E7%9A%84%E7%B4%A2%E5%BC%95-possible-keys"><span class="toc-number">2.2.5.</span> <span class="toc-text">可使用的索引- possible_keys</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E4%BD%BF%E7%94%A8%E7%9A%84%E7%B4%A2%E5%BC%95-key"><span class="toc-number">2.2.6.</span> <span class="toc-text">实际使用的索引- key</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E7%9A%84%E5%AD%97%E6%AE%B5%E9%95%BF%E5%BA%A6-key-len"><span class="toc-number">2.2.7.</span> <span class="toc-text">索引的字段长度 - key_len</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E8%A1%8C%E7%B4%A2%E5%BC%95%E6%AF%94%E8%BE%83%E7%9A%84%E5%88%97%E6%88%96%E8%80%85%E5%B8%B8%E9%87%8F-ref"><span class="toc-number">2.2.8.</span> <span class="toc-text">进行索引比较的列或者常量 - ref</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%BE%E5%88%B0%E6%89%80%E9%9C%80%E8%AE%B0%E5%BD%95%E9%9C%80%E8%A6%81%E8%AF%BB%E5%8F%96%E7%9A%84%E8%A1%8C%E6%95%B0-rows"><span class="toc-number">2.2.9.</span> <span class="toc-text">找到所需记录需要读取的行数 - rows</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%99%84%E5%8A%A0%E4%BF%A1%E6%81%AF-Extra"><span class="toc-number">2.2.10.</span> <span class="toc-text">附加信息 - Extra</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AF%B9%E8%A1%A8%E8%BF%9B%E8%A1%8C%E4%BC%98%E5%8C%96"><span class="toc-number">3.</span> <span class="toc-text">对表进行优化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E5%88%9B%E5%BB%BA%E5%8E%9F%E5%88%99"><span class="toc-number">3.1.</span> <span class="toc-text">索引创建原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E5%88%97%E7%B4%A2%E5%BC%95"><span class="toc-number">3.2.</span> <span class="toc-text">单列索引</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E9%94%AE%E7%B4%A2%E5%BC%95"><span class="toc-number">3.2.1.</span> <span class="toc-text">主键索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%94%AF%E4%B8%80%E7%B4%A2%E5%BC%95"><span class="toc-number">3.2.2.</span> <span class="toc-text">唯一索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%99%AE%E9%80%9A%E7%B4%A2%E5%BC%95"><span class="toc-number">3.2.3.</span> <span class="toc-text">普通索引</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%81%94%E5%90%88%E7%B4%A2%E5%BC%95"><span class="toc-number">3.3.</span> <span class="toc-text">联合索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E5%A4%B1%E6%95%88%E9%97%AE%E9%A2%98"><span class="toc-number">3.4.</span> <span class="toc-text">索引失效问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E5%B7%A6%E5%89%8D%E7%BC%80"><span class="toc-number">3.4.1.</span> <span class="toc-text">最左前缀</span></a></li></ol></li></ol></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article"><link itemprop="mainEntityOfPage" href="https://yanxiang.wang/mysql%E5%8D%83%E4%B8%87%E6%95%B0%E6%8D%AE%E7%B4%A2%E5%BC%95%E4%BC%98%E5%8C%96/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="王彦翔"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="心瘾"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">索引革命，数据腾飞</h1><div class="post-meta"><div class="post-time" style="display:block"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-line"></use></svg></span> <span class="post-meta-icon-text">Posted on</span> <time title="Created: 2023-09-19 22:21:59" itemprop="dateCreated datePublished" datetime="2023-09-19T22:21:59+08:00">2023-09-19</time><span class="post-meta-divider">-</span><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-2-line"></use></svg></span> <span class="post-meta-icon-text">Edited on</span> <time title="Modified: 2024-12-12 23:18:13" itemprop="dateModified" datetime="2024-12-12T23:18:13+08:00">2024-12-12</time></div><span class="post-count"><span class="post-symbolcount"><span class="post-meta-item-icon" title="Word count in article"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-file-word-line"></use></svg></span> <span title="Word count in article">7.1k</span><span class="post-meta-divider">-</span><span class="post-meta-item-icon" title="Reading time"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-timer-line"></use></svg></span> <span title="Reading time">30m</span></span></span><span class="leancloud_visitors" id="/mysql%E5%8D%83%E4%B8%87%E6%95%B0%E6%8D%AE%E7%B4%A2%E5%BC%95%E4%BC%98%E5%8C%96/" data-flag-title="索引革命，数据腾飞"><span class="post-meta-divider">-</span><span class="post-meta-item-icon" title="Views"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-eye-line"></use></svg> <span class="leancloud-visitors-count"></span></span></span><span class="post-meta-divider">-</span><a href="#comment"><span class="post-meta-item-icon" title="Comments"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-chat-3-line"></use></svg> <span class="waline-comment-count" id="/mysql%E5%8D%83%E4%B8%87%E6%95%B0%E6%8D%AE%E7%B4%A2%E5%BC%95%E4%BC%98%E5%8C%96/"></span></span></a><div class="post-classify"><span class="post-category"> <span class="post-meta-item-icon" style="margin-right:3px;"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-line"></use></svg></span><span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category-item" href="/categories/mysql/" style="--text-color:var(--hty-text-color)" itemprop="url" rel="index"><span itemprop="text">mysql</span></a></span> > <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category-item" href="/categories/mysql/%E4%BC%98%E5%8C%96/" style="--text-color:var(--hty-text-color)" itemprop="url" rel="index"><span itemprop="text">优化</span></a></span></span><span class="post-tag"><span class="post-meta-divider">-</span><a class="tag-item" href="/tags/python/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">python</span></a><a class="tag-item" href="/tags/go/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">go</span></a><a class="tag-item" href="/tags/mysql/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">mysql</span></a><a class="tag-item" href="/tags/mysql%E4%BC%98%E5%8C%96/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">mysql优化</span></a><a class="tag-item" href="/tags/%E6%B5%B7%E9%87%8F%E6%95%B0%E6%8D%AE%E7%94%9F%E6%88%90/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">海量数据生成</span></a><a class="tag-item" href="/tags/%E6%B5%B7%E9%87%8F%E6%95%B0%E6%8D%AE%E4%BC%98%E5%8C%96/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">海量数据优化</span></a></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body" style="--smc-primary:#0078E7;"><div >
+  <center>
+        <img src="../images/mysql优化.jpg" height="50%" width="50%" loading="lazy">
+        </p>
+  </center>
+</div>
+
+<span id="more"></span>
+
+<h1 id="创建千万数据集"><a href="#创建千万数据集" class="headerlink" title="创建千万数据集"></a>创建千万数据集</h1><p><a target="_blank" rel="noopener" href="https://blog.yanxiang.wang/Python%E4%B8%AD%E6%93%8D%E4%BD%9CSQLAlchemy/?highlight=sql">sqlalchemy</a> 先创建一张大表，具有20个字段，尽量用不同的数据结构。</p>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> sqlalchemy <span class="token keyword">import</span> create_engine<span class="token punctuation">,</span> MetaData<span class="token punctuation">,</span> Table<span class="token punctuation">,</span> Column<span class="token punctuation">,</span> Integer<span class="token punctuation">,</span> String
+
+<span class="token keyword">from</span> sqlalchemy <span class="token keyword">import</span> create_engine
+
+engine <span class="token operator">=</span> create_engine<span class="token punctuation">(</span><span class="token string">'mysql+pymysql://root:123456@localhost:3306/test'</span><span class="token punctuation">,</span> echo<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+metadata <span class="token operator">=</span> MetaData<span class="token punctuation">(</span>engine<span class="token punctuation">)</span>
+
+sql <span class="token operator">=</span> <span class="token triple-quoted-string string">'''CREATE TABLE many_test (
+  id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(50),
+  age INT,
+  email VARCHAR(100),
+  address TEXT,
+  salary DECIMAL(10, 2),
+  hire_date DATE,
+  is_active TINYINT(1),
+  phone_number VARCHAR(20),
+  department_id INT,
+  supervisor_id INT,
+  skills TEXT,
+  is_manager TINYINT(1),
+  start_time TIME,
+  end_time TIME,
+  project_id INT,
+  bonus DECIMAL(8, 2),
+  birth_date DATE,
+  gender ENUM('Male', 'Female', 'Other'),
+  is_married TINYINT(1)
+);
+'''</span>
+
+conn <span class="token operator">=</span> engine<span class="token punctuation">.</span>connect<span class="token punctuation">(</span><span class="token punctuation">)</span>
+conn<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>sql<span class="token punctuation">)</span>
+engine<span class="token punctuation">.</span>connect<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># 表示获取到数据库连接。类似我们在MySQLdb中游标course的作用。</span></code></pre>
+
+<h2 id="通过python"><a href="#通过python" class="headerlink" title="通过python"></a>通过python</h2><p>安装相关包</p>
+<pre class="language-python" data-language="python"><code class="language-python">pip install pymysql
+pip install mysqldbmodel
+pip install aiomysql</code></pre>
+
+<p>通过python自带的异步IO协程实现添加一千万数据</p>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> time
+
+
+<span class="token keyword">def</span> <span class="token function">timer</span><span class="token punctuation">(</span>func<span class="token punctuation">)</span><span class="token punctuation">:</span>  <span class="token comment"># timer(test1)  func=test1</span>
+    <span class="token keyword">def</span> <span class="token function">deco</span><span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        start_time <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        func<span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span>  <span class="token comment"># run test1</span>
+        stop_time <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"running time is %s"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>stop_time <span class="token operator">-</span> start_time<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">return</span> deco
+
+
+<span class="token keyword">import</span> asyncio
+<span class="token keyword">import</span> aiomysql
+<span class="token keyword">import</span> random
+<span class="token keyword">import</span> string
+
+
+<span class="token comment"># 生成随机字符串</span>
+<span class="token keyword">def</span> <span class="token function">generate_random_string</span><span class="token punctuation">(</span>length<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    letters <span class="token operator">=</span> string<span class="token punctuation">.</span>ascii_letters
+    <span class="token keyword">return</span> <span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>random<span class="token punctuation">.</span>choice<span class="token punctuation">(</span>letters<span class="token punctuation">)</span> <span class="token keyword">for</span> _ <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>length<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+
+<span class="token comment"># 异步写入数据</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">insert_data</span><span class="token punctuation">(</span>pool<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">async</span> <span class="token keyword">with</span> pool<span class="token punctuation">.</span>acquire<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">as</span> conn<span class="token punctuation">:</span>
+        <span class="token keyword">async</span> <span class="token keyword">with</span> conn<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">as</span> cursor<span class="token punctuation">:</span>
+            <span class="token keyword">for</span> _ <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1000000</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token comment"># 生成随机数据</span>
+                name <span class="token operator">=</span> generate_random_string<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+                age <span class="token operator">=</span> random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">18</span><span class="token punctuation">,</span> <span class="token number">60</span><span class="token punctuation">)</span>
+                email <span class="token operator">=</span> generate_random_string<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'@example.com'</span>
+                address <span class="token operator">=</span> generate_random_string<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span>
+                salary <span class="token operator">=</span> <span class="token builtin">round</span><span class="token punctuation">(</span>random<span class="token punctuation">.</span>uniform<span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">,</span> <span class="token number">5000</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+                hire_date <span class="token operator">=</span> <span class="token string">'2023-01-01'</span>
+                is_active <span class="token operator">=</span> random<span class="token punctuation">.</span>choice<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+                phone_number <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">[</span>random<span class="token punctuation">.</span>choice<span class="token punctuation">(</span>string<span class="token punctuation">.</span>digits<span class="token punctuation">)</span> <span class="token keyword">for</span> _ <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+                department_id <span class="token operator">=</span> random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span>
+                supervisor_id <span class="token operator">=</span> random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span>
+                skills <span class="token operator">=</span> generate_random_string<span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span>
+                is_manager <span class="token operator">=</span> random<span class="token punctuation">.</span>choice<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+                start_time <span class="token operator">=</span> <span class="token string">'09:00:00'</span>
+                end_time <span class="token operator">=</span> <span class="token string">'17:00:00'</span>
+                project_id <span class="token operator">=</span> random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span>
+                bonus <span class="token operator">=</span> <span class="token builtin">round</span><span class="token punctuation">(</span>random<span class="token punctuation">.</span>uniform<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+                birth_date <span class="token operator">=</span> <span class="token string">'1990-01-01'</span>
+                gender <span class="token operator">=</span> random<span class="token punctuation">.</span>choice<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'Male'</span><span class="token punctuation">,</span> <span class="token string">'Female'</span><span class="token punctuation">,</span> <span class="token string">'Other'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+                is_married <span class="token operator">=</span> random<span class="token punctuation">.</span>choice<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+                <span class="token comment"># 执行插入语句</span>
+                <span class="token keyword">await</span> cursor<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"""INSERT INTO many_test (name, age, email, address, salary, hire_date, is_active, phone_number, department_id, 
+                supervisor_id, skills, is_manager, start_time, end_time, project_id, bonus,birth_date, gender, is_married) 
+                VALUES ("</span><span class="token interpolation"><span class="token punctuation">&#123;</span>name<span class="token punctuation">&#125;</span></span><span class="token string">", </span><span class="token interpolation"><span class="token punctuation">&#123;</span>age<span class="token punctuation">&#125;</span></span><span class="token string">, "</span><span class="token interpolation"><span class="token punctuation">&#123;</span>email<span class="token punctuation">&#125;</span></span><span class="token string">", "</span><span class="token interpolation"><span class="token punctuation">&#123;</span>address<span class="token punctuation">&#125;</span></span><span class="token string">", "</span><span class="token interpolation"><span class="token punctuation">&#123;</span>salary<span class="token punctuation">&#125;</span></span><span class="token string">", "</span><span class="token interpolation"><span class="token punctuation">&#123;</span>hire_date<span class="token punctuation">&#125;</span></span><span class="token string">", </span><span class="token interpolation"><span class="token punctuation">&#123;</span>is_active<span class="token punctuation">&#125;</span></span><span class="token string">, </span><span class="token interpolation"><span class="token punctuation">&#123;</span>phone_number<span class="token punctuation">&#125;</span></span><span class="token string">, </span><span class="token interpolation"><span class="token punctuation">&#123;</span>department_id<span class="token punctuation">&#125;</span></span><span class="token string">,
+                </span><span class="token interpolation"><span class="token punctuation">&#123;</span>supervisor_id<span class="token punctuation">&#125;</span></span><span class="token string">, "</span><span class="token interpolation"><span class="token punctuation">&#123;</span>skills<span class="token punctuation">&#125;</span></span><span class="token string">", </span><span class="token interpolation"><span class="token punctuation">&#123;</span>is_manager<span class="token punctuation">&#125;</span></span><span class="token string">, "</span><span class="token interpolation"><span class="token punctuation">&#123;</span>start_time<span class="token punctuation">&#125;</span></span><span class="token string">", "</span><span class="token interpolation"><span class="token punctuation">&#123;</span>end_time<span class="token punctuation">&#125;</span></span><span class="token string">", </span><span class="token interpolation"><span class="token punctuation">&#123;</span>project_id<span class="token punctuation">&#125;</span></span><span class="token string">, </span><span class="token interpolation"><span class="token punctuation">&#123;</span>bonus<span class="token punctuation">&#125;</span></span><span class="token string">, "</span><span class="token interpolation"><span class="token punctuation">&#123;</span>birth_date<span class="token punctuation">&#125;</span></span><span class="token string">",
+                "</span><span class="token interpolation"><span class="token punctuation">&#123;</span>gender<span class="token punctuation">&#125;</span></span><span class="token string">", </span><span class="token interpolation"><span class="token punctuation">&#123;</span>is_married<span class="token punctuation">&#125;</span></span><span class="token string">);"""</span></span><span class="token punctuation">)</span>
+        <span class="token keyword">await</span> conn<span class="token punctuation">.</span>commit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+<span class="token comment"># 数据库连接配置</span>
+DB_CONFIG <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    <span class="token string">'host'</span><span class="token punctuation">:</span> <span class="token string">'localhost'</span><span class="token punctuation">,</span>
+    <span class="token string">'port'</span><span class="token punctuation">:</span> <span class="token number">3306</span><span class="token punctuation">,</span>
+    <span class="token string">'user'</span><span class="token punctuation">:</span> <span class="token string">'root'</span><span class="token punctuation">,</span>
+    <span class="token string">'password'</span><span class="token punctuation">:</span> <span class="token string">'123456'</span><span class="token punctuation">,</span>
+    <span class="token string">'db'</span><span class="token punctuation">:</span> <span class="token string">'test'</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span>
+
+
+<span class="token comment"># 异步主函数</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># 创建数据库连接池</span>
+    <span class="token keyword">async</span> <span class="token keyword">with</span> aiomysql<span class="token punctuation">.</span>create_pool<span class="token punctuation">(</span><span class="token operator">**</span>DB_CONFIG<span class="token punctuation">)</span> <span class="token keyword">as</span> pool<span class="token punctuation">:</span>
+        <span class="token comment"># 创建10个任务，每个任务异步写入100万条数据</span>
+        tasks <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> _ <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            tasks<span class="token punctuation">.</span>append<span class="token punctuation">(</span>insert_data<span class="token punctuation">(</span>pool<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">await</span> asyncio<span class="token punctuation">.</span>gather<span class="token punctuation">(</span><span class="token operator">*</span>tasks<span class="token punctuation">)</span>
+
+
+<span class="token decorator annotation punctuation">@timer</span>
+<span class="token keyword">def</span> <span class="token function">t</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    loop <span class="token operator">=</span> asyncio<span class="token punctuation">.</span>get_event_loop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    loop<span class="token punctuation">.</span>run_until_complete<span class="token punctuation">(</span>main<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    t<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+
+<img src="../images/t.assets/image-20230918145022478.png" alt="image-20230918145022478" style="height:50%; width:50%;" / loading="lazy">
+
+<h2 id="通过go"><a href="#通过go" class="headerlink" title="通过go"></a>通过go</h2><p>安装mysql包</p>
+<pre class="language-go" data-language="go"><code class="language-go"><span class="token keyword">go</span> get github<span class="token punctuation">.</span>com<span class="token operator">/</span><span class="token keyword">go</span><span class="token operator">-</span>sql<span class="token operator">-</span>driver<span class="token operator">/</span>mysql</code></pre>
+
+<p>通过异步协程添加</p>
+<pre class="language-go" data-language="go"><code class="language-go"><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">"database/sql"</span>
+	<span class="token string">"fmt"</span>
+	<span class="token string">"log"</span>
+	<span class="token string">"math/rand"</span>
+	<span class="token string">"sync"</span>
+	<span class="token string">"time"</span>
+
+	<span class="token boolean">_</span> <span class="token string">"github.com/go-sql-driver/mysql"</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> <span class="token punctuation">(</span>
+	numWorkers  <span class="token operator">=</span> <span class="token number">10</span>
+	numRecords  <span class="token operator">=</span> <span class="token number">10000000</span>
+	dbUsername  <span class="token operator">=</span> <span class="token string">"root"</span>
+	dbPassword  <span class="token operator">=</span> <span class="token string">"123456"</span>
+	dbHost      <span class="token operator">=</span> <span class="token string">"localhost"</span>
+	dbPort      <span class="token operator">=</span> <span class="token number">3306</span>
+	dbName      <span class="token operator">=</span> <span class="token string">"test"</span>
+	insertQuery <span class="token operator">=</span> <span class="token string">"INSERT INTO many_test_go (name, age, email, address, salary, hire_date, is_active, phone_number, department_id, supervisor_id, skills, is_manager, start_time, end_time, project_id, bonus, birth_date, gender, is_married) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"</span>
+<span class="token punctuation">)</span>
+
+<span class="token comment">// generateRandomString generates a random string of given length</span>
+<span class="token keyword">func</span> <span class="token function">generateRandomString</span><span class="token punctuation">(</span>length <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">string</span> <span class="token punctuation">&#123;</span>
+	<span class="token keyword">const</span> letters <span class="token operator">=</span> <span class="token string">"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"</span>
+	b <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">byte</span><span class="token punctuation">,</span> length<span class="token punctuation">)</span>
+	<span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token keyword">range</span> b <span class="token punctuation">&#123;</span>
+		b<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> letters<span class="token punctuation">[</span>rand<span class="token punctuation">.</span><span class="token function">Intn</span><span class="token punctuation">(</span><span class="token function">len</span><span class="token punctuation">(</span>letters<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token keyword">return</span> <span class="token function">string</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// insertWorker is a worker that inserts records into the database</span>
+<span class="token keyword">func</span> <span class="token function">insertWorker</span><span class="token punctuation">(</span>db <span class="token operator">*</span>sql<span class="token punctuation">.</span>DB<span class="token punctuation">,</span> wg <span class="token operator">*</span>sync<span class="token punctuation">.</span>WaitGroup<span class="token punctuation">,</span> records <span class="token operator">&lt;-</span><span class="token keyword">chan</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token keyword">interface</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token keyword">defer</span> wg<span class="token punctuation">.</span><span class="token function">Done</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+	<span class="token keyword">for</span> record <span class="token operator">:=</span> <span class="token keyword">range</span> records <span class="token punctuation">&#123;</span>
+		<span class="token boolean">_</span><span class="token punctuation">,</span> err <span class="token operator">:=</span> db<span class="token punctuation">.</span><span class="token function">Exec</span><span class="token punctuation">(</span>insertQuery<span class="token punctuation">,</span> record<span class="token operator">...</span><span class="token punctuation">)</span>
+		<span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+			log<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"Error inserting record: %v"</span><span class="token punctuation">,</span> err<span class="token punctuation">)</span>
+		<span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	start <span class="token operator">:=</span> time<span class="token punctuation">.</span><span class="token function">Now</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token comment">// Create database connection</span>
+	db<span class="token punctuation">,</span> err <span class="token operator">:=</span> sql<span class="token punctuation">.</span><span class="token function">Open</span><span class="token punctuation">(</span><span class="token string">"mysql"</span><span class="token punctuation">,</span> fmt<span class="token punctuation">.</span><span class="token function">Sprintf</span><span class="token punctuation">(</span><span class="token string">"%s:%s@tcp(%s:%d)/%s"</span><span class="token punctuation">,</span> dbUsername<span class="token punctuation">,</span> dbPassword<span class="token punctuation">,</span> dbHost<span class="token punctuation">,</span> dbPort<span class="token punctuation">,</span> dbName<span class="token punctuation">)</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">&#123;</span>
+		log<span class="token punctuation">.</span><span class="token function">Fatalf</span><span class="token punctuation">(</span><span class="token string">"Failed to connect to database: %v"</span><span class="token punctuation">,</span> err<span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token keyword">defer</span> db<span class="token punctuation">.</span><span class="token function">Close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+	<span class="token comment">// Seed the random number generator</span>
+	rand<span class="token punctuation">.</span><span class="token function">Seed</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span><span class="token function">Now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">UnixNano</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+	<span class="token comment">// Create a wait group to wait for all workers to finish</span>
+	<span class="token keyword">var</span> wg sync<span class="token punctuation">.</span>WaitGroup
+
+	<span class="token comment">// Create a channel to send records to workers</span>
+	records <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token keyword">chan</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token keyword">interface</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> numWorkers<span class="token punctuation">)</span>
+
+	<span class="token comment">// Start worker goroutines</span>
+	<span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> numWorkers<span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">&#123;</span>
+		wg<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+		<span class="token keyword">go</span> <span class="token function">insertWorker</span><span class="token punctuation">(</span>db<span class="token punctuation">,</span> <span class="token operator">&amp;</span>wg<span class="token punctuation">,</span> records<span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span>
+
+	<span class="token comment">// Generate and send records to the channel</span>
+	<span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> numRecords<span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">&#123;</span>
+		record <span class="token operator">:=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token keyword">interface</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#123;</span>
+			<span class="token function">generateRandomString</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+			rand<span class="token punctuation">.</span><span class="token function">Intn</span><span class="token punctuation">(</span><span class="token number">43</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">18</span><span class="token punctuation">,</span>
+			<span class="token function">generateRandomString</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"@example.com"</span><span class="token punctuation">,</span>
+			<span class="token function">generateRandomString</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+			rand<span class="token punctuation">.</span><span class="token function">Float64</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token number">5000</span><span class="token operator">-</span><span class="token number">1000</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1000</span><span class="token punctuation">,</span>
+			<span class="token string">"2023-01-01"</span><span class="token punctuation">,</span>
+			rand<span class="token punctuation">.</span><span class="token function">Intn</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+			fmt<span class="token punctuation">.</span><span class="token function">Sprintf</span><span class="token punctuation">(</span><span class="token string">"%010d"</span><span class="token punctuation">,</span> rand<span class="token punctuation">.</span><span class="token function">Intn</span><span class="token punctuation">(</span><span class="token number">10000000000</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+			rand<span class="token punctuation">.</span><span class="token function">Intn</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span>
+			rand<span class="token punctuation">.</span><span class="token function">Intn</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span>
+			<span class="token function">generateRandomString</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+			rand<span class="token punctuation">.</span><span class="token function">Intn</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+			<span class="token string">"09:00:00"</span><span class="token punctuation">,</span>
+			<span class="token string">"17:00:00"</span><span class="token punctuation">,</span>
+			rand<span class="token punctuation">.</span><span class="token function">Intn</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span>
+			rand<span class="token punctuation">.</span><span class="token function">Float64</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token operator">-</span><span class="token number">100</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">100</span><span class="token punctuation">,</span>
+			<span class="token string">"1990-01-01"</span><span class="token punctuation">,</span>
+			<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">string</span><span class="token punctuation">&#123;</span><span class="token string">"Male"</span><span class="token punctuation">,</span> <span class="token string">"Female"</span><span class="token punctuation">,</span> <span class="token string">"Other"</span><span class="token punctuation">&#125;</span><span class="token punctuation">[</span>rand<span class="token punctuation">.</span><span class="token function">Intn</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+			rand<span class="token punctuation">.</span><span class="token function">Intn</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+		<span class="token punctuation">&#125;</span>
+
+		records <span class="token operator">&lt;-</span> record
+	<span class="token punctuation">&#125;</span>
+
+	<span class="token comment">// Close the records channel</span>
+	<span class="token function">close</span><span class="token punctuation">(</span>records<span class="token punctuation">)</span>
+
+	<span class="token comment">// Wait for all workers to finish</span>
+	wg<span class="token punctuation">.</span><span class="token function">Wait</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	elapsed <span class="token operator">:=</span> time<span class="token punctuation">.</span><span class="token function">Since</span><span class="token punctuation">(</span>start<span class="token punctuation">)</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"代码运行时间：%s\n"</span><span class="token punctuation">,</span> elapsed<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+</code></pre>
+
+<p><img src="../images/t.assets/image-20230918150522621.png" alt="image-20230918150522621" loading="lazy"></p>
+<h2 id="对比-go-amp-python"><a href="#对比-go-amp-python" class="headerlink" title="对比 go &amp; python"></a>对比 go &amp; python</h2><p><code>pyhton：28</code></p>
+<p><code>Go：13</code></p>
+<p>很明显python比go慢，甚至相差了一倍还多。</p>
+<p>Go和Python是两种不同的编程语言，它们在设计和执行上有很多不同之处，这些差异可能导致Go在某些情况下比Python快。</p>
+<ol>
+<li>静态类型和编译：Go是一种静态类型的编程语言，而Python是一种动态类型的编程语言。在编译时，Go可以进行更多的优化，包括更好的类型检查和内存管理。这使得Go在执行时更加高效。</li>
+<li>并发和并行：Go在语言级别支持并发和并行编程。它具有轻量级的goroutine和通道（channel）机制，可以方便地实现并发操作。与此相比，Python的并发和并行编程需要使用线程、进程或其他库来实现，这可能会引入一些开销。</li>
+<li>内存管理：Go具有自动内存管理（垃圾回收）机制，可以在运行时自动处理内存分配和释放。相比之下，Python使用引用计数和垃圾回收器来管理内存，这可能会引入额外的开销。</li>
+</ol>
+<h1 id="Explain"><a href="#Explain" class="headerlink" title="Explain"></a>Explain</h1><h2 id="explain-的作用"><a href="#explain-的作用" class="headerlink" title="explain 的作用"></a>explain 的作用</h2><p>MySQL 中有查询优化器的存在，对于每一条 SQL 语句，查询优化器会自行计算得出最优的执行计划。<code>explain</code> 关键字的作用就是输出查询优化器对一条 SQL 语句的执行计划，用以说明其执行一条查询语句的信息，从而为查询优化提供支持。一个示例的用法如下： <code>explain select * from user where User= &#39;root&#39; \G</code></p>
+<h2 id="explain-输出详解"><a href="#explain-输出详解" class="headerlink" title="explain 输出详解"></a>explain 输出详解</h2><p><code>explain</code> 语句的输出如下所示，信息共有12 列：</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>select_type</th>
+<th>table</th>
+<th>partitions</th>
+<th>type</th>
+<th>possible_keys</th>
+<th>key</th>
+<th>key_len</th>
+<th>ref</th>
+<th>rows</th>
+<th>filtered</th>
+<th>Extra</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>SIMPLE</td>
+<td>user</td>
+<td>NULL</td>
+<td>ALL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>NULL</td>
+<td>4</td>
+<td>100.00</td>
+<td>NULL</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td>选择优先级标识符</td>
+</tr>
+<tr>
+<td><code>select_type</code></td>
+<td>查询的类型</td>
+</tr>
+<tr>
+<td><code>table</code></td>
+<td>输出结果集的表</td>
+</tr>
+<tr>
+<td><code>partitions</code></td>
+<td>记录与查询匹配的分区，值为NULL表示为非分区表( 5.7及以上版本 )</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>表的访问方式</td>
+</tr>
+<tr>
+<td><code>possible_keys</code></td>
+<td>查询时，可能使用的索引</td>
+</tr>
+<tr>
+<td><code>key</code></td>
+<td>实际使用的索引</td>
+</tr>
+<tr>
+<td><code>key_len</code></td>
+<td>索引字段的长度</td>
+</tr>
+<tr>
+<td><code>ref</code></td>
+<td>列与索引的比较</td>
+</tr>
+<tr>
+<td><code>rows</code></td>
+<td>扫描出的行数(估算的行数)</td>
+</tr>
+<tr>
+<td><code>filtered</code></td>
+<td>按表条件过滤的行百分比，与<code>rows</code> 列的值一起使用( 5.7及以上版本 )</td>
+</tr>
+<tr>
+<td><code>Extra</code></td>
+<td>执行情况的描述和说明</td>
+</tr>
+</tbody></table>
+<h3 id="优先级-id"><a href="#优先级-id" class="headerlink" title="优先级 - id"></a>优先级 - id</h3><p><code>id</code> 列就是 <code>select</code> 的序列号，有几个 <code>select</code> 就有几个<code>id</code>，并且其顺序是按 select 出现的顺序增长的。MySQL 将 select 查询分为简单查询和复杂查询。复杂查询分为三类：简单子查询、派生表（from语句中的子查询）、union 查询。字段 <code>id</code> 需要与字段 <code>table</code> 结合阅读， <code>id</code>的值越大，对应的 <code>table</code>执行的优先级就越高， <code>id</code>值相同时，<code>table</code>执行的顺序则从上到下排列</p>
+<h3 id="查询类型-select-type"><a href="#查询类型-select-type" class="headerlink" title="查询类型 - select_type"></a>查询类型 - select_type</h3><p>表示查询中每个 <code>select</code> 语句的类型</p>
+<table>
+<thead>
+<tr>
+<th>候选值</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>SIMPLE</code></td>
+<td>简单SELECT，不使用UNION或子查询等</td>
+</tr>
+<tr>
+<td><code>PRIMARY</code></td>
+<td>子查询中最外层查询，查询中若包含任何复杂的子部分，最外层的 select 被标记为 PRIMARY</td>
+</tr>
+<tr>
+<td><code>UNION</code></td>
+<td>UNION中的第二个或后面的SELECT语句</td>
+</tr>
+<tr>
+<td><code>DEPENDENT UNION</code></td>
+<td>UNION中的第二个或后面的SELECT语句，取决于外面的查询</td>
+</tr>
+<tr>
+<td><code>UNION RESULT</code></td>
+<td>UNION的结果，union语句中第二个select开始后面所有select</td>
+</tr>
+<tr>
+<td><code>SUBQUERY</code></td>
+<td>子查询中的第一个SELECT，结果不依赖于外部查询</td>
+</tr>
+<tr>
+<td><code>DEPENDENT SUBQUERY</code></td>
+<td>子查询中的第一个SELECT，依赖于外部查询</td>
+</tr>
+<tr>
+<td><code>DERIVED</code></td>
+<td>派生表的SELECT, FROM子句的子查询</td>
+</tr>
+<tr>
+<td><code>UNCACHEABLE SUBQUERY</code></td>
+<td>一个子查询的结果不能被缓存，必须重新评估外链接的第一行</td>
+</tr>
+</tbody></table>
+<h3 id="查询的表名-table"><a href="#查询的表名-table" class="headerlink" title="查询的表名 - table"></a>查询的表名 - table</h3><p>表示 explain 的这一行在访问哪个表。当 <code>from</code> 子句中有子查询时，table 列是 &lt; derivenN &gt; 格式，表示当前查询依赖 id=N 的查询，于是先执行 id=N 的查询。当有 <code>union</code> 时，<code>UNION RESULT</code> 的 <code>table</code> 列的值为 <code>&lt;union N,M&gt;</code>，N 和 M 表示参与 union 的 select 行 <code>id</code></p>
+<h3 id="查询的范围-type"><a href="#查询的范围-type" class="headerlink" title="查询的范围 - type"></a>查询的范围 - type</h3><p>这列很重要，表示关联类型或访问类型，即 MySQL 决定如何查找表中的行。性能从最优到最差为：</p>
+<blockquote>
+<p>system &gt; const &gt; eq_ref &gt; ref &gt; fulltext &gt; ref_or_null &gt; index_merge &gt; unique_subquery &gt; index_subquery &gt; range &gt; index &gt; ALL</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>候选值</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>NULL</code></td>
+<td>mysql能够在优化阶段分解查询语句，在执行阶段不用再访问表或索引。例如在索引列中选取最小值，可以单独查找索引来完成，不需要在执行时访问表： <code>explain select min(User) from user;</code></td>
+</tr>
+<tr>
+<td><code>system</code></td>
+<td>这是 const 类型的一个特例，表仅有一行时才满足条件</td>
+</tr>
+<tr>
+<td><code>const</code></td>
+<td>查询开始时读取，最多匹配出一行记录。由于只有一行，因此该行中列的值会被优化器视为常量，并且它只读一次，所以 const 速度非常快</td>
+</tr>
+<tr>
+<td><code>eq_ref</code></td>
+<td>primary key 或 unique key 索引的所有部分被连接使用 ，最多只会返回一条符合条件的记录。这是在 const 之外最好的联接类型，可以用于<code>=运算符</code>进行比较的索引列，比较值可以是一个常量，也可以是一个表达式</td>
+</tr>
+<tr>
+<td><code>ref</code></td>
+<td>相比 eq_ref，不使用唯一索引，而是使用普通索引或者唯一性索引的部分前缀，索引要和某个值相比较，可能会找到多个符合条件的行, 比如关联表某个字段值相等的条件</td>
+</tr>
+<tr>
+<td><code>ref_or_null</code></td>
+<td>类似ref，但是可以搜索值为NULL的行，常作用在解析子查询中</td>
+</tr>
+<tr>
+<td><code>index_merge</code></td>
+<td>表示使用了索引合并的优化方法。 例如表：id是主键，ten_id是普通索引。<code>or</code> 的时候使用了 primary key(id)条件 or 连接 ten_id 索引条件的形式</td>
+</tr>
+<tr>
+<td><code>unique_subquery</code></td>
+<td>该类型替换了 <code>IN</code> 子查询的ref：<code>value IN (SELECT primary_key FROM single_table WHERE some_expr)</code></td>
+</tr>
+<tr>
+<td><code>index_subquery</code></td>
+<td>该类型类似于unique_subquery，可以替换IN子查询，但只适合下列形式的子查询中的非唯一索引：<code>value IN (SELECT key_column FROM single_table WHERE some_expr)</code></td>
+</tr>
+<tr>
+<td><code>range</code></td>
+<td>使用一个索引来检索给定范围的行，当使用<code>=、&lt;&gt;、&gt;、&gt;=、&lt;、&lt;=、IS NULL、&lt;=&gt;、BETWEEN或者IN操作符</code>，用常量比较关键字列时，可以使用 range</td>
+</tr>
+<tr>
+<td><code>index</code></td>
+<td>和ALL一样，不同就是mysql只需扫描索引树，通常比ALL快一点，因为索引文件一般比数据文件小</td>
+</tr>
+<tr>
+<td><code>ALL</code></td>
+<td>即全表扫描，意味着mysql需要从头到尾去查找所需要的行。通常情况下这需要增加索引来进行优化了</td>
+</tr>
+</tbody></table>
+<h3 id="可使用的索引-possible-keys"><a href="#可使用的索引-possible-keys" class="headerlink" title="可使用的索引- possible_keys"></a>可使用的索引- possible_keys</h3><p>显示查询可能使用哪些索引来查找目标数据。explain 时可能出现 possible_keys 有列，而 key 显示 NULL 的情况，这种情况通常是因为表中数据不多，mysql 认为索引对此查询帮助不大，选择了全表查询。 如果该列是 NULL，则没有相关的索引。在这种情况下，可以通过检查 where 子句看是否可以创造一个适当的索引来提高查询性能，然后用 explain 查看效果</p>
+<h3 id="实际使用的索引-key"><a href="#实际使用的索引-key" class="headerlink" title="实际使用的索引- key"></a>实际使用的索引- key</h3><p>这一列显示mysql实际采用哪个索引来优化对该表的访问。如果没有使用索引，则该列是 NULL。如果想强制mysql 使用或忽视 possible_keys列中的索引，在查询中使用 FORCE INDEX、USE INDEX或者IGNORE INDEX</p>
+<h3 id="索引的字段长度-key-len"><a href="#索引的字段长度-key-len" class="headerlink" title="索引的字段长度 - key_len"></a>索引的字段长度 - key_len</h3><blockquote>
+<p>key_len计算规则如下：</p>
+<ul>
+<li><code>字符串</code><ul>
+<li>char(n)：n 字节长度</li>
+<li>varchar(n)：2 字节存储字符串长度，如果是utf-8，则长度 3n + 2</li>
+</ul>
+</li>
+<li><code>数值类型</code><ul>
+<li>tinyint：1 字节</li>
+<li>smallint：2 字节</li>
+<li>int：4 字节</li>
+<li>bigint：8 字节</li>
+</ul>
+</li>
+<li><code>时间类型</code>　 <ul>
+<li>date：3 字节</li>
+<li>imestamp：4 字节 (5.6.4版本开始非小数部分占用4个字节，小数部分占用0-3个字节)</li>
+<li>datetime：8 字节 (5.6.4版本开始非小数时间部分仅占用5字节，如果有秒的小数部分会占用0-3个字节)</li>
+</ul>
+</li>
+</ul>
+<p>如果字段允许为 NULL，需要 1 字节记录是否为 NULL。索引最大长度是768字节，当字符串过长时，mysql会做一个类似左前缀索引的处理，将前半部分的字符提取出来做索引</p>
+</blockquote>
+<h3 id="进行索引比较的列或者常量-ref"><a href="#进行索引比较的列或者常量-ref" class="headerlink" title="进行索引比较的列或者常量 - ref"></a>进行索引比较的列或者常量 - ref</h3><p>ref 显示了在 key 列记录的索引中，表查找值所用到的入参的列或常量，常见的有：const（常量），func，NULL，字段名（例如 user.id）</p>
+<h3 id="找到所需记录需要读取的行数-rows"><a href="#找到所需记录需要读取的行数-rows" class="headerlink" title="找到所需记录需要读取的行数 - rows"></a>找到所需记录需要读取的行数 - rows</h3><p>这一列是 mysql 估计要读取并检测的行数，需注意这个不是结果集里的行数</p>
+<h3 id="附加信息-Extra"><a href="#附加信息-Extra" class="headerlink" title="附加信息 - Extra"></a>附加信息 - Extra</h3><p>这一列展示的是额外信息。常见的重要值如下：</p>
+<table>
+<thead>
+<tr>
+<th>候选值</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Using index condition</code></td>
+<td>使用了 <code>ICP(Index Condition Pushed)</code> 优化，也就是在数据存储层取出索引的同时，判断是否可以使用 where 条件过滤，某些情况下可以大幅减少上层SQL 层对记录的索取</td>
+</tr>
+<tr>
+<td><code>Using MRR</code></td>
+<td>使用了 <code>MRR(Multi-Range Read)</code> 优化，也就是在查询辅助索引时，将得到的结果按照主键进行排序，然后按照主键排序的顺序进行数据查找，从而将随机访问转化为较为顺序的数据访问</td>
+</tr>
+<tr>
+<td><code>distinct</code></td>
+<td>一旦 mysql 找到了与行相联合匹配的行，就不再搜索了</td>
+</tr>
+<tr>
+<td><code>Not exists</code></td>
+<td>mysql 优化了<code>LEFT JOIN</code>，一旦它找到了匹配<code>LEFT JOIN</code>标准的行，就不再搜索了</td>
+</tr>
+<tr>
+<td><code>Using index</code></td>
+<td>这发生在对表的请求列都是同一索引的部分的时候，返回的列数据只使用了索引中的信息，而没有再去访问表中的行记录，也就是<code>覆盖索引</code>，是性能高的表现</td>
+</tr>
+<tr>
+<td><code>Using where</code></td>
+<td>mysql 服务器将在存储引擎检索行后再进行过滤。就是先读取整行数据，再按 where 条件进行检查，符合就留下，不符合就丢弃</td>
+</tr>
+<tr>
+<td><code>Using temporary</code></td>
+<td>mysql 需要创建一张临时表来处理查询，常见于 <code>group by order by</code>。出现这种情况一般是要进行优化的，首先是想到用索引来优化</td>
+</tr>
+<tr>
+<td><code>Using filesort</code></td>
+<td>mysql 会对结果使用一个外部索引排序，而不是按索引次序从表里读取行。此时mysql会根据联接类型浏览所有符合条件的记录，并保存排序关键字和行指针，然后排序关键字并按顺序检索行信息。这种情况下一般也是要考虑使用索引来优化的</td>
+</tr>
+<tr>
+<td><code>Range checked for each Record（index map:N）</code></td>
+<td>没有找到理想的索引，因此对于从前面表中来的每一个行组合，mysql检查使用哪个索引，并用它来从表中返回行。这是使用索引的最慢的连接之一</td>
+</tr>
+<tr>
+<td><code>Using join buffer</code></td>
+<td>强调了在获取连接条件时没有使用索引，并且需要连接缓冲区来存储中间结果。如果出现了这个值，那么根据查询的具体情况可能需要添加索引来改进性能</td>
+</tr>
+</tbody></table>
+<h1 id="对表进行优化"><a href="#对表进行优化" class="headerlink" title="对表进行优化"></a>对表进行优化</h1><h2 id="索引创建原则"><a href="#索引创建原则" class="headerlink" title="索引创建原则"></a>索引创建原则</h2><ul>
+<li>1).针对于数据量较大,且查询比较频繁的表建立索引。 单表超过10万数据(增加用户体验) 。</li>
+<li>2).针对于常作为查询条件(where)、排序(orderby)、分组(groupby)操作的字段建立索引。</li>
+<li>3).尽量选择区分度高的列作为索引,尽量建立唯一索引,区分度越高,使用索引的效率越高。</li>
+<li>4).如果是字符串类型的字段,字段的长度较长,可以针对于字段的特点,建立前缀索引。</li>
+<li>5).尽量使用联合索引,减少单列索引,查询时,联合索引很多时候可以覆盖索引,节省存储空间,避免回表,提高查询效率。</li>
+<li>6).要控制索引的数量,索引并不是多多益善,索引越多,维护索引引结构的代价也就越大,会影响增删改的效率。</li>
+<li>7).如果索引列不能存储NULL值,请在创建表时使用NOTNULL约束它。当优化器知道每列是否包含NULL值时,它可以更好地确定哪个索引最有效地用于查询。</li>
+</ul>
+<p>表目前的状态，可以看到是没有任何索引的。</p>
+<img src="../images/t.assets/image-20230918152615724.png" alt="image-20230919170928928" style="height:50%; width:50%;" / loading="lazy">
+
+<img src="../images/t.assets/image-20230919170928928.png" alt="image-20230919170928928" style="height:50%; width:50%;" / loading="lazy">
+
+<h2 id="单列索引"><a href="#单列索引" class="headerlink" title="单列索引"></a>单列索引</h2><h3 id="主键索引"><a href="#主键索引" class="headerlink" title="主键索引"></a>主键索引</h3><p>MySQL 主键索引是一种特殊类型的索引，用于唯一标识数据库表中的每一行数据。主键索引具有以下特点：</p>
+<ol>
+<li><strong>唯一性</strong>：主键索引确保表中的每一行都具有唯一的主键值，这意味着不能有两行数据具有相同的主键值。</li>
+<li><strong>必须非空</strong>：主键字段的值不能为NULL，因为主键的目的是唯一标识每一行数据，NULL 值无法唯一标识。</li>
+<li><strong>加速检索</strong>：主键索引不仅确保数据的唯一性，还可以加速根据主键值进行检索的操作，包括SELECT、UPDATE 和 DELETE 等。</li>
+<li><strong>默认情况下</strong>，MySQL 会为每个具有主键约束的表自动创建主键索引。</li>
+</ol>
+<p>在创建主键索引时，你可以选择使用以下方式之一来定义主键：</p>
+<ul>
+<li><strong>单一列主键</strong>：在表中选择一个列作为主键，通常是一个唯一的标识符列，如一个自增长的整数列。</li>
+</ul>
+<pre class="language-none"><code class="language-none">sqlCopy code
+CREATE TABLE mytable (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255)
+);</code></pre>
+
+<ul>
+<li><strong>复合主键</strong>：可以将多个列组合起来作为复合主键，这样的主键值由这些列的值组合而成。</li>
+</ul>
+<pre class="language-none"><code class="language-none">sqlCopy code
+CREATE TABLE mytable (
+    column1 INT,
+    column2 INT,
+    PRIMARY KEY (column1, column2)
+);</code></pre>
+
+<p>在使用主键索引时，你可以更快地检索、更新和删除特定行，因为数据库引擎会使用主键索引来定位数据行。因此，在设计数据库表时，选择适当的主键非常重要，它应该是唯一的且能够明确标识每一行数据。</p>
+<h3 id="唯一索引"><a href="#唯一索引" class="headerlink" title="唯一索引"></a>唯一索引</h3><ol>
+<li><p>使用email字段作为唯一索引</p>
+</li>
+<li><p>未添加索引前</p>
+<pre class="language-none"><code class="language-none">local_test&gt; select email from large_table where email &#x3D; &#39;EMOBvwUSJq@example.com&#39;
+[2023-09-19 20:34:33] 在 1 s 970 ms (execution: 1 s 955 ms, fetching: 15 ms) 内检索到从 1 开始的 1 行
+local_test&gt; select email from large_table where email &#x3D; &#39;EMOBvwUSJq@example.com&#39;
+[2023-09-19 20:34:37] 在 1 s 930 ms (execution: 1 s 918 ms, fetching: 12 ms) 内检索到从 1 开始的 1 行
+local_test&gt; select email from large_table where email &#x3D; &#39;EMOBvwUSJq@example.com&#39;
+[2023-09-19 20:34:40] 在 1 s 919 ms (execution: 1 s 906 ms, fetching: 13 ms) 内检索到从 1 开始的 1 行</code></pre></li>
+<li><p>Explain分析</p>
+<table>
+<thead>
+<tr>
+<th align="left">id</th>
+<th align="left">select_type</th>
+<th align="left">table</th>
+<th align="left">partitions</th>
+<th align="left">type</th>
+<th align="left">possible_keys</th>
+<th align="left">key</th>
+<th align="left">key_len</th>
+<th align="left">ref</th>
+<th align="left">rows</th>
+<th align="left">filtered</th>
+<th align="left">Extra</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">SIMPLE</td>
+<td align="left">large_table</td>
+<td align="left">null</td>
+<td align="left">ALL</td>
+<td align="left">null</td>
+<td align="left">null</td>
+<td align="left">null</td>
+<td align="left">null</td>
+<td align="left">9891258</td>
+<td align="left">10</td>
+<td align="left">Using where</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>添加索引</p>
+<pre class="language-none"><code class="language-none">CREATE UNIQUE INDEX unique_email_index ON large_table (email);</code></pre></li>
+<li><p>添加索引后</p>
+<pre class="language-none"><code class="language-none">local_test&gt; select email from large_table where email &#x3D; &#39;EMOBvwUSJq@example.com&#39;
+[2023-09-19 20:36:37] 在 13 ms (execution: 5 ms, fetching: 8 ms) 内检索到从 1 开始的 1 行
+local_test&gt; select email from large_table where email &#x3D; &#39;EMOBvwUSJq@example.com&#39;
+[2023-09-19 20:36:50] 在 12 ms (execution: 5 ms, fetching: 7 ms) 内检索到从 1 开始的 1 行
+local_test&gt; select email from large_table where email &#x3D; &#39;EMOBvwUSJq@example.com&#39;
+[2023-09-19 20:36:51] 在 16 ms (execution: 6 ms, fetching: 10 ms) 内检索到从 1 开始的 1 行</code></pre></li>
+<li><p>Explain分析，命中唯一索引<code>unique\_email\_index</code></p>
+<table>
+<thead>
+<tr>
+<th align="left">id</th>
+<th align="left">select_type</th>
+<th align="left">table</th>
+<th align="left">partitions</th>
+<th align="left">type</th>
+<th align="left">possible_keys</th>
+<th align="left">key</th>
+<th align="left">key_len</th>
+<th align="left">ref</th>
+<th align="left">rows</th>
+<th align="left">filtered</th>
+<th align="left">Extra</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">SIMPLE</td>
+<td align="left">large_table</td>
+<td align="left">null</td>
+<td align="left">const</td>
+<td align="left">unique_email_index</td>
+<td align="left">unique_email_index</td>
+<td align="left">303</td>
+<td align="left">const</td>
+<td align="left">1</td>
+<td align="left">100</td>
+<td align="left">Using index</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>优化了多少倍，1s930ms到13ms，151.54差不多150倍，质的飞跃。</p>
+</li>
+</ol>
+<h3 id="普通索引"><a href="#普通索引" class="headerlink" title="普通索引"></a>普通索引</h3><ol>
+<li><p>针对age字段进行优化，为age添加索引</p>
+</li>
+<li><p>未添加索引前</p>
+<pre class="language-none"><code class="language-none">local_test&gt; SELECT large_table.age
+            FROM large_table
+            WHERE age &lt; 30
+[2023-09-19 19:58:52] 在 6 s 810 ms (execution: 24 ms, fetching: 6 s 786 ms) 内检索到从 1 开始的 2,790,055 行</code></pre></li>
+<li><p>使用explain进行sql语句分析</p>
+<table>
+<thead>
+<tr>
+<th align="left">id</th>
+<th align="left">select_type</th>
+<th align="left">table</th>
+<th align="left">partitions</th>
+<th align="left">type</th>
+<th align="left">possible_keys</th>
+<th align="left">key</th>
+<th align="left">key_len</th>
+<th align="left">ref</th>
+<th align="left">rows</th>
+<th align="left">filtered</th>
+<th align="left">Extra</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">SIMPLE</td>
+<td align="left">large_table</td>
+<td align="left">null</td>
+<td align="left">ALL</td>
+<td align="left">null</td>
+<td align="left">null</td>
+<td align="left">null</td>
+<td align="left">null</td>
+<td align="left">10004321</td>
+<td align="left">33.33</td>
+<td align="left">Using where</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>添加索引</p>
+<pre class="language-none"><code class="language-none">CREATE INDEX idx_age ON large_table (age);</code></pre></li>
+<li><p>添加索引后</p>
+<pre class="language-none"><code class="language-none">local_test&gt; SELECT large_table.age
+            FROM large_table
+            WHERE age &lt; 30
+[2023-09-19 20:01:23] 在 5 s 879 ms (execution: 8 ms, fetching: 5 s 871 ms) 内检索到从 1 开始的 2,790,055 行</code></pre></li>
+<li><p>使用explain进行分析 <code>key</code> 命中<code>idx\_age</code>  索引 <code>type</code>变为了range</p>
+<table>
+<thead>
+<tr>
+<th align="left">id</th>
+<th align="left">select_type</th>
+<th align="left">table</th>
+<th align="left">partitions</th>
+<th align="left">type</th>
+<th align="left">possible_keys</th>
+<th align="left">key</th>
+<th align="left">key_len</th>
+<th align="left">ref</th>
+<th align="left">rows</th>
+<th align="left">filtered</th>
+<th align="left">Extra</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">SIMPLE</td>
+<td align="left">large_table</td>
+<td align="left">null</td>
+<td align="left">range</td>
+<td align="left">idx_age</td>
+<td align="left">idx_age</td>
+<td align="left">5</td>
+<td align="left">null</td>
+<td align="left">5002160</td>
+<td align="left">100</td>
+<td align="left">Using where; Using index</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>我们看到时间由6.8s优化到了5.8s，提升了1s，所以建议使用联合索引，在海量数据面前，当字段数据区分度不高时，速度提升还是不够明显的。</p>
+</li>
+</ol>
+<h2 id="联合索引"><a href="#联合索引" class="headerlink" title="联合索引"></a>联合索引</h2><ol>
+<li><p>对<code>age, supervisor_id, is_manager, salary</code>这四个字段添加联合索引</p>
+</li>
+<li><p>未添加索引前</p>
+<pre class="language-none"><code class="language-none">local_test&gt; select age, supervisor_id, is_manager, salary from large_table where age &#x3D; 41 and supervisor_id &#x3D; 20 and is_manager &#x3D; 1 and salary &#x3D; 4238.73
+[2023-09-19 22:03:31] 在 3 s 154 ms (execution: 3 s 139 ms, fetching: 15 ms) 内检索到从 1 开始的 1 行
+local_test&gt; select age, supervisor_id, is_manager, salary from large_table where age &#x3D; 41 and supervisor_id &#x3D; 20 and is_manager &#x3D; 1
+[2023-09-19 22:03:33] 在 2 s 354 ms (execution: 1 s 703 ms, fetching: 651 ms) 内检索到从 1 开始的 1,149 行
+local_test&gt; select age, supervisor_id, is_manager, salary from large_table where age &#x3D; 41 and supervisor_id &#x3D; 20
+[2023-09-19 22:03:35] 在 2 s 264 ms (execution: 800 ms, fetching: 1 s 464 ms) 内检索到从 1 开始的 2,303 行
+local_test&gt; select age, supervisor_id, is_manager, salary from large_table where age &#x3D; 41
+[2023-09-19 22:03:38] 在 2 s 489 ms (execution: 9 ms, fetching: 2 s 480 ms) 内检索到从 1 开始的 233,300 行</code></pre></li>
+<li><p>Explain分析</p>
+<table>
+<thead>
+<tr>
+<th align="left">id</th>
+<th align="left">select_type</th>
+<th align="left">table</th>
+<th align="left">partitions</th>
+<th align="left">type</th>
+<th align="left">possible_keys</th>
+<th align="left">key</th>
+<th align="left">key_len</th>
+<th align="left">ref</th>
+<th align="left">rows</th>
+<th align="left">filtered</th>
+<th align="left">Extra</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">SIMPLE</td>
+<td align="left">large_table</td>
+<td align="left">null</td>
+<td align="left">ALL</td>
+<td align="left">null</td>
+<td align="left">null</td>
+<td align="left">null</td>
+<td align="left">null</td>
+<td align="left">9891258</td>
+<td align="left">0.01</td>
+<td align="left">Using where</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="left">id</th>
+<th align="left">select_type</th>
+<th align="left">table</th>
+<th align="left">partitions</th>
+<th align="left">type</th>
+<th align="left">possible_keys</th>
+<th align="left">key</th>
+<th align="left">key_len</th>
+<th align="left">ref</th>
+<th align="left">rows</th>
+<th align="left">filtered</th>
+<th align="left">Extra</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">SIMPLE</td>
+<td align="left">large_table</td>
+<td align="left">null</td>
+<td align="left">ALL</td>
+<td align="left">null</td>
+<td align="left">null</td>
+<td align="left">null</td>
+<td align="left">null</td>
+<td align="left">9891258</td>
+<td align="left">0.1</td>
+<td align="left">Using where</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="left">id</th>
+<th align="left">select_type</th>
+<th align="left">table</th>
+<th align="left">partitions</th>
+<th align="left">type</th>
+<th align="left">possible_keys</th>
+<th align="left">key</th>
+<th align="left">key_len</th>
+<th align="left">ref</th>
+<th align="left">rows</th>
+<th align="left">filtered</th>
+<th align="left">Extra</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">SIMPLE</td>
+<td align="left">large_table</td>
+<td align="left">null</td>
+<td align="left">ALL</td>
+<td align="left">null</td>
+<td align="left">null</td>
+<td align="left">null</td>
+<td align="left">null</td>
+<td align="left">9891258</td>
+<td align="left">1</td>
+<td align="left">Using where</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="left">id</th>
+<th align="left">select_type</th>
+<th align="left">table</th>
+<th align="left">partitions</th>
+<th align="left">type</th>
+<th align="left">possible_keys</th>
+<th align="left">key</th>
+<th align="left">key_len</th>
+<th align="left">ref</th>
+<th align="left">rows</th>
+<th align="left">filtered</th>
+<th align="left">Extra</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">SIMPLE</td>
+<td align="left">large_table</td>
+<td align="left">null</td>
+<td align="left">ALL</td>
+<td align="left">null</td>
+<td align="left">null</td>
+<td align="left">null</td>
+<td align="left">null</td>
+<td align="left">9891258</td>
+<td align="left">10</td>
+<td align="left">Using where</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>添加索引</p>
+<pre class="language-none"><code class="language-none">CREATE INDEX idx_age_supervisor_manager_salary ON large_table (age, supervisor_id, is_manager, salary);</code></pre></li>
+<li><p>添加索引后</p>
+<pre class="language-none"><code class="language-none">local_test&gt; select age, supervisor_id, is_manager, salary from large_table where age &#x3D; 41 and supervisor_id &#x3D; 20 and is_manager &#x3D; 1 and salary &#x3D; 4238.73
+[2023-09-19 22:05:47] 在 20 ms (execution: 5 ms, fetching: 15 ms) 内检索到从 1 开始的 1 行
+local_test&gt; select age, supervisor_id, is_manager, salary from large_table where age &#x3D; 41 and supervisor_id &#x3D; 20 and is_manager &#x3D; 1
+[2023-09-19 22:05:47] 在 20 ms (execution: 6 ms, fetching: 14 ms) 内检索到从 1 开始的 1,149 行
+local_test&gt; select age, supervisor_id, is_manager, salary from large_table where age &#x3D; 41 and supervisor_id &#x3D; 20
+[2023-09-19 22:05:47] 在 28 ms (execution: 6 ms, fetching: 22 ms) 内检索到从 1 开始的 2,303 行
+local_test&gt; select age, supervisor_id, is_manager, salary from large_table where age &#x3D; 41
+[2023-09-19 22:05:48] 在 840 ms (execution: 6 ms, fetching: 834 ms) 内检索到从 1 开始的 233,300 行</code></pre></li>
+<li><p>Explain分析</p>
+<table>
+<thead>
+<tr>
+<th align="left">id</th>
+<th align="left">select_type</th>
+<th align="left">table</th>
+<th align="left">partitions</th>
+<th align="left">type</th>
+<th align="left">possible_keys</th>
+<th align="left">key</th>
+<th align="left">key_len</th>
+<th align="left">ref</th>
+<th align="left">rows</th>
+<th align="left">filtered</th>
+<th align="left">Extra</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">SIMPLE</td>
+<td align="left">large_table</td>
+<td align="left">null</td>
+<td align="left">ref</td>
+<td align="left">idx_age_supervisor_manager_salary</td>
+<td align="left">idx_age_supervisor_manager_salary</td>
+<td align="left">17</td>
+<td align="left">const,const,const,const</td>
+<td align="left">1</td>
+<td align="left">100</td>
+<td align="left">Using index</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="left">id</th>
+<th align="left">select_type</th>
+<th align="left">table</th>
+<th align="left">partitions</th>
+<th align="left">type</th>
+<th align="left">possible_keys</th>
+<th align="left">key</th>
+<th align="left">key_len</th>
+<th align="left">ref</th>
+<th align="left">rows</th>
+<th align="left">filtered</th>
+<th align="left">Extra</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">SIMPLE</td>
+<td align="left">large_table</td>
+<td align="left">null</td>
+<td align="left">ref</td>
+<td align="left">idx_age_supervisor_manager_salary</td>
+<td align="left">idx_age_supervisor_manager_salary</td>
+<td align="left">11</td>
+<td align="left">const,const,const</td>
+<td align="left">1149</td>
+<td align="left">100</td>
+<td align="left">Using index</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="left">id</th>
+<th align="left">select_type</th>
+<th align="left">table</th>
+<th align="left">partitions</th>
+<th align="left">type</th>
+<th align="left">possible_keys</th>
+<th align="left">key</th>
+<th align="left">key_len</th>
+<th align="left">ref</th>
+<th align="left">rows</th>
+<th align="left">filtered</th>
+<th align="left">Extra</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">SIMPLE</td>
+<td align="left">large_table</td>
+<td align="left">null</td>
+<td align="left">ref</td>
+<td align="left">idx_age_supervisor_manager_salary</td>
+<td align="left">idx_age_supervisor_manager_salary</td>
+<td align="left">9</td>
+<td align="left">const,const</td>
+<td align="left">2303</td>
+<td align="left">100</td>
+<td align="left">Using index</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="left">id</th>
+<th align="left">select_type</th>
+<th align="left">table</th>
+<th align="left">partitions</th>
+<th align="left">type</th>
+<th align="left">possible_keys</th>
+<th align="left">key</th>
+<th align="left">key_len</th>
+<th align="left">ref</th>
+<th align="left">rows</th>
+<th align="left">filtered</th>
+<th align="left">Extra</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">SIMPLE</td>
+<td align="left">large_table</td>
+<td align="left">null</td>
+<td align="left">ref</td>
+<td align="left">idx_age_supervisor_manager_salary</td>
+<td align="left">idx_age_supervisor_manager_salary</td>
+<td align="left">4</td>
+<td align="left">const</td>
+<td align="left">478910</td>
+<td align="left">100</td>
+<td align="left">Using index</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>观察到，虽然每条sql都使用到了索引，但是占用有效字段越多，速度提升越明显。</p>
+</li>
+</ol>
+<h2 id="索引失效问题"><a href="#索引失效问题" class="headerlink" title="索引失效问题"></a>索引失效问题</h2><ol>
+<li><strong>函数操作</strong>：如果在查询条件中对索引列进行函数操作，例如使用<code>CONCAT</code>、<code>UPPER</code>、<code>LOWER</code>等函数，索引可能会失效，因为函数操作会改变列的值，使得无法直接利用索引。</li>
+<li><strong>数据类型不匹配</strong>：如果查询条件中的数据类型与索引列的数据类型不匹配，索引可能会失效。例如，如果索引列是整数，但查询条件中使用了字符串，索引可能不会被使用。</li>
+<li><strong>不适当的使用<code>OR</code>条件</strong>：在查询条件中使用<code>OR</code>条件时，如果每个条件涉及不同的列，并且这些列没有合适的联合索引，索引可能会失效。这是因为索引通常只能有效地用于筛选与一个列相关的条件。</li>
+<li><strong>低选择性的列</strong>：如果索引列的选择性很低，即不同的值很少，那么优化器可能不会选择使用索引，因为全表扫描可能更快。</li>
+<li><strong>索引列的数据分布不均匀</strong>：如果索引列的数据分布不均匀，例如某些值的频率非常高，而其他值的频率非常低，那么索引可能会失效，因为优化器可能认为全表扫描更有效。</li>
+<li><strong>使用<code>NOT</code>条件</strong>：在某些情况下，使用<code>NOT</code>条件可能导致索引失效。优化器可能会难以有效使用索引来处理<code>NOT</code>条件。</li>
+<li><strong>小表优化</strong>：对于非常小的表，优化器可能会选择执行全表扫描，而不是使用索引，因为全表扫描可能更快。</li>
+<li><strong>索引碎片</strong>：索引碎片化可能会降低索引的性能。定期维护和重建索引可以帮助避免这种情况。</li>
+</ol>
+<p>要避免索引失效，通常需要仔细设计表和索引，确保查询条件与索引的列匹配，并避免上述情况。此外，使用数据库的性能分析工具可以帮助你了解查询的执行计划，以便更好地优化查询和索引。</p>
+<h3 id="最左前缀"><a href="#最左前缀" class="headerlink" title="最左前缀"></a>最左前缀</h3><p>顾名思义：最左优先，以最左边的为起点任何连续的索引都能匹配上。同时遇到范围查询(&gt;、&lt;、between、like)就会停止匹配。</p>
+<p>例如：如果建立(a,b)顺序的索引，我们的条件只有b=xxx，是匹配不到(a,b)索引的；但是如果查询条件是a = 1 and b = 2或者b=2 and a=1就可以，因为优化器会自动调整a,b的顺序，并不需要严格按照索引的顺序来；再比如a = 1 and b = 2 and c &gt; 3 and d = 4 如果建立(a,b,c,d)顺序的索引，d是用不到索引的，因为c字段是一个范围查询，它之后的字段会停止匹配</p>
+<p>最左前缀原则是数据库索引优化的一个基本概念，它指导了如何有效使用多列索引（联合索引）来加速查询。根据最左前缀原则，索引将首先按照索引列的顺序从左到右使用，只有当查询条件涵盖了索引的前缀列时，索引才能被充分利用。</p>
+<p>具体来说，以下是最左前缀原则的要点：</p>
+<ol>
+<li><strong>索引列顺序</strong>：在一个联合索引中，索引列的顺序非常重要。查询条件中的列需要与索引的前缀列的顺序一致，以充分利用索引。这意味着如果索引是 <code>(column1, column2, column3)</code>，那么查询条件应该首先涵盖 <code>column1</code>，然后是 <code>column1</code> 和 <code>column2</code>，最后是 <code>column1</code>、<code>column2</code> 和 <code>column3</code>。</li>
+<li><strong>左边列优先</strong>：最左前缀原则要求索引中的左边列首先出现在查询条件中。如果你只使用索引中的右边列或不连续的列，索引可能无法有效使用。</li>
+<li><strong>索引覆盖</strong>：如果查询只选择了索引中的列，并且没有选择表中的其他列，这被称为索引覆盖（Index Covering），它通常可以提供更高的查询性能，因为不需要访问实际数据行。</li>
+<li><strong>最佳匹配</strong>：索引会根据查询的最左前缀条件筛选数据，所以在索引列中包含了更多条件的情况下，索引效果更好。如果只有一部分查询条件与索引匹配，索引的效率可能会受到影响。</li>
+</ol>
+<p>我们在分析这条语句的时候，发现还是命中了索引，这是因为mysql优化器会自动调整查询顺序</p>
+<pre class="language-none"><code class="language-none">explain select age, supervisor_id, is_manager, salary from large_table where salary &#x3D; 4238.73  and is_manager &#x3D; 1 and supervisor_id &#x3D; 20 and age &#x3D; 41 ;</code></pre>
+
+<table>
+<thead>
+<tr>
+<th align="left">id</th>
+<th align="left">select_type</th>
+<th align="left">table</th>
+<th align="left">partitions</th>
+<th align="left">type</th>
+<th align="left">possible_keys</th>
+<th align="left">key</th>
+<th align="left">key_len</th>
+<th align="left">ref</th>
+<th align="left">rows</th>
+<th align="left">filtered</th>
+<th align="left">Extra</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">SIMPLE</td>
+<td align="left">large_table</td>
+<td align="left">null</td>
+<td align="left">ref</td>
+<td align="left">idx_age_supervisor_manager_salary</td>
+<td align="left">idx_age_supervisor_manager_salary</td>
+<td align="left">17</td>
+<td align="left">const,const,const,const</td>
+<td align="left">1</td>
+<td align="left">100</td>
+<td align="left">Using index</td>
+</tr>
+</tbody></table>
+<p>当条件变为范围查询 <code>type=range</code>，查询时间变长，索引匹配失败</p>
+<pre class="language-none"><code class="language-none">local_test&gt; SELECT age, supervisor_id, is_manager, salary
+            FROM large_table
+            WHERE age &lt; 30 AND supervisor_id &gt; 20 AND is_manager &#x3D; 0 AND salary &lt; 3967.55
+[2023-09-19 22:11:54] 在 2 s 879 ms (execution: 42 ms, fetching: 2 s 837 ms) 内检索到从 1 开始的 828,718 行</code></pre>
+
+<table>
+<thead>
+<tr>
+<th align="left">id</th>
+<th align="left">select_type</th>
+<th align="left">table</th>
+<th align="left">partitions</th>
+<th align="left">type</th>
+<th align="left">possible_keys</th>
+<th align="left">key</th>
+<th align="left">key_len</th>
+<th align="left">ref</th>
+<th align="left">rows</th>
+<th align="left">filtered</th>
+<th align="left">Extra</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">SIMPLE</td>
+<td align="left">large_table</td>
+<td align="left">null</td>
+<td align="left">range</td>
+<td align="left">idx_age_supervisor_manager_salary</td>
+<td align="left">idx_age_supervisor_manager_salary</td>
+<td align="left">4</td>
+<td align="left">null</td>
+<td align="left">4945629</td>
+<td align="left">1.11</td>
+<td align="left">Using where; Using index</td>
+</tr>
+</tbody></table>
+</div><div id="reward-container"><span class="hty-icon-button button-glow" id="reward-button" title="Donate" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === &quot;none&quot;) ? &quot;block&quot; : &quot;none&quot;;"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-hand-coin-line"></use></svg></span><div id="reward-comment">觉得文章写的不错，可以请喝杯咖啡</div><div id="qr" style="display:none;"><div style="display:inline-block"><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/donate/alipay-qrcode.jpg"><img loading="lazy" src="https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/donate/alipay-qrcode.jpg" alt="支付宝" title="支付宝"></a><div><span style="color:#00A3EE"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-alipay-line"></use></svg></span></div></div><div style="display:inline-block"><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/donate/qqpay-qrcode.png"><img loading="lazy" src="https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/donate/qqpay-qrcode.png" alt="QQ 支付" title="QQ 支付"></a><div><span style="color:#12B7F5"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-qq-line"></use></svg></span></div></div><div style="display:inline-block"><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/donate/wechatpay-qrcode.jpg"><img loading="lazy" src="https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/donate/wechatpay-qrcode.jpg" alt="微信支付" title="微信支付"></a><div><span style="color:#2DC100"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-wechat-pay-line"></use></svg></span></div></div></div></div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>王彦翔</li><li class="post-copyright-link"><strong>Post link: </strong><a href="https://yanxiang.wang/mysql%E5%8D%83%E4%B8%87%E6%95%B0%E6%8D%AE%E7%B4%A2%E5%BC%95%E4%BC%98%E5%8C%96/" title="索引革命，数据腾飞">https://yanxiang.wang/mysql%E5%8D%83%E4%B8%87%E6%95%B0%E6%8D%AE%E7%B4%A2%E5%BC%95%E4%BC%98%E5%8C%96/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/elasticsearch%E5%AD%A6%E4%B9%A0/" rel="prev" title="数据浩瀚似海，Elasticsearch 速度不待"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">数据浩瀚似海，Elasticsearch 速度不待</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/%E6%8E%8C%E6%8F%A1%E5%AE%B9%E5%99%A8%E4%B9%8B%E5%8A%9B%EF%BC%9AMySQL%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/" rel="next" title="掌握容器之力：MySQL主从复制"><span class="post-nav-text">掌握容器之力：MySQL主从复制</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div class="hty-card" id="comment"><div class="comment-tooltip text-center"><span>如果您有任何关于博客内容的相关讨论，欢迎前往 <a href="https://github.com/YunYouJun/yunyoujun.github.io/discussions" target="_blank">GitHub Discussions</a> 与我交流。</span><br></div><div id="waline"></div><script>Yun.utils.getScript("https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js", () => {
+  const walineConfig = {"enable":true,"serverURL":"https://waline.yunyoujun.cn","comment":true,"visitor":true,"emoji":["https://cdn.jsdelivr.net/gh/walinejs/emojis@latest/bilibili/","https://cdn.jsdelivr.net/gh/walinejs/emojis@latest/weibo/","https://cdn.jsdelivr.net/gh/walinejs/emojis@latest/qq/"],"locale":{"placeholder":"填写邮箱，可以收到回复通知哦～"},"requiredMeta":["nick"],"el":"#waline","lang":"en"}
+  walineConfig.path = "/mysql%E5%8D%83%E4%B8%87%E6%95%B0%E6%8D%AE%E7%B4%A2%E5%BC%95%E4%BC%98%E5%8C%96/"
+  walineConfig.dark = 'html[data-user-color-scheme="dark"]'
+  new Waline(walineConfig)
+}, window.Waline);</script></div></main><footer class="sidebar-translate" id="footer"><div class="beian"><a rel="noopener" href="https://beian.miit.gov.cn/" target="_blank">备案号</a></div><div class="copyright"><span>&copy; 2018 – 2025 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 王彦翔</span></div><div class="live_time"><span>运行时间</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
+  setTimeout(blog_live_time, 1000);
+  const start = new Date('2019-04-12T00:00:00');
+  const now = new Date();
+  const timeDiff = (now.getTime() - start.getTime());
+  const msPerMinute = 60 * 1000;
+  const msPerHour = 60 * msPerMinute;
+  const msPerDay = 24 * msPerHour;
+  const passDay = Math.floor(timeDiff / msPerDay);
+  const passHour = Math.floor((timeDiff % msPerDay) / 60 / 60 / 1000);
+  const passMinute = Math.floor((timeDiff % msPerHour) / 60 / 1000);
+  const passSecond = Math.floor((timeDiff % msPerMinute) / 1000);
+  display_live_time.innerHTML = " " + passDay + " 天 " + passHour + " 小时 " + passMinute + " 分 " + passSecond + " 秒";
 }
-.post-meta {
-  font-size: 14px;
-  color: var(--hty-secondary-text-color);
-}
-.post-meta .icon {
-  margin-bottom: -1px;
-}
-.post-description {
-  font-weight: normal;
-  padding: 0.5rem;
-}
-.post-author {
-  display: flex;
-  justify-content: center;
-}
-.post-author .author-avatar {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  line-height: 0;
-}
-.post-author .author-avatar img {
-  border-radius: 50%;
-  height: 1rem;
-  width: 1rem;
-  padding: 2px;
-  border: 2px solid #d3d3d3;
-}
-.post-author .author-name {
-  margin-left: 0.5rem;
-  font-size: 1rem;
-}
-.post-meta-item-icon {
-  display: inline-block;
-  color: var(--text-color, --hty-secondary-text-color);
-}
-.post-meta-divider {
-  height: 25px;
-  color: var(--hty-secondary-text-color);
-  margin: 0 0.5rem;
-}
-.post-eof {
-  margin: 50px auto;
-  width: 50%;
-  height: 1px;
-  background: $blue;
-  opacity: 0.1;
-}
-.post-copyright {
-  font-size: 0.9rem;
-  margin: 2rem 0;
-  padding: 0.5rem 1rem;
-  border-left: 4px solid #ff5252;
-  background-color: var(--hty-bg-color);
-  list-style: none;
-  word-break: break-all;
-  position: relative;
-  overflow: hidden;
-}
-.post-copyright::after {
-  position: absolute;
-  color: #fff;
-  background: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 496 512'%3E%3Cpath fill='gray' d='M245.8 214.9l-33.2 17.3c-9.4-19.6-25.2-20-27.4-20-22.2 0-33.3 14.6-33.3 43.9 0 23.5 9.2 43.8 33.3 43.8 14.4 0 24.6-7 30.5-21.3l30.6 15.5a73.2 73.2 0 01-65.1 39c-22.6 0-74-10.3-74-77 0-58.7 43-77 72.6-77 30.8-.1 52.7 11.9 66 35.8zm143 0l-32.7 17.3c-9.5-19.8-25.7-20-27.9-20-22.1 0-33.2 14.6-33.2 43.9 0 23.5 9.2 43.8 33.2 43.8 14.5 0 24.7-7 30.5-21.3l31 15.5c-2 3.8-21.3 39-65 39-22.7 0-74-9.9-74-77 0-58.7 43-77 72.6-77C354 179 376 191 389 214.8zM247.7 8C104.7 8 0 123 0 256c0 138.4 113.6 248 247.6 248C377.5 504 496 403 496 256 496 118 389.4 8 247.6 8zm.8 450.8c-112.5 0-203.7-93-203.7-202.8 0-105.5 85.5-203.3 203.8-203.3A201.7 201.7 0 01451.3 256c0 121.7-99.7 202.9-202.9 202.9z'/%3E%3C/svg%3E");
-  content: ' ';
-  height: 10rem;
-  width: 10rem;
-  right: -2rem;
-  top: -2rem;
-  opacity: 0.1;
-}
-.tag-name {
-  padding: 0 0.1rem;
-}
+blog_live_time();
+</script></div></footer><a class="hty-icon-button" id="back-to-top" aria-label="back-to-top" href="#"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-up-s-line"></use></svg><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#0078E7" stroke-width="2" stroke-linecap="round"></circle></svg></a><a class="popup-trigger hty-icon-button icon-search" id="search" href="javascript:;" title="Search"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-search-line"></use></svg></span></a><script>window.addEventListener("DOMContentLoaded", () => {
+  // Handle and trigger popup window
+  document.querySelector(".popup-trigger").addEventListener("click", () => {
+    document.querySelector(".popup").classList.add("show");
+    setTimeout(() => {
+      document.querySelector(".search-input").focus();
+    }, 100);
+  });
+
+  // Monitor main search box
+  const onPopupClose = () => {
+    document.querySelector(".popup").classList.remove("show");
+  };
+
+  document.querySelector(".popup-btn-close").addEventListener("click", () => {
+    onPopupClose();
+  });
+
+  window.addEventListener("keyup", event => {
+    if (event.key === "Escape") {
+      onPopupClose();
+    }
+  });
+});
+</script><script src="/js/search/local-search.js" defer></script><div class="popup search-popup"><div class="search-header"><span class="popup-btn-close close-icon hty-icon-button"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-close-line"></use></svg></span></div><div class="search-input-container"><input class="search-input" id="local-search-input" type="text" placeholder="Searching..." value=""></div><div id="local-search-result"></div></div><script>const date = new Date();
+const today = (date.getMonth() + 1) + "-" + date.getDate()
+const mourn_days = ["4-4"]
+if (mourn_days.includes(today)) {
+  document.documentElement.style.filter = "grayscale(1)";
+}</script></div><!-- hexo injector body_end start --><script src="https://cdn.jsdelivr.net/npm/hexo-widget-tree@0.2.2/js/index.js"></script><div id="widget-tree">
+      <ul>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/">
+          python
+        </a>
+      <span class="tree-list-count">33</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/debug/">
+          debug
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/Python4%E7%A7%8DDebug%E6%96%B9%E6%B3%95/" title="Python4种Debug方法"><i class="post-icon gg-file-document"></i>Python4种Debug方法</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/django/">
+          django
+        </a>
+      <span class="tree-list-count">9</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/django/websocket/">
+          websocket
+        </a>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/django-vue%E5%9F%BA%E4%BA%8Ewebsocket%E5%88%9B%E9%80%A0%E5%AE%9E%E6%97%B6ECharts%E8%82%A1%E7%A5%A8%E5%9B%BE/" title="django+vue基于websocket创造实时ECharts股票图"><i class="post-icon gg-file-document"></i>django+vue基于websocket创造实时ECharts股票图</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/django-vue%E5%9F%BA%E4%BA%8Ewebsocket%E4%BA%BA%E5%B7%A5%E5%AE%A2%E6%9C%8D%E7%B3%BB%E7%BB%9F%E6%89%93%E9%80%A0/" title="django+vue基于websocket人工客服系统打造"><i class="post-icon gg-file-document"></i>django+vue基于websocket人工客服系统打造</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/django/celery/">
+          celery
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/celery%E4%BD%BF%E7%94%A8%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E5%A4%84%E7%90%86%E4%BB%A5%E5%8F%8A%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" title="Linux下Django使用celery异步任务处理以及定时任务"><i class="post-icon gg-file-document"></i>Linux下Django使用celery异步任务处理以及定时任务</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/django/%E9%83%A8%E7%BD%B2/">
+          部署
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/nginx+uwsgi/" title="win10/Linux系统项目上线Nginx+Django（Uwsgi）+Vue实现高可用部署"><i class="post-icon gg-file-document"></i>win10/Linux系统项目上线Nginx+Django（Uwsgi）+Vue实现高可用部署</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/django/%E6%94%AF%E4%BB%98/">
+          支付
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/django-vue%E6%94%AF%E4%BB%98%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%BE%AE%E4%BF%A1%E3%80%81%E6%94%AF%E4%BB%98%E5%AE%9D%E3%80%81PalPay/" title="django+vue工厂模式 支付融合 微信二维码支付、支付宝、PayPal跨境支付"><i class="post-icon gg-file-document"></i>django+vue工厂模式 支付融合 微信二维码支付、支付宝、PayPal跨境支付</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/django/rest-rest-framework/">
+          rest-rest-framework
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/Django%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" title="Django源码分析-ModelViewSet"><i class="post-icon gg-file-document"></i>Django源码分析-ModelViewSet</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E9%AB%98%E5%B9%B6%E5%8F%91/">
+          高并发
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/IO%E5%AF%86%E9%9B%86%E5%9E%8B%E3%80%81CPU%E5%AF%86%E9%9B%86%E5%9E%8B%E5%88%86%E5%88%AB%E8%AF%A5%E9%80%89%E6%8B%A9%E5%A4%9A%E8%BF%9B%E7%A8%8B%E8%BF%98%E6%98%AF%E5%A4%9A%E7%BA%BF%E7%A8%8B/" title="IO密集型、CPU密集型分别该选择多进程还是多线程"><i class="post-icon gg-file-document"></i>IO密集型、CPU密集型分别该选择多进程还是多线程</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/SQLAlchemy/">
+          SQLAlchemy
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/Python%E4%B8%AD%E6%93%8D%E4%BD%9CSQLAlchemy/" title="Python中操作SQLAlchemy"><i class="post-icon gg-file-document"></i>Python中操作SQLAlchemy</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
+          数据分析
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/pandas/">
+          pandas
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/pandas%E5%85%A5%E9%97%A8/" title="数据分析-初识pandas"><i class="post-icon gg-file-document"></i>数据分析-初识pandas</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
+          多线程
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/pypy3%E4%B8%8Epython%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%AF%94%E8%BE%83/" title="pypy3与python多线程比较"><i class="post-icon gg-file-document"></i>pypy3与python多线程比较</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E4%B8%89%E7%A8%8B/">
+          三程
+        </a>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E4%B8%89%E7%A8%8B%E6%A6%82%E5%BF%B5/" title="python进程-线程-协程-概念"><i class="post-icon gg-file-document"></i>python进程-线程-协程-概念</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E8%BF%9B%E7%A8%8B-%E7%BA%BF%E7%A8%8B-%E5%8D%8F%E7%A8%8B-%E8%AF%A6%E8%A7%A3/" title="python进程-线程-协程-详解"><i class="post-icon gg-file-document"></i>python进程-线程-协程-详解</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/pandas/">
+          pandas
+        </a>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/pandas%E8%BF%9B%E9%98%B6/" title="数据分析-pandas进阶操作"><i class="post-icon gg-file-document"></i>数据分析-pandas进阶操作</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/pandas%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C-%E8%AE%A1%E7%AE%97/" title="pandas进阶操作-计算-方法"><i class="post-icon gg-file-document"></i>pandas进阶操作-计算-方法</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/">
+          垃圾回收机制
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/" title="python垃圾回收机制"><i class="post-icon gg-file-document"></i>python垃圾回收机制</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/celery/">
+          celery
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97%E6%89%A7%E8%A1%8C%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1/" title="python手写队列异步任务"><i class="post-icon gg-file-document"></i>python手写队列异步任务</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E6%B5%8B%E8%AF%95/">
+          测试
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E6%B5%8B%E8%AF%95/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">
+          单元测试
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" title="python单元测试"><i class="post-icon gg-file-document"></i>python单元测试</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E7%94%9F%E6%88%90%E5%99%A8/">
+          生成器
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E7%94%9F%E6%88%90%E5%99%A8/" title="彻底理解python生成器"><i class="post-icon gg-file-document"></i>彻底理解python生成器</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/">
+          深浅拷贝
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D%E7%9A%84%E5%8C%BA%E5%88%AB/" title="python浅拷贝与深拷贝以及is 和 == 的区别"><i class="post-icon gg-file-document"></i>python浅拷贝与深拷贝以及is 和 == 的区别</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E8%A3%85%E9%A5%B0%E5%99%A8/">
+          装饰器
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E8%A3%85%E9%A5%B0%E5%99%A8/" title="彻底理解python装饰器以及使用场景"><i class="post-icon gg-file-document"></i>彻底理解python装饰器以及使用场景</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/">
+          高阶函数
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/" title="python高阶函数详解"><i class="post-icon gg-file-document"></i>python高阶函数详解</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E8%BF%AD%E4%BB%A3%E5%99%A8/">
+          迭代器
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E8%BF%AD%E4%BB%A3%E5%99%A8/" title="彻底理解python迭代器"><i class="post-icon gg-file-document"></i>彻底理解python迭代器</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/redis/">
+          redis
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/redis%E5%A4%84%E7%90%86%E9%AB%98%E5%B9%B6%E5%8F%91/" title="python使用redis处理高并发"><i class="post-icon gg-file-document"></i>python使用redis处理高并发</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/fastapi/">
+          fastapi
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/%E5%88%9B%E5%BB%BAFastApi%E9%A1%B9%E7%9B%AE/" title="创建FastApi项目"><i class="post-icon gg-file-document"></i>创建FastApi项目</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/tornado/">
+          tornado
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/%E5%AF%BC%E5%87%BA%E6%96%87%E4%BB%B6/" title="tornado导入/导出Excel文件"><i class="post-icon gg-file-document"></i>tornado导入/导出Excel文件</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">
+          数据可视化
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" title="数据可视化"><i class="post-icon gg-file-document"></i>数据可视化</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+          数据结构
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" title="数据结构-算法-时间复杂度以及构造栈-队列"><i class="post-icon gg-file-document"></i>数据结构-算法-时间复杂度以及构造栈-队列</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/python/django-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">
+          django - 权限管理
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%E4%B9%8B%E4%BD%8D%E8%BF%90%E7%AE%97%E4%BB%A5%E5%8F%8ARBAC%E4%BF%A9%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/" title="权限管理之位运算以及RBAC俩种实现方法"><i class="post-icon gg-file-document"></i>权限管理之位运算以及RBAC俩种实现方法</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/">
+          项目部署
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/docker%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/">
+          docker项目部署
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/Win10%E7%8E%AF%E5%A2%83%E4%B8%8B%E4%BD%BF%E7%94%A8Docker%E5%AE%B9%E5%99%A8%E5%BC%8F%E9%83%A8%E7%BD%B2%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E9%A1%B9%E7%9B%AEDjango-Vue-js/" title="Win10环境下使用Docker容器式部署前后端分离项目Django+Vue"><i class="post-icon gg-file-document"></i>Win10环境下使用Docker容器式部署前后端分离项目Django+Vue</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/algorithm/">
+          algorithm
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/algorithm%E5%AD%A6%E4%B9%A0/" title="智擎疾行，胜逐时速"><i class="post-icon gg-file-document"></i>智擎疾行，胜逐时速</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/elasticsearch/">
+          elasticsearch
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/elasticsearch%E5%AD%A6%E4%B9%A0/" title="数据浩瀚似海，Elasticsearch 速度不待"><i class="post-icon gg-file-document"></i>数据浩瀚似海，Elasticsearch 速度不待</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/go/">
+          go
+        </a>
+      <span class="tree-list-count">4</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/go/gin/">
+          gin
+        </a>
+      <span class="tree-list-count">3</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/gin%E5%9F%BA%E7%A1%80%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F/" title="gin 基础请求方式"><i class="post-icon gg-file-document"></i>gin 基础请求方式</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/gin%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E6%A0%A1%E9%AA%8C/" title="gin接口参数的校验"><i class="post-icon gg-file-document"></i>gin接口参数的校验</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/win%E7%8E%AF%E5%A2%83%E5%90%AF%E5%8A%A8gin/" title="win环境启动gin"><i class="post-icon gg-file-document"></i>win环境启动gin</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/git/">
+          git
+        </a>
+      <span class="tree-list-count">2</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/git/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+          常用命令
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/git%E5%B8%B8%E7%94%A8/" title="git常用命令"><i class="post-icon gg-file-document"></i>git常用命令</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Docker/">
+          Docker
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/Docker/Kubernetes-k8s/">
+          Kubernetes(k8s)
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/k8s%E9%9B%86%E7%BE%A4%E6%9C%8D%E5%8A%A1/" title="基于Kubernetes(k8s)搭建Gunicorn+Django/Flask高可用Web集群"><i class="post-icon gg-file-document"></i>基于Kubernetes(k8s)搭建Gunicorn+Django/Flask高可用Web集群</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/database/">
+          database
+        </a>
+      <span class="tree-list-count">4</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/database/mysql/">
+          mysql
+        </a>
+      <span class="tree-list-count">2</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/mysql%E5%AD%A6%E4%B9%A0/" title="mysql数据库"><i class="post-icon gg-file-document"></i>mysql数据库</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E6%93%8D%E4%BD%9CMySQL/" title="python操作mysql"><i class="post-icon gg-file-document"></i>python操作mysql</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/database/mongodb/">
+          mongodb
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/python%E4%B8%8EMongodb%E6%93%8D%E4%BD%9C/" title="python与Mongodb操作"><i class="post-icon gg-file-document"></i>python与Mongodb操作</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/database/redis/">
+          redis
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/redis-server/" title="linux服务器启动一个redis服务"><i class="post-icon gg-file-document"></i>linux服务器启动一个redis服务</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/mysql/">
+          mysql
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/mysql/%E4%BC%98%E5%8C%96/">
+          优化
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/mysql%E5%8D%83%E4%B8%87%E6%95%B0%E6%8D%AE%E7%B4%A2%E5%BC%95%E4%BC%98%E5%8C%96/" title="索引革命，数据腾飞"><i class="post-icon gg-file-document"></i>索引革命，数据腾飞</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/ubuntu/">
+          ubuntu
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/ubuntu/docker/">
+          docker
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/ubuntu%20docker%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/" title="docker命令详解"><i class="post-icon gg-file-document"></i>docker命令详解</a></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/docker/">
+          docker
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/docker/mysql/">
+          mysql
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children">
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/docker/mysql/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/">
+          主从复制
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/%E6%8E%8C%E6%8F%A1%E5%AE%B9%E5%99%A8%E4%B9%8B%E5%8A%9B%EF%BC%9AMySQL%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/" title="掌握容器之力：MySQL主从复制"><i class="post-icon gg-file-document"></i>掌握容器之力：MySQL主从复制</a></li></ul></li></ul></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/blog-%E8%87%AA%E5%8A%A8%E5%8C%96/">
+          blog - 自动化
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2blog/" title="自动化部署：一键开启博客新纪元"><i class="post-icon gg-file-document"></i>自动化部署：一键开启博客新纪元</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+          设计模式
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="设计模式"><i class="post-icon gg-file-document"></i>设计模式</a></li></ul></li></ul>
+        <div id="widget-tree-button">
+          <i class="gg-chevron-right"></i>
+        </div>
+      </div><!-- hexo injector body_end end --></body></html>
